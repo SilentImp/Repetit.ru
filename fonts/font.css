@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Elektra Text Pro';
+  src: url('ElektraTextPro-Bold.eot'); /* IE9 Compat Modes */
+  src: url('ElektraTextPro-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('ElektraTextPro-Bold.woff') format('woff'), /* Modern Browsers */
+       url('ElektraTextPro-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('ElektraTextPro-Bold.svg#2d21227bed0a1f1f5e04009ed8e63b16') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
