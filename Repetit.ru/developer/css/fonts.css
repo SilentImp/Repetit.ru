@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'icon';
+  src: url('../fonts/icon.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/icon.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/icon.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/icon.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/icon.svg#icon') format('svg'); /* Legacy iOS */
+  font-style:   normal;
+  font-weight:  normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/Proxima Nova Semibold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/Proxima Nova Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Proxima Nova Semibold.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Proxima Nova Semibold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Proxima Nova Semibold.svg#67a6c9f6d7dc8f35ecb08de766ea56f0') format('svg'); /* Legacy iOS */
+  font-style:   normal;
+  font-weight:  bold;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/Proxima Nova Light.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/Proxima Nova Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Proxima Nova Light.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Proxima Nova Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Proxima Nova Light.svg#da6ddaf3cf69afbba47bd74b5010b98d') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  200;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/Proxima Nova Regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/Proxima Nova Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Proxima Nova Regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Proxima Nova Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Proxima Nova Regular.svg#2c1459d58560f08b4b0586fbe80aa4cd') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  normal;
+}
+
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/Proxima Nova Regular Italic.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/Proxima Nova Regular Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Proxima Nova Regular Italic.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Proxima Nova Regular Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Proxima Nova Regular Italic.svg#77f1c682604b6b0472d490a8e6c22d18') format('svg'); /* Legacy iOS */
+       
+  font-style:   italic;
+  font-weight:  normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/Proxima Nova Thin.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/Proxima Nova Thin.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Proxima Nova Thin.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Proxima Nova Thin.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Proxima Nova Thin.svg#0b7ebb1c86cf54829ef0c13b500be9e7') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  100;
+}
