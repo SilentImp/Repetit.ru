@@ -1,0 +1,128 @@
+.how-we-work {
+  position: relative;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+html body {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+html body .wrapper {
+  min-width: 1000px;
+  max-width: 1280px;
+  width: 980px;
+  margin: 0 auto;
+  padding: 0 10px;
+  position: relative;
+}
+html body main.page {
+  padding: 0 0 100px;
+}
+html body footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: #2b2f33;
+}
+html body header {
+  height: 100px;
+}
+html body header .logotype {
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  width: 275px;
+  height: 107px;
+  background: url("../svg/logotype.svg") 0 0 no-repeat;
+  z-index: 10;
+  text-indent: -999px;
+  overflow: hidden;
+}
+html body header .work-time {
+  position: absolute;
+  right: 30px;
+  top: 58px;
+  color: #777;
+  font-size: 12px;
+  line-height: 14px;
+  font-family: 'Tahoma';
+}
+html body header .tel {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  text-decoration: none;
+  font-size: 23px;
+  line-height: 23px;
+  font-family: 'Tahoma';
+  color: #303030;
+}
+html body header .tel b {
+  font-weight: bold;
+}
+
+.start-now {
+  height: 505px;
+  position: relative;
+  background: url("../images/header-bg.jpg") 50% 50% no-repeat;
+  background-size: cover;
+  padding: 95px 0 0;
+  text-align: center;
+  color: #fff;
+}
+.start-now .wrapper:after {
+  content: '.';
+  overflow: hidden;
+  text-indent: -999px;
+  display: block;
+  position: absolute;
+  width: 175px;
+  height: 90px;
+  left: 50%;
+  top: 403px;
+  margin-left: -10px;
+  background: url("../svg/couple-of-minutes.svg") 0 0 no-repeat;
+}
+.start-now .title {
+  font-family: 'Elektra Text Pro';
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 64px;
+  margin-bottom: 32px;
+}
+.start-now p {
+  font-size: 27px;
+  line-height: 35px;
+  margin-bottom: 88px;
+}
+.start-now .register {
+  font-family: 'Elektra Text Pro';
+  font-weight: bold;
+  height: 24px;
+  font-size: 22px;
+  line-height: 24px;
+  text-align: center;
+  padding: 19px 20px 15px;
+  text-decoration: none;
+  background-color: #ff8c43;
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+}
+.start-now .register:hover {
+  background-color: #ffa84a;
+}
+.start-now .register:after {
+  content: '>';
+}
+
+.who-we-are {
+  position: relative;
+}

@@ -33,3 +33,28 @@
   font-weight:  400;
 }
 
+@font-face {
+  font-family: 'Tahoma';
+  src: url('../fonts/Tahoma Bold.eot');
+  src: url('../fonts/Tahoma Bold.eot?#iefix') format('embedded-opentype'), 
+       url('../fonts/Tahoma Bold.woff') format('woff'), 
+       url('../fonts/Tahoma Bold.ttf')  format('truetype'),
+       url('../fonts/Tahoma Bold.svg#8f194bf916af47014634fb33bd86652c') format('svg');
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Tahoma';
+  src: url('../fonts/Tahoma.eot');
+  src: url('../fonts/Tahoma.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Tahoma.woff') format('woff'),
+       url('../fonts/Tahoma.ttf')  format('truetype'),
+       url('../fonts/Tahoma.svg#2bd141ae2a8e92e3cdd9163089ec8924') format('svg');
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+

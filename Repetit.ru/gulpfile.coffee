@@ -31,7 +31,7 @@ dev_path =
   coffee:     'developer/coffee/**.coffee'
   stylus:     'developer/**/**.styl'
   fonts:      'developer/fonts/**'
-  fonts_tmp:   'developer/fonts/'
+  fonts_tmp:  'developer/fonts/'
   svg:        'developer/svg/**/*.svg'
   svg_fonts:  'developer/svg-font/*.svg'
 
@@ -61,7 +61,7 @@ gulp.task('fonts', ['svgfont'], ()->
 
 gulp.task('svg', ()->
   return gulp.src(dev_path.svg)
-    .pipe(svgmin())
+    # .pipe(svgmin())
     .pipe(gulp.dest(prod_path.svg))
 )
 
@@ -90,26 +90,26 @@ gulp.task('html', ()->
   return gulp.src(dev_path.jade)
     .pipe(jade())
     .pipe(prettify({indent_char: ' ', indent_size: 4}))
-    # .pipe(w3cjs())
+    .pipe(w3cjs())
     # .pipe(htmlmin({collapseWhitespace: false}))
     .pipe(gulp.dest(prod_path.html))
 )
 
 gulp.task('stylus', ()->
   return gulp.src(dev_path.stylus)
-    # .pipe(sourcemaps.init())
     .pipe(stylus())
     .pipe(concat('stylus.css'))
-    # .pipe(sourcemaps.write())
     .pipe(gulp.dest(dev_path.css_tmp))
 )
 
 gulp.task('css', ['stylus'], ()->
   return gulp.src(dev_path.css)
     .pipe(prefix())
-    # .pipe(minifyCSS({removeEmpty:true}))
-    .pipe(cssbeautify())
+    .pipe(sourcemaps.init())
+    .pipe(minifyCSS({removeEmpty:true}))
+    # .pipe(cssbeautify())
     .pipe(concat('styles.css'))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(prod_path.css))
 )
 
@@ -117,21 +117,21 @@ gulp.task('coffee', ()->
   return gulp.src(dev_path.coffee)
     .pipe(coffeelint())
     .pipe(coffeelint.reporter())
-    # .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init())
     .pipe(coffee({
       bare: true
       }))
-    # .pipe(uglify())
-    .pipe(esformatter({indent: {value: '  '}}))
-    # .pipe(sourcemaps.write())
+    .pipe(uglify())
+    # .pipe(esformatter({indent: {value: '  '}}))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(prod_path.js))
 )
 
 gulp.task('js', ()->
   return gulp.src(dev_path.js)
     .pipe(sourcemaps.init())
-    # .pipe(uglify())
-    .pipe(esformatter({indent: {value: '  '}}))
+    .pipe(uglify())
+    # .pipe(esformatter({indent: {value: '  '}}))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(prod_path.js))
 )
@@ -143,8 +143,9 @@ gulp.task('deploy', ()->
       branch: 'gh-pages'
     }, (err)->
       if err
-        throw err
-      console.log('Published!')
+        console.log 'Error: ', err
+      else
+        console.log 'Published!'
   )
 )
 
