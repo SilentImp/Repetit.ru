@@ -1,2 +1,74 @@
 .who-we-are
   position relative
+  text-align center
+  .title
+    color #3F3F3F
+    font-size 28px
+    line-height 36px
+    margin 56px 0 64px
+    font-family 'Helvetica Neue'
+    font-weight 200
+    b
+      font-weight bold
+  .sub-title
+    color #3F3F3F
+    font-size 42px
+    line-height 46px
+    margin-bottom 40px
+
+  .steps
+    font-size 0
+    line-height 0
+    margin 0 0 10px
+    padding 0 3.90625%
+    .step
+      display inline-block
+      vertical-align top
+      width 34.375%
+      margin 0 0 60px 7.8125%
+      font-size 20px
+      line-height 26px
+      color rgba(#3F3F3F,.7)
+      font-weight 200 
+      &:before
+        content "."
+        display block
+        height 130px
+        overflow hidden
+        text-indent -999px
+        margin-bottom 10px
+      &.step-1:before
+        background url('../svg/ico-couple-of-minutes.svg') 50% 50% no-repeat
+      &.step-2:before
+        background url('../svg/ico-get-clients.svg') 50% 50% no-repeat
+      &.step-3:before
+        background url('../svg/ico-pay.svg') 50% 50% no-repeat
+      &.step-4:before
+        background url('../svg/ico-ok.svg') 50% 50% no-repeat
+        
+          
+  p.couple-of-minutes
+    color rgba(#3F3F3F, .6)
+    font-size 16px
+    line-height 26px
+    font-family 'Helvetica Neue'
+    font-weight 200 
+    margin 7px 0 70px 
+  .register 
+    font-family 'Elektra Text Pro'
+    font-weight bold
+    height 24px
+    font-size 22px
+    line-height 24px
+    text-align center
+    padding 19px 20px 15px
+    text-decoration none
+    background-color #FF8C43
+    display inline-block
+    color #FFF
+    text-transform uppercase
+    transition background-color .25s
+    &:hover
+      background-color #FFA84A 
+    &:after
+      content '>'

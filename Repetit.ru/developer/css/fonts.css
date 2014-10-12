@@ -10,6 +10,20 @@
 }
 
 @font-face {
+  font-family: 'Helvetica Neue';
+  src: url('../fonts/HelveticaNeueCyr-Medium.eot');
+  src: url('../fonts/HelveticaNeueCyr-Medium.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/HelveticaNeueCyr-Medium.woff') format('woff'),
+       url('../fonts/HelveticaNeueCyr-Medium.ttf')  format('truetype'),
+       url('../fonts/HelveticaNeueCyr-Medium.svg#b11817f0f086af0a7c888702d6c6c7f6') format('svg');
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+
+
+@font-face {
   font-family: 'Elektra Text Pro';
   src: url('../fonts/ElektraTextPro-Bold.eot');
   src: url('../fonts/ElektraTextPro-Bold.eot?#iefix') format('embedded-opentype'),

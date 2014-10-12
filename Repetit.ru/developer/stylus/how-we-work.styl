@@ -1,2 +1,86 @@
 .how-we-work
   position relative
+  text-align center
+  .title
+    color #3F3F3F
+    font-size 42px
+    line-height 46px
+    margin-bottom 40px
+  .steps
+    font-size 0
+    line-height 0
+    margin 0 0 70px
+    counter-reset steps-counter
+    .step
+      width 25%
+      display inline-block
+      vertical-align top
+      position relative
+      font-family 'Helvetica Neue'
+      counter-increment steps-counter
+      &:first-child:after
+        display none
+      &:after
+        content "."
+        overflow hidden
+        text-indent -999px
+        font-size 0
+        line-height 0
+        width 64px
+        height 20px
+        position absolute
+        left -32px
+        top 23px
+        background url('../svg/arrow.svg') 0 0 no-repeat
+      &:before
+        display block
+        width 70px
+        height 70px
+        line-height 70px
+        text-align center
+        border-radius 100%
+        margin 0 auto 10px 
+        font-family 'Elektra Text Pro'
+        font-weight bold
+        color #FFF 
+        background-color #478E9E
+        font-size 36px 
+        content counter(steps-counter)
+      .sub-title
+        font-weight bold
+        font-size 20px
+        line-height 22px
+        color #0C0A09 
+        font-weight  400
+        margin 0 6px 5px 
+      p
+        color #3F3F3F 
+        font-size 16px
+        line-height 22px
+        font-weight  200
+        margin 0 6px
+  p.couple-of-minutes
+    color rgba(#3F3F3F, .6)
+    font-size 16px
+    line-height 26px
+    font-family 'Helvetica Neue'
+    font-weight 200 
+    margin 7px 0 70px 
+  .register 
+    font-family 'Elektra Text Pro'
+    font-weight bold
+    height 24px
+    font-size 22px
+    line-height 24px
+    text-align center
+    padding 19px 20px 15px
+    text-decoration none
+    background-color #FF8C43
+    display inline-block
+    color #FFF
+    text-transform uppercase
+    transition background-color .25s
+    &:hover
+      background-color #FFA84A 
+    &:after
+      content '>'

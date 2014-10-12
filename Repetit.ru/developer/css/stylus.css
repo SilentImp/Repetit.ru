@@ -1,5 +1,101 @@
 .how-we-work {
   position: relative;
+  text-align: center;
+}
+.how-we-work .title {
+  color: #3f3f3f;
+  font-size: 42px;
+  line-height: 46px;
+  margin-bottom: 40px;
+}
+.how-we-work .steps {
+  font-size: 0;
+  line-height: 0;
+  margin: 0 0 70px;
+  counter-reset: steps-counter;
+}
+.how-we-work .steps .step {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  font-family: 'Helvetica Neue';
+  counter-increment: steps-counter;
+}
+.how-we-work .steps .step:first-child:after {
+  display: none;
+}
+.how-we-work .steps .step:after {
+  content: ".";
+  overflow: hidden;
+  text-indent: -999px;
+  font-size: 0;
+  line-height: 0;
+  width: 64px;
+  height: 20px;
+  position: absolute;
+  left: -32px;
+  top: 23px;
+  background: url("../svg/arrow.svg") 0 0 no-repeat;
+}
+.how-we-work .steps .step:before {
+  display: block;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  border-radius: 100%;
+  margin: 0 auto 10px;
+  font-family: 'Elektra Text Pro';
+  font-weight: bold;
+  color: #fff;
+  background-color: #478e9e;
+  font-size: 36px;
+  content: counter(steps-counter);
+}
+.how-we-work .steps .step .sub-title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 22px;
+  color: #0c0a09;
+  font-weight: 400;
+  margin: 0 6px 5px;
+}
+.how-we-work .steps .step p {
+  color: #3f3f3f;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 200;
+  margin: 0 6px;
+}
+.how-we-work p.couple-of-minutes {
+  color: rgba(63,63,63,0.6);
+  font-size: 16px;
+  line-height: 26px;
+  font-family: 'Helvetica Neue';
+  font-weight: 200;
+  margin: 7px 0 70px;
+}
+.how-we-work .register {
+  font-family: 'Elektra Text Pro';
+  font-weight: bold;
+  height: 24px;
+  font-size: 22px;
+  line-height: 24px;
+  text-align: center;
+  padding: 19px 20px 15px;
+  text-decoration: none;
+  background-color: #ff8c43;
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+  transition: background-color 0.25s;
+}
+.how-we-work .register:hover {
+  background-color: #ffa84a;
+}
+.how-we-work .register:after {
+  content: '>';
 }
 
 html {
@@ -115,6 +211,7 @@ html body header .tel b {
   display: inline-block;
   color: #fff;
   text-transform: uppercase;
+  transition: background-color 0.25s;
 }
 .start-now .register:hover {
   background-color: #ffa84a;
@@ -125,4 +222,87 @@ html body header .tel b {
 
 .who-we-are {
   position: relative;
+  text-align: center;
+}
+.who-we-are .title {
+  color: #3f3f3f;
+  font-size: 28px;
+  line-height: 36px;
+  margin: 56px 0 64px;
+  font-family: 'Helvetica Neue';
+  font-weight: 200;
+}
+.who-we-are .title b {
+  font-weight: bold;
+}
+.who-we-are .sub-title {
+  color: #3f3f3f;
+  font-size: 42px;
+  line-height: 46px;
+  margin-bottom: 40px;
+}
+.who-we-are .steps {
+  font-size: 0;
+  line-height: 0;
+  margin: 0 0 10px;
+  padding: 0 3.90625%;
+}
+.who-we-are .steps .step {
+  display: inline-block;
+  vertical-align: top;
+  width: 34.375%;
+  margin: 0 0 60px 7.8125%;
+  font-size: 20px;
+  line-height: 26px;
+  color: rgba(63,63,63,0.7);
+  font-weight: 200;
+}
+.who-we-are .steps .step:before {
+  content: ".";
+  display: block;
+  height: 130px;
+  overflow: hidden;
+  text-indent: -999px;
+  margin-bottom: 10px;
+}
+.who-we-are .steps .step.step-1:before {
+  background: url("../svg/ico-couple-of-minutes.svg") 50% 50% no-repeat;
+}
+.who-we-are .steps .step.step-2:before {
+  background: url("../svg/ico-get-clients.svg") 50% 50% no-repeat;
+}
+.who-we-are .steps .step.step-3:before {
+  background: url("../svg/ico-pay.svg") 50% 50% no-repeat;
+}
+.who-we-are .steps .step.step-4:before {
+  background: url("../svg/ico-ok.svg") 50% 50% no-repeat;
+}
+.who-we-are p.couple-of-minutes {
+  color: rgba(63,63,63,0.6);
+  font-size: 16px;
+  line-height: 26px;
+  font-family: 'Helvetica Neue';
+  font-weight: 200;
+  margin: 7px 0 70px;
+}
+.who-we-are .register {
+  font-family: 'Elektra Text Pro';
+  font-weight: bold;
+  height: 24px;
+  font-size: 22px;
+  line-height: 24px;
+  text-align: center;
+  padding: 19px 20px 15px;
+  text-decoration: none;
+  background-color: #ff8c43;
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+  transition: background-color 0.25s;
+}
+.who-we-are .register:hover {
+  background-color: #ffa84a;
+}
+.who-we-are .register:after {
+  content: '>';
 }
