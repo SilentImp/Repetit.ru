@@ -32,24 +32,29 @@ html.no-svg
   .steps
     font-size 0
     line-height 0
-    margin 0 0 -30px
+    margin 0 auto -4px
     padding 0 3.90625%
+    max-width 980px
     .step
       display inline-block
       vertical-align top
-      width 34.375%
-      margin 0 0 70px 7.8125%
+      // width 34.375%
+      width 44.897% 
+      // margin 0 0 70px 7.8125%
+      margin 0 0 65px 0
       font-size 20px
       line-height 26px
       color rgba(#3F3F3F,.7)
       font-weight 200 
+      &:nth-child(2n)
+        margin 0 0 65px 10.204% 
       &:before
         content "."
         display block
         height 130px
         overflow hidden
         text-indent -999px
-        margin-bottom 10px
+        margin-bottom 15px
         background-size 130px 130px
         background-position 50% 50%
         background-repeat no-repeat
@@ -73,13 +78,14 @@ html.no-svg
     line-height 26px
     font-family 'Helvetica Neue'
     font-weight 200 
-    margin 7px 0 70px 
+    margin 4px 0 70px 
     
   .register 
     font-family 'Elektra Text Pro'
     font-weight bold
     height 24px
     font-size 22px
+    margin 0 0 5px
     line-height 24px
     text-align center
     padding 19px 20px 15px
@@ -114,6 +120,8 @@ html.no-svg
         margin 0 0 32px
         text-align left
         min-height 130px
+        &:nth-child(2n)
+          margin 0 0 32px
         &:before
           position absolute
           left 0
