@@ -5,8 +5,10 @@ html.no-svg .how-we-work .steps .step:before {
   background: url("../images/circle.png") 50% 50% no-repeat;
 }
 .how-we-work {
+  overflow: hidden;
   position: relative;
   text-align: center;
+  margin-top: 140px;
 }
 .how-we-work .title {
   color: #3f3f3f;
@@ -15,9 +17,10 @@ html.no-svg .how-we-work .steps .step:before {
   margin-bottom: 40px;
 }
 .how-we-work .steps {
+  max-width: 980px;
   font-size: 0;
   line-height: 0;
-  margin: 0 0 70px;
+  margin: 0 auto 70px;
   counter-reset: steps-counter;
 }
 .how-we-work .steps .step {
@@ -65,7 +68,7 @@ html.no-svg .how-we-work .steps .step:before {
   line-height: 22px;
   color: #0c0a09;
   font-weight: 400;
-  margin: 0 6px 5px;
+  margin: 0 6px 15px;
 }
 .how-we-work .steps .step p {
   color: #3f3f3f;
@@ -293,7 +296,7 @@ html.no-svg .start-now .wrapper:after {
   width: 175px;
   height: 90px;
   left: 50%;
-  bottom: 28px;
+  bottom: 18px;
   margin-left: -10px;
   background: url("../svg/couple-of-minutes.svg") 0 0 no-repeat;
 }
@@ -414,21 +417,21 @@ html.no-svg .who-we-are .steps .step.step-4:before {
 }
 .who-we-are .sub-title {
   color: #3f3f3f;
-  font-size: 42px;
-  line-height: 46px;
+  font-size: 39px;
+  line-height: 42px;
   margin-bottom: 40px;
 }
 .who-we-are .steps {
   font-size: 0;
   line-height: 0;
-  margin: 0 0 10px;
+  margin: 0 0 -30px;
   padding: 0 3.90625%;
 }
 .who-we-are .steps .step {
   display: inline-block;
   vertical-align: top;
   width: 34.375%;
-  margin: 0 0 60px 7.8125%;
+  margin: 0 0 70px 7.8125%;
   font-size: 20px;
   line-height: 26px;
   color: rgba(63,63,63,0.7);
