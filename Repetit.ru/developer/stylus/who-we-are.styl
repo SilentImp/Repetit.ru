@@ -1,6 +1,18 @@
+html.no-svg
+  .who-we-are .steps .step
+      &.step-1:before
+        background-image url('../images/ico-couple-of-minutes.png')
+      &.step-2:before
+        background-image url('../images/ico-get-clients.png')
+      &.step-3:before
+        background-image url('../images/ico-pay.png')
+      &.step-4:before
+        background-image url('../images/ico-ok.png')
+        
 .who-we-are
   position relative
   text-align center
+  
   .title
     color #3F3F3F
     font-size 28px
@@ -10,6 +22,7 @@
     font-weight 200
     b
       font-weight bold
+      
   .sub-title
     color #3F3F3F
     font-size 42px
@@ -61,6 +74,7 @@
     font-family 'Helvetica Neue'
     font-weight 200 
     margin 7px 0 70px 
+    
   .register 
     font-family 'Elektra Text Pro'
     font-weight bold
@@ -79,3 +93,38 @@
       background-color #FFA84A 
     &:after
       content '>'
+      
+@media (max-width 850px)
+  .who-we-are
+    .steps
+      .step
+        width 40.1875% 
+        margin 0 0 60px 2%
+
+@media (max-width 640px)
+  .who-we-are      
+    text-align left
+    .steps
+      padding 0
+      .step
+        position relative
+        display block
+        width auto
+        padding 0 0 0 150px 
+        margin 0 0 32px
+        text-align left
+        min-height 130px
+        &:before
+          position absolute
+          left 0
+          top -10px
+          width 130px
+  
+@media (max-width 440px)
+  .who-we-are 
+    .steps 
+      .step
+        padding 0
+        min-height 0
+        &:before
+          display none

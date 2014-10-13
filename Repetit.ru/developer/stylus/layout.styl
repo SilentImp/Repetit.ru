@@ -1,19 +1,22 @@
 html
   height 100%
   width 100% 
+  &.no-svg
+    body
+      header
+        .logotype
+          background-image url('../svgimages/logotype.png') 
   body
     position relative
     min-height 100%
     width 100%
     font-family 'Helvetica Neue', sans-serif
     .wrapper
-      min-width 1000px
       max-width 1280px
-      // width 980px
       margin 0 auto 
-      padding 0 10px 
-      position relative
+      padding 0 10px
     main.page
+      display block
       padding 0 0 100px
     footer
       font-size 0
@@ -52,6 +55,8 @@ html
           text-decoration none
     header
       height 100px
+      .wrapper
+        position relative
       .logotype
         position absolute
         top 24px
@@ -81,3 +86,36 @@ html
         color #303030 
         b
           font-weight bold
+          
+@media (max-width 800px)
+  html body .wrapper
+    padding 0 32px
+
+@media (max-width 1000px)
+  html body
+    main.page
+      padding 0
+    footer
+      position static
+      .logotype
+        display none
+      .column
+        max-width 48%
+        margin 0 2% 0 0 
+
+@media (max-width 560px)
+  html body
+    header
+      margin-bottom 32px
+      .work-time,
+      .tel
+        display none
+        
+@media (max-width 680px)
+  html body
+    footer
+      height auto
+      padding 32px 0 
+      .column
+        max-width none
+        display block
