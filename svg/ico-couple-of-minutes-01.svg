@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="130px" height="130px" viewBox="0 0 130 130" enable-background="new 0 0 130 130" xml:space="preserve">
 <g>
 	<defs>
@@ -20,7 +20,7 @@
 	<clipPath id="SVGID_4_">
 		<use xlink:href="#SVGID_3_"  overflow="visible"/>
 	</clipPath>
-	<image overflow="visible" clip-path="url(#SVGID_4_)" width="130" height="130" xlink:href="8E804C46EB57E7DF.png" >
+	<image overflow="visible" clip-path="url(#SVGID_4_)" width="130" height="130" xlink:href="B85A87D80408FAC0.png" >
 	</image>
 </g>
 <g>
@@ -30,8 +30,6 @@
 	<clipPath id="SVGID_6_">
 		<use xlink:href="#SVGID_5_"  overflow="visible"/>
 	</clipPath>
-	<path clip-path="url(#SVGID_6_)" fill-rule="evenodd" clip-rule="evenodd" fill="#FF2600" d="M-239,130c35.898,0,65-29.102,65-65
-		s-29.102-65-65-65s-65,29.102-65,65S-274.898,130-239,130z M-315-11h152v164h-152V-11z"/>
 </g>
 <g>
 	<defs>
@@ -41,7 +39,7 @@
 		<use xlink:href="#SVGID_7_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_8_)">
-		<image overflow="visible" width="77" height="85" xlink:href="8E804C46EB57E7DD.png"  transform="matrix(1 0 0 1 28 23)">
+		<image overflow="visible" width="77" height="85" xlink:href="B85A87D80408FAC1.png"  transform="matrix(1 0 0 1 28 23)">
 		</image>
 	</g>
 </g>
@@ -52,12 +50,6 @@
 	<clipPath id="SVGID_10_">
 		<use xlink:href="#SVGID_9_"  overflow="visible"/>
 	</clipPath>
-	<path clip-path="url(#SVGID_10_)" fill-rule="evenodd" clip-rule="evenodd" fill="#808080" d="M-153.318,36.061l1.319,1.319
-		c6.213-5.432,14.211-8.873,22.999-9.328V27h-1.992c-1.106,0-2.008-0.895-2.008-1.998v-4.004c0-1.111,0.899-1.998,2.008-1.998h7.983
-		c1.106,0,2.008,0.895,2.008,1.998v4.004c0,1.111-0.899,1.998-2.008,1.998H-125v1.052c20.057,1.04,36,17.632,36,37.948
-		c0,20.987-17.013,38-38,38s-38-17.013-38-38c0-10.335,4.126-19.707,10.821-26.558l-1.261-1.26l-0.709,0.709
-		c-0.779,0.779-2.045,0.78-2.825,0l-1.417-1.417c-0.777-0.778-0.78-2.045,0-2.825l3.54-3.54c0.779-0.779,2.045-0.78,2.825,0
-		l1.417,1.417c0.777,0.778,0.78,2.045,0,2.825L-153.318,36.061z"/>
 </g>
 <g>
 	<defs>
@@ -90,7 +82,7 @@
 		<use xlink:href="#SVGID_15_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_16_)">
-		<image overflow="visible" width="60" height="60" xlink:href="8E804C46EB57E7E3.png"  transform="matrix(1 0 0 1 35 36)">
+		<image overflow="visible" width="60" height="60" xlink:href="B85A87D80408FAC7.png"  transform="matrix(1 0 0 1 35 36)">
 		</image>
 	</g>
 </g>
@@ -101,8 +93,6 @@
 	<clipPath id="SVGID_18_">
 		<use xlink:href="#SVGID_17_"  overflow="visible"/>
 	</clipPath>
-	<path clip-path="url(#SVGID_18_)" fill-rule="evenodd" clip-rule="evenodd" fill="#FF2600" d="M-95,96c16.568,0,30-13.432,30-30
-		s-13.432-30-30-30s-30,13.432-30,30S-111.568,96-95,96z M-135,26h80v90h-80V26z"/>
 </g>
 <g>
 	<defs>
