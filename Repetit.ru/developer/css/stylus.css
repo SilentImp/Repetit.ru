@@ -111,7 +111,6 @@ html body {
 html body .wrapper {
   min-width: 1000px;
   max-width: 1280px;
-  width: 980px;
   margin: 0 auto;
   padding: 0 10px;
   position: relative;
@@ -120,12 +119,44 @@ html body main.page {
   padding: 0 0 100px;
 }
 html body footer {
+  font-size: 0;
+  white-space: nowrap;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 100px;
+  overflow: hidden;
+  line-height: 100px;
   background-color: #2b2f33;
+}
+html body footer .logotype {
+  white-space: normal;
+  display: inline-block;
+  width: 24%;
+  height: 100px;
+  background: url("../images/footer-logo.png") 30px 12px no-repeat;
+  overflow: hidden;
+  text-indent: -9999px;
+  vertical-align: middle;
+}
+html body footer .column {
+  font: 12px/20px Tahoma, Geneva, sans-serif;
+  white-space: normal;
+  max-width: 36%;
+  margin-left: 2%;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 0 14px;
+  color: #85898c;
+}
+html body footer .column .tel {
+  float: left;
+  clear: left;
+}
+html body footer .column a {
+  color: #85898c;
+  text-decoration: none;
 }
 html body header {
   height: 100px;
@@ -264,18 +295,21 @@ html body header .tel b {
   overflow: hidden;
   text-indent: -999px;
   margin-bottom: 10px;
+  background-size: 130px 130px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 .who-we-are .steps .step.step-1:before {
-  background: url("../svg/ico-couple-of-minutes.svg") 50% 50% no-repeat;
+  background-image: url("../images/ico-couple-of-minutes-2x.png");
 }
 .who-we-are .steps .step.step-2:before {
-  background: url("../svg/ico-get-clients.svg") 50% 50% no-repeat;
+  background-image: url("../images/ico-get-clients-2x.png");
 }
 .who-we-are .steps .step.step-3:before {
-  background: url("../svg/ico-pay.svg") 50% 50% no-repeat;
+  background-image: url("../images/ico-pay-2x.png");
 }
 .who-we-are .steps .step.step-4:before {
-  background: url("../svg/ico-ok.svg") 50% 50% no-repeat;
+  background-image: url("../images/ico-ok-2x.png");
 }
 .who-we-are p.couple-of-minutes {
   color: rgba(63,63,63,0.6);
