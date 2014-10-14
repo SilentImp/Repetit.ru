@@ -71,8 +71,22 @@ html.no-svg
         bottom 10px 
     .register
       bottom 112px
-      
-@media (max-width 560px)
+
+@media (max-width 640px)
+  .start-now
+    .register 
+      font-size 14px
+      line-height 18px
+      height 18px
+      width 230px
+      margin auto
+      display block
+      padding 19px 0 15px
+    .couple-of-minutes
+      text-align center
+       
+
+@media (max-width 600px)
   .start-now
     background none
     color #333
@@ -87,9 +101,20 @@ html.no-svg
       line-height 28px
     .register
       position static
+    &:after
+      text-align center
+      display block
+      content 'Всего несколько минут вашего времени'
+      color rgba(#3F3F3F, .6)
+      font-size 16px
+      line-height 26px
+      font-family 'Helvetica Neue'
+      font-weight 200 
+      margin 4px 0 70px 
     .wrapper
       &:after
-        display none
+        background none
+        text-align center
         
 @media (max-width 460px)
   .start-now .title

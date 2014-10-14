@@ -8,7 +8,7 @@ html.no-svg .how-we-work .steps .step:before {
   overflow: hidden;
   position: relative;
   text-align: center;
-  margin-top: 140px;
+  margin-top: 70px;
 }
 .how-we-work .title {
   color: #3f3f3f;
@@ -119,6 +119,19 @@ html.no-svg .how-we-work .steps .step:before {
   .how-we-work {
     text-align: left;
   }
+  .how-we-work .register {
+    width: 230px;
+    margin: auto;
+    display: block;
+    padding: 19px 0 15px;
+    font-size: 14px;
+    line-height: 18px;
+    height: 18px;
+    text-align: center;
+  }
+  .how-we-work .couple-of-minutes {
+    text-align: center;
+  }
   .how-we-work .steps .step {
     display: block;
     width: auto;
@@ -133,6 +146,21 @@ html.no-svg .how-we-work .steps .step:before {
     height: 70px;
   }
 }
+@media (max-width: 540px) {
+  .how-we-work .steps .step {
+    min-height: 40px;
+    padding: 0 0 0 36px;
+  }
+  .how-we-work .steps .step:before {
+    font-size: 14px;
+    line-height: 30px;
+    position: absolute;
+    left: 0;
+    top: -3px;
+    width: 30px;
+    height: 30px;
+  }
+}
 
 html {
   height: 100%;
@@ -142,6 +170,7 @@ html.no-svg body header .logotype {
   background-image: url("../svgimages/logotype.png");
 }
 html body {
+  overflow-x: hidden;
   position: relative;
   min-height: 100%;
   width: 100%;
@@ -258,6 +287,11 @@ html body header .tel b {
 @media (max-width: 560px) {
   html body header {
     margin-bottom: 32px;
+    text-align: center;
+  }
+  html body header .logotype {
+    right: 0;
+    margin: auto;
   }
   html body header .work-time,
   html body header .tel {
@@ -354,7 +388,21 @@ html.no-svg .start-now .wrapper:after {
     bottom: 112px;
   }
 }
-@media (max-width: 560px) {
+@media (max-width: 640px) {
+  .start-now .register {
+    font-size: 14px;
+    line-height: 18px;
+    height: 18px;
+    width: 230px;
+    margin: auto;
+    display: block;
+    padding: 19px 0 15px;
+  }
+  .start-now .couple-of-minutes {
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
   .start-now {
     background: none;
     color: #333;
@@ -373,8 +421,20 @@ html.no-svg .start-now .wrapper:after {
   .start-now .register {
     position: static;
   }
+  .start-now:after {
+    text-align: center;
+    display: block;
+    content: 'Всего несколько минут вашего времени';
+    color: rgba(63,63,63,0.6);
+    font-size: 16px;
+    line-height: 26px;
+    font-family: 'Helvetica Neue';
+    font-weight: 200;
+    margin: 4px 0 70px;
+  }
   .start-now .wrapper:after {
-    display: none;
+    background: none;
+    text-align: center;
   }
 }
 @media (max-width: 460px) {
@@ -503,6 +563,18 @@ html.no-svg .who-we-are .steps .step.step-4:before {
 @media (max-width: 640px) {
   .who-we-are {
     text-align: left;
+  }
+  .who-we-are .register {
+    font-size: 14px;
+    line-height: 18px;
+    height: 18px;
+    width: 230px;
+    margin: auto;
+    display: block;
+    padding: 19px 0 15px;
+  }
+  .who-we-are .couple-of-minutes {
+    text-align: center;
   }
   .who-we-are .steps {
     padding: 0;
