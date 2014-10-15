@@ -433,8 +433,7 @@ html.no-svg .start-now .wrapper:after {
     margin: 4px 0 70px;
   }
   .start-now .wrapper:after {
-    background: none;
-    text-align: center;
+    display: none;
   }
 }
 @media (max-width: 460px) {
