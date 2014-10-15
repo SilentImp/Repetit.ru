@@ -40,9 +40,9 @@ prod_path =
   js:         'production/js/'
   css:        'production/css/'
   fonts:      'production/fonts/'
-  svg:        'production/svg/'
-  images:     'production/images/'
-  svg_images: 'production/svgimages/'
+  svg:        'production/img/register/'
+  images:     'production/img/register/'
+  svg_images: 'production/img/register/'
 
 
 gulp.task('svgfont', ()->
@@ -105,11 +105,11 @@ gulp.task('stylus', ()->
 gulp.task('css', ['stylus'], ()->
   return gulp.src(dev_path.css)
     .pipe(prefix())
-    .pipe(sourcemaps.init())
-    .pipe(minifyCSS({removeEmpty:true}))
-    # .pipe(cssbeautify())
+    # .pipe(sourcemaps.init())
+    # .pipe(minifyCSS({removeEmpty:true}))
+    .pipe(cssbeautify())
     .pipe(concat('styles.css'))
-    .pipe(sourcemaps.write())
+    # .pipe(sourcemaps.write())
     .pipe(gulp.dest(prod_path.css))
 )
 
