@@ -157,11 +157,11 @@ gulp.task('watch', ()->
   gulp.watch dev_path.jade,       ['html']
   gulp.watch dev_path.stylus,     ['css']
   gulp.watch dev_path.css,        ['css']
-  gulp.watch dev_path.coffee,     ['coffee']
-  gulp.watch dev_path.js,         ['js']
+  # gulp.watch dev_path.coffee,     ['coffee']
+  # gulp.watch dev_path.js,         ['js']
   gulp.watch dev_path.images,     ['images']
 )
 
 gulp.task 'default', ['dev', 'watch']
-gulp.task 'dev', ['svg', 'svg2png', 'fonts', 'html', 'css', 'coffee', 'js', 'images']
+gulp.task 'dev', ['svg', 'svg2png', 'fonts', 'html', 'css', 'images']
 

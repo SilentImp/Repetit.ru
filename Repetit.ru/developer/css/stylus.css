@@ -45,7 +45,7 @@ html.no-svg .how-we-work .steps .step:before {
   position: absolute;
   left: -32px;
   top: 23px;
-  background: url("../svg/arrow.svg") 0 0 no-repeat;
+  background: url("../img/register/arrow.svg") 0 0 no-repeat;
 }
 .how-we-work .steps .step:before {
   display: block;
@@ -237,7 +237,7 @@ html body header .logotype {
   left: 30px;
   width: 275px;
   height: 107px;
-  background: url("../svg/logotype.svg") 0 0 no-repeat;
+  background: url("../img/register/logotype.svg") 0 0 no-repeat;
   z-index: 10;
   text-indent: -999px;
   overflow: hidden;
@@ -332,7 +332,7 @@ html.no-svg .start-now .wrapper:after {
   left: 50%;
   bottom: 18px;
   margin-left: -10px;
-  background: url("../svg/couple-of-minutes.svg") 0 0 no-repeat;
+  background: url("../img/register/couple-of-minutes.svg") 0 0 no-repeat;
 }
 .start-now .title {
   font-family: 'Elektra Text Pro';
