@@ -1,5 +1,5 @@
 html.no-backgroundsize body .page .start-now{
   background: #2d3a43;  
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/header-bg.jpg',sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/header-bg.jpg',sizingMethod='scale')";
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/register/header-bg.jpg',sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/register/header-bg.jpg',sizingMethod='scale')";
 }
