@@ -12,5 +12,8 @@
     "test",
     "tests"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "1.9.x",
+    "h5Validate": "~0.9.0"
+  }
 }

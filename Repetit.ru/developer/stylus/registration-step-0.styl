@@ -1,0 +1,443 @@
+html.no-svg body
+  .registration-step-0
+    .logotype
+      background-image url("../img/register/logotype-register.png")
+    &-close
+      background-image url("../img/register/close.png") 
+    .sms
+      nav
+        .resend-password
+          background-image background url('../img/register/refresh.png') 
+       
+.registration-step-0
+  position fixed
+  margin auto
+  top 0
+  left 0
+  bottom 0
+  right 0
+  background #000 url("../img/register/header-bg.jpg") 50% 50% no-repeat
+  background-size cover
+  z-index 1000
+  width 100%
+  height 100vh
+  line-height 100vh
+  text-align center
+  vertical-align middle
+  display none
+  .logotype
+    position absolute
+    top 30px
+    left 40px
+    width 235px
+    height 91px
+    overflow hidden
+    font-size 0
+    line-height 0
+    text-indent -9999px
+    background url("../img/register/logotype-register.svg") 0 0 no-repeat
+  &-close
+    position absolute
+    width 54px
+    height 54px
+    top 40px
+    right 40px
+    background url("../img/register/close.svg") 100% 0 no-repeat
+    font-size 0
+    line-height 0
+    overflow hidden
+    text-indent -9999px
+    transition opacity .35s
+    &:hover
+      opacity .7
+
+  .sms
+    display none
+    box-shadow 0 2px 44px 0 rgba(0,0,0,.5)
+    position fixed
+    top 0
+    bottom 0
+    left 0
+    right 0
+    margin auto
+    height 293px
+    width 420px
+    background #FFF
+    z-index 1005
+    border-radius 4px
+    text-align left
+    font-size 12px
+    line-height 14px
+    padding 0
+    .line
+      position relative
+      padding 4px 20px
+      line-height 48px
+      height 48px
+      input
+        float left
+        display block
+        height 22px
+        width 148px
+        border 1px solid #BFD6DB
+        border-radius 4px
+        padding 12px 15px
+        font-size 18px
+        line-height 22px 
+        outline:none
+      button
+        margin auto
+        font-family 'Elektra Text Pro'
+        font-weight bold
+        border-style none
+        height 48px
+        width 180px
+        float right 
+        font-size 16px
+        line-height 48px
+        text-align center
+        text-decoration none
+        background-color #FF8C43
+        cursor pointer
+        display inline-block
+        color #FFF
+        text-transform uppercase
+        transition background-color .25s
+        outline none
+        &:focus,
+        &:hover
+          background-color #FFA84A 
+        &:after
+          content '>' 
+      .error
+        display none
+        margin-right 10px
+        width 230px
+        padding 10px 9px 10px 15px 
+        height 36px
+        font-size 14px
+        line-height 17px
+        border-radius 2px
+        position absolute
+        right 100%
+        top 0
+        color #fff 
+        background-color #FF7070 
+        background-color rgba(#FF7070, .95) 
+        &:after
+          left 100%
+          top 50%
+          position absolute
+          content '.'
+          font-size 0
+          line-height 0
+          overflow hidden
+          display block
+          margin -6px 0 0 
+          border-width 6px 0 6px 5px
+          border-style solid
+          border-color transparent transparent transparent #FF7070
+          border-color transparent transparent transparent rgba(#FF7070, .95)
+    p
+      margin 16px 20px 20px
+      font-size 16px
+      line-height 22px
+      color #3F3F3F
+      font-family 'Helvetica Neue'
+    nav
+      height 60px
+      line-height 60px
+      text-align center
+      border-top 1px solid #D8D8D8
+      border-top 1px solid rgba(#D8D8D8, .4)
+      position absolute
+      bottom 0
+      left 0
+      right 0
+      .resend-password
+        text-decoration none
+        display inline-block
+        vertical-align middle
+        color #478E9E
+        font-family 'Helvetica Neue'
+        font-weight 200 
+        font-size 18px
+        line-height 60px
+        padding 0 0 0 25px
+        background url('../img/register/refresh.svg') 0 50% no-repeat
+    .title
+      background #478E9E
+      color #fff  
+      border-radius 4px 4px 0 0
+      display block
+      height 60px
+      white-space nowrap
+      line-height 60px
+      overflow hidden
+      font-size 18px
+      font-family 'Elektra Text Pro' 
+      font-weight bold
+      text-overflow ellipsis
+      padding 0 15px
+      text-transform uppercase
+      &:before 
+        content '<'
+        margin-right 10px
+
+  .regions-list
+    display none
+    box-shadow 0 2px 44px 0 rgba(0,0,0,.5)
+    position fixed
+    top 0
+    bottom 0
+    left 0
+    right 0
+    margin auto
+    height 530px
+    max-height 80vh
+    width 800px
+    max-width 80%
+    background #FFF
+    z-index 1005
+    border-radius 4px
+    text-align left
+    font-size 12px
+    line-height 14px
+    padding 0 30px 10px
+    .title
+      line-height 70px
+      font-size 24px
+      font-weight bold
+      font-family 'Tahoma'
+      color #3F3F3F
+    input
+      width 100%
+      display block
+      box-sizing border-box
+      border 1px solid #586669
+      background #fff url('../img/register/search.svg') 12px 50% no-repeat
+      box-shadow none
+      height 40px 
+      border-radius 20px
+      padding 11px 15px 11px 36px  
+      font-size 16px
+      line-height 18px
+      outline none
+       
+    .regions
+      position absolute
+      top 128px
+      left 30px
+      right 0
+      bottom 10px
+      overflow auto
+      font-size 0
+      .column
+        display inline-block
+        vertical-align top
+        width 33.333%
+        a
+          position relative
+          margin 0 30px 0 0
+          padding 10px
+          height 38px  
+          border-top 1px solid #D1D1D1
+          display block
+          border-top 1px solid rgba(#D1D1D1, .5)
+          font-family 'Tahoma'
+          text-decoration none
+          color #3F3F3F 
+          line-height 19px
+          &:hover
+            background #599FAD
+            border-top-style none
+            border-radius 2px
+            color #fff 
+            padding 11px 10px
+            margin-bottom -1px
+            z-index 2
+            p
+              color #fff 
+          .sub-title
+            font-size 16px
+            white-space nowrap
+            overflow hidden
+            text-overflow ellipsis
+          p
+            font-size 13px
+            color rgba(#3F3F3F, .6)
+            white-space nowrap
+            overflow hidden
+            text-overflow ellipsis
+            
+    .regions-list-close
+      position absolute
+      right 12px
+      top 12px
+      width 25px
+      height 25px
+      overflow hidden
+      text-indent -9999px
+      background url('../img/register/close-small.svg') 50% 50% no-repeat
+      transition opacity .35s
+      &:hover
+        opacity .7
+        
+  .registration
+    line-height 12px
+    display inline-block
+    vertical-align middle
+    text-align left
+    .title
+      color #FFF
+      font-size 34px
+      line-height 36px
+      font-family 'Elektra Text Pro' 
+      font-weight bold
+      margin 0 auto 24px 
+    fieldset
+      background #FFF 
+      border-radius 3px 
+      width 360px
+      margin 0 auto
+      .line
+        height 54px
+        position relative
+        border-top 1px solid #DBDBDB
+        &:first-child
+          border-top-style none
+        .error
+          display none
+          margin-left 10px
+          width 230px
+          padding 10px 9px 10px 15px 
+          height 36px
+          font-size 14px
+          line-height 17px
+          border-radius 2px
+          position absolute
+          left 100%
+          top 0
+          color #fff 
+          background-color #FF7070 
+          background-color rgba(#FF7070, .95) 
+          &:after
+            right 100%
+            top 50%
+            position absolute
+            content '.'
+            font-size 0
+            line-height 0
+            overflow hidden
+            display block
+            margin -6px 0 0 
+            border-width 6px 5px 6px 0
+            border-style solid
+            border-color transparent #FF7070 transparent transparent
+            border-color transparent rgba(#FF7070, .95) transparent transparent
+        input
+          display block
+          margin 0
+          padding 25px 15px 9px
+          width 330px
+          height 22px
+          line-height 22px
+          font-size 18px
+          color #3F3F3F 
+          outline none
+          border-style none
+          box-shadow none
+          overflow visible
+          background none
+          &::-webkit-input-placeholder
+            position relative
+            top -7px
+            color rgba(#3F3F3F, .4)
+          &:-moz-placeholder
+            position relative
+            top -7px
+            color rgba(#3F3F3F, .4)
+          &::-moz-placeholder
+            position relative
+            top -7px
+            color rgba(#3F3F3F, .4)
+          &:-ms-input-placeholder
+            position relative
+            top -7px
+            color rgba(#3F3F3F, .4)
+
+        .change-region
+          position absolute
+          display block
+          right 5px
+          top 5px
+          height 44px
+          width 100px
+          text-align center
+          color #3F3F3F
+          color rgba(#3F3F3F, .6)
+          font-family 'Elektra Text Pro'
+          font-weight bold
+          font-size 16px
+          line-height 44px
+          text-align center
+          border-radius 2px
+          text-decoration none
+          text-transform uppercase
+          background #E5E5E5
+          transition background-color .35s, color .35s
+          &:hover 
+            background #828282
+            color #fff 
+          
+        label
+          position absolute 
+          left 15px
+          top 10px
+          text-transform uppercase
+          color rgba(#3F3F3F, .3)
+          font-family 'Helvetica Neue' 
+          font-weight bold
+          font-size 11px
+          line-height 13px
+          opacity 0
+        input.changed+label
+          opacity 1 
+    nav
+      text-align center
+      margin 20px auto 16px
+      button
+        margin auto
+        font-family 'Elektra Text Pro'
+        font-weight bold
+        border-style none
+        width 360px
+        height 54px
+        font-size 18px
+        line-height 54px
+        text-align center
+        text-decoration none
+        background-color #FF8C43
+        cursor pointer
+        display inline-block
+        color #FFF
+        text-transform uppercase
+        transition background-color .25s
+        outline none
+        &:focus,
+        &:hover
+          background-color #FFA84A 
+        &:after
+          content '>' 
+    .copyright
+      margin 0 auto
+      padding 0
+      font-family 'Helvetica Neue' 
+      font-weight normal
+      text-align center
+      width 360px
+      font-size 12px
+      line-height 17px
+      color rgba(#fff,.6)
+      a
+        color #FFF 

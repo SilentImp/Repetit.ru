@@ -6,6 +6,9 @@ html(lang="ru")
     meta(name="viewport", content="width = device-width, initial-scale = 1.0")
     title Ассоциация репетиторов
     script(src="js/modernizr.js")
+    script(src="js/jquery/jquery.min.js")
+    script(src="js/h5Validate/jquery.h5validate.js")
+    script(src="js/RegistrationStep0.js", async)
     link(rel="stylesheet", href="css/styles.css")
 
   body
@@ -68,3 +71,157 @@ html(lang="ru")
         .column
           a.tel(href="tel:+74955438885") +7 495 543-88-85 — Москва
           a.tel(href="tel:+78126458885") +7 812 645-88-85 — Санкт-Петербург
+
+    .registration-step-0
+      a(href="/")
+        h1.logotype Ассоциация репетиторов
+      a.registration-step-0-close(href="/") Закрыть
+    
+      form.registration(action="/register/", method="post")
+        h2.title Регистрация репетитора
+        fieldset 
+          .line
+            input(type="text", name="surname", value="", placeholder="Фамилия", id="reg-surname") 
+            label(for="reg-surname") Фамилия
+          .line
+            input(required="required", data-h5-errorid="reg-name-required", type="text", name="name", value="", placeholder="Имя", id="reg-name") 
+            label(for="reg-name") Имя
+            .error#reg-name-required Это поле обязательно для заполнения
+          .line
+            input(type="text", name="familyname", value="", placeholder="Отчество", id="reg-familyname") 
+            label(for="reg-familyname") Отчество
+          .line
+            input(required="required", data-h5-errorid="reg-tel-required", type="tel", name="tel", value="", placeholder="Мобильный телефон", id="reg-tel") 
+            label(for="reg-tel") Мобильный телефон
+            .error#reg-tel-required Похоже, что номер телефона указан не корректно
+          .line
+            input(type="email", name="email", value="", placeholder="Email", id="reg-email") 
+            label(for="reg-email") Email
+          .line
+            input(type="text", name="region", value="", placeholder="Регион", id="reg-region") 
+            label(for="reg-region") Регион
+            a.change-region(href="#") Другой
+        nav
+          button(type="submit") Продолжить регистрацию
+        p.copyright Продолжая регистрацию, вы подтверждаете, что согласны с 
+          a(href="#") Условиями использования
+          |  и 
+          a(href="#") Политикой конфиденциальности
+          | .
+    
+      .regions-list
+        h2.title Выберите регион
+        a.regions-list-close(href="#") Закрыть
+        input(type="text", placeholder="Поиск по населенному пункту", value="", name="keyword")
+        .regions
+
+          .column
+            a.item(href="#", data-title="Москва")
+              h3.sub-title Москва
+              p и Московская область
+            a.item(href="#", data-title="Санкт-Петербург")
+              h3.sub-title Санкт-Петербург
+              p и Ленинградская область
+            a.item(href="#", data-title="Нижний Новгород")
+              h3.sub-title Нижний Новгород
+              p и Нижнегородская область
+            a.item(href="#", data-title="Казань")
+              h3.sub-title Казань
+              p и Республика Татарстан
+            a.item(href="#", data-title="Екатеринбург")
+              h3.sub-title Екатеринбург
+              p и Свердловская область
+            a.item(href="#", data-title="Уфа")
+              h3.sub-title Уфа
+              p и Республика Башкортостан
+            a.item(href="#", data-title="Москва")
+              h3.sub-title Москва
+              p и Московская область
+            a.item(href="#", data-title="Санкт-Петербург")
+              h3.sub-title Санкт-Петербург
+              p и Ленинградская область
+            a.item(href="#", data-title="Нижний Новгород")
+              h3.sub-title Нижний Новгород
+              p и Нижнегородская область
+            a.item(href="#", data-title="Казань")
+              h3.sub-title Казань
+              p и Республика Татарстан
+            a.item(href="#", data-title="Екатеринбург")
+              h3.sub-title Екатеринбург
+              p и Свердловская область
+            a.item(href="#", data-title="Уфа")
+              h3.sub-title Уфа
+              p и Республика Башкортостан
+
+          .column
+            a.item(href="#", data-title="Москва")
+              h3.sub-title Москва
+              p и Московская область
+            a.item(href="#", data-title="Санкт-Петербург")
+              h3.sub-title Санкт-Петербург
+              p и Ленинградская область
+            a.item(href="#", data-title="Нижний Новгород")
+              h3.sub-title Нижний Новгород
+              p и Нижнегородская область
+            a.item(href="#", data-title="Казань")
+              h3.sub-title Казань
+              p и Республика Татарстан
+            a.item(href="#", data-title="Екатеринбург")
+              h3.sub-title Екатеринбург
+              p и Свердловская область
+            a.item(href="#", data-title="Уфа")
+              h3.sub-title Уфа
+              p и Республика Башкортостан
+            a.item(href="#", data-title="Москва")
+              h3.sub-title Москва
+              p и Московская область
+            a.item(href="#", data-title="Санкт-Петербург")
+              h3.sub-title Санкт-Петербург
+              p и Ленинградская область
+            a.item(href="#", data-title="Нижний Новгород")
+              h3.sub-title Нижний Новгород
+              p и Нижнегородская область
+            a.item(href="#", data-title="Казань")
+              h3.sub-title Казань
+              p и Республика Татарстан
+            a.item(href="#", data-title="Екатеринбург")
+              h3.sub-title Екатеринбург
+              p и Свердловская область
+            a.item(href="#", data-title="Уфа")
+              h3.sub-title Уфа
+              p и Республика Башкортостан
+
+          .column
+            a.item(href="#", data-title="Москва")
+              h3.sub-title Москва
+              p и Московская область
+            a.item(href="#", data-title="Санкт-Петербург")
+              h3.sub-title Санкт-Петербург
+              p и Ленинградская область
+            a.item(href="#", data-title="Нижний Новгород")
+              h3.sub-title Нижний Новгород
+              p и Нижнегородская область
+            a.item(href="#", data-title="Казань")
+              h3.sub-title Казань
+              p и Республика Татарстан
+            a.item(href="#", data-title="Екатеринбург")
+              h3.sub-title Екатеринбург
+              p и Свердловская область
+            a.item(href="#", data-title="Уфа")
+              h3.sub-title Уфа
+              p и Республика Башкортостан
+
+      form.sms(action="/confirm/", method="post")
+        h2.title Подтвердите номер
+        fieldset
+          p Мы отправили на ваш телефон код для подтверждения номера. Введите его сюда, чтобы подтвердить регистрацию.
+          .line
+            input(type="text", data-h5-errorid="sms-code-required", required="required", name="sms-code", placeholder="Код из SMS", value="")
+            button(type="submit") Продолжить
+            .error#sms-code-required Вы указали неправильный код. Попробуйте снова.
+        nav
+          a.resend-password(href="#") Отправить повторно
+
+
+
+
