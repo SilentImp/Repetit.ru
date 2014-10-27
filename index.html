@@ -7,6 +7,9 @@
     <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
     <title>Ассоциация репетиторов</title>
     <script src="js/modernizr.js"></script>
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/h5Validate/jquery.h5validate.js"></script>
+    <script src="js/RegistrationStep0.js" async="async"></script>
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -70,6 +73,118 @@
             </div>
         </div>
     </footer>
+    <div class="registration-step-0"><a href="/"><h1 class="logotype">Ассоциация репетиторов</h1></a><a href="/" class="registration-step-0-close">Закрыть</a>
+        <form action="/register/" method="post" class="registration">
+            <h2 class="title">Регистрация репетитора</h2>
+            <fieldset>
+                <div class="line">
+                    <input type="text" name="surname" value="" placeholder="Фамилия" id="reg-surname" />
+                    <label for="reg-surname">Фамилия</label>
+                </div>
+                <div class="line">
+                    <input required="required" data-h5-errorid="reg-name-required" type="text" name="name" value="" placeholder="Имя" id="reg-name" />
+                    <label for="reg-name">Имя</label>
+                    <div id="reg-name-required" class="error">Это поле обязательно для заполнения</div>
+                </div>
+                <div class="line">
+                    <input type="text" name="familyname" value="" placeholder="Отчество" id="reg-familyname" />
+                    <label for="reg-familyname">Отчество</label>
+                </div>
+                <div class="line">
+                    <input required="required" data-h5-errorid="reg-tel-required" type="tel" name="tel" value="" placeholder="Мобильный телефон" id="reg-tel" />
+                    <label for="reg-tel">Мобильный телефон</label>
+                    <div id="reg-tel-required" class="error">Похоже, что номер телефона указан не корректно</div>
+                </div>
+                <div class="line">
+                    <input type="email" name="email" value="" placeholder="Email" id="reg-email" />
+                    <label for="reg-email">Email</label>
+                </div>
+                <div class="line">
+                    <input type="text" name="region" value="" placeholder="Регион" id="reg-region" />
+                    <label for="reg-region">Регион</label><a href="#" class="change-region">Другой</a>
+                </div>
+            </fieldset>
+            <nav>
+                <button type="submit">Продолжить регистрацию</button>
+            </nav>
+            <p class="copyright">Продолжая регистрацию, вы подтверждаете, что согласны с <a href="#">Условиями использования</a> и <a href="#">Политикой конфиденциальности</a>.</p>
+        </form>
+        <div class="regions-list">
+            <h2 class="title">Выберите регион</h2><a href="#" class="regions-list-close">Закрыть</a>
+            <input type="text" placeholder="Поиск по населенному пункту" value="" name="keyword" />
+            <div class="regions">
+                <div class="column"><a href="#" data-title="Москва" class="item"><h3 class="sub-title">Москва</h3><p>и Московская область</p></a><a href="#" data-title="Санкт-Петербург" class="item"><h3 class="sub-title">Санкт-Петербург</h3><p>и Ленинградская область</p></a>
+                    <a
+                    href="#" data-title="Нижний Новгород" class="item">
+                        <h3 class="sub-title">Нижний Новгород</h3>
+                        <p>и Нижнегородская область</p>
+                        </a><a href="#" data-title="Казань" class="item"><h3 class="sub-title">Казань</h3><p>и Республика Татарстан</p></a><a href="#" data-title="Екатеринбург" class="item"><h3 class="sub-title">Екатеринбург</h3><p>и Свердловская область</p></a>
+                        <a
+                        href="#" data-title="Уфа" class="item">
+                            <h3 class="sub-title">Уфа</h3>
+                            <p>и Республика Башкортостан</p>
+                            </a><a href="#" data-title="Москва" class="item"><h3 class="sub-title">Москва</h3><p>и Московская область</p></a><a href="#" data-title="Санкт-Петербург" class="item"><h3 class="sub-title">Санкт-Петербург</h3><p>и Ленинградская область</p></a>
+                            <a
+                            href="#" data-title="Нижний Новгород" class="item">
+                                <h3 class="sub-title">Нижний Новгород</h3>
+                                <p>и Нижнегородская область</p>
+                                </a><a href="#" data-title="Казань" class="item"><h3 class="sub-title">Казань</h3><p>и Республика Татарстан</p></a><a href="#" data-title="Екатеринбург" class="item"><h3 class="sub-title">Екатеринбург</h3><p>и Свердловская область</p></a>
+                                <a
+                                href="#" data-title="Уфа" class="item">
+                                    <h3 class="sub-title">Уфа</h3>
+                                    <p>и Республика Башкортостан</p>
+                                    </a>
+                </div>
+                <div class="column"><a href="#" data-title="Москва" class="item"><h3 class="sub-title">Москва</h3><p>и Московская область</p></a><a href="#" data-title="Санкт-Петербург" class="item"><h3 class="sub-title">Санкт-Петербург</h3><p>и Ленинградская область</p></a>
+                    <a
+                    href="#" data-title="Нижний Новгород" class="item">
+                        <h3 class="sub-title">Нижний Новгород</h3>
+                        <p>и Нижнегородская область</p>
+                        </a><a href="#" data-title="Казань" class="item"><h3 class="sub-title">Казань</h3><p>и Республика Татарстан</p></a><a href="#" data-title="Екатеринбург" class="item"><h3 class="sub-title">Екатеринбург</h3><p>и Свердловская область</p></a>
+                        <a
+                        href="#" data-title="Уфа" class="item">
+                            <h3 class="sub-title">Уфа</h3>
+                            <p>и Республика Башкортостан</p>
+                            </a><a href="#" data-title="Москва" class="item"><h3 class="sub-title">Москва</h3><p>и Московская область</p></a><a href="#" data-title="Санкт-Петербург" class="item"><h3 class="sub-title">Санкт-Петербург</h3><p>и Ленинградская область</p></a>
+                            <a
+                            href="#" data-title="Нижний Новгород" class="item">
+                                <h3 class="sub-title">Нижний Новгород</h3>
+                                <p>и Нижнегородская область</p>
+                                </a><a href="#" data-title="Казань" class="item"><h3 class="sub-title">Казань</h3><p>и Республика Татарстан</p></a><a href="#" data-title="Екатеринбург" class="item"><h3 class="sub-title">Екатеринбург</h3><p>и Свердловская область</p></a>
+                                <a
+                                href="#" data-title="Уфа" class="item">
+                                    <h3 class="sub-title">Уфа</h3>
+                                    <p>и Республика Башкортостан</p>
+                                    </a>
+                </div>
+                <div class="column"><a href="#" data-title="Москва" class="item"><h3 class="sub-title">Москва</h3><p>и Московская область</p></a><a href="#" data-title="Санкт-Петербург" class="item"><h3 class="sub-title">Санкт-Петербург</h3><p>и Ленинградская область</p></a>
+                    <a
+                    href="#" data-title="Нижний Новгород" class="item">
+                        <h3 class="sub-title">Нижний Новгород</h3>
+                        <p>и Нижнегородская область</p>
+                        </a><a href="#" data-title="Казань" class="item"><h3 class="sub-title">Казань</h3><p>и Республика Татарстан</p></a><a href="#" data-title="Екатеринбург" class="item"><h3 class="sub-title">Екатеринбург</h3><p>и Свердловская область</p></a>
+                        <a
+                        href="#" data-title="Уфа" class="item">
+                            <h3 class="sub-title">Уфа</h3>
+                            <p>и Республика Башкортостан</p>
+                            </a>
+                </div>
+            </div>
+        </div>
+        <form action="/confirm/" method="post" class="sms">
+            <h2 class="title">Подтвердите номер</h2>
+            <fieldset>
+                <p>Мы отправили на ваш телефон код для подтверждения номера. Введите его сюда, чтобы подтвердить регистрацию.</p>
+                <div class="line">
+                    <input type="text" data-h5-errorid="sms-code-required" required="required" name="sms-code" placeholder="Код из SMS" value="" />
+                    <button type="submit">Продолжить</button>
+                    <div id="sms-code-required" class="error">Вы указали неправильный код. Попробуйте снова.</div>
+                </div>
+            </fieldset>
+            <nav><a href="#" class="resend-password">Отправить повторно</a>
+            </nav>
+        </form>
+    </div>
 </body>
 
 </html>
