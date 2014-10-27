@@ -818,6 +818,9 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
   color: #fff;
 }
 
+html.no-svg body .registration-step-1 .panel.complete .sub-title {
+  background-image: url("../img/register/complete.png");
+}
 body.registration-page {
   background-color: #efefef;
 }
