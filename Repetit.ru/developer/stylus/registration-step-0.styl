@@ -79,12 +79,18 @@ html.no-svg body
         display block
         height 22px
         width 148px
-        border 1px solid #BFD6DB
+        border 1px solid #E5E5E5
         border-radius 4px
         padding 12px 15px
         font-size 18px
         line-height 22px 
         outline:none
+        &.ui-state-error,
+        &.ui-state-error:focus
+          border-color #F56D6C
+          box-shadow 0 0 4px 1px rgba(#F56D6C, .3)
+        &:focus
+          border-color #BFD6DB
       button
         margin auto
         font-family 'Elektra Text Pro'
@@ -349,6 +355,17 @@ html.no-svg body
           box-shadow none
           overflow visible
           background none
+          &.ui-state-error
+            &+label
+              color #D0021B 
+            &::-webkit-input-placeholder
+              color #D0021B 
+            &:-moz-placeholder
+              color #D0021B 
+            &::-moz-placeholder
+              color #D0021B 
+            &:-ms-input-placeholder
+              color #D0021B 
           &::-webkit-input-placeholder
             position relative
             top -7px

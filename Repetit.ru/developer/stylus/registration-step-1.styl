@@ -1,0 +1,142 @@
+body.registration-page
+  background-color #EFEFEF
+
+.registration-step-1
+  position relative
+  padding 0 30px 30px 
+  .title
+    text-align center
+    margin-top -59px
+    font-size 34px
+    line-height 36px
+    font-weight bold
+    font-family 'Elektra Text Pro'
+    color #3F3F3F
+  .steps
+    max-width 924px  
+    display block
+    font-size 0
+    line-height 0
+    position relative
+    margin 75px auto
+    border-top 3px dashed rgba(#3F3F3F, .3)
+    &:before
+      content '.'
+      overflow hidden
+      text-indent -999px
+      font-size 0
+      line-height 0
+      display block
+      top -5px
+      bottom 0
+      right -16px
+      position absolute
+      background-color #EFEFEF
+      z-index 1
+      width 12.5% 
+    &:after
+      content '.'
+      overflow hidden
+      text-indent -999px
+      font-size 0
+      line-height 0
+      display block
+      top -5px
+      bottom 0
+      left -16px
+      position absolute
+      background-color #EFEFEF
+      z-index 1
+      width 12.5%
+    .step
+      text-align center
+      position relative
+      vertical-align top
+      display inline-block
+      width 25%
+      height 0
+      .sub-title
+        position absolute
+        bottom 25px
+        left 50%
+        span
+          white-space nowrap
+          text-transform uppercase
+          position relative
+          left -50%
+          font-size 16px
+          line-height 18px
+          font-weight bold
+          font-family 'Elektra Text Pro'
+          color rgba(#3F3F3F, .3) 
+      &.selected
+        border-top #478E9E 3px solid
+        margin-top -3px
+        .sub-title
+          span
+            color #478E9E 
+        &:before
+          border #478E9E 3px solid
+        &:after
+          z-index 3
+          position absolute
+          left 50%
+          top 50%
+          margin -8px 0 0 -8px
+          width 16px
+          height 16px
+          display block
+          border-radius 100%
+          content '.'
+          overflow hidden
+          text-indent -999px
+          font-size 0
+          line-height 0
+          background-color #478E9E 
+      &:before
+        z-index 2
+        position relative
+        content '.'
+        overflow hidden
+        text-indent -999px
+        display inline-block
+        width 26px
+        height 26px
+        border 3px dashed rgba(#3F3F3F, .3)
+        border-radius 100%
+        margin-top -16px
+        background-color #EFEFEF 
+        
+  .panel
+    background #FFF
+    max-width 880px
+    margin auto
+    border 3px solid rgba(#979797, .3)
+    text-align center
+    &.complete
+      padding 100px 30px 110px 
+      p
+        max-width 530px
+        margin 0 auto  
+        font-family 'Helvetica Neue'
+        font-weight 200 
+        font-size 20px
+        line-height 26px
+        color rgba(#3F3F3F, .7)
+      .sub-title
+        max-width 530px
+        font-size 28px
+        line-height 32px
+        color #3F3F3F
+        font-weight bold
+        font-family 'Elektra Text Pro'
+        padding 120px 0 0
+        margin 0 auto 20px 
+        background url("../img/register/complete.svg") 50% 0 no-repeat
+         
+    
+
+@media (max-width 1060px)
+  .registration-step-1
+    .title
+      margin-top 0

@@ -509,6 +509,10 @@ html.no-svg body .registration-step-0-close {
     background-image: url("../img/register/close.png");
 }
 
+html.no-svg body .registration-step-0 .sms nav .resend-password {
+    background-image: background url("../img/register/refresh.png");
+}
+
 .registration-step-0 {
     position: fixed;
     margin: auto;
@@ -569,9 +573,7 @@ html.no-svg body .registration-step-0-close {
     right: 0;
     margin: auto;
     height: 293px;
-    max-height: 80vh;
     width: 420px;
-    max-width: 80vw;
     background: #fff;
     z-index: 1005;
     border-radius: 4px;
@@ -593,12 +595,22 @@ html.no-svg body .registration-step-0-close {
     display: block;
     height: 22px;
     width: 148px;
-    border: 1px solid #bfd6db;
+    border: 1px solid #e5e5e5;
     border-radius: 4px;
     padding: 12px 15px;
     font-size: 18px;
     line-height: 22px;
     outline: none;
+}
+
+.registration-step-0 .sms .line input.ui-state-error,
+.registration-step-0 .sms .line input.ui-state-error:focus {
+    border-color: #f56d6c;
+    box-shadow: 0 0 4px 1px rgba(245,109,108,0.3);
+}
+
+.registration-step-0 .sms .line input:focus {
+    border-color: #bfd6db;
 }
 
 .registration-step-0 .sms .line button {
@@ -685,7 +697,7 @@ html.no-svg body .registration-step-0-close {
     right: 0;
 }
 
-.registration-step-0 .sms nav a {
+.registration-step-0 .sms nav .resend-password {
     text-decoration: none;
     display: inline-block;
     vertical-align: middle;
@@ -732,7 +744,7 @@ html.no-svg body .registration-step-0-close {
     height: 530px;
     max-height: 80vh;
     width: 800px;
-    max-width: 80vw;
+    max-width: 80%;
     background: #fff;
     z-index: 1005;
     border-radius: 4px;
@@ -924,6 +936,26 @@ html.no-svg body .registration-step-0-close {
     background: none;
 }
 
+.registration-step-0 .registration fieldset .line input.ui-state-error+label {
+    color: #d0021b;
+}
+
+.registration-step-0 .registration fieldset .line input.ui-state-error::-webkit-input-placeholder {
+    color: #d0021b;
+}
+
+.registration-step-0 .registration fieldset .line input.ui-state-error:-moz-placeholder {
+    color: #d0021b;
+}
+
+.registration-step-0 .registration fieldset .line input.ui-state-error::-moz-placeholder {
+    color: #d0021b;
+}
+
+.registration-step-0 .registration fieldset .line input.ui-state-error:-ms-input-placeholder {
+    color: #d0021b;
+}
+
 .registration-step-0 .registration fieldset .line input::-webkit-input-placeholder {
     position: relative;
     top: -7px;
@@ -1042,6 +1074,180 @@ html.no-svg body .registration-step-0-close {
 
 .registration-step-0 .registration .copyright a {
     color: #fff;
+}
+
+body.registration-page {
+    background-color: #efefef;
+}
+
+.registration-step-1 {
+    position: relative;
+    padding: 0 30px 30px;
+}
+
+.registration-step-1 .title {
+    text-align: center;
+    margin-top: -59px;
+    font-size: 34px;
+    line-height: 36px;
+    font-weight: bold;
+    font-family: 'Elektra Text Pro';
+    color: #3f3f3f;
+}
+
+.registration-step-1 .steps {
+    max-width: 924px;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+    margin: 75px auto;
+    border-top: 3px dashed rgba(63,63,63,0.3);
+}
+
+.registration-step-1 .steps:before {
+    content: '.';
+    overflow: hidden;
+    text-indent: -999px;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    top: -5px;
+    bottom: 0;
+    right: -16px;
+    position: absolute;
+    background-color: #efefef;
+    z-index: 1;
+    width: 12.5%;
+}
+
+.registration-step-1 .steps:after {
+    content: '.';
+    overflow: hidden;
+    text-indent: -999px;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    top: -5px;
+    bottom: 0;
+    left: -16px;
+    position: absolute;
+    background-color: #efefef;
+    z-index: 1;
+    width: 12.5%;
+}
+
+.registration-step-1 .steps .step {
+    text-align: center;
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    width: 25%;
+    height: 0;
+}
+
+.registration-step-1 .steps .step .sub-title {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+}
+
+.registration-step-1 .steps .step .sub-title span {
+    white-space: nowrap;
+    text-transform: uppercase;
+    position: relative;
+    left: -50%;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: bold;
+    font-family: 'Elektra Text Pro';
+    color: rgba(63,63,63,0.3);
+}
+
+.registration-step-1 .steps .step.selected {
+    border-top: #478e9e 3px solid;
+    margin-top: -3px;
+}
+
+.registration-step-1 .steps .step.selected .sub-title span {
+    color: #478e9e;
+}
+
+.registration-step-1 .steps .step.selected:before {
+    border: #478e9e 3px solid;
+}
+
+.registration-step-1 .steps .step.selected:after {
+    z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -8px 0 0 -8px;
+    width: 16px;
+    height: 16px;
+    display: block;
+    border-radius: 100%;
+    content: '.';
+    overflow: hidden;
+    text-indent: -999px;
+    font-size: 0;
+    line-height: 0;
+    background-color: #478e9e;
+}
+
+.registration-step-1 .steps .step:before {
+    z-index: 2;
+    position: relative;
+    content: '.';
+    overflow: hidden;
+    text-indent: -999px;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    border: 3px dashed rgba(63,63,63,0.3);
+    border-radius: 100%;
+    margin-top: -16px;
+    background-color: #efefef;
+}
+
+.registration-step-1 .panel {
+    background: #fff;
+    max-width: 880px;
+    margin: auto;
+    border: 3px solid rgba(151,151,151,0.3);
+    text-align: center;
+}
+
+.registration-step-1 .panel.complete {
+    padding: 100px 30px 110px;
+}
+
+.registration-step-1 .panel.complete p {
+    max-width: 530px;
+    margin: 0 auto;
+    font-family: 'Helvetica Neue';
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 26px;
+    color: rgba(63,63,63,0.7);
+}
+
+.registration-step-1 .panel.complete .sub-title {
+    max-width: 530px;
+    font-size: 28px;
+    line-height: 32px;
+    color: #3f3f3f;
+    font-weight: bold;
+    font-family: 'Elektra Text Pro';
+    padding: 120px 0 0;
+    margin: 0 auto 20px;
+    background: url("../img/register/complete.svg") 50% 0 no-repeat;
+}
+
+@media (max-width: 1060px) {
+    .registration-step-1 .title {
+        margin-top: 0;
+    }
 }
 
 html.no-svg .start-now .wrapper:after {
