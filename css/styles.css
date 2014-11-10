@@ -145,6 +145,30 @@ html.touch body .contacts-and-feedback .feedback .file-attachment {
     display: none;
 }
 
+html.no-svg body .contacts-map .close {
+    background-image: url("../img/register/close-round.png");
+}
+
+html.no-svg body .feedback .message-send .message-text {
+    background-image: url("../img/register/ok.png");
+}
+
+html.no-svg body .contacts .show-on-map {
+    background-image: url("../img/register/geo.svg");
+}
+
+html.no-svg body .contacts section.social nav a.fb {
+    background-image: url("../img/register/fb.png");
+}
+
+html.no-svg body .contacts section.social nav a.vk {
+    background-image: url("../img/register/vk.png");
+}
+
+html.no-svg body .contacts section.social nav a.tw {
+    background-image: url("../img/register/tw.png");
+}
+
 .contacts-map {
     display: none;
     position: fixed;
@@ -335,10 +359,15 @@ html.touch body .contacts-and-feedback .feedback .file-attachment {
     line-height: 14px;
     color: #3f3f3f;
     color: rgba(63,63,63,0.6);
-    background: #fcfdfd;
-    border: 1px solid #d8e7ea;
     outline: none;
     margin: 8px 0 20px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+}
+
+.contacts-and-feedback .feedback input[type="text"]:focus,
+.contacts-and-feedback .feedback input[type="email"]:focus {
+    border-color: #d8e7ea;
 }
 
 .contacts-and-feedback .feedback textarea {
@@ -346,8 +375,6 @@ html.touch body .contacts-and-feedback .feedback .file-attachment {
     resize: none;
     width: 100%;
     height: 120px;
-    border: 1px solid #d8e7ea;
-    background: #fcfdfd;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     font-size: 12px;
@@ -355,6 +382,12 @@ html.touch body .contacts-and-feedback .feedback .file-attachment {
     padding: 8px 10px;
     outline: none;
     margin: 0 0 20px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+}
+
+.contacts-and-feedback .feedback textarea:focus {
+    border-color: #d8e7ea;
 }
 
 .contacts-and-feedback .contacts {
@@ -419,15 +452,15 @@ html.touch body .contacts-and-feedback .feedback .file-attachment {
 }
 
 .contacts-and-feedback .contacts section.social nav a.fb {
-    background: url("../img/register/fb.svg");
+    background: url("../img/register/fb.svg") 0 0 no-repeat;
 }
 
 .contacts-and-feedback .contacts section.social nav a.vk {
-    background: url("../img/register/vk.svg");
+    background: url("../img/register/vk.svg") 0 0 no-repeat;
 }
 
 .contacts-and-feedback .contacts section.social nav a.tw {
-    background: url("../img/register/tw.svg");
+    background: url("../img/register/tw.svg") 0 0 no-repeat;
 }
 
 .contacts-and-feedback .contacts section .sub-title {
