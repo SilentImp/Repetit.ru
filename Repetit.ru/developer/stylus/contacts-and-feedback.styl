@@ -1,0 +1,258 @@
+html.touch body
+  .contacts-and-feedback
+    .feedback
+      .file-attachment
+        display none
+
+.contacts-map
+  display none
+  position fixed
+  width 800px
+  height 600px
+  max-width 90%
+  max-height 90vh
+  margin auto
+  top 0
+  bottom 0
+  right 0
+  left 0
+  background-color #fff 
+  z-index 10001
+  border 3px solid #fff
+  border-radius 3px
+  .close
+    z-index 3
+    position absolute
+    top -18px
+    right -18px
+    width 36px
+    height 36px
+    font-size 0
+    line-height 0
+    background url("../img/register/close-round.svg") 50% 50% no-repeat
+  .map
+    width 100%
+    height 100%
+    display block
+.lightbox
+  display none
+  position fixed
+  top 0
+  bottom 0
+  right 0
+  left 0
+  background rgba(0,0,0,.5)
+  z-index 10000 
+
+.contacts-and-feedback
+  width 960px
+  margin 40px auto
+  font-size 0
+  font-family 'Tahoma', sans-serif
+  .title
+    font-size 26px
+    color #3F3F3F
+    line-height 31px 
+    font-weight bold
+    margin 20px 0
+
+  .feedback
+    position relative
+    vertical-align top
+    display inline-block
+    width 554px
+    padding 0 20px  
+    border 3px solid #EDEDED 
+    height 475px
+    font-size 11px
+    overflow hidden
+    
+    &.sent
+      .message-send
+        display block  
+    
+    .message-send
+      display none
+      position absolute
+      top 0
+      bottom 0
+      left 0
+      right 0
+      width 100%
+      height 100%
+      margin auto
+      background-color #FFF
+      z-index 25
+      text-align center
+      line-height 475px 
+      .message-text
+        padding 100px 0 0 
+        vertical-align middle
+        line-height 19px
+        display inline-block
+        background url('../img/register/ok.svg') 50% 0 no-repeat
+        .message-title
+          font-size 22px
+          line-height 27px
+          font-weight bold
+          color #3F3F3F 
+          margin 0 0 6px
+        p
+          font-size 15px
+          line-height 21px
+          color #3F3F3F
+          color rgba(#3F3F3F, .7)   
+        
+    nav
+      text-align center
+      button
+        outline none
+        height 50px
+        width 160px
+        background-color #FF8C43
+        color #fff
+        border-radius 2px
+        font-size 12px
+        line-height 50px
+        text-align center
+        font-weight bold
+        padding 0
+        margin 0
+        border-style none
+        box-shadow none
+        cursor pointer
+        text-transform uppercase
+        transition background-color .25s
+        &:hover
+          background-color darken(#FF8C43, 20%)
+    
+    .double-line
+      font-size 0
+      label
+        display inline-block
+        vertical-align top
+        box-sizing border-box
+        width 50%
+        padding-left 10px
+        &:first-child
+          padding-left 0
+          padding-right 10px
+    label
+      display block
+      font-size 11px
+      text-transform uppercase
+      line-height 13px
+      color #858585
+      font-weight bold
+    input[type="file"]
+      display block
+      margin 8px 0 20px 
+    input[type="text"],
+    input[type="email"]
+      display block 
+      width 100%
+      height 30px
+      box-sizing border-box
+      padding 8px 10px
+      font-size 12px
+      line-height 14px 
+      color #3F3F3F
+      color rgba(#3F3F3F, .6)
+      background #FCFDFD
+      border 1px solid #D8E7EA
+      outline none 
+      margin 8px 0 20px 
+    textarea
+      display block
+      resize none
+      width 100%
+      height 120px
+      border 1px solid #D8E7EA
+      background #FCFDFD 
+      box-sizing border-box
+      font-size 12px
+      line-height 14px
+      padding 8px 10px
+      outline none 
+      margin 0 0 20px
+  .contacts
+    vertical-align top
+    display inline-block
+    width 300px
+    min-height 475px
+    padding 0 30px 
+    overflow hidden
+    font-size 12px
+    line-height 19px
+    .show-on-map
+      color #377C8C 
+      margin-bottom 10px
+      display inline-block
+      padding 0 0 0 20px
+      background url('../img/register/geo.svg') 0 50% no-repeat
+    .email
+      color #377C8C 
+    .tel
+      color #303030 
+      line-height 22px
+      font-size 18px
+      text-decoration none
+    .work-time
+      color #3F3F3F
+      color rgba(#3F3F3F, .5)  
+      margin 0 0 15px 
+    strong
+      font-weight bold
+    address
+      font-size 13px
+    section
+      border-top 1px solid #EDEDED
+      padding 20px 0 0
+      margin-top 20px
+      &.social
+        nav
+          a
+            width 36px
+            height 36px
+            display inline-block
+            vertical-align top
+            margin 0 20px 0 0 
+            overflow hidden
+            text-indent -9999px
+            text-align left
+            &.fb
+              background url('../img/register/fb.svg') 
+            &.vk
+              background url('../img/register/vk.svg') 
+            &.tw
+              background url('../img/register/tw.svg') 
+      .sub-title
+        color #858585
+        text-transform uppercase
+        font-size 12px
+        font-weight bold
+        margin-bottom 10px
+    
+
+@media (max-width 960px)
+  .contacts-and-feedback
+    width auto
+    .feedback
+      width auto
+      display block
+      border-style none
+      padding 0 30px   
+    .contacts
+      width auto
+      display block
+      
+@media (max-width 500px)
+  .contacts-and-feedback
+    .feedback
+      .double-line
+        label
+          display block
+          width auto
+          padding 0
+          &:first-child
+            padding 0

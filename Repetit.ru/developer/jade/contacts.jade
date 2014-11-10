@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge;chrome=1")
+    meta(name="viewport", content="width = device-width, initial-scale = 1.0")
+    title Ассоциация репетиторов
+    script(src="http://api-maps.yandex.ru/2.0-stable/?lang=en-US&coordorder=longlat&load=package.full&wizard=constructor&onload=fid_141560463605747081121")
+    script(src="js/modernizr.js")
+    script(src="js/jquery/jquery.min.js")
+    script(src="js/h5Validate/jquery.h5validate.js")
+    script(src="js/ContactsPage.js", async)
+    link(rel="stylesheet", href="css/styles.css")
+
+  body
+    
+    header
+      .wrapper
+        a(href="/")
+          h1.logotype Ассоциация репетиторов
+        a.tel(href="tel:+78126458885") +7 812 
+          b 6458885
+        p.work-time 09:00-23:00, сб-вс 11:00-21:00
+    
+    main.page
+
+
+      .contacts-map
+        .map#ymaps-map-id_141560463605747081121
+        a.close(href="#")
+      .lightbox
+
+
+      script(src="js/contacts-map.js", async)
+
+      .message-panel
+        nav
+          a.close(href="#") Закрыть
+          a.details(href="#") Подробнее
+        p.text
+          strong Новые возможности сервиса: 
+          | расширенные профили, поиск на карте, информирование по SMS и многое другое.
+      
+      .contacts-and-feedback
+        form.feedback(action="/sayit/")
+          h2.title Обратная связь
+          fieldset
+            .double-line
+              label Ваше имя
+                input(required="required", type="text", name="name")
+              label Email
+                input(required="required", type="email", name="email")
+            .select-widget
+              label(for="feedback-subject") Категория обращения
+              input.current(id="feedback-subject", type="text", name="subject", list="feedback-subject-suggestions", value="")
+              datalist(id="feedback-subject-suggestions")
+                option(value="Репетиторы — Работа с клиентами")
+                option(value="Сервис — Работа с клиентами")
+            textarea(required="required", name="message", cols="30", rows="10", placeholder="Ваш вопрос…")
+            label.file-attachment Прикрепить файл
+              input(type="file", name="file")
+          nav
+            button(type="submit") Отправить
+          .message-send
+            .message-text
+              h2.message-title Ваше обращение отправлено
+              p Мы свяжемся с вами в ближайшее время.
+        section.contacts
+          h2.title Контакты
+
+          p
+            a.tel(href="tel:+78126458885") +7 812 
+              strong 645-88-85
+          p.work-time Пн-пт 09:00-23:00, сб-вс 11:00-21:00
+
+          p
+            address ул.Шарикоподшипниковская д. 22 офис 142 Москва, 155088
+            a.show-on-map(href="https://maps.yandex.com/?um=Gwcqb68Kz7psKnvEjPD6E7ojCuA7hFuT&amp;l=map") Показать на карте
+
+          p
+            strong Email: 
+            a.email(href="mailto: info@repetit.ru") info@repetit.ru
+
+          section.laws
+            h3.sub-title Юридическая информация
+            p
+              strong ООО «Образовательные решения»
+              br
+              | ОГРН 1127746284115
+              br
+              | ИНН 7723834240
+
+          section.social
+            h3.sub-title Мы в социальных сетях
+            nav
+              a.fb(href="#") facebook
+              a.vk(href="#") vkontakte
+              a.tw(href="#") twitter
+
+          
+
+    footer
+      .wrapper
+        a(href="/")
+          h2.logotype Ассоциация репетиторов
+        .column
+          p.copy © 2013, Сервис подбора репетиторов «Repetit.ru»
+          a(href="https://goo.gl/maps/2CIy9")
+            address Москва, Шарикоподшипниковская улица, д. 22
+        .column
+          a.tel(href="tel:+74955438885") +7 495 543-88-85 — Москва
+          a.tel(href="tel:+78126458885") +7 812 645-88-85 — Санкт-Петербург

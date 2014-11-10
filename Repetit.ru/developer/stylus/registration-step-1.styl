@@ -115,12 +115,97 @@ body.registration-page
         
   .panel
     background #FFF
-    max-width 880px
+    max-width 800px
     margin auto
     border 3px solid rgba(#979797, .3)
-    text-align center
+    text-align left
+    padding 40px
+    position relative
+    &:after
+      content '.'
+      clear both
+      display block
+      font-size 0
+      line-height 0
+      overflow hidden
+      text-indent -9999px
+    nav
+      clear both
+    fieldset.photo
+      float right
+      width 220px
+      position relative
+      .current-avatar
+        position relative
+        .avatar
+          width 100%
+          display block
+        .close
+          z-index 3
+          position absolute
+          top -18px
+          right -18px
+          width 36px
+          height 36px
+          font-size 0
+          line-height 0
+          background url("../img/register/close-round.svg") 50% 50% no-repeat
+      .file-selector
+        border 3px dashed #ACD8DD
+        border-radius 9px
+        display block
+        padding 20px 
+        text-align center
+        background url("../img/register/person.svg") 50% 50px no-repeat
+        cursor pointer
+        position relative
+        input
+          position absolute
+          left -9999px
+          opacity 0
+        .abstract
+          display block
+          margin 170px 0 0 
+          text-align center
+          font-family 'Helvetica Neue'
+          font-weight 200 
+          font-size 14px
+          line-height 18px
+          color rgba(#478E9E, .64) 
+        .select
+          height 48px
+          line-height 48px
+          background #478E9E
+          color #fff  
+          font-weight bold
+          font-family 'Elektra Text Pro'
+          font-size 16px
+          display block
+          text-transform uppercase
+          margin 50px 0 0 
+      .meta
+        font-size 13px
+        line-height 18px
+        text-align center
+        color #BDBDBD
+        font-family 'Helvetica Neue'
+        font-weight 200 
+        margin 15px auto 0
+        max-width 180px 
+      &+fieldset
+        float left
+        max-width 440px 
+        .line
+          height 90px
+          position relative
+          margin 0 0 30px 
+          .sub-title
+            font-size 18px
+            line-height 23px
+            font-family 'Helvetica Neue'
     &.complete
-      padding 100px 30px 110px 
+      text-align center
+      padding 100px 40px 110px
       p
         max-width 530px
         margin 0 auto  
