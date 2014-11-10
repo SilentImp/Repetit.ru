@@ -3,6 +3,28 @@ html.touch body
     .feedback
       .file-attachment
         display none
+        
+html.no-svg body
+  .contacts-map
+    .close
+      background-image url("../img/register/close-round.png")
+  .feedback
+    .message-send
+      .message-text
+        background-image url('../img/register/ok.png')
+  .contacts
+    .show-on-map
+      background-image url('../img/register/geo.svg')
+    section.social
+      nav
+        a
+          &.fb
+            background-image url('../img/register/fb.png') 
+          &.vk
+            background-image url('../img/register/vk.png') 
+          &.tw
+            background-image url('../img/register/tw.png') 
+
 
 .contacts-map
   display none
@@ -158,23 +180,30 @@ html.touch body
       line-height 14px 
       color #3F3F3F
       color rgba(#3F3F3F, .6)
-      background #FCFDFD
-      border 1px solid #D8E7EA
       outline none 
       margin 8px 0 20px 
+      border 1px solid #E5E5E5
+      background #FFF 
+      &:focus
+        border-color #D8E7EA
+        // background #FCFDFD
     textarea
       display block
       resize none
       width 100%
       height 120px
-      border 1px solid #D8E7EA
-      background #FCFDFD 
       box-sizing border-box
       font-size 12px
       line-height 14px
       padding 8px 10px
       outline none 
       margin 0 0 20px
+      border 1px solid #E5E5E5
+      background #FFF 
+      &:focus
+        border-color #D8E7EA
+        // background #FCFDFD
+        
   .contacts
     vertical-align top
     display inline-block
@@ -221,11 +250,11 @@ html.touch body
             text-indent -9999px
             text-align left
             &.fb
-              background url('../img/register/fb.svg') 
+              background url('../img/register/fb.svg') 0 0 no-repeat
             &.vk
-              background url('../img/register/vk.svg') 
+              background url('../img/register/vk.svg') 0 0 no-repeat 
             &.tw
-              background url('../img/register/tw.svg') 
+              background url('../img/register/tw.svg') 0 0 no-repeat
       .sub-title
         color #858585
         text-transform uppercase
