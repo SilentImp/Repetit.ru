@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
     <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
-    <title>Шаг 5 | Регистрация | Ассоциация репетиторов</title>
+    <title>Шаг 1 | Регистрация | Ассоциация репетиторов</title>
     <link rel="stylesheet" href="css/styles.css" />
     <script src="js/modernizr.js"></script>
     <script src="js/html-template-polyfill.js"></script>
@@ -55,8 +55,8 @@
                 <p class="meta">Поддерживаются файлы JPG, GIF, PNG до 5 Мб.</p>
             </fieldset>
             <fieldset>
+                <h3 class="sub-title">Пол</h3>
                 <div class="line sex-line">
-                    <h3 class="sub-title">Пол</h3>
                     <div class="radio-widget">
                         <input checked="checked" id="sex-male" type="radio" name="sex" value="male" />
                         <label for="sex-male">мужской</label>
@@ -66,9 +66,9 @@
                         <label for="sex-female">женский</label>
                     </div>
                 </div>
+                <h3 class="sub-title">Дата рождения</h3>
                 <div class="line birthday">
                     <div id="birthday-required" class="error">Пожалуйста, заполните это поле</div>
-                    <h3 class="sub-title">Дата рождения</h3>
                     <input pattern="[0-9]+" type="text" value="" placeholder="День" required="required" data-h5-errorid="birthday-required" class="day" />
                     <div class="mounth dropdown-widget">
                         <select name="mounth" required="required" data-h5-errorid="birthday-required" class="unchanged">
@@ -221,8 +221,8 @@
                         </div>
                     </div>
                 </div>
+                <h3 class="sub-title">Статус</h3>
                 <div class="line">
-                    <h3 class="sub-title">Статус</h3>
                     <div id="status-required" class="error">Пожалуйста, выберите вариант</div>
                     <div class="status dropdown-widget">
                         <select name="status" required="required" data-h5-errorid="status-required" class="unchanged">
@@ -237,8 +237,8 @@
                         </div>
                     </div>
                 </div>
+                <h3 class="sub-title">Стаж</h3>
                 <div class="line">
-                    <h3 class="sub-title">Стаж</h3>
                     <div data-max='40' data-base='0' data-initial='0' class="experience-widget">
                         <input required="required" pattern="[0-9]{1,2}" type="number" name="experience" value="" min="0" max="40" maxlength="2" class="value" />
                         <div class="experience-line">

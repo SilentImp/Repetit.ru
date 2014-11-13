@@ -141,6 +141,48 @@ a {
 a:hover {
     text-decoration: none;
 }
+.checkbox-widget input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    left: -9999px;
+}
+
+.checkbox-widget input[type="checkbox"]:checked + label:before {
+    background-color: #478e9e;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-image: url("../img/register/checked.svg");
+}
+
+.checkbox-widget label {
+    display: block;
+    font-size: 16px;
+    font-weight: 200;
+    font-family: 'Helvetica Neue';
+    line-height: 30px;
+    color: #3f3f3f;
+    padding: 0 0 0 40px;
+    position: relative;
+    cursor: pointer;
+}
+
+.checkbox-widget label:hover:before {
+    background-color: #cbcbcb;
+}
+
+.checkbox-widget label:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    background-color: #e1e1e1;
+    margin: -10px 0 0;
+}
+
 html.touch body .contacts-and-feedback .feedback .file-attachment {
     display: none;
 }
@@ -499,6 +541,83 @@ html.no-svg body .contacts section.social nav a.tw {
     .contacts-and-feedback .feedback .double-line label:first-child {
         padding: 0;
     }
+}
+
+html.no-svg body .dropdown-container-widget {
+    background-image: url("../img/register/ddico.png");
+}
+
+.dropdown-container-widget {
+    position: relative;
+    display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    background: #fff;
+    height: 48px;
+    line-height: 48px;
+    background: url("../img/register/ddico.svg") 100% 50% no-repeat;
+}
+
+.dropdown-container-widget:hover {
+    border-color: #bfd6db;
+}
+
+.dropdown-container-widget:hover .list {
+    display: block;
+}
+
+.dropdown-container-widget.ui-state-error {
+    border-color: #f56d6c;
+    box-shadow: 0 0 4px 1px rgba(245,109,108,0.3);
+}
+
+.dropdown-container-widget .current {
+    color: #3f3f3f;
+    padding: 0 34px 0 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 48px;
+    font-weight: 200;
+    font-family: 'Helvetica Neue';
+}
+
+.dropdown-container-widget .current.default span {
+    color: rgba(63,63,63,0.51);
+}
+
+.dropdown-container-widget .list {
+    display: none;
+    background: #fff;
+    border: 1px solid #bfd6db;
+    border-radius: 4px;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    max-height: 300px;
+    max-height: 50vh;
+    overflow: auto;
+    font-size: 0;
+}
+
+.dropdown-container-widget .list .checkbox-widget {
+    margin: 11px 0;
+}
+
+.dropdown-container-widget .list .column {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
 }
 
 html.no-svg body .dropdown-widget {
@@ -1985,7 +2104,7 @@ body.registration-page {
     border-radius: 2px;
     position: absolute;
     left: 100%;
-    top: 34px;
+    top: -4px;
     color: #fff;
     background-color: #ff7070;
     background-color: rgba(255,112,112,0.95);
@@ -2079,6 +2198,208 @@ body.registration-page {
 
 .registration-step-1 .panel nav button:after {
     content: ' >';
+}
+
+.registration-step-1 .panel .sub-title {
+    font-size: 18px;
+    line-height: 23px;
+    font-family: 'Helvetica Neue';
+    margin: 0 0 15px;
+}
+
+.registration-step-1 .panel .sub-title b {
+    color: rgba(63,63,63,0.4);
+    font-size: 16px;
+}
+
+.registration-step-1 .panel .chapter-title {
+    height: 48px;
+    white-space: nowrap;
+    display: block;
+    background: rgba(231,231,231,0.4);
+    font-size: 16px;
+    line-height: 48px;
+    font-family: 'Elektra Text Pro';
+    font-weight: bold;
+    padding: 0 18px;
+    text-transform: uppercase;
+    color: #3f3f3f;
+    margin: 0 -18px 30px;
+}
+
+.registration-step-1 .panel .line {
+    position: relative;
+    display: block;
+    margin: 0 0 30px;
+}
+
+.registration-step-1 .panel .line.sex-line {
+    font-size: 0;
+}
+
+.registration-step-1 .panel .line.sex-line .radio-widget {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.registration-step-1 .panel .minimal-duration label {
+    font-family: 'Helvetica Neue';
+    display: block;
+    color: rgba(63,63,63,0.8);
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 0 15px;
+    color: #3f3f3f;
+}
+
+.registration-step-1 .panel .minimal-duration input {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.registration-step-1 .panel .minimal-duration span {
+    font-family: 'Helvetica Neue';
+    font-size: 16px;
+    line-height: 18px;
+    color: #3f3f3f;
+}
+
+.registration-step-1 .panel .third {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.registration-step-1 .panel .third~.error {
+    top: 34px;
+}
+
+.registration-step-1 .panel .third label {
+    font-family: 'Helvetica Neue';
+    display: block;
+    color: rgba(63,63,63,0.8);
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 0 15px;
+}
+
+.registration-step-1 .panel .third input {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.registration-step-1 .panel .third span {
+    font-family: 'Helvetica Neue';
+    font-size: 16px;
+    line-height: 18px;
+    color: #3f3f3f;
+}
+
+.registration-step-1 .panel .add-subject {
+    line-height: 48px;
+    height: 48px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background-color: #5da1b1;
+}
+
+.registration-step-1 .panel .add-subject:before {
+    content: "+  ";
+}
+
+.registration-step-1 .panel textarea {
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    margin: 0;
+    height: 100px;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    resize: none;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.registration-step-1 .panel input[type="text"],
+.registration-step-1 .panel input[type="email"],
+.registration-step-1 .panel input[type="number"],
+.registration-step-1 .panel input[type="tel"] {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    background: #fff;
+    height: 48px;
+    box-shadow: none;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 24px;
+    padding: 11px 10px;
+    outline: none;
+    font-family: 'Helvetica Neue';
+}
+
+.registration-step-1 .panel input[type="text"]:hover,
+.registration-step-1 .panel input[type="email"]:hover,
+.registration-step-1 .panel input[type="number"]:hover,
+.registration-step-1 .panel input[type="tel"]:hover,
+.registration-step-1 .panel input[type="text"]:focus,
+.registration-step-1 .panel input[type="email"]:focus,
+.registration-step-1 .panel input[type="number"]:focus,
+.registration-step-1 .panel input[type="tel"]:focus {
+    border-color: #bfd6db;
+}
+
+.registration-step-1 .panel input[type="text"].ui-state-error,
+.registration-step-1 .panel input[type="email"].ui-state-error,
+.registration-step-1 .panel input[type="number"].ui-state-error,
+.registration-step-1 .panel input[type="tel"].ui-state-error {
+    border-color: #f56d6c;
+    box-shadow: 0 0 4px 1px rgba(245,109,108,0.3);
+}
+
+.registration-step-1 .panel input[type="text"].ui-state-error+label,
+.registration-step-1 .panel input[type="email"].ui-state-error+label,
+.registration-step-1 .panel input[type="number"].ui-state-error+label,
+.registration-step-1 .panel input[type="tel"].ui-state-error+label {
+    color: #d0021b;
+}
+
+.registration-step-1 .panel input[type="text"]::-webkit-input-placeholder,
+.registration-step-1 .panel input[type="email"]::-webkit-input-placeholder,
+.registration-step-1 .panel input[type="number"]::-webkit-input-placeholder,
+.registration-step-1 .panel input[type="tel"]::-webkit-input-placeholder {
+    color: rgba(63,63,63,0.4);
+}
+
+.registration-step-1 .panel input[type="text"]:-moz-placeholder,
+.registration-step-1 .panel input[type="email"]:-moz-placeholder,
+.registration-step-1 .panel input[type="number"]:-moz-placeholder,
+.registration-step-1 .panel input[type="tel"]:-moz-placeholder {
+    color: rgba(63,63,63,0.4);
+}
+
+.registration-step-1 .panel input[type="text"]::-moz-placeholder,
+.registration-step-1 .panel input[type="email"]::-moz-placeholder,
+.registration-step-1 .panel input[type="number"]::-moz-placeholder,
+.registration-step-1 .panel input[type="tel"]::-moz-placeholder {
+    color: rgba(63,63,63,0.4);
+}
+
+.registration-step-1 .panel input[type="text"]:-ms-input-placeholder,
+.registration-step-1 .panel input[type="email"]:-ms-input-placeholder,
+.registration-step-1 .panel input[type="number"]:-ms-input-placeholder,
+.registration-step-1 .panel input[type="tel"]:-ms-input-placeholder {
+    color: rgba(63,63,63,0.4);
 }
 
 .registration-step-1 .panel fieldset.photo {
@@ -2206,76 +2527,6 @@ body.registration-page {
     width: 100px;
     margin-left: 10px;
     vertical-align: top;
-}
-
-.registration-step-1 .panel fieldset.photo+fieldset input {
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
-    background: #fff;
-    height: 48px;
-    box-shadow: none;
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 24px;
-    padding: 11px 10px;
-    outline: none;
-    font-family: 'Helvetica Neue';
-}
-
-.registration-step-1 .panel fieldset.photo+fieldset input:hover,
-.registration-step-1 .panel fieldset.photo+fieldset input:focus {
-    border-color: #bfd6db;
-}
-
-.registration-step-1 .panel fieldset.photo+fieldset input.ui-state-error {
-    border-color: #f56d6c;
-    box-shadow: 0 0 4px 1px rgba(245,109,108,0.3);
-}
-
-.registration-step-1 .panel fieldset.photo+fieldset input.ui-state-error+label {
-    color: #d0021b;
-}
-
-.registration-step-1 .panel fieldset.photo+fieldset input::-webkit-input-placeholder {
-    color: rgba(63,63,63,0.4);
-}
-
-.registration-step-1 .panel fieldset.photo+fieldset input:-moz-placeholder {
-    color: rgba(63,63,63,0.4);
-}
-
-.registration-step-1 .panel fieldset.photo+fieldset input::-moz-placeholder {
-    color: rgba(63,63,63,0.4);
-}
-
-.registration-step-1 .panel fieldset.photo+fieldset input:-ms-input-placeholder {
-    color: rgba(63,63,63,0.4);
-}
-
-.registration-step-1 .panel fieldset.photo+fieldset .line {
-    height: 90px;
-    position: relative;
-    display: block;
-    margin: 0 0 30px;
-}
-
-.registration-step-1 .panel fieldset.photo+fieldset .line.sex-line {
-    font-size: 0;
-}
-
-.registration-step-1 .panel fieldset.photo+fieldset .line.sex-line .radio-widget {
-    width: 50%;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.registration-step-1 .panel fieldset.photo+fieldset .line .sub-title {
-    font-size: 18px;
-    line-height: 23px;
-    font-family: 'Helvetica Neue';
-    margin: 0 0 15px;
 }
 
 .registration-step-1 .panel.complete {
