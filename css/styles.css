@@ -174,7 +174,7 @@ a:hover {
     content: "";
     display: block;
     position: absolute;
-    left: 11px;
+    left: 0;
     top: 50%;
     height: 20px;
     width: 20px;
@@ -609,7 +609,7 @@ html.no-svg body .dropdown-container-widget {
 }
 
 .dropdown-container-widget .list .checkbox-widget {
-    margin: 11px 0;
+    margin: 11px 0 0 11px;
 }
 
 .dropdown-container-widget .list .column {
@@ -2233,6 +2233,16 @@ body.registration-page {
     margin: 0 0 30px;
 }
 
+.registration-step-1 .panel .line>label {
+    font-size: 18px;
+    line-height: 23px;
+    color: #3f3f3f;
+    font-weight: bold;
+    font-family: 'Helvetica Neue';
+    margin: 0 0 15px;
+    display: block;
+}
+
 .registration-step-1 .panel .line.sex-line {
     font-size: 0;
 }
@@ -2241,6 +2251,11 @@ body.registration-page {
     width: 50%;
     display: inline-block;
     vertical-align: top;
+}
+
+.registration-step-1 .panel .lessons-format .checkbox-widget {
+    display: inline-block;
+    width: 30%;
 }
 
 .registration-step-1 .panel .minimal-duration label {
@@ -2263,6 +2278,59 @@ body.registration-page {
     font-size: 16px;
     line-height: 18px;
     color: #3f3f3f;
+}
+
+.registration-step-1 .panel .address {
+    width: 520px;
+}
+
+.registration-step-1 .panel .address-details {
+    font-size: 0;
+}
+
+.registration-step-1 .panel .address-details label {
+    font-size: 18px;
+    line-height: 23px;
+    color: #3f3f3f;
+    font-weight: bold;
+    font-family: 'Helvetica Neue';
+    margin: 0 0 15px;
+    display: block;
+}
+
+.registration-step-1 .panel .address-details .street {
+    margin: 0 20px 0 0;
+    display: inline-block;
+}
+
+.registration-step-1 .panel .address-details .street input {
+    width: 250px;
+}
+
+.registration-step-1 .panel .address-details .house {
+    margin: 0 20px 0 0;
+    display: inline-block;
+}
+
+.registration-step-1 .panel .address-details .house input {
+    width: 70px;
+}
+
+.registration-step-1 .panel .address-details .corpus {
+    margin: 0 20px 0 0;
+    display: inline-block;
+}
+
+.registration-step-1 .panel .address-details .corpus input {
+    width: 70px;
+}
+
+.registration-step-1 .panel .address-details .building {
+    display: inline-block;
+}
+
+.registration-step-1 .panel .address-details .building input {
+    width: 70px;
 }
 
 .registration-step-1 .panel .third {
@@ -2297,6 +2365,7 @@ body.registration-page {
     color: #3f3f3f;
 }
 
+.registration-step-1 .panel .add-address,
 .registration-step-1 .panel .add-subject {
     line-height: 48px;
     height: 48px;
@@ -2310,6 +2379,7 @@ body.registration-page {
     background-color: #5da1b1;
 }
 
+.registration-step-1 .panel .add-address:before,
 .registration-step-1 .panel .add-subject:before {
     content: "+  ";
 }

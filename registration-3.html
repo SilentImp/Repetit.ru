@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+    <title>Шаг 3 | Регистрация | Ассоциация репетиторов</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/modernizr.js"></script>
+    <script src="js/html-template-polyfill.js"></script>
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="js/h5Validate/jquery.h5validate.js"></script>
+    <script src="js/FileAPI.min.js"></script>
+    <script src="js/ExperienceWidgetController.js" async="async"></script>
+    <script src="js/DropdownWidgetController.js" async="async"></script>
+    <script src="js/PersonalData.js" async="async"></script>
+</head>
+
+<body class="registration-page">
+    <header>
+        <div class="wrapper"><a href="/"><h1 class="logotype">Ассоциация репетиторов</h1></a>
+        </div>
+    </header>
+    <div class="registration-step-1">
+        <h2 class="title">Регистрация репетитора</h2>
+        <div class="steps">
+            <div class="step selected">
+                <h3 class="sub-title"><span>Личные данные</span></h3>
+            </div>
+            <div class="step selected">
+                <h3 class="sub-title"><span>Предметы</span></h3>
+            </div>
+            <div class="step selected">
+                <h3 class="sub-title"><span>Адреса</span></h3>
+            </div>
+            <div class="step">
+                <h3 class="sub-title"><span>Образование</span></h3>
+            </div>
+        </div>
+        <form action="/save/" method="post" enctype="multipart/form-data" class="panel">
+            <fieldset>
+                <h3 class="sub-title">Формат проведения занятий</h3>
+            </fieldset>
+            <div class="line lessons-format">
+                <div class="checkbox-widget">
+                    <input id="item-1" type="checkbox" name="addition" />
+                    <label for="item-1">на дому</label>
+                </div>
+                <div class="checkbox-widget">
+                    <input id="item-2" type="checkbox" name="addition" />
+                    <label for="item-2">выезд к ученику</label>
+                </div>
+                <div class="checkbox-widget">
+                    <input id="item-3" type="checkbox" name="addition" />
+                    <label for="item-3">удаленно</label>
+                </div>
+            </div>
+            <fieldset>
+                <h2 class="chapter-title">Адрес преподавания</h2>
+                <div class="line">
+                    <label for="address">Населенный пункт</label>
+                    <input type="text" id="address" name="address" list="addresses" class="address" />
+                    <datalist id="addresses">
+                        <option value="Москва"><span>Красноярский край</span>
+                        </option>
+                        <option value="Санкт-Петербург"><span>Красноярский край</span>
+                        </option>
+                    </datalist>
+                </div>
+                <div class="line address-details">
+                    <div class="street">
+                        <label for="street">Улица</label>
+                        <input type="text" id="street" name="street" value="" />
+                    </div>
+                    <div class="house">
+                        <label for="house">Дом</label>
+                        <input type="text" id="house" name="house" value="" />
+                    </div>
+                    <div class="corpus">
+                        <label for="corpus">Корпус</label>
+                        <input type="text" id="corpus" name="corpus" value="" />
+                    </div>
+                    <div class="building">
+                        <label for="building">Строение</label>
+                        <input type="text" id="building" name="building" value="" />
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <h2 class="chapter-title">Адрес преподавания</h2>
+                <div class="line"><a href="#" class="add-address">Добавить адрес</a>
+                </div>
+            </fieldset>
+            <fieldset>
+                <h2 class="chapter-title">Адреса выезда</h2>
+                <div class="line">
+                    <label for="comments">Комментарии по выезду для ученика</label>
+                    <textarea id="comments" name="comments" cols="30" rows="10"></textarea>
+                </div>
+            </fieldset>
+            <nav><a href="#" class="previous">Предыдущий</a>
+                <button type="submit">Продолжить</button>
+            </nav>
+        </form>
+    </div>
+</body>
+
+</html>
