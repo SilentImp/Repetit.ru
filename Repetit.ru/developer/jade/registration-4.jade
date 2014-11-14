@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge;chrome=1")
+    meta(name="viewport", content="width = device-width, initial-scale = 1.0")
+    title Шаг 4 | Образование | Регистрация | Ассоциация репетиторов
+    link(rel="stylesheet", href="css/styles.css")
+
+    script(src="js/modernizr.js")
+    script(src="js/html-template-polyfill.js")
+    script(src="js/jquery/jquery.min.js")
+    script(src="js/jquery-ui-1.9.2.custom.min.js")
+    script(src="js/h5Validate/jquery.h5validate.js")
+    script(src="js/FileAPI.min.js")
+
+    script(src="js/ExperienceWidgetController.js", async)
+    script(src="js/DropdownWidgetController.js", async)
+    script(src="js/PersonalData.js", async)
+
+    
+  body.registration-page
+    header
+      .wrapper
+        a(href="/")
+          h1.logotype Ассоциация репетиторов
+      
+    .registration-step-1
+      
+      h2.title Регистрация репетитора
+
+      .steps
+        .step.selected
+          h3.sub-title: span Личные данные
+        .step.selected
+          h3.sub-title: span Предметы
+        .step.selected
+          h3.sub-title: span Адреса
+        .step.selected
+          h3.sub-title: span Образование
+
+      form.panel(action="/save/", method="post", enctype="multipart/form-data")
+        fieldset.education
+          h2.chapter-title Образование
+          .line
+            label(for="city") Населенный пункт
+            input(type="text", id="city", name="city", value="", placeholder="Начните вводить...")
+          .line.name
+            label(for="univercity") Название учебного заведения
+            input(type="text", id="univercity", name="univercity", value="", placeholder="Начните вводить...")
+          .line.grad-year
+            label(for="grad-year") Год выпуска
+            input(type="text", id="grad-year", name="grad-year", value="")
+          .line
+            label(for="fac") Факультет
+            input(type="text", id="fac", name="fac", value="")
+          .line.spec
+            label(for="spec") Специализация
+            textarea#spec(name="comments", cols="30", rows="10")
+
+        fieldset
+          h2.chapter-title Образование
+          .line
+            a.add-education(href="#") Добавить образование
+
+        fieldset.sertificats
+          h2.chapter-title Дипломы, грамоты, сертификаты
+          
+          .sertificat-list
+            
+            .sertificat
+              a(href="#link-to-big-img")
+                img(src="img/register/spoiler/sertificat.jpg", alt="Сертификат")
+              a.remove(href="#")
+              textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
+
+            .sertificat
+              a(href="#link-to-big-img")
+                img(src="img/register/spoiler/sertificat.jpg", alt="Сертификат")
+              a.remove(href="#")
+              textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
+          
+          nav.add-sertificat
+            label Выбрать файл
+              input(type="file", name="certificat")
+            span Поддерживаются файлы PDF, JPG, GIF, PNG до 5 Мб.
+
+        fieldset
+          h2.chapter-title Дополнительно
+          .line
+            label(for="additional-information") Дополнительная информация о вас
+            textarea#additional-information(name="additional-information", cols="30", rows="10")
+
+        nav
+          a.previous(href="#") Предыдущий
+          button(type="submit") Продолжить
+
+        

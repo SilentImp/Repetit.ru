@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge;chrome=1")
+    meta(name="viewport", content="width = device-width, initial-scale = 1.0")
+    title Шаг 2 | Предметы | Регистрация | Ассоциация репетиторов
+    link(rel="stylesheet", href="css/styles.css")
+
+    script(src="js/modernizr.js")
+    script(src="js/html-template-polyfill.js")
+    script(src="js/jquery/jquery.min.js")
+    script(src="js/jquery-ui-1.9.2.custom.min.js")
+    script(src="js/h5Validate/jquery.h5validate.js")
+    script(src="js/FileAPI.min.js")
+
+    script(src="js/ExperienceWidgetController.js", async)
+    script(src="js/DropdownWidgetController.js", async)
+    script(src="js/PersonalData.js", async)
+
+    
+  body.registration-page
+    header
+      .wrapper
+        a(href="/")
+          h1.logotype Ассоциация репетиторов
+      
+    .registration-step-1
+      
+      h2.title Регистрация репетитора
+
+      .steps
+        .step.selected
+          h3.sub-title: span Личные данные
+        .step.selected
+          h3.sub-title: span Предметы
+        .step
+          h3.sub-title: span Адреса
+        .step
+          h3.sub-title: span Образование
+
+      form.panel(action="/save/", method="post", enctype="multipart/form-data")
+        
+        fieldset.minimal-duration
+          .line
+            label(for="min-duration") Минимальная продолжительность занятия
+            input(type="number", name="office", id="min-duration", value="45")
+            span минут
+        
+        fieldset
+          h2.chapter-title Предмет
+          h3.sub-title Предмет
+          .line
+            .subject.dropdown-widget
+              select.unchanged(name="subject", required="required", data-h5-errorid="subject-required")
+                option(value="0") Математика
+                option(value="1") Физика
+                option(value="2") Химия
+              .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
+              .list
+                .option(data-value="0") Математика
+                .option(data-value="1") Физика
+                .option(data-value="2") Химия
+
+          h3.sub-title Разделы
+          .line
+            .section.dropdown-widget
+              select.unchanged(name="section", required="required", data-h5-errorid="section-required")
+                option(value="0") Раздел 1
+                option(value="1") Раздел 2
+                option(value="2") Раздел 3
+              .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
+              .list
+                .option(data-value="0") Раздел 1
+                .option(data-value="1") Раздел 2
+                .option(data-value="2") Раздел 3
+
+          h3.sub-title Дополнения
+          .line
+            .addition.dropdown-container-widget
+              .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
+              .list
+                .column
+                  .checkbox-widget
+                    input#item-1(type="checkbox", name="addition")
+                    label(for="item-1") Подготовка к ЕГЭ
+                  .checkbox-widget
+                    input#item-2(type="checkbox", name="addition")
+                    label(for="item-2") Подготовка к ВУЗу
+                .column
+                  .checkbox-widget
+                    input#item-3(type="checkbox", name="addition")
+                    label(for="item-3") Повторение программы
+                  .checkbox-widget
+                    input#item-4(type="checkbox", name="addition")
+                    label(for="item-4") Домашние задания
+                  
+
+
+          h3.sub-title Категория учеников
+          .line
+            .category.dropdown-widget
+              select.unchanged(name="category", required="required", data-h5-errorid="category-required")
+                option(value="0") Хорошисты
+                option(value="1") Троечники
+                option(value="2") Двоечники
+              .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
+              .list
+                .option(data-value="0") Хорошисты
+                .option(data-value="1") Троечники
+                .option(data-value="2") Двоечники
+
+          h3.sub-title Цена занятия 
+            b (минимальной продолжительности)
+          .line
+            .third
+              label(for="athome") На дому
+              input(type="number", name="home", id="athome", required="required", data-h5-errorid="price-required")
+              span руб (45 мин)
+            .third
+              label(for="atoffice") Выезд к ученику
+              input(type="number", name="office", id="atoffice", required="required", data-h5-errorid="price-required")
+              span руб (45 мин)
+            .third
+              label(for="online") Удаленно
+              input(type="number", name="online", id="online", required="required", data-h5-errorid="price-required")
+              span руб (45 мин)
+            .error#price-required Пожалуйста, заполните это поле
+
+          h3.sub-title Комментарий
+          .line 
+            textarea(name="message", cols="30", rows="10")
+
+        fieldset
+          h2.chapter-title Предмет
+          a.add-subject(href="#") Добавить предмет
+
+
+        nav
+          a.previous(href="#") Предыдущий
+          button(type="submit") Продолжить
+
+        

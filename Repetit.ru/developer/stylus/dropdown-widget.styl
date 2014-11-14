@@ -1,0 +1,88 @@
+html.no-svg body
+  .dropdown-widget
+    background-image url('../img/register/ddico.png')
+
+html.touch body
+  .dropdown-widget
+    select
+      top 0
+      bottom 0
+      left 0
+      right 0
+      
+.dropdown-widget
+  position relative
+  display block 
+  box-sizing border-box
+  border 1px solid #E5E5E5
+  border-radius 4px
+  background #fff 
+  height 48px
+  line-height 48px
+  background url('../img/register/ddico.svg') 100% 50% no-repeat
+  &:hover
+    border-color #BFD6DB
+    .list
+      display block
+  &.ui-state-error
+    border-color #F56D6C
+    box-shadow 0 0 4px 1px rgba(#F56D6C, .3)
+  select
+    position absolute
+    margin 0
+    left -9999px 
+    width 100%
+    height 100%
+    z-index 10
+    opacity 0
+    outline none
+    border none
+    background none
+    box-shadow none
+    color transparent
+    -webkit-appearance none
+    -moz-appearance none
+    appearance none
+  .current
+    color #3F3F3F
+    padding 0 34px 0 15px
+    white-space nowrap
+    text-overflow ellipsis  
+    overflow hidden
+    font-size 18px
+    line-height 48px
+    font-weight 200
+    font-family 'Helvetica Neue'
+    &.default span
+      color rgba(#3F3F3F, .51)
+  .list
+    display none
+    background #FFF 
+    border 1px solid #BFD6DB
+    border-radius 4px
+    width 100%
+    box-sizing border-box  
+    position absolute
+    top 100%
+    left 0
+    right 0
+    z-index 100
+    max-height 300px
+    max-height 50vh
+    overflow auto
+    .option
+      padding 0 10px
+      cursor pointer
+      background-color #fff 
+      transition background-color .25s
+      font-size 16px
+      color #3F3F3F 
+      font-weight 200
+      font-family 'Helvetica Neue'
+      &.selected
+        pointer-events none
+      &.selected,
+      &:hover
+        background-color rgba(#BFD6DB, .4)
+        
+    

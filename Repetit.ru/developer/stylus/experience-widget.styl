@@ -1,0 +1,91 @@
+html.no-flexbox body .experience-widget
+  .experience-line
+    .experience-line-header
+      .years
+        width 11.111%
+        text-align center 
+.experience-widget
+  position relative
+  font-size 0
+  white-space nowrap
+  .value
+    vertical-align middle
+    display inline-block
+    box-sizing border-box
+    border 1px solid #E5E5E5
+    border-radius 4px
+    background #fff 
+    height 48px
+    box-shadow none
+    font-size 18px
+    font-weight 200 
+    line-height 24px
+    padding 11px 10px
+    outline none
+    font-family 'Helvetica Neue'
+    width 70px
+    &:hover,
+    &:focus
+      border-color #BFD6DB
+  .experience-line
+    position relative
+    vertical-align middle
+    display inline-block
+    margin-left 20px
+    height 10px
+    width 350px
+    background #E2E4E4
+    border-radius 2px
+    box-shadow inset 0 1px 0 0 #CBCDCD
+    cursor pointer
+    .experience-line-header
+      position absolute
+      bottom 100%
+      left 0
+      right 0
+      margin 0 0 6px
+      line-height 15px
+      font-weight 200
+      font-family 'Helvetica Neue'
+      color #3F3F3F 
+      color rgba(#3F3F3F, .8)
+      white-space nowrap
+      font-size 0
+      display flex
+      justify-content space-between
+      .years
+        font-size 12px
+        display inline-block
+        vertical-align top
+    .experience-status
+      z-index 1
+      position absolute
+      left 0
+      top 0
+      height 10px
+      display block
+      border-radius 2px
+      background-color #6CB0BF
+      background-image linear-gradient(to bottom, rgba(108,176,191,1) 0%,rgba(71,147,163,1) 100%)
+    .experience-handle
+      position relative
+      z-index 2
+      top 0
+      width 14px
+      height 10px
+      margin-left -14px
+      cursor pointer
+      span
+        cursor pointer
+        font-size 0
+        line-height 0
+        display block
+        position absolute
+        top 100%
+        left 100%
+        width 100%
+        height 20px
+        margin-left -50%
+        background url("../img/register/handle.svg") 0 0 no-repeat
+      
+      

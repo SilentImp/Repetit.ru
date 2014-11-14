@@ -1,0 +1,34 @@
+.checkbox-widget
+  input[type="checkbox"]
+    position absolute
+    opacity 0
+    left -9999px
+    &:checked + label:before
+      background-color #478E9E
+      background-position 50% 50%
+      background-repeat no-repeat
+      background-image url("../img/register/checked.svg")   
+  label
+    display block
+    font-size 16px
+    font-weight 200
+    font-family 'Helvetica Neue'
+    line-height 30px
+    color #3F3F3F
+    padding 0 0 0 40px
+    position relative
+    cursor pointer
+    &:hover
+      &:before
+        background-color #CBCBCB   
+    &:before
+      content ""
+      display block
+      position absolute
+      left 0
+      top 50%
+      height 20px
+      width 20px
+      border-radius 4px
+      background-color #E1E1E1
+      margin -10px 0 0

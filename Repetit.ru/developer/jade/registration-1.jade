@@ -4,12 +4,23 @@ html(lang="ru")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge;chrome=1")
     meta(name="viewport", content="width = device-width, initial-scale = 1.0")
-    title Шаг 5 | Регистрация | Ассоциация репетиторов
-    script(src="js/modernizr.js")
-    script(src="js/jquery/jquery.min.js")
-    script(src="js/h5Validate/jquery.h5validate.js")
+    title Шаг 1 | Личные данные | Регистрация | Ассоциация репетиторов
     link(rel="stylesheet", href="css/styles.css")
+
+    script(src="js/modernizr.js")
+    script(src="js/html-template-polyfill.js")
+    script(src="js/jquery/jquery.min.js")
+    script(src="js/jquery-ui-1.9.2.custom.min.js")
+    script(src="js/h5Validate/jquery.h5validate.js")
+    script(src="js/FileAPI.min.js")
+
+    script(src="js/ExperienceWidgetController.js", async)
+    script(src="js/DropdownWidgetController.js", async)
+    script(src="js/PersonalData.js", async)
+
+    
   body.registration-page
+    
     header
       .wrapper
         a(href="/")
@@ -29,26 +40,105 @@ html(lang="ru")
         .step
           h3.sub-title: span Образование
 
-      form.panel(action="/save/", method="post")
-        fieldset.photo
+      form.panel(action="/save/", method="post", enctype="multipart/form-data")
+        template#current-avatar-template
           .current-avatar
             label(for="registration-avatar")
-              img(src="img/register/spoiler/avatar.jpg", alt="Фотография")
+              img.avatar(alt="Фотография", data-dz-thumbnail)
             a.close(href="#")
+        fieldset.photo
           label.file-selector
             span.abstract Перетяните ваше фото, или нажмите, чтобы выбрать
             span.select Выбрать
             input(type="file", name="avatar", id="registration-avatar", accept="image/*")
           p.meta Поддерживаются файлы JPG, GIF, PNG до 5 Мб.
         fieldset
+          
+          h3.sub-title Пол
+          .line.sex-line
+            .radio-widget
+              input(checked="checked", id="sex-male", type="radio", name="sex", value="male")
+              label(for="sex-male") мужской
+            .radio-widget
+              input(id="sex-female", type="radio", name="sex", value="female")
+              label(for="sex-female") женский
+
+          h3.sub-title Дата рождения
+          .line.birthday
+            .error#birthday-required Пожалуйста, заполните это поле
+            input.day(pattern="[0-9]+", type="text", value="", placeholder="День", required="required", data-h5-errorid="birthday-required")
+            
+            .mounth.dropdown-widget
+              select.unchanged(name="mounth", required="required", data-h5-errorid="birthday-required")
+                option(value="0") Январь
+                option(value="1") Февраль
+                option(value="2") Март
+                option(value="3") Апрель
+                option(value="4") Май
+                option(value="5") Июнь
+                option(value="6") Июль
+                option(value="7") Август
+                option(value="8") Сентябрь
+                option(value="9") Октябрь
+                option(value="10") Ноябрь
+                option(value="11") Декабрь
+              .current.default(data-placeholder="Месяц"): span Месяц
+              .list
+                .option(data-value="0") Январь
+                .option(data-value="1") Февраль
+                .option(data-value="2") Март
+                .option(data-value="3") Апрель
+                .option(data-value="4") Май
+                .option(data-value="5") Июнь
+                .option(data-value="6") Июль
+                .option(data-value="7") Август
+                .option(data-value="8") Сентябрь
+                .option(data-value="9") Октябрь
+                .option(data-value="10") Ноябрь
+                .option(data-value="11") Декабрь
+
+            .year.dropdown-widget
+              select.unchanged(name="year", required="required", data-h5-errorid="birthday-required")
+                - var n = 2000
+                while n > 1945
+                  option(value=n)=n
+                  - n--
+              .current.default(data-placeholder="Год"): span Год
+              .list
+                - var n = 2000
+                while n > 1945
+                  .option(data-value=n)=n
+                  - n--
+          
+          h3.sub-title Статус
           .line
-            h3.sub-title Пол
+            .error#status-required Пожалуйста, выберите вариант
+
+            .status.dropdown-widget
+              select.unchanged(name="status", required="required", data-h5-errorid="status-required")
+                option(value="0") Свободен
+                option(value="1") Занят
+              .current.default(data-placeholder="Выберите…"): span Выберите…
+              .list
+                .option(data-value="0") Свободен
+                .option(data-value="1") Занят
+
+          h3.sub-title Стаж
           .line
-            h3.sub-title Дата рождения
-          .line
-            h3.sub-title Статус
-          .line
-            h3.sub-title Стаж
+            .experience-widget(data-max=40, data-base=0, data-initial=0)
+              input.value(required="required", pattern="[0-9]{1,2}" type="number", name="experience", value="", min="0", max="40", maxlength="2")
+              .experience-line
+                .experience-line-header
+                  - var n = 0
+                  while n < 45
+                    .years=n
+                    - n+=5
+                .experience-status
+                .experience-handle: span
+
+
+
+
         nav
           a.previous(href="#") Предыдущий
           button(type="submit") Продолжить

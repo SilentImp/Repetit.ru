@@ -9,10 +9,10 @@ body.registration-page
 
 .registration-step-1
   position relative
-  padding 0 30px 30px 
+  padding 0 30px 30px
   .title
     text-align center
-    margin-top -59px
+    margin -59px 0 0 0
     font-size 34px
     line-height 36px
     font-weight bold
@@ -129,17 +129,363 @@ body.registration-page
       line-height 0
       overflow hidden
       text-indent -9999px
+      
+    .error
+      font-family 'Helvetica Neue'
+      display none
+      margin-left 10px
+      width 160px
+      padding 10px 9px 10px 15px
+      height 36px
+      font-size 14px
+      line-height 17px
+      border-radius 2px
+      position absolute
+      left 100%
+      top -4px
+      color #fff 
+      background-color #FF7070 
+      background-color rgba(#FF7070, .95) 
+      z-index 100
+      &.left
+        right 100%
+        left auto
+        margin 0 10px 0 0
+        &:after
+          left 100%
+          right auto
+          border-width 6px 0 6px 5px
+          border-color transparent transparent transparent #FF7070
+          border-color transparent transparent transparent rgba(#FF7070, .95)
+        
+      &:after
+        right 100%
+        top 50%
+        position absolute
+        content '.'
+        font-size 0
+        line-height 0
+        overflow hidden
+        display block
+        margin -6px 0 0 
+        border-width 6px 5px 6px 0
+        border-style solid
+        border-color transparent #FF7070 transparent transparent
+        border-color transparent rgba(#FF7070, .95) transparent transparent
+
     nav
       clear both
+      padding 40px 0 0
+      &:after
+        content "" 
+        clear both
+        display block
+        font-size 0
+        height 0
+        overflow hidden
+      .previous
+        outline none
+        float left
+        border-style none
+        background #F6F6F6
+        color #3F3F3F 
+        box-shadow none
+        border-radius #000
+        text-decoration none
+        cursor pointer
+        font-size 16px
+        font-weight bold
+        height 48px
+        line-height 48px
+        padding 0 23px 0 17px
+        font-family 'Elektra Text Pro'
+        text-transform uppercase
+        &:before
+          content '< '  
+      button
+        outline none
+        float right
+        border-style none
+        background #FF8C43
+        box-shadow none
+        cursor pointer
+        border-radius #000
+        color #fff
+        font-size 16px
+        font-weight bold
+        height 48px
+        line-height 48px
+        padding 0 17px 0 23px
+        font-family 'Elektra Text Pro'
+        text-transform uppercase
+        &:after
+          content ' >'  
+    
+    .sub-title
+      font-size 18px
+      line-height 23px
+      font-family 'Helvetica Neue'
+      margin 0 0 15px 
+      b
+        color rgba(#3F3F3F, .4)
+        font-size 16px
+      
+    .chapter-title
+      height 48px
+      white-space nowrap
+      display block
+      background rgba(#E7E7E7, .4)
+      font-size 16px
+      line-height 48px
+      font-family 'Elektra Text Pro'
+      font-weight bold
+      padding 0 18px
+      text-transform uppercase
+      color #3F3F3F
+      margin 0 -18px 30px
+      
+    .line
+      position relative
+      display block
+      margin 0 0 30px
+      font-size 0
+      &.spec textarea
+        width 520px
+      &.name
+        display inline-block
+        vertical-align top
+        margin-right 20px
+      &.grad-year
+        display inline-block
+        vertical-align top
+        input
+          width 100px 
+      &>label
+        font-size 18px
+        line-height 23px
+        color #3F3F3F
+        font-weight bold 
+        font-family 'Helvetica Neue'
+        margin 0 0 15px 
+        display block
+      &.sex-line
+        font-size 0
+        .radio-widget
+          width 50%
+          display inline-block
+          vertical-align top
+          
+    .sertificat-list
+      .sertificat
+        position relative
+        margin 0 0 30px
+        padding 0 0 0 220px
+        img
+          position absolute
+          left 45px
+          width 110px
+          max-height 100px
+        .remove
+          position absolute 
+          left 145px
+          top -10px 
+          width 20px
+          height 20px
+          border-radius 100% 
+          background #478E9E url('../img/register/remove.svg') 50% 50% no-repeat
+          
+    .add-sertificat
+      clear both
+      display block
+      margin 0 0 30px 
+      padding 30px 0 0 
+      border-top 1px solid rgba(#D6D6D6, .4)
+      input
+        position absolute
+        left -9999px
+      span
+        font-size 13px
+        line-height 18px
+        vertical-align middle
+        color #BDBDBD 
+        font-family 'Helvetica Neue'
+        font-weight 200 
+      label
+        font-size 16px
+        line-height 48px
+        height 48px
+        padding 0 20px
+        font-size 16px
+        font-weight bold
+        display inline-block
+        text-transform uppercase
+        text-decoration none
+        color #FFF
+        background-color #5DA1B1
+        margin-right 30px
+          
+    .lessons-format
+      .checkbox-widget
+        display inline-block
+        width 30%
+        
+    .minimal-duration
+      label
+        font-family 'Helvetica Neue'
+        display block
+        color rgba(#3F3F3F, .8)
+        font-size 18px
+        line-height 22px 
+        margin 0 0 15px
+        color #3F3F3F 
+      input
+        width 100px 
+        margin-right 10px
+      span
+        font-family 'Helvetica Neue'
+        font-size 16px
+        line-height 18px
+        color #3F3F3F 
+    .address
+      width 520px
+      
+    .address-details
+      font-size 0
+      label
+        font-size 18px
+        line-height 23px
+        color #3F3F3F
+        font-weight bold 
+        font-family 'Helvetica Neue'
+        margin 0 0 15px 
+        display block
+      .street
+        margin 0 20px 0 0 
+        display inline-block
+        input
+          width 250px
+      .house
+        margin 0 20px 0 0
+        input
+          width 70px
+        display inline-block
+      .corpus
+        margin 0 20px 0 0
+        input
+          width 70px
+        display inline-block
+      .building
+        input
+          width 70px
+        display inline-block
+        
+    .education
+      input
+        width 520px
+
+    .third
+      width 30%
+      display inline-block
+      vertical-align top
+      white-space nowrap
+      &~.error
+        top 34px 
+      label
+        font-family 'Helvetica Neue'
+        display block
+        color rgba(#3F3F3F, .8)
+        font-size 18px
+        line-height 22px 
+        margin 0 0 15px
+      input
+        width 100px 
+        margin-right 10px
+      span
+        font-family 'Helvetica Neue'
+        font-size 16px
+        line-height 18px
+        color #3F3F3F 
+    
+    .add-education,
+    .add-address,
+    .add-subject
+      line-height 48px
+      height 48px
+      padding 0 20px
+      font-size 16px
+      font-weight bold
+      display inline-block
+      text-transform uppercase
+      text-decoration none
+      color #FFF
+      background-color #5DA1B1
+      &:before
+        content "+  "
+    
+    textarea
+      border 1px solid #E5E5E5
+      border-radius 4px
+      margin 0
+      height 100px
+      width 100%
+      box-sizing border-box 
+      resize none
+      outline none
+      padding 10px 15px
+      font-size 18px
+      line-height 24px
+      font-family 'Helvetica Neue'
+      font-weight 200 
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="tel"]
+      box-sizing border-box
+      border 1px solid #E5E5E5
+      border-radius 4px
+      background #fff 
+      height 48px
+      box-shadow none
+      font-size 18px
+      font-weight 200 
+      line-height 24px
+      padding 11px 10px
+      outline none
+      font-family 'Helvetica Neue'
+      &:hover,
+      &:focus
+        border-color #BFD6DB
+        
+      &.ui-state-error
+        border-color #F56D6C
+        box-shadow 0 0 4px 1px rgba(#F56D6C, .3)
+        &+label
+          color #D0021B 
+          
+      &::-webkit-input-placeholder
+        color rgba(#3F3F3F, .4)
+      &:-moz-placeholder
+        color rgba(#3F3F3F, .4)
+      &::-moz-placeholder
+        color rgba(#3F3F3F, .4)
+      &:-ms-input-placeholder
+        color rgba(#3F3F3F, .4)
+      
     fieldset.photo
-      float right
+      float left
       width 220px
+      left 100%
+      margin-left -220px 
+      z-index 2
       position relative
       .current-avatar
+        cursor pointer
         position relative
         .avatar
           width 100%
           display block
+          cursor pointer
         .close
           z-index 3
           position absolute
@@ -183,6 +529,13 @@ body.registration-page
           display block
           text-transform uppercase
           margin 50px 0 0 
+      
+      .current-avatar~.file-selector,
+      .current-avatar~.meta
+        position absolute
+        left -9999px
+        opacity 0
+
       .meta
         font-size 13px
         line-height 18px
@@ -194,15 +547,30 @@ body.registration-page
         max-width 180px 
       &+fieldset
         float left
-        max-width 440px 
-        .line
-          height 90px
-          position relative
-          margin 0 0 30px 
-          .sub-title
-            font-size 18px
-            line-height 23px
-            font-family 'Helvetica Neue'
+        position relative
+        left 100%
+        margin-left -100%
+        width 100%
+        padding-right 240px
+        box-sizing border-box
+        max-width 680px
+        .birthday
+          font-size 0
+        .day
+          width 70px
+          display inline-block
+          vertical-align top
+        .mounth
+          display inline-block
+          width 250px
+          margin-left 10px
+          vertical-align top
+        .year
+          display inline-block
+          width 100px
+          margin-left 10px
+          vertical-align top
+          
     &.complete
       text-align center
       padding 100px 40px 110px

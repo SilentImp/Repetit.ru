@@ -23,8 +23,8 @@ class ContactsPage
       dataType: 'json'
 
     # Убрать на продакшене
-    @formSent() 
-  
+    @formSent()
+
   formSent: (data)=>
     @form[0].reset()
     @message.fadeIn()

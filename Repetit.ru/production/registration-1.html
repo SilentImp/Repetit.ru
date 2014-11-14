@@ -5,11 +5,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
     <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
-    <title>Шаг 5 | Регистрация | Ассоциация репетиторов</title>
-    <script src="js/modernizr.js"></script>
-    <script src="js/jquery/jquery.min.js"></script>
-    <script src="js/h5Validate/jquery.h5validate.js"></script>
+    <title>Шаг 1 | Личные данные | Регистрация | Ассоциация репетиторов</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/modernizr.js"></script>
+    <script src="js/html-template-polyfill.js"></script>
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="js/h5Validate/jquery.h5validate.js"></script>
+    <script src="js/FileAPI.min.js"></script>
+    <script src="js/ExperienceWidgetController.js" async="async"></script>
+    <script src="js/DropdownWidgetController.js" async="async"></script>
+    <script src="js/PersonalData.js" async="async"></script>
 </head>
 
 <body class="registration-page">
@@ -33,31 +39,225 @@
                 <h3 class="sub-title"><span>Образование</span></h3>
             </div>
         </div>
-        <form action="/save/" method="post" class="panel">
-            <fieldset class="photo">
+        <form action="/save/" method="post" enctype="multipart/form-data" class="panel">
+            <template id="current-avatar-template">
                 <div class="current-avatar">
                     <label for="registration-avatar">
-                        <img src="img/register/spoiler/avatar.jpg" alt="Фотография" />
+                        <img alt="Фотография" data-dz-thumbnail="data-dz-thumbnail" class="avatar" />
                     </label>
                     <a href="#" class="close"></a>
                 </div>
+            </template>
+            <fieldset class="photo">
                 <label class="file-selector"><span class="abstract">Перетяните ваше фото, или нажмите, чтобы выбрать</span><span class="select">Выбрать</span>
                     <input type="file" name="avatar" id="registration-avatar" accept="image/*" />
                 </label>
                 <p class="meta">Поддерживаются файлы JPG, GIF, PNG до 5 Мб.</p>
             </fieldset>
             <fieldset>
-                <div class="line">
-                    <h3 class="sub-title">Пол</h3>
+                <h3 class="sub-title">Пол</h3>
+                <div class="line sex-line">
+                    <div class="radio-widget">
+                        <input checked="checked" id="sex-male" type="radio" name="sex" value="male" />
+                        <label for="sex-male">мужской</label>
+                    </div>
+                    <div class="radio-widget">
+                        <input id="sex-female" type="radio" name="sex" value="female" />
+                        <label for="sex-female">женский</label>
+                    </div>
                 </div>
-                <div class="line">
-                    <h3 class="sub-title">Дата рождения</h3>
+                <h3 class="sub-title">Дата рождения</h3>
+                <div class="line birthday">
+                    <div id="birthday-required" class="error">Пожалуйста, заполните это поле</div>
+                    <input pattern="[0-9]+" type="text" value="" placeholder="День" required="required" data-h5-errorid="birthday-required" class="day" />
+                    <div class="mounth dropdown-widget">
+                        <select name="mounth" required="required" data-h5-errorid="birthday-required" class="unchanged">
+                            <option value="0">Январь</option>
+                            <option value="1">Февраль</option>
+                            <option value="2">Март</option>
+                            <option value="3">Апрель</option>
+                            <option value="4">Май</option>
+                            <option value="5">Июнь</option>
+                            <option value="6">Июль</option>
+                            <option value="7">Август</option>
+                            <option value="8">Сентябрь</option>
+                            <option value="9">Октябрь</option>
+                            <option value="10">Ноябрь</option>
+                            <option value="11">Декабрь</option>
+                        </select>
+                        <div data-placeholder="Месяц" class="current default"><span>Месяц</span>
+                        </div>
+                        <div class="list">
+                            <div data-value="0" class="option">Январь</div>
+                            <div data-value="1" class="option">Февраль</div>
+                            <div data-value="2" class="option">Март</div>
+                            <div data-value="3" class="option">Апрель</div>
+                            <div data-value="4" class="option">Май</div>
+                            <div data-value="5" class="option">Июнь</div>
+                            <div data-value="6" class="option">Июль</div>
+                            <div data-value="7" class="option">Август</div>
+                            <div data-value="8" class="option">Сентябрь</div>
+                            <div data-value="9" class="option">Октябрь</div>
+                            <div data-value="10" class="option">Ноябрь</div>
+                            <div data-value="11" class="option">Декабрь</div>
+                        </div>
+                    </div>
+                    <div class="year dropdown-widget">
+                        <select name="year" required="required" data-h5-errorid="birthday-required" class="unchanged">
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                            <option value="1994">1994</option>
+                            <option value="1993">1993</option>
+                            <option value="1992">1992</option>
+                            <option value="1991">1991</option>
+                            <option value="1990">1990</option>
+                            <option value="1989">1989</option>
+                            <option value="1988">1988</option>
+                            <option value="1987">1987</option>
+                            <option value="1986">1986</option>
+                            <option value="1985">1985</option>
+                            <option value="1984">1984</option>
+                            <option value="1983">1983</option>
+                            <option value="1982">1982</option>
+                            <option value="1981">1981</option>
+                            <option value="1980">1980</option>
+                            <option value="1979">1979</option>
+                            <option value="1978">1978</option>
+                            <option value="1977">1977</option>
+                            <option value="1976">1976</option>
+                            <option value="1975">1975</option>
+                            <option value="1974">1974</option>
+                            <option value="1973">1973</option>
+                            <option value="1972">1972</option>
+                            <option value="1971">1971</option>
+                            <option value="1970">1970</option>
+                            <option value="1969">1969</option>
+                            <option value="1968">1968</option>
+                            <option value="1967">1967</option>
+                            <option value="1966">1966</option>
+                            <option value="1965">1965</option>
+                            <option value="1964">1964</option>
+                            <option value="1963">1963</option>
+                            <option value="1962">1962</option>
+                            <option value="1961">1961</option>
+                            <option value="1960">1960</option>
+                            <option value="1959">1959</option>
+                            <option value="1958">1958</option>
+                            <option value="1957">1957</option>
+                            <option value="1956">1956</option>
+                            <option value="1955">1955</option>
+                            <option value="1954">1954</option>
+                            <option value="1953">1953</option>
+                            <option value="1952">1952</option>
+                            <option value="1951">1951</option>
+                            <option value="1950">1950</option>
+                            <option value="1949">1949</option>
+                            <option value="1948">1948</option>
+                            <option value="1947">1947</option>
+                            <option value="1946">1946</option>
+                        </select>
+                        <div data-placeholder="Год" class="current default"><span>Год</span>
+                        </div>
+                        <div class="list">
+                            <div data-value='2000' class="option">2000</div>
+                            <div data-value='1999' class="option">1999</div>
+                            <div data-value='1998' class="option">1998</div>
+                            <div data-value='1997' class="option">1997</div>
+                            <div data-value='1996' class="option">1996</div>
+                            <div data-value='1995' class="option">1995</div>
+                            <div data-value='1994' class="option">1994</div>
+                            <div data-value='1993' class="option">1993</div>
+                            <div data-value='1992' class="option">1992</div>
+                            <div data-value='1991' class="option">1991</div>
+                            <div data-value='1990' class="option">1990</div>
+                            <div data-value='1989' class="option">1989</div>
+                            <div data-value='1988' class="option">1988</div>
+                            <div data-value='1987' class="option">1987</div>
+                            <div data-value='1986' class="option">1986</div>
+                            <div data-value='1985' class="option">1985</div>
+                            <div data-value='1984' class="option">1984</div>
+                            <div data-value='1983' class="option">1983</div>
+                            <div data-value='1982' class="option">1982</div>
+                            <div data-value='1981' class="option">1981</div>
+                            <div data-value='1980' class="option">1980</div>
+                            <div data-value='1979' class="option">1979</div>
+                            <div data-value='1978' class="option">1978</div>
+                            <div data-value='1977' class="option">1977</div>
+                            <div data-value='1976' class="option">1976</div>
+                            <div data-value='1975' class="option">1975</div>
+                            <div data-value='1974' class="option">1974</div>
+                            <div data-value='1973' class="option">1973</div>
+                            <div data-value='1972' class="option">1972</div>
+                            <div data-value='1971' class="option">1971</div>
+                            <div data-value='1970' class="option">1970</div>
+                            <div data-value='1969' class="option">1969</div>
+                            <div data-value='1968' class="option">1968</div>
+                            <div data-value='1967' class="option">1967</div>
+                            <div data-value='1966' class="option">1966</div>
+                            <div data-value='1965' class="option">1965</div>
+                            <div data-value='1964' class="option">1964</div>
+                            <div data-value='1963' class="option">1963</div>
+                            <div data-value='1962' class="option">1962</div>
+                            <div data-value='1961' class="option">1961</div>
+                            <div data-value='1960' class="option">1960</div>
+                            <div data-value='1959' class="option">1959</div>
+                            <div data-value='1958' class="option">1958</div>
+                            <div data-value='1957' class="option">1957</div>
+                            <div data-value='1956' class="option">1956</div>
+                            <div data-value='1955' class="option">1955</div>
+                            <div data-value='1954' class="option">1954</div>
+                            <div data-value='1953' class="option">1953</div>
+                            <div data-value='1952' class="option">1952</div>
+                            <div data-value='1951' class="option">1951</div>
+                            <div data-value='1950' class="option">1950</div>
+                            <div data-value='1949' class="option">1949</div>
+                            <div data-value='1948' class="option">1948</div>
+                            <div data-value='1947' class="option">1947</div>
+                            <div data-value='1946' class="option">1946</div>
+                        </div>
+                    </div>
                 </div>
+                <h3 class="sub-title">Статус</h3>
                 <div class="line">
-                    <h3 class="sub-title">Статус</h3>
+                    <div id="status-required" class="error">Пожалуйста, выберите вариант</div>
+                    <div class="status dropdown-widget">
+                        <select name="status" required="required" data-h5-errorid="status-required" class="unchanged">
+                            <option value="0">Свободен</option>
+                            <option value="1">Занят</option>
+                        </select>
+                        <div data-placeholder="Выберите…" class="current default"><span>Выберите…</span>
+                        </div>
+                        <div class="list">
+                            <div data-value="0" class="option">Свободен</div>
+                            <div data-value="1" class="option">Занят</div>
+                        </div>
+                    </div>
                 </div>
+                <h3 class="sub-title">Стаж</h3>
                 <div class="line">
-                    <h3 class="sub-title">Стаж</h3>
+                    <div data-max='40' data-base='0' data-initial='0' class="experience-widget">
+                        <input required="required" pattern="[0-9]{1,2}" type="number" name="experience" value="" min="0" max="40" maxlength="2" class="value" />
+                        <div class="experience-line">
+                            <div class="experience-line-header">
+                                <div class="years">0</div>
+                                <div class="years">5</div>
+                                <div class="years">10</div>
+                                <div class="years">15</div>
+                                <div class="years">20</div>
+                                <div class="years">25</div>
+                                <div class="years">30</div>
+                                <div class="years">35</div>
+                                <div class="years">40</div>
+                            </div>
+                            <div class="experience-status"></div>
+                            <div class="experience-handle"><span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </fieldset>
             <nav><a href="#" class="previous">Предыдущий</a>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge;chrome=1")
+    meta(name="viewport", content="width = device-width, initial-scale = 1.0")
+    title Шаг 3 | Адреса | Регистрация | Ассоциация репетиторов
+    link(rel="stylesheet", href="css/styles.css")
+
+    script(src="js/modernizr.js")
+    script(src="js/html-template-polyfill.js")
+    script(src="js/jquery/jquery.min.js")
+    script(src="js/jquery-ui-1.9.2.custom.min.js")
+    script(src="js/h5Validate/jquery.h5validate.js")
+    script(src="js/FileAPI.min.js")
+
+    script(src="js/ExperienceWidgetController.js", async)
+    script(src="js/DropdownWidgetController.js", async)
+    script(src="js/PersonalData.js", async)
+
+    
+  body.registration-page
+    header
+      .wrapper
+        a(href="/")
+          h1.logotype Ассоциация репетиторов
+      
+    .registration-step-1
+      
+      h2.title Регистрация репетитора
+
+      .steps
+        .step.selected
+          h3.sub-title: span Личные данные
+        .step.selected
+          h3.sub-title: span Предметы
+        .step.selected
+          h3.sub-title: span Адреса
+        .step
+          h3.sub-title: span Образование
+
+      form.panel(action="/save/", method="post", enctype="multipart/form-data")
+        fieldset
+          h3.sub-title Формат проведения занятий
+
+        .line.lessons-format
+
+          .checkbox-widget
+            input#item-1(type="checkbox", name="addition")
+            label(for="item-1") на дому
+          .checkbox-widget
+            input#item-2(type="checkbox", name="addition")
+            label(for="item-2") выезд к ученику
+          .checkbox-widget
+            input#item-3(type="checkbox", name="addition")
+            label(for="item-3") удаленно
+
+        fieldset
+          h2.chapter-title Адрес преподавания
+          .line
+            label(for="address") Населенный пункт
+            input.address(type="text", id="address", name="address", list="addresses")
+            datalist#addresses
+              option(value="Москва"): span Красноярский край
+              option(value="Санкт-Петербург"): span Красноярский край
+          .line.address-details
+            .street
+              label(for="street") Улица
+              input(type="text", id="street", name="street", value="")
+            .house
+              label(for="house") Дом
+              input(type="text", id="house", name="house", value="")
+            .corpus
+              label(for="corpus") Корпус
+              input(type="text", id="corpus", name="corpus", value="")
+            .building
+              label(for="building") Строение
+              input(type="text", id="building", name="building", value="")
+        fieldset
+          h2.chapter-title Адрес преподавания
+          .line
+            a.add-address(href="#") Добавить адрес
+
+        fieldset
+          h2.chapter-title Адреса выезда
+          .line
+            label(for="comments") Комментарии по выезду для ученика
+            textarea#comments(name="comments", cols="30", rows="10")
+
+        nav
+          a.previous(href="#") Предыдущий
+          button(type="submit") Продолжить
+
+        

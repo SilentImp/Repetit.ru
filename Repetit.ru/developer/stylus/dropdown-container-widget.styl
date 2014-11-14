@@ -1,0 +1,58 @@
+html.no-svg body
+  .dropdown-container-widget
+    background-image url('../img/register/ddico.png')
+
+
+.dropdown-container-widget
+  position relative
+  display block 
+  box-sizing border-box
+  border 1px solid #E5E5E5
+  border-radius 4px
+  background #fff 
+  height 48px
+  line-height 48px
+  background url('../img/register/ddico.svg') 100% 50% no-repeat
+  &:hover
+    border-color #BFD6DB
+    .list
+      display block
+  &.ui-state-error
+    border-color #F56D6C
+    box-shadow 0 0 4px 1px rgba(#F56D6C, .3)
+  .current
+    color #3F3F3F
+    padding 0 34px 0 15px
+    white-space nowrap
+    text-overflow ellipsis  
+    overflow hidden
+    font-size 18px
+    line-height 48px
+    font-weight 200
+    font-family 'Helvetica Neue'
+    &.default span
+      color rgba(#3F3F3F, .51)
+  .list
+    display none
+    background #FFF 
+    border 1px solid #BFD6DB
+    border-radius 4px
+    width 100%
+    box-sizing border-box  
+    position absolute
+    top 100%
+    left 0
+    right 0
+    z-index 100
+    max-height 300px
+    max-height 50vh
+    overflow auto
+    font-size 0
+    .checkbox-widget
+      margin 11px 0 0 11px
+    .column
+      box-sizing border-box
+      width 50%
+      display inline-block
+      vertical-align top
+      

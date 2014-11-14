@@ -1,0 +1,50 @@
+.radio-widget
+  position relative
+  display inline-block
+  input
+    position absolute
+    left -9999px
+    opacity 0
+  label
+    font-size 18px
+    color #3F3F3F
+    line-height 22px
+    font-family 'Helvetica Neue'
+    font-weight 200 
+    position relative
+    padding 0 0 0 30px 
+    cursor pointer
+    &:hover
+      &:after
+        opacity 0.25
+    &:before
+      content ""
+      display block
+      position absolute
+      left 0
+      top 50%
+      margin -10px 0 0 0
+      width 20px
+      height 20px
+      border-radius 100%
+      background #478E9E
+    &:after
+      content ""
+      display block
+      position absolute
+      top 50%
+      left 6px
+      margin -4px 0 0 0
+      width 8px 
+      height 8px
+      border-radius 100%
+      background #fff 
+      transition opacity .25s
+      opacity 0
+  input:checked+label
+    pointer-events none
+    &:hover:after
+      opacity 1
+    &:after
+      opacity 1
+    
