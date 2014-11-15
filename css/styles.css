@@ -862,6 +862,16 @@ html.no-flexbox body .experience-widget .experience-line .experience-line-header
     background: url("../img/register/handle.svg") 0 0 no-repeat;
 }
 
+@media (max-width: 500px) {
+    .experience-widget .experience-line {
+        display: none;
+    }
+
+    .experience-widget .value {
+        width: 100%;
+    }
+}
+
 html.no-svg .how-we-work .steps .step:after {
     background: url("../img/register/arrow.png") 0 0 no-repeat;
 }
@@ -2818,6 +2828,68 @@ body.registration-page {
 @media (max-width: 1060px) {
     .registration-step-1 .title {
         margin-top: 0;
+    }
+}
+
+@media (max-width: 880px) {
+    .registration-step-1 .panel {
+        border-style: solid none none;
+        max-width: none;
+        margin: 0 -30px -30px;
+        padding: 0 20px 20px;
+    }
+
+    .registration-step-1 .panel fieldset,
+  .registration-step-1 .panel fieldset.photo,
+  .registration-step-1 .panel fieldset.photo+fieldset {
+        float: none;
+        left: auto;
+        margin: 20px 0 0;
+        padding: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .registration-step-1 .panel {
+        border-style: solid none none;
+        max-width: none;
+        margin: 0 -30px -30px;
+        padding: 0 20px 20px;
+    }
+
+    .registration-step-1 .panel fieldset,
+  .registration-step-1 .panel fieldset.photo,
+  .registration-step-1 .panel fieldset.photo+fieldset {
+        width: auto;
+        max-width: none;
+        float: none;
+        left: auto;
+        margin: 20px 0 0;
+    }
+
+    .registration-step-1 .panel fieldset .month,
+  .registration-step-1 .panel fieldset.photo .month,
+  .registration-step-1 .panel fieldset.photo+fieldset .month,
+  .registration-step-1 .panel fieldset .year,
+  .registration-step-1 .panel fieldset.photo .year,
+  .registration-step-1 .panel fieldset.photo+fieldset .year,
+  .registration-step-1 .panel fieldset .day,
+  .registration-step-1 .panel fieldset.photo .day,
+  .registration-step-1 .panel fieldset.photo+fieldset .day {
+        margin: 0 0 20px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .registration-step-1 .steps .step .sub-title span {
+        font-size: 11px;
+        font-weight: normal;
+    }
+
+    .registration-step-1 .steps .step:nth-child(2n) .sub-title {
+        bottom: auto;
+        top: 25px;
     }
 }
 
