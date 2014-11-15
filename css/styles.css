@@ -641,9 +641,9 @@ html.touch body .dropdown-widget select {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #f00;
+    background-color: transparent;
     z-index: 1000;
-    opacity: 0.5;
+    opacity: 0.001;
 }
 
 html.touch body .dropdown-widget:hover {
@@ -2086,6 +2086,7 @@ body.registration-page {
     line-height: 0;
     position: relative;
     margin: 75px auto;
+    height: 0;
     border-top: 3px dashed rgba(63,63,63,0.3);
 }
 
@@ -2124,7 +2125,7 @@ body.registration-page {
 .registration-step-1 .steps .step {
     text-align: center;
     position: relative;
-    vertical-align: top;
+    vertical-align: middle;
     display: inline-block;
     width: 25%;
     height: 0;
@@ -2843,10 +2844,14 @@ body.registration-page {
 }
 
 @media (max-width: 880px) {
+    .registration-step-1 {
+        padding: 0;
+    }
+
     .registration-step-1 .panel {
         border-style: solid none none;
         max-width: none;
-        margin: 0 -30px -30px;
+        margin: 0;
         padding: 0 20px 20px;
     }
 
@@ -2864,7 +2869,7 @@ body.registration-page {
     .registration-step-1 .panel {
         border-style: solid none none;
         max-width: none;
-        margin: 0 -30px -30px;
+        margin: 0;
         padding: 0 20px 20px;
     }
 
@@ -2913,6 +2918,10 @@ body.registration-page {
 }
 
 @media (max-width: 600px) {
+    .registration-step-1 .steps {
+        margin: 75px 30px;
+    }
+
     .registration-step-1 .steps .step .sub-title span {
         font-size: 11px;
         font-weight: normal;
