@@ -641,6 +641,9 @@ html.touch body .dropdown-widget select {
     bottom: 0;
     left: 0;
     right: 0;
+    background-color: #f00;
+    z-index: 1000;
+    opacity: 0.5;
 }
 
 .dropdown-widget {
