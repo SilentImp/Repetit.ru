@@ -333,6 +333,7 @@ html.no-svg body .contacts section.social nav a.tw {
 }
 
 .contacts-and-feedback .feedback nav button {
+    font-family: 'Tahoma', sans-serif;
     outline: none;
     height: 50px;
     width: 160px;
@@ -391,6 +392,7 @@ html.no-svg body .contacts section.social nav a.tw {
 
 .contacts-and-feedback .feedback input[type="text"],
 .contacts-and-feedback .feedback input[type="email"] {
+    font-family: 'Tahoma', sans-serif;
     display: block;
     width: 100%;
     height: 30px;
@@ -426,6 +428,7 @@ html.no-svg body .contacts section.social nav a.tw {
     margin: 0 0 20px;
     border: 1px solid #e5e5e5;
     background: #fff;
+    font-family: 'Tahoma', sans-serif;
 }
 
 .contacts-and-feedback .feedback textarea:focus {
@@ -560,6 +563,15 @@ html.no-svg body .dropdown-container-widget {
     background: url("../img/register/ddico.svg") 100% 50% no-repeat;
 }
 
+.dropdown-container-widget.clicked {
+    pointer-events: none;
+}
+
+.dropdown-container-widget.clicked .list,
+.dropdown-container-widget.clicked .list:hover {
+    display: none;
+}
+
 .dropdown-container-widget:hover {
     border-color: #bfd6db;
 }
@@ -642,6 +654,15 @@ html.touch body .dropdown-widget select {
     height: 48px;
     line-height: 48px;
     background: url("../img/register/ddico.svg") 100% 50% no-repeat;
+}
+
+.dropdown-widget.clicked {
+    pointer-events: none;
+}
+
+.dropdown-widget.clicked .list,
+.dropdown-widget.clicked .list:hover {
+    display: none;
 }
 
 .dropdown-widget:hover {
@@ -2682,7 +2703,7 @@ body.registration-page {
     vertical-align: top;
 }
 
-.registration-step-1 .panel fieldset.photo+fieldset .mounth {
+.registration-step-1 .panel fieldset.photo+fieldset .month {
     display: inline-block;
     width: 250px;
     margin-left: 10px;

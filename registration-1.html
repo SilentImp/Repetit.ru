@@ -13,6 +13,7 @@
     <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
     <script src="js/h5Validate/jquery.h5validate.js"></script>
     <script src="js/FileAPI.min.js"></script>
+    <script src="js/moment/min/moment.min.js"></script>
     <script src="js/ExperienceWidgetController.js" async="async"></script>
     <script src="js/DropdownWidgetController.js" async="async"></script>
     <script src="js/PersonalData.js" async="async"></script>
@@ -69,9 +70,9 @@
                 <h3 class="sub-title">Дата рождения</h3>
                 <div class="line birthday">
                     <div id="birthday-required" class="error">Пожалуйста, заполните это поле</div>
-                    <input pattern="[0-9]+" type="text" value="" placeholder="День" required="required" data-h5-errorid="birthday-required" class="day" />
-                    <div class="mounth dropdown-widget">
-                        <select name="mounth" required="required" data-h5-errorid="birthday-required" class="unchanged">
+                    <input pattern="[1-9][0-9]*" min="1" max="31" maxlength="2" type="text" value="" placeholder="День" required="required" data-h5-errorid="birthday-required" class="day" />
+                    <div class="month dropdown-widget">
+                        <select name="month" required="required" data-h5-errorid="birthday-required" class="unchanged">
                             <option value="0">Январь</option>
                             <option value="1">Февраль</option>
                             <option value="2">Март</option>
