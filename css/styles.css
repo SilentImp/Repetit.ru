@@ -1223,6 +1223,12 @@ html.no-svg body .message-panel nav .close {
     display: block;
 }
 
+.message-panel-wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+}
+
 .message-panel .text {
     line-height: 46px;
     height: 46px;

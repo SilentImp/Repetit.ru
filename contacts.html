@@ -11,6 +11,7 @@
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/h5Validate/jquery.h5validate.js"></script>
     <script src="js/ContactsPage.js" async="async"></script>
+    <script src="js/MessagePanel.js" async="async"></script>
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -28,9 +29,11 @@
         <div class="lightbox"></div>
         <script src="js/contacts-map.js" async="async"></script>
         <div class="message-panel">
-            <nav><a href="#" class="close">Закрыть</a><a href="#" class="details">Подробнее</a>
-            </nav>
-            <p class="text"><strong>Новые возможности сервиса: </strong>расширенные профили, поиск на карте, информирование по SMS и многое другое.</p>
+            <div class="message-panel-wrapper">
+                <nav><a href="#" class="close">Закрыть</a><a href="#" class="details">Подробнее</a>
+                </nav>
+                <p class="text"><strong>Новые возможности сервиса: </strong>расширенные профили, поиск на карте, информирование по SMS и многое другое.</p>
+            </div>
         </div>
         <div class="contacts-and-feedback">
             <form action="/sayit/" class="feedback">
