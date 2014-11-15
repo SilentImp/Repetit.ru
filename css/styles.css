@@ -1986,8 +1986,8 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
         width: auto;
     }
 
-    .registration-step-0 .registration fieldset input {
-        width: 100%;
+    .registration-step-0 .registration fieldset .line input {
+        max-width: 100%;
     }
 }
 
