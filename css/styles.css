@@ -2003,6 +2003,13 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
         display: block;
     }
 
+    .registration-step-0 .registration .copyright {
+        background: #325153;
+        width: auto;
+        padding: 20px;
+        margin: 0 -20px -20px;
+    }
+
     .registration-step-0 .registration .title {
         color: #333;
     }
