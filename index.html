@@ -91,13 +91,14 @@
                     <label for="reg-familyname">Отчество</label>
                 </div>
                 <div class="line">
-                    <input required="required" data-h5-errorid="reg-tel-required" type="tel" name="tel" value="" placeholder="Мобильный телефон" id="reg-tel" />
+                    <input required="required" data-h5-errorid="reg-tel-required" type="tel" name="tel" value="" placeholder="Мобильный телефон" id="reg-tel" class="h5-phone" />
                     <label for="reg-tel">Мобильный телефон</label>
                     <div id="reg-tel-required" class="error">Похоже, что номер телефона указан не корректно</div>
                 </div>
                 <div class="line">
-                    <input type="email" name="email" value="" placeholder="Email" id="reg-email" />
+                    <input type="email" data-h5-errorid="email-error" name="email" value="" placeholder="Email" id="reg-email" class="h5-email" />
                     <label for="reg-email">Email</label>
+                    <div id="email-error" class="error">Некорректный формат адреса электропочты</div>
                 </div>
                 <div class="line">
                     <input type="text" name="region" value="" placeholder="Регион" id="reg-region" />
