@@ -1972,14 +1972,39 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
         height: auto;
     }
 
+    .registration-step-0 header {
+        padding: 64px 0 0;
+    }
+
+    .registration-step-0 header .registration-step-0-close {
+        top: 10px;
+        right: 20px;
+    }
+
+    .registration-step-0 header .logotype {
+        position: static;
+    }
+
+    .registration-step-0 .regions-list {
+        box-shadow: none;
+        height: auto;
+        max-height: none;
+        width: auto;
+        max-width: none;
+    }
+
     .registration-step-0 .regions-list .regions .column {
         width: 100%;
     }
 
     .registration-step-0 .registration {
-        padding: 0 20px 20px;
+        padding: 20px;
         background: #fff;
         display: block;
+    }
+
+    .registration-step-0 .registration .title {
+        color: #333;
     }
 
     .registration-step-0 .registration fieldset {
