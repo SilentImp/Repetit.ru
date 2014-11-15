@@ -2855,6 +2855,10 @@ body.registration-page {
         padding: 0 20px 20px;
     }
 
+    .registration-step-1 .panel .error {
+        display: none !important;
+    }
+
     .registration-step-1 .panel fieldset,
   .registration-step-1 .panel fieldset.photo,
   .registration-step-1 .panel fieldset.photo+fieldset {
