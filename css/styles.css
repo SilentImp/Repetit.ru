@@ -646,6 +646,14 @@ html.touch body .dropdown-widget select {
     opacity: 0.5;
 }
 
+html.touch body .dropdown-widget:hover {
+    border-color: #bfd6db;
+}
+
+html.touch body .dropdown-widget:hover .list {
+    display: none;
+}
+
 .dropdown-widget {
     position: relative;
     display: block;
