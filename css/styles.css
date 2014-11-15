@@ -2867,6 +2867,16 @@ body.registration-page {
         margin: 20px 0 0;
     }
 
+    .registration-step-1 .panel fieldset .dropdown-container-widget,
+  .registration-step-1 .panel fieldset.photo .dropdown-container-widget,
+  .registration-step-1 .panel fieldset.photo+fieldset .dropdown-container-widget,
+  .registration-step-1 .panel fieldset .dropdown-widget,
+  .registration-step-1 .panel fieldset.photo .dropdown-widget,
+  .registration-step-1 .panel fieldset.photo+fieldset .dropdown-widget {
+        width: 100%;
+        display: block;
+    }
+
     .registration-step-1 .panel fieldset .month,
   .registration-step-1 .panel fieldset.photo .month,
   .registration-step-1 .panel fieldset.photo+fieldset .month,
