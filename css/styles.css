@@ -822,9 +822,8 @@ html.no-flexbox body .experience-widget .experience-line .experience-line-header
     position: relative;
     z-index: 2;
     top: 0;
-    width: 14px;
+    width: 0;
     height: 10px;
-    margin-left: -14px;
     cursor: pointer;
 }
 
@@ -836,9 +835,9 @@ html.no-flexbox body .experience-widget .experience-line .experience-line-header
     position: absolute;
     top: 100%;
     left: 100%;
-    width: 100%;
+    margin-left: -7px;
+    width: 14px;
     height: 20px;
-    margin-left: -50%;
     background: url("../img/register/handle.svg") 0 0 no-repeat;
 }
 
