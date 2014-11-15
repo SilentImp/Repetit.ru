@@ -1985,6 +1985,10 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
     .registration-step-0 .registration fieldset {
         width: auto;
     }
+
+    .registration-step-0 .registration fieldset input {
+        width: 100%;
+    }
 }
 
 html.no-svg body .registration-step-1 .panel.complete .sub-title {
