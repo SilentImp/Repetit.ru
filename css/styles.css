@@ -1968,7 +1968,6 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
     .registration-step-0 {
         background: #325153;
         position: relative;
-        overflow: hidden;
         width: auto;
         height: auto;
     }
@@ -1978,7 +1977,6 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
     }
 
     .registration-step-0 .registration {
-        margin: 100px 0 0;
         padding: 0 20px 20px;
         background: #fff;
         display: block;
