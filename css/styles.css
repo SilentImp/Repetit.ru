@@ -1314,8 +1314,8 @@ html.no-svg body .message-panel nav .close {
     cursor: pointer;
 }
 
-.radio-widget label:hover:after {
-    opacity: 0.25;
+.radio-widget label:hover:before {
+    background-color: #cbcbcb;
 }
 
 .radio-widget label:before {
@@ -1328,7 +1328,7 @@ html.no-svg body .message-panel nav .close {
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    background: #478e9e;
+    background: #e1e1e1;
 }
 
 .radio-widget label:after {
@@ -1342,8 +1342,8 @@ html.no-svg body .message-panel nav .close {
     height: 8px;
     border-radius: 100%;
     background: #fff;
-    -webkit-transition: opacity 0.25s;
-    transition: opacity 0.25s;
+    -webkit-transition: opacity 0.25s, background-color 0.25s;
+    transition: opacity 0.25s, background-color 0.25s;
     opacity: 0;
 }
 
@@ -1353,6 +1353,10 @@ html.no-svg body .message-panel nav .close {
 
 .radio-widget input:checked+label:hover:after {
     opacity: 1;
+}
+
+.radio-widget input:checked+label:before {
+    background: #478e9e;
 }
 
 .radio-widget input:checked+label:after {
