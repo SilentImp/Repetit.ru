@@ -3012,7 +3012,7 @@ body.registration-page {
 
 @media (max-width: 924px) {
     .registration-step-1 .steps {
-        max-width: 80vw;
+        max-width: 70vw;
         margin: 75px 30px;
     }
 
