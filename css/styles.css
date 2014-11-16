@@ -2840,6 +2840,7 @@ body.registration-page {
 .registration-step-1 .panel.complete {
     text-align: center;
     padding: 100px 40px 110px;
+    overflow: hidden;
 }
 
 .registration-step-1 .panel.complete p {
@@ -3011,7 +3012,7 @@ body.registration-page {
 
 @media (max-width: 924px) {
     .registration-step-1 .steps {
-        max-width: 90vw;
+        max-width: 80vw;
         margin: 75px 30px;
     }
 
