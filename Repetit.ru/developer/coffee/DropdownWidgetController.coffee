@@ -13,7 +13,7 @@ class DropdownWidgetController
     else
       @options.on @itype, @selectOption
 
-    @widget[0].controller = 
+    @widget[0].controller =
       validate: @validate
 
   redrawState: =>
@@ -48,8 +48,8 @@ class DropdownWidgetController
     @current.removeClass('default').text option.text()
     @validate()
     window.setInterval(()=>
-        @widget.removeClass 'clicked'
-      ,200)
+      @widget.removeClass 'clicked'
+    ,500)
 
   
 

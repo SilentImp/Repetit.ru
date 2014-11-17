@@ -13,6 +13,9 @@ html(lang="ru")
     script(src="js/jquery-ui-1.9.2.custom.min.js")
     script(src="js/h5Validate/jquery.h5validate.js")
     script(src="js/FileAPI.min.js")
+    script(src="js/handlebars/handlebars.min.js")
+    script(src="js/typeahead.js/dist/bloodhound.min.js")
+    script(src="js/typeahead.js/dist/typeahead.jquery.min.js")
 
     script(src="js/ExperienceWidgetController.js", async)
     script(src="js/DropdownWidgetController.js", async)
@@ -44,10 +47,10 @@ html(lang="ru")
           h2.chapter-title: span Образование
           .line
             label(for="city") Населенный пункт
-            input(type="text", id="city", name="city", value="", placeholder="Начните вводить...")
+            input(type="text", autocomplete="off", spellcheck="false", id="city", name="city", value="", placeholder="Начните вводить...")
           .line.name
             label(for="univercity") Название учебного заведения
-            input(type="text", id="univercity", name="univercity", value="", placeholder="Начните вводить...")
+            input(type="text", autocomplete="off", spellcheck="false", id="univercity", name="univercity", value="", placeholder="Начните вводить...")
           .line.grad-year
             label(for="grad-year") Год выпуска
             input(type="text", id="grad-year", name="grad-year", value="")

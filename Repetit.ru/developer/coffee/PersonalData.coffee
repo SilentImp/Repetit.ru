@@ -26,6 +26,43 @@ class PersonalData
     @month.on 'change', @checkDate
     @year.on 'change', @checkDate
 
+    locations = new Bloodhound
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace("city"),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      prefetch: "https://dl.dropboxusercontent.com/u/20810772/citys.json"
+    
+    locations.initialize()
+
+    $('#city').typeahead
+      hint: true
+      highlight: true
+      minLength: 1
+    ,
+      name: 'locations'
+      displayKey: 'city',
+      source: locations.ttAdapter()
+      templates:
+        suggestion: Handlebars.compile('<p><b>{{region}}</b>{{city}}</p>')
+
+    univercitys = new Bloodhound
+      datumTokenizer: (data)->
+        return Bloodhound.tokenizers.whitespace(data.title)
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      local: [{"title":"Andorra"},{"title":"UnitedArabEmirates"},{"title":"Afghanistan"},{"title":"AntiguaandBarbuda"},{"title":"Anguilla"},{"title":"Albania"},{"title":"Armenia"},{"title":"Angola"},{"title":"Antarctica"}]
+
+    univercitys.initialize()
+
+    $('#univercity').typeahead
+      hint: true
+      highlight: true
+      minLength: 1
+    ,
+      name: 'univercitys'
+      displayKey: 'title',
+      source: univercitys.ttAdapter()
+      templates:
+        suggestion: Handlebars.compile('<p>{{title}}</p>')
+
 
   checkDate: (event)=>
     day = parseInt @day.val().trim(), 10
@@ -45,13 +82,13 @@ class PersonalData
     if day>31
       @day.val 31
 
-  droped: (event)=>
+  droped: (event)->
     event.preventDefault()
     console.log 'droped', event
     FileAPI.getDropFiles event, (files)->
       console.log 'file: ', files
 
-  over: (over)=>
+  over: (over)->
 
 
   drop: (files)=>
