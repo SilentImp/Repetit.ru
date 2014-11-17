@@ -1940,6 +1940,7 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
     opacity: 0;
 }
 
+.registration-step-0 .registration fieldset .line input.h5-phone:focus+label,
 .registration-step-0 .registration fieldset .line input.changed+label {
     opacity: 1;
 }
