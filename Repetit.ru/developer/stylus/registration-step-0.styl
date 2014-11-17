@@ -418,6 +418,7 @@ html.no-svg body
           font-size 11px
           line-height 13px
           opacity 0
+        input.h5-phone:focus+label,
         input.changed+label
           opacity 1 
     nav
@@ -458,3 +459,51 @@ html.no-svg body
       color rgba(#fff,.6)
       a
         color #FFF 
+
+
+@media (max-width 600px)
+  .registration-step-0
+    background #325153 
+    position relative
+    width auto
+    height auto
+    header
+      padding 64px 0 0 
+      .registration-step-0-close
+        top 10px
+        right 20px
+      .logotype
+        position static
+    .regions-list
+      box-shadow none
+      height auto
+      max-height none
+      width auto
+      max-width none
+      .regions
+        .column
+          width 100%
+    .registration
+      padding 20px
+      background #FFF 
+      display block
+      .copyright
+        background #325153 
+        width auto
+        padding 20px  
+        margin 0 -20px -20px  
+      .title
+        color #333 
+      fieldset
+        width auto
+        .line
+          .error
+            display none !important
+          input
+            width 100%
+            box-sizing border-box
+            height 54px
+      nav
+        button
+          font-size 14px
+          max-width 100%

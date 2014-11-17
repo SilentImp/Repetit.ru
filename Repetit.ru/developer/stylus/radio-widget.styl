@@ -15,8 +15,8 @@
     padding 0 0 0 30px 
     cursor pointer
     &:hover
-      &:after
-        opacity 0.25
+      &:before
+        background-color #CBCBCB
     &:before
       content ""
       display block
@@ -27,7 +27,7 @@
       width 20px
       height 20px
       border-radius 100%
-      background #478E9E
+      background #E1E1E1
     &:after
       content ""
       display block
@@ -39,12 +39,14 @@
       height 8px
       border-radius 100%
       background #fff 
-      transition opacity .25s
+      transition opacity .25s, background-color .25s
       opacity 0
   input:checked+label
     pointer-events none
     &:hover:after
       opacity 1
+    &:before
+      background #478E9E
     &:after
       opacity 1
     

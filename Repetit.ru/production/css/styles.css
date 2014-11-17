@@ -333,6 +333,7 @@ html.no-svg body .contacts section.social nav a.tw {
 }
 
 .contacts-and-feedback .feedback nav button {
+    font-family: 'Tahoma', sans-serif;
     outline: none;
     height: 50px;
     width: 160px;
@@ -391,6 +392,7 @@ html.no-svg body .contacts section.social nav a.tw {
 
 .contacts-and-feedback .feedback input[type="text"],
 .contacts-and-feedback .feedback input[type="email"] {
+    font-family: 'Tahoma', sans-serif;
     display: block;
     width: 100%;
     height: 30px;
@@ -426,6 +428,7 @@ html.no-svg body .contacts section.social nav a.tw {
     margin: 0 0 20px;
     border: 1px solid #e5e5e5;
     background: #fff;
+    font-family: 'Tahoma', sans-serif;
 }
 
 .contacts-and-feedback .feedback textarea:focus {
@@ -560,6 +563,15 @@ html.no-svg body .dropdown-container-widget {
     background: url("../img/register/ddico.svg") 100% 50% no-repeat;
 }
 
+.dropdown-container-widget.clicked {
+    pointer-events: none;
+}
+
+.dropdown-container-widget.clicked .list,
+.dropdown-container-widget.clicked .list:hover {
+    display: none;
+}
+
 .dropdown-container-widget:hover {
     border-color: #bfd6db;
 }
@@ -620,6 +632,16 @@ html.no-svg body .dropdown-container-widget {
     vertical-align: top;
 }
 
+@media (max-width: 500px) {
+    .dropdown-container-widget .list .column {
+        width: auto;
+    }
+
+    .dropdown-container-widget .list .column:last-child {
+        padding: 0 0 11px;
+    }
+}
+
 html.no-svg body .dropdown-widget {
     background-image: url("../img/register/ddico.png");
 }
@@ -629,6 +651,17 @@ html.touch body .dropdown-widget select {
     bottom: 0;
     left: 0;
     right: 0;
+    background-color: transparent;
+    z-index: 1000;
+    opacity: 0.001;
+}
+
+html.touch body .dropdown-widget:hover {
+    border-color: #bfd6db;
+}
+
+html.touch body .dropdown-widget:hover .list {
+    display: none;
 }
 
 .dropdown-widget {
@@ -642,6 +675,15 @@ html.touch body .dropdown-widget select {
     height: 48px;
     line-height: 48px;
     background: url("../img/register/ddico.svg") 100% 50% no-repeat;
+}
+
+.dropdown-widget.clicked {
+    pointer-events: none;
+}
+
+.dropdown-widget.clicked .list,
+.dropdown-widget.clicked .list:hover {
+    display: none;
 }
 
 .dropdown-widget:hover {
@@ -822,9 +864,8 @@ html.no-flexbox body .experience-widget .experience-line .experience-line-header
     position: relative;
     z-index: 2;
     top: 0;
-    width: 14px;
+    width: 0;
     height: 10px;
-    margin-left: -14px;
     cursor: pointer;
 }
 
@@ -836,10 +877,20 @@ html.no-flexbox body .experience-widget .experience-line .experience-line-header
     position: absolute;
     top: 100%;
     left: 100%;
-    width: 100%;
+    margin-left: -7px;
+    width: 14px;
     height: 20px;
-    margin-left: -50%;
     background: url("../img/register/handle.svg") 0 0 no-repeat;
+}
+
+@media (max-width: 500px) {
+    .experience-widget .experience-line {
+        display: none;
+    }
+
+    .experience-widget .value {
+        width: 100%;
+    }
 }
 
 html.no-svg .how-we-work .steps .step:after {
@@ -1224,6 +1275,12 @@ html.no-svg body .message-panel nav .close {
     display: block;
 }
 
+.message-panel-wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+}
+
 .message-panel .text {
     line-height: 46px;
     height: 46px;
@@ -1314,8 +1371,8 @@ html.no-svg body .message-panel nav .close {
     cursor: pointer;
 }
 
-.radio-widget label:hover:after {
-    opacity: 0.25;
+.radio-widget label:hover:before {
+    background-color: #cbcbcb;
 }
 
 .radio-widget label:before {
@@ -1328,7 +1385,7 @@ html.no-svg body .message-panel nav .close {
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    background: #478e9e;
+    background: #e1e1e1;
 }
 
 .radio-widget label:after {
@@ -1342,8 +1399,8 @@ html.no-svg body .message-panel nav .close {
     height: 8px;
     border-radius: 100%;
     background: #fff;
-    -webkit-transition: opacity 0.25s;
-    transition: opacity 0.25s;
+    -webkit-transition: opacity 0.25s, background-color 0.25s;
+    transition: opacity 0.25s, background-color 0.25s;
     opacity: 0;
 }
 
@@ -1353,6 +1410,10 @@ html.no-svg body .message-panel nav .close {
 
 .radio-widget input:checked+label:hover:after {
     opacity: 1;
+}
+
+.radio-widget input:checked+label:before {
+    background: #478e9e;
 }
 
 .radio-widget input:checked+label:after {
@@ -1879,6 +1940,7 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
     opacity: 0;
 }
 
+.registration-step-0 .registration fieldset .line input.h5-phone:focus+label,
 .registration-step-0 .registration fieldset .line input.changed+label {
     opacity: 1;
 }
@@ -1934,6 +1996,77 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
     color: #fff;
 }
 
+@media (max-width: 600px) {
+    .registration-step-0 {
+        background: #325153;
+        position: relative;
+        width: auto;
+        height: auto;
+    }
+
+    .registration-step-0 header {
+        padding: 64px 0 0;
+    }
+
+    .registration-step-0 header .registration-step-0-close {
+        top: 10px;
+        right: 20px;
+    }
+
+    .registration-step-0 header .logotype {
+        position: static;
+    }
+
+    .registration-step-0 .regions-list {
+        box-shadow: none;
+        height: auto;
+        max-height: none;
+        width: auto;
+        max-width: none;
+    }
+
+    .registration-step-0 .regions-list .regions .column {
+        width: 100%;
+    }
+
+    .registration-step-0 .registration {
+        padding: 20px;
+        background: #fff;
+        display: block;
+    }
+
+    .registration-step-0 .registration .copyright {
+        background: #325153;
+        width: auto;
+        padding: 20px;
+        margin: 0 -20px -20px;
+    }
+
+    .registration-step-0 .registration .title {
+        color: #333;
+    }
+
+    .registration-step-0 .registration fieldset {
+        width: auto;
+    }
+
+    .registration-step-0 .registration fieldset .line .error {
+        display: none !important;
+    }
+
+    .registration-step-0 .registration fieldset .line input {
+        width: 100%;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        height: 54px;
+    }
+
+    .registration-step-0 .registration nav button {
+        font-size: 14px;
+        max-width: 100%;
+    }
+}
+
 html.no-svg body .registration-step-1 .panel.complete .sub-title {
     background-image: url("../img/register/complete.png");
 }
@@ -1964,6 +2097,7 @@ body.registration-page {
     line-height: 0;
     position: relative;
     margin: 75px auto;
+    height: 0;
     border-top: 3px dashed rgba(63,63,63,0.3);
 }
 
@@ -2002,7 +2136,7 @@ body.registration-page {
 .registration-step-1 .steps .step {
     text-align: center;
     position: relative;
-    vertical-align: top;
+    vertical-align: middle;
     display: inline-block;
     width: 25%;
     height: 0;
@@ -2068,7 +2202,7 @@ body.registration-page {
     height: 26px;
     border: 3px dashed rgba(63,63,63,0.3);
     border-radius: 100%;
-    margin-top: -16px;
+    top: -16px;
     background-color: #efefef;
 }
 
@@ -2080,6 +2214,7 @@ body.registration-page {
     text-align: left;
     padding: 40px;
     position: relative;
+    overflow: hidden;
 }
 
 .registration-step-1 .panel:after {
@@ -2225,6 +2360,22 @@ body.registration-page {
     text-transform: uppercase;
     color: #3f3f3f;
     margin: 0 -18px 30px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100vw;
+}
+
+.registration-step-1 .panel .chapter-title span {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-overflow: ellipsis;
 }
 
 .registration-step-1 .panel .line {
@@ -2497,7 +2648,7 @@ body.registration-page {
     border-radius: 4px;
     background: #fff;
     height: 48px;
-    box-shadow: none;
+    box-shadow: none !important;
     font-size: 18px;
     font-weight: 200;
     line-height: 24px;
@@ -2673,7 +2824,7 @@ body.registration-page {
     vertical-align: top;
 }
 
-.registration-step-1 .panel fieldset.photo+fieldset .mounth {
+.registration-step-1 .panel fieldset.photo+fieldset .month {
     display: inline-block;
     width: 250px;
     margin-left: 10px;
@@ -2690,6 +2841,7 @@ body.registration-page {
 .registration-step-1 .panel.complete {
     text-align: center;
     padding: 100px 40px 110px;
+    overflow: hidden;
 }
 
 .registration-step-1 .panel.complete p {
@@ -2717,6 +2869,195 @@ body.registration-page {
 @media (max-width: 1060px) {
     .registration-step-1 .title {
         margin-top: 0;
+    }
+}
+
+@media (max-width: 880px) {
+    .registration-step-1 {
+        padding: 0;
+    }
+
+    .registration-step-1 .panel {
+        border-style: solid none none;
+        max-width: none;
+        margin: 0;
+        padding: 0 20px 20px;
+    }
+
+    .registration-step-1 .panel .error {
+        display: none !important;
+    }
+
+    .registration-step-1 .panel fieldset,
+  .registration-step-1 .panel fieldset.photo,
+  .registration-step-1 .panel fieldset.photo+fieldset {
+        float: none;
+        left: auto;
+        margin: 20px 0 0;
+        padding: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .registration-step-1 .panel {
+        border-style: solid none none;
+        max-width: none;
+        margin: 0;
+        padding: 0 20px 20px;
+    }
+
+    .registration-step-1 .panel .line.name {
+        margin: 0 0 30px;
+    }
+
+    .registration-step-1 .panel .line.grad-year {
+        display: block;
+    }
+
+    .registration-step-1 .panel .education input,
+  .registration-step-1 .panel .line.grad-year input,
+  .registration-step-1 .panel .name input,
+  .registration-step-1 .panel .line.spec textarea,
+  .registration-step-1 .panel .address {
+        width: 100%;
+    }
+
+    .registration-step-1 .panel .lessons-format .checkbox-widget {
+        width: auto;
+        display: block;
+    }
+
+    .registration-step-1 .panel nav .previous,
+  .registration-step-1 .panel nav button {
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        display: block;
+        float: none;
+        margin: 0 0 20px;
+    }
+
+    .registration-step-1 .panel fieldset,
+  .registration-step-1 .panel fieldset.photo,
+  .registration-step-1 .panel fieldset.photo+fieldset {
+        width: auto;
+        max-width: 100%;
+        float: none;
+        left: auto;
+        margin: 20px 0 0;
+    }
+
+    .registration-step-1 .panel fieldset .address-details .house,
+  .registration-step-1 .panel fieldset.photo .address-details .house,
+  .registration-step-1 .panel fieldset.photo+fieldset .address-details .house,
+  .registration-step-1 .panel fieldset .address-details .corpus,
+  .registration-step-1 .panel fieldset.photo .address-details .corpus,
+  .registration-step-1 .panel fieldset.photo+fieldset .address-details .corpus,
+  .registration-step-1 .panel fieldset .address-details .building,
+  .registration-step-1 .panel fieldset.photo .address-details .building,
+  .registration-step-1 .panel fieldset.photo+fieldset .address-details .building,
+  .registration-step-1 .panel fieldset .address-details .street,
+  .registration-step-1 .panel fieldset.photo .address-details .street,
+  .registration-step-1 .panel fieldset.photo+fieldset .address-details .street {
+        margin: 0 0 20px;
+        display: block;
+    }
+
+    .registration-step-1 .panel fieldset .address-details .house input,
+  .registration-step-1 .panel fieldset.photo .address-details .house input,
+  .registration-step-1 .panel fieldset.photo+fieldset .address-details .house input,
+  .registration-step-1 .panel fieldset .address-details .corpus input,
+  .registration-step-1 .panel fieldset.photo .address-details .corpus input,
+  .registration-step-1 .panel fieldset.photo+fieldset .address-details .corpus input,
+  .registration-step-1 .panel fieldset .address-details .building input,
+  .registration-step-1 .panel fieldset.photo .address-details .building input,
+  .registration-step-1 .panel fieldset.photo+fieldset .address-details .building input,
+  .registration-step-1 .panel fieldset .address-details .street input,
+  .registration-step-1 .panel fieldset.photo .address-details .street input,
+  .registration-step-1 .panel fieldset.photo+fieldset .address-details .street input {
+        width: 100%;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .registration-step-1 .panel fieldset .third,
+  .registration-step-1 .panel fieldset.photo .third,
+  .registration-step-1 .panel fieldset.photo+fieldset .third {
+        width: auto;
+        margin: 0 0 20px;
+    }
+
+    .registration-step-1 .panel fieldset .dropdown-container-widget,
+  .registration-step-1 .panel fieldset.photo .dropdown-container-widget,
+  .registration-step-1 .panel fieldset.photo+fieldset .dropdown-container-widget,
+  .registration-step-1 .panel fieldset .dropdown-widget,
+  .registration-step-1 .panel fieldset.photo .dropdown-widget,
+  .registration-step-1 .panel fieldset.photo+fieldset .dropdown-widget {
+        width: 100%;
+        display: block;
+    }
+
+    .registration-step-1 .panel fieldset .month,
+  .registration-step-1 .panel fieldset.photo .month,
+  .registration-step-1 .panel fieldset.photo+fieldset .month,
+  .registration-step-1 .panel fieldset .year,
+  .registration-step-1 .panel fieldset.photo .year,
+  .registration-step-1 .panel fieldset.photo+fieldset .year,
+  .registration-step-1 .panel fieldset .day,
+  .registration-step-1 .panel fieldset.photo .day,
+  .registration-step-1 .panel fieldset.photo+fieldset .day {
+        margin: 0 0 20px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 924px) {
+    .registration-step-1 .steps {
+        max-width: 70vw;
+        margin: 75px 30px;
+    }
+
+    .registration-step-1 .steps .step .sub-title span {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .registration-step-1 .panel .add-sertificat label {
+        display: block;
+        margin: 0 0 30px;
+    }
+
+    .registration-step-1 .panel .add-sertificat span {
+        display: block;
+    }
+
+    .registration-step-1 .panel .sertificat-list .sertificat {
+        padding: 0;
+    }
+
+    .registration-step-1 .panel .sertificat-list .sertificat img {
+        position: static;
+        display: block;
+        margin: 0 0 30px;
+    }
+
+    .registration-step-1 .panel .sertificat-list .sertificat .remove {
+        left: 100px;
+    }
+
+    .registration-step-1 .steps {
+        margin: 75px 30px;
+    }
+
+    .registration-step-1 .steps .step .sub-title span {
+        font-size: 11px;
+        font-weight: normal;
+    }
+
+    .registration-step-1 .steps .step:nth-child(2n) .sub-title {
+        bottom: auto;
+        top: 25px;
     }
 }
 

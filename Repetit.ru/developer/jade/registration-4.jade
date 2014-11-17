@@ -41,7 +41,7 @@ html(lang="ru")
 
       form.panel(action="/save/", method="post", enctype="multipart/form-data")
         fieldset.education
-          h2.chapter-title Образование
+          h2.chapter-title: span Образование
           .line
             label(for="city") Населенный пункт
             input(type="text", id="city", name="city", value="", placeholder="Начните вводить...")
@@ -59,12 +59,12 @@ html(lang="ru")
             textarea#spec(name="comments", cols="30", rows="10")
 
         fieldset
-          h2.chapter-title Образование
+          h2.chapter-title: span Образование
           .line
             a.add-education(href="#") Добавить образование
 
         fieldset.sertificats
-          h2.chapter-title Дипломы, грамоты, сертификаты
+          h2.chapter-title: span Дипломы, грамоты, сертификаты
           
           .sertificat-list
             
@@ -86,7 +86,7 @@ html(lang="ru")
             span Поддерживаются файлы PDF, JPG, GIF, PNG до 5 Мб.
 
         fieldset
-          h2.chapter-title Дополнительно
+          h2.chapter-title: span Дополнительно
           .line
             label(for="additional-information") Дополнительная информация о вас
             textarea#additional-information(name="additional-information", cols="30", rows="10")

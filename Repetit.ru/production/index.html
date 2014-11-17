@@ -9,6 +9,7 @@
     <script src="js/modernizr.js"></script>
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/h5Validate/jquery.h5validate.js"></script>
+    <script src="js/jquery.maskedinput/jquery.maskedinput.min.js"></script>
     <script src="js/RegistrationStep0.js" async="async"></script>
     <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -73,7 +74,9 @@
             </div>
         </div>
     </footer>
-    <div class="registration-step-0"><a href="/"><h1 class="logotype">Ассоциация репетиторов</h1></a><a href="/" class="registration-step-0-close">Закрыть</a>
+    <div class="registration-step-0">
+        <header><a href="/"><h1 class="logotype">Ассоциация репетиторов</h1></a><a href="/" class="registration-step-0-close">Закрыть</a>
+        </header>
         <form action="/register/" method="post" class="registration">
             <h2 class="title">Регистрация репетитора</h2>
             <fieldset>
@@ -91,13 +94,14 @@
                     <label for="reg-familyname">Отчество</label>
                 </div>
                 <div class="line">
-                    <input required="required" data-h5-errorid="reg-tel-required" type="tel" name="tel" value="" placeholder="Мобильный телефон" id="reg-tel" />
+                    <input required="required" data-h5-errorid="reg-tel-required" type="tel" name="tel" value="" placeholder="Мобильный телефон" id="reg-tel" class="h5-phone" />
                     <label for="reg-tel">Мобильный телефон</label>
                     <div id="reg-tel-required" class="error">Похоже, что номер телефона указан не корректно</div>
                 </div>
                 <div class="line">
-                    <input type="email" name="email" value="" placeholder="Email" id="reg-email" />
+                    <input type="email" data-h5-errorid="email-error" name="email" value="" placeholder="Email" id="reg-email" class="h5-email" />
                     <label for="reg-email">Email</label>
+                    <div id="email-error" class="error">Некорректный формат адреса электропочты</div>
                 </div>
                 <div class="line">
                     <input type="text" name="region" value="" placeholder="Регион" id="reg-region" />

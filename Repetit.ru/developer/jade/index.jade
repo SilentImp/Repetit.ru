@@ -8,6 +8,7 @@ html(lang="ru")
     script(src="js/modernizr.js")
     script(src="js/jquery/jquery.min.js")
     script(src="js/h5Validate/jquery.h5validate.js")
+    script(src="js/jquery.maskedinput/jquery.maskedinput.min.js")
     script(src="js/RegistrationStep0.js", async)
     link(rel="stylesheet", href="css/styles.css")
 
@@ -73,9 +74,10 @@ html(lang="ru")
           a.tel(href="tel:+78126458885") +7 812 645-88-85 — Санкт-Петербург
 
     .registration-step-0
-      a(href="/")
-        h1.logotype Ассоциация репетиторов
-      a.registration-step-0-close(href="/") Закрыть
+      header
+        a(href="/")
+          h1.logotype Ассоциация репетиторов
+        a.registration-step-0-close(href="/") Закрыть
     
       form.registration(action="/register/", method="post")
         h2.title Регистрация репетитора
@@ -91,12 +93,13 @@ html(lang="ru")
             input(type="text", name="familyname", value="", placeholder="Отчество", id="reg-familyname") 
             label(for="reg-familyname") Отчество
           .line
-            input(required="required", data-h5-errorid="reg-tel-required", type="tel", name="tel", value="", placeholder="Мобильный телефон", id="reg-tel") 
+            input.h5-phone(required="required", data-h5-errorid="reg-tel-required", type="tel", name="tel", value="", placeholder="Мобильный телефон", id="reg-tel") 
             label(for="reg-tel") Мобильный телефон
             .error#reg-tel-required Похоже, что номер телефона указан не корректно
           .line
-            input(type="email", name="email", value="", placeholder="Email", id="reg-email") 
+            input.h5-email(type="email", data-h5-errorid="email-error", name="email", value="", placeholder="Email", id="reg-email") 
             label(for="reg-email") Email
+            .error#email-error Некорректный формат адреса электропочты
           .line
             input(type="text", name="region", value="", placeholder="Регион", id="reg-region") 
             label(for="reg-region") Регион

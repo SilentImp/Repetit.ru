@@ -10,6 +10,7 @@ html(lang="ru")
     script(src="js/jquery/jquery.min.js")
     script(src="js/h5Validate/jquery.h5validate.js")
     script(src="js/ContactsPage.js", async)
+    script(src="js/MessagePanel.js", async)
     link(rel="stylesheet", href="css/styles.css")
 
   body
@@ -34,12 +35,13 @@ html(lang="ru")
       script(src="js/contacts-map.js", async)
 
       .message-panel
-        nav
-          a.close(href="#") Закрыть
-          a.details(href="#") Подробнее
-        p.text
-          strong Новые возможности сервиса: 
-          | расширенные профили, поиск на карте, информирование по SMS и многое другое.
+        .message-panel-wrapper
+          nav
+            a.close(href="#") Закрыть
+            a.details(href="#") Подробнее
+          p.text
+            strong Новые возможности сервиса: 
+            | расширенные профили, поиск на карте, информирование по SMS и многое другое.
       
       .contacts-and-feedback
         form.feedback(action="/sayit/")

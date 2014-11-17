@@ -16,7 +16,34 @@ class PersonalData
     @form.h5Validate()
     @form.on 'submit', @afterCheck
 
-  
+    @mounth_widget = @form.find '.month.dropdown-widget'
+    @month =  @mounth_widget.find 'select'
+    @year_widget = @form.find '.year.dropdown-widget'
+    @year =  @year_widget.find 'select'
+    @day = @form.find 'input.day'
+    
+    @day.on 'change', @checkDate
+    @month.on 'change', @checkDate
+    @year.on 'change', @checkDate
+
+
+  checkDate: (event)=>
+    day = parseInt @day.val().trim(), 10
+
+    if day<1 || isNaN(day)
+      @day.val 1
+      return
+
+    if !@mounth_widget.hasClass('unchanged') && !@year_widget.hasClass('unchanged')
+
+      days = parseInt moment(@year.val()+"-"+(parseInt(@month.val(),10)+1), "YYYY-MM").daysInMonth(), 10
+      if day>days
+        @day.val days
+        
+      return
+
+    if day>31
+      @day.val 31
 
   droped: (event)=>
     event.preventDefault()
@@ -75,9 +102,9 @@ class PersonalData
       return false
 
     drop_down_err = false
+
     for input in @form.find('.dropdown-widget')
       if !input.controller.validate()
-        console.log 'ошибка'
         drop_down_err = true
 
     if drop_down_err

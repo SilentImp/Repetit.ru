@@ -9,6 +9,13 @@ html.touch body
       bottom 0
       left 0
       right 0
+      background-color transparent
+      z-index 1000
+      opacity 0.001
+    &:hover
+      border-color #BFD6DB
+      .list
+        display none
       
 .dropdown-widget
   position relative
@@ -20,6 +27,11 @@ html.touch body
   height 48px
   line-height 48px
   background url('../img/register/ddico.svg') 100% 50% no-repeat
+  &.clicked
+    pointer-events none
+    .list,
+    .list:hover
+      display none
   &:hover
     border-color #BFD6DB
     .list

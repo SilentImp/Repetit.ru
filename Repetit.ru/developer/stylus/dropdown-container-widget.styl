@@ -13,6 +13,11 @@ html.no-svg body
   height 48px
   line-height 48px
   background url('../img/register/ddico.svg') 100% 50% no-repeat
+  &.clicked
+    pointer-events none
+    .list,
+    .list:hover
+      display none
   &:hover
     border-color #BFD6DB
     .list
@@ -56,3 +61,10 @@ html.no-svg body
       display inline-block
       vertical-align top
       
+@media (max-width 500px)
+  .dropdown-container-widget
+    .list
+      .column
+        width auto
+        &:last-child
+          padding 0 0 11px 
