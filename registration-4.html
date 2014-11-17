@@ -13,6 +13,7 @@
     <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
     <script src="js/h5Validate/jquery.h5validate.js"></script>
     <script src="js/FileAPI.min.js"></script>
+    <script src="js/jquery.fileapi.min.js"></script>
     <script src="js/handlebars/handlebars.min.js"></script>
     <script src="js/typeahead.js/dist/bloodhound.min.js"></script>
     <script src="js/typeahead.js/dist/typeahead.jquery.min.js"></script>
@@ -73,22 +74,7 @@
             </fieldset>
             <fieldset class="sertificats">
                 <h2 class="chapter-title"><span>Дипломы, грамоты, сертификаты</span></h2>
-                <div class="sertificat-list">
-                    <div class="sertificat">
-                        <a href="#link-to-big-img">
-                            <img src="img/register/spoiler/sertificat.jpg" alt="Сертификат" />
-                        </a>
-                        <a href="#" class="remove"></a>
-                        <textarea name="comments" placeholder="Описание…" cols="30" rows="10"></textarea>
-                    </div>
-                    <div class="sertificat">
-                        <a href="#link-to-big-img">
-                            <img src="img/register/spoiler/sertificat.jpg" alt="Сертификат" />
-                        </a>
-                        <a href="#" class="remove"></a>
-                        <textarea name="comments" placeholder="Описание…" cols="30" rows="10"></textarea>
-                    </div>
-                </div>
+                <div class="sertificat-list"></div>
                 <nav class="add-sertificat">
                     <label>Выбрать файл
                         <input type="file" name="certificat" />
@@ -106,6 +92,15 @@
                 <button type="submit">Продолжить</button>
             </nav>
         </form>
+    </div>
+    <div data-fileapi="file.tpl">
+        <div data-id="&lt;%=uid%&gt;" title="&lt;%-name%&gt;, &lt;%-sizeText%&gt;" class="sertificat js-file-tpl">
+            <a href="#link-to-big-img" class="b-thumb__preview__pic">
+                <img src="img/register/spoiler/sertificat.jpg" alt="Сертификат" />
+            </a>
+            <a href="#" data-fileapi="file.remove" class="remove"></a>
+            <textarea name="comments" placeholder="Описание…" cols="30" rows="10"></textarea>
+        </div>
     </div>
 </body>
 
