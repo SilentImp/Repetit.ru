@@ -385,6 +385,35 @@ html.no-svg body .contacts section.social nav a.tw {
     font-weight: bold;
 }
 
+.contacts-and-feedback .feedback .dropdown-widget {
+    margin: 8px 0 20px;
+    border-radius: 0;
+    height: 30px;
+    background-size: auto 12px;
+}
+
+.contacts-and-feedback .feedback .dropdown-widget .current {
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    font-family: 'Tahoma', sans-serif;
+    font-weight: normal;
+}
+
+.contacts-and-feedback .feedback .dropdown-widget .list {
+    border-radius: 0;
+    left: -1px;
+    right: -1px;
+    width: auto;
+}
+
+.contacts-and-feedback .feedback .dropdown-widget .list .option {
+    font-size: 12px;
+    line-height: 30px;
+    font-family: 'Tahoma', sans-serif;
+}
+
 .contacts-and-feedback .feedback input[type="file"] {
     display: block;
     margin: 8px 0 20px;
@@ -3219,6 +3248,31 @@ html.no-svg .start-now .wrapper:after {
         font-size: 14px;
         line-height: 18px;
     }
+}
+
+.twitter-typeahead .tt-dropdown-menu {
+    width: 100%;
+}
+
+.twitter-typeahead .tt-dropdown-menu>div {
+    top: -1px;
+    position: relative;
+    border: 1px solid #bfd6db;
+    background: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 28px;
+    color: #3f3f3f;
+    font-weight: 200;
+    font-family: 'Helvetica Neue', sans-serif;
+    padding: 5px 10px;
+}
+
+.twitter-typeahead .tt-dropdown-menu>div b {
+    float: right;
+    font-size: 14px;
+    line-height: 28px;
+    color: rgba(63,63,63,0.5);
 }
 
 html.no-svg .who-we-are .steps .step.step-1:before {

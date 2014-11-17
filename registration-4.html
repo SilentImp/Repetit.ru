@@ -13,6 +13,9 @@
     <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
     <script src="js/h5Validate/jquery.h5validate.js"></script>
     <script src="js/FileAPI.min.js"></script>
+    <script src="js/handlebars/handlebars.min.js"></script>
+    <script src="js/typeahead.js/dist/bloodhound.min.js"></script>
+    <script src="js/typeahead.js/dist/typeahead.jquery.min.js"></script>
     <script src="js/ExperienceWidgetController.js" async="async"></script>
     <script src="js/DropdownWidgetController.js" async="async"></script>
     <script src="js/PersonalData.js" async="async"></script>
@@ -44,11 +47,11 @@
                 <h2 class="chapter-title"><span>Образование</span></h2>
                 <div class="line">
                     <label for="city">Населенный пункт</label>
-                    <input type="text" id="city" name="city" value="" placeholder="Начните вводить..." />
+                    <input type="text" autocomplete="off" spellcheck="false" id="city" name="city" value="" placeholder="Начните вводить..." />
                 </div>
                 <div class="line name">
                     <label for="univercity">Название учебного заведения</label>
-                    <input type="text" id="univercity" name="univercity" value="" placeholder="Начните вводить..." />
+                    <input type="text" autocomplete="off" spellcheck="false" id="univercity" name="univercity" value="" placeholder="Начните вводить..." />
                 </div>
                 <div class="line grad-year">
                     <label for="grad-year">Год выпуска</label>

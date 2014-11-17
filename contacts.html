@@ -10,6 +10,7 @@
     <script src="js/modernizr.js"></script>
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/h5Validate/jquery.h5validate.js"></script>
+    <script src="js/DropdownWidgetController.js"></script>
     <script src="js/ContactsPage.js" async="async"></script>
     <script src="js/MessagePanel.js" async="async"></script>
     <link rel="stylesheet" href="css/styles.css" />
@@ -49,11 +50,18 @@
                     </div>
                     <div class="select-widget">
                         <label for="feedback-subject">Категория обращения</label>
-                        <input id="feedback-subject" type="text" name="subject" list="feedback-subject-suggestions" value="" class="current" />
-                        <datalist id="feedback-subject-suggestions">
-                            <option value="Репетиторы — Работа с клиентами"></option>
-                            <option value="Сервис — Работа с клиентами"></option>
-                        </datalist>
+                        <div class="subject dropdown-widget">
+                            <select name="subject">
+                                <option value="0">Репетиторы — Работа с клиентами</option>
+                                <option value="1" selected="selected">Сервис — Работа с клиентами</option>
+                            </select>
+                            <div class="current"><span>Сервис — Работа с клиентами</span>
+                            </div>
+                            <div class="list">
+                                <div data-value="0" class="option">Репетиторы — Работа с клиентами</div>
+                                <div data-value="1" class="option selected">Сервис — Работа с клиентами</div>
+                            </div>
+                        </div>
                     </div>
                     <textarea required="required" name="message" cols="30" rows="10" placeholder="Ваш вопрос…"></textarea>
                     <label class="file-attachment">Прикрепить файл
