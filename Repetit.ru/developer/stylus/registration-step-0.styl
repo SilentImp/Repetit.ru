@@ -8,7 +8,8 @@ html.no-svg body
       nav
         .resend-password
           background-image background url('../img/register/refresh.png') 
-       
+      
+
 .registration-step-0
   position fixed
   margin auto
@@ -186,6 +187,7 @@ html.no-svg body
       text-overflow ellipsis
       padding 0 15px
       text-transform uppercase
+      cursor pointer
       &:before 
         content '<'
         margin-right 10px
@@ -243,6 +245,7 @@ html.no-svg body
         vertical-align top
         width 33.333%
         a
+          outline none
           position relative
           margin 0 30px 0 0
           padding 10px
@@ -294,6 +297,7 @@ html.no-svg body
     display inline-block
     vertical-align middle
     text-align left
+    margin-top -100px
     .title
       color #FFF
       font-size 34px
@@ -460,6 +464,10 @@ html.no-svg body
       a
         color #FFF 
 
+@media (max-width 890px)
+  .registration-step-0 .registration fieldset .line .error
+    display none !important
+    
 
 @media (max-width 600px)
   .registration-step-0

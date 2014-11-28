@@ -13,6 +13,7 @@ html(lang="ru")
     script(src="js/jquery-ui-1.9.2.custom.min.js")
     script(src="js/h5Validate/jquery.h5validate.js")
     script(src="js/FileAPI.min.js")
+    script(src="js/jquery.fileapi.min.js")
     script(src="js/handlebars/handlebars.min.js")
     script(src="js/typeahead.js/dist/bloodhound.min.js")
     script(src="js/typeahead.js/dist/typeahead.jquery.min.js")
@@ -71,17 +72,17 @@ html(lang="ru")
           
           .sertificat-list
             
-            .sertificat
-              a(href="#link-to-big-img")
-                img(src="img/register/spoiler/sertificat.jpg", alt="Сертификат")
-              a.remove(href="#")
-              textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
+            //- .sertificat
+            //-   a(href="#link-to-big-img")
+            //-     img(src="img/register/spoiler/sertificat.jpg", alt="Сертификат")
+            //-   a.remove(href="#")
+            //-   textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
 
-            .sertificat
-              a(href="#link-to-big-img")
-                img(src="img/register/spoiler/sertificat.jpg", alt="Сертификат")
-              a.remove(href="#")
-              textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
+            //- .sertificat
+            //-   a(href="#link-to-big-img")
+            //-     img(src="img/register/spoiler/sertificat.jpg", alt="Сертификат")
+            //-   a.remove(href="#")
+            //-   textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
           
           nav.add-sertificat
             label Выбрать файл
@@ -99,3 +100,10 @@ html(lang="ru")
           button(type="submit") Продолжить
 
         
+
+    div(data-fileapi="file.tpl")
+      .sertificat.js-file-tpl(data-id="<%=uid%>", title="<%-name%>, <%-sizeText%>")
+          a.b-thumb__preview__pic(href="#link-to-big-img")
+            img(src="img/register/spoiler/sertificat.jpg", alt="Сертификат")
+          a.remove(href="#", data-fileapi="file.remove")
+          textarea(name="comments", placeholder="Описание…" cols="30", rows="10")

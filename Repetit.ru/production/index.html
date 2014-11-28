@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
     <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
     <title>Ассоциация репетиторов</title>
+    <link rel="stylesheet" href="css/styles.css" />
     <script src="js/modernizr.js"></script>
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/h5Validate/jquery.h5validate.js"></script>
     <script src="js/jquery.maskedinput/jquery.maskedinput.min.js"></script>
     <script src="js/RegistrationStep0.js" async="async"></script>
-    <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
@@ -81,8 +81,9 @@
             <h2 class="title">Регистрация репетитора</h2>
             <fieldset>
                 <div class="line">
-                    <input type="text" name="surname" value="" placeholder="Фамилия" id="reg-surname" />
+                    <input required="required" data-h5-errorid="surname-required" type="text" name="surname" value="" placeholder="Фамилия" id="reg-surname" />
                     <label for="reg-surname">Фамилия</label>
+                    <div id="surname-required" class="error">Введите, пожалуйста, фамилию</div>
                 </div>
                 <div class="line">
                     <input required="required" data-h5-errorid="reg-name-required" type="text" name="name" value="" placeholder="Имя" id="reg-name" />
@@ -90,8 +91,9 @@
                     <div id="reg-name-required" class="error">Это поле обязательно для заполнения</div>
                 </div>
                 <div class="line">
-                    <input type="text" name="familyname" value="" placeholder="Отчество" id="reg-familyname" />
+                    <input required="required" data-h5-errorid="familyname-required" type="text" name="familyname" value="" placeholder="Отчество" id="reg-familyname" />
                     <label for="reg-familyname">Отчество</label>
+                    <div id="familyname-required" class="error">Введите, пожалуйста, отчество</div>
                 </div>
                 <div class="line">
                     <input required="required" data-h5-errorid="reg-tel-required" type="tel" name="tel" value="" placeholder="Мобильный телефон" id="reg-tel" class="h5-phone" />
@@ -99,13 +101,14 @@
                     <div id="reg-tel-required" class="error">Похоже, что номер телефона указан не корректно</div>
                 </div>
                 <div class="line">
-                    <input type="email" data-h5-errorid="email-error" name="email" value="" placeholder="Email" id="reg-email" class="h5-email" />
+                    <input required="required" type="email" data-h5-errorid="email-error" name="email" value="" placeholder="Email" id="reg-email" class="h5-email" />
                     <label for="reg-email">Email</label>
                     <div id="email-error" class="error">Некорректный формат адреса электропочты</div>
                 </div>
                 <div class="line">
-                    <input type="text" name="region" value="" placeholder="Регион" id="reg-region" />
+                    <input required="required" data-h5-errorid="region-required" type="text" name="region" value="" placeholder="Регион" id="reg-region" />
                     <label for="reg-region">Регион</label><a href="#" class="change-region">Другой</a>
+                    <div id="region-required" class="error">Необходимо ввести регион</div>
                 </div>
             </fieldset>
             <nav>
@@ -115,63 +118,609 @@
         </form>
         <div class="regions-list">
             <h2 class="title">Выберите регион</h2><a href="#" class="regions-list-close">Закрыть</a>
-            <input type="text" placeholder="Поиск по населенному пункту" value="" name="keyword" />
+            <input type="text" placeholder="Поиск по населенному пункту" value="" name="keyword" class="list-keyword" />
             <div class="regions">
-                <div class="column"><a href="#" data-title="Москва" class="item"><h3 class="sub-title">Москва</h3><p>и Московская область</p></a><a href="#" data-title="Санкт-Петербург" class="item"><h3 class="sub-title">Санкт-Петербург</h3><p>и Ленинградская область</p></a>
+                <div class="column"><a href="#" data-title="Москва" class="item"><h3 class="sub-title">Москва</h3><p></p></a><a href="#" data-title="Санкт-Петербург" class="item"><h3 class="sub-title">Санкт-Петербург</h3><p></p></a>
+                    <a href="#" data-title="Абакан" class="item">
+                        <h3 class="sub-title">Абакан</h3>
+                        <p></p>
+                    </a><a href="#" data-title="Анадырь" class="item"><h3 class="sub-title">Анадырь</h3><p></p></a><a href="#" data-title="Архангельск" class="item"><h3 class="sub-title">Архангельск</h3><p></p></a>
+                    <a href="#" data-title="Астрахань" class="item">
+                        <h3 class="sub-title">Астрахань</h3>
+                        <p></p>
+                    </a><a href="#" data-title="Барнаул" class="item"><h3 class="sub-title">Барнаул</h3><p></p></a><a href="#" data-title="Белгород" class="item"><h3 class="sub-title">Белгород</h3><p></p></a>
+                    <a href="#" data-title="Биробиджан" class="item">
+                        <h3 class="sub-title">Биробиджан</h3>
+                        <p></p>
+                    </a><a href="#" data-title="Благовещенск" class="item"><h3 class="sub-title">Благовещенск</h3><p></p></a><a href="#" data-title="Брянск" class="item"><h3 class="sub-title">Брянск</h3><p></p></a><a href="#" data-title="Великий Новгород"
+                    class="item"><h3 class="sub-title">Великий Новгород</h3><p></p></a><a href="#" data-title="Владивосток" class="item"><h3 class="sub-title">Владивосток</h3><p></p></a><a href="#" data-title="Владикавказ" class="item"><h3 class="sub-title">Владикавказ</h3><p></p></a>
                     <a
-                    href="#" data-title="Нижний Новгород" class="item">
-                        <h3 class="sub-title">Нижний Новгород</h3>
-                        <p>и Нижнегородская область</p>
-                        </a><a href="#" data-title="Казань" class="item"><h3 class="sub-title">Казань</h3><p>и Республика Татарстан</p></a><a href="#" data-title="Екатеринбург" class="item"><h3 class="sub-title">Екатеринбург</h3><p>и Свердловская область</p></a>
+                    href="#" data-title="Владимир" class="item">
+                        <h3 class="sub-title">Владимир</h3>
+                        <p></p>
+                        </a><a href="#" data-title="Волгоград" class="item"><h3 class="sub-title">Волгоград</h3><p></p></a><a href="#" data-title="Вологда" class="item"><h3 class="sub-title">Вологда</h3><p></p></a>
+                        <a href="#" data-title="Воронеж" class="item">
+                            <h3 class="sub-title">Воронеж</h3>
+                            <p></p>
+                        </a><a href="#" data-title="Горно-Алтайск" class="item"><h3 class="sub-title">Горно-Алтайск</h3><p></p></a><a href="#" data-title="Грозный" class="item"><h3 class="sub-title">Грозный</h3><p></p></a><a href="#" data-title="Екатеринбург"
+                        class="item"><h3 class="sub-title">Екатеринбург</h3><p></p></a><a href="#" data-title="Иваново" class="item"><h3 class="sub-title">Иваново</h3><p></p></a><a href="#" data-title="Ижевск" class="item"><h3 class="sub-title">Ижевск</h3><p></p></a>
                         <a
-                        href="#" data-title="Уфа" class="item">
-                            <h3 class="sub-title">Уфа</h3>
-                            <p>и Республика Башкортостан</p>
-                            </a><a href="#" data-title="Москва" class="item"><h3 class="sub-title">Москва</h3><p>и Московская область</p></a><a href="#" data-title="Санкт-Петербург" class="item"><h3 class="sub-title">Санкт-Петербург</h3><p>и Ленинградская область</p></a>
+                        href="#" data-title="Йошкар-Ола" class="item">
+                            <h3 class="sub-title">Йошкар-Ола</h3>
+                            <p></p>
+                            </a><a href="#" data-title="Иркутск" class="item"><h3 class="sub-title">Иркутск</h3><p></p></a><a href="#" data-title="Казань" class="item"><h3 class="sub-title">Казань</h3><p></p></a>
+                            <a href="#" data-title="Калининград" class="item">
+                                <h3 class="sub-title">Калининград</h3>
+                                <p></p>
+                            </a><a href="#" data-title="Калуга" class="item"><h3 class="sub-title">Калуга</h3><p></p></a><a href="#" data-title="Кемерово" class="item"><h3 class="sub-title">Кемерово</h3><p></p></a>
+                            <a href="#" data-title="Киров" class="item">
+                                <h3 class="sub-title">Киров</h3>
+                                <p></p>
+                            </a><a href="#" data-title="Кострома" class="item"><h3 class="sub-title">Кострома</h3><p></p></a><a href="#" data-title="Краснодар" class="item"><h3 class="sub-title">Краснодар</h3><p></p></a><a href="#" data-title="Красноярск"
+                            class="item"><h3 class="sub-title">Красноярск</h3><p></p></a><a href="#" data-title="Курган" class="item"><h3 class="sub-title">Курган</h3><p></p></a><a href="#" data-title="Курск" class="item"><h3 class="sub-title">Курск</h3><p></p></a>
                             <a
-                            href="#" data-title="Нижний Новгород" class="item">
-                                <h3 class="sub-title">Нижний Новгород</h3>
-                                <p>и Нижнегородская область</p>
-                                </a><a href="#" data-title="Казань" class="item"><h3 class="sub-title">Казань</h3><p>и Республика Татарстан</p></a><a href="#" data-title="Екатеринбург" class="item"><h3 class="sub-title">Екатеринбург</h3><p>и Свердловская область</p></a>
+                            href="#" data-title="Кызыл" class="item">
+                                <h3 class="sub-title">Кызыл</h3>
+                                <p></p>
+                                </a><a href="#" data-title="Липецк" class="item"><h3 class="sub-title">Липецк</h3><p></p></a><a href="#" data-title="Магадан" class="item"><h3 class="sub-title">Магадан</h3><p></p></a>
+                                <a href="#" data-title="Назрань" class="item">
+                                    <h3 class="sub-title">Назрань</h3>
+                                    <p></p>
+                                </a><a href="#" data-title="Майкоп" class="item"><h3 class="sub-title">Майкоп</h3><p></p></a><a href="#" data-title="Махачкала" class="item"><h3 class="sub-title">Махачкала</h3><p></p></a>
+                                <a href="#" data-title="Мурманск" class="item">
+                                    <h3 class="sub-title">Мурманск</h3>
+                                    <p></p>
+                                </a><a href="#" data-title="Нальчик" class="item"><h3 class="sub-title">Нальчик</h3><p></p></a><a href="#" data-title="Нарьян-Мар" class="item"><h3 class="sub-title">Нарьян-Мар</h3><p></p></a><a href="#" data-title="Нижний Новгород"
+                                class="item"><h3 class="sub-title">Нижний Новгород</h3><p></p></a><a href="#" data-title="Новосибирск" class="item"><h3 class="sub-title">Новосибирск</h3><p></p></a><a href="#" data-title="Омск" class="item"><h3 class="sub-title">Омск</h3><p></p></a>
                                 <a
-                                href="#" data-title="Уфа" class="item">
-                                    <h3 class="sub-title">Уфа</h3>
-                                    <p>и Республика Башкортостан</p>
-                                    </a>
+                                href="#" data-title="Орёл" class="item">
+                                    <h3 class="sub-title">Орёл</h3>
+                                    <p></p>
+                                    </a><a href="#" data-title="Оренбург" class="item"><h3 class="sub-title">Оренбург</h3><p></p></a><a href="#" data-title="Пенза" class="item"><h3 class="sub-title">Пенза</h3><p></p></a>
+                                    <a href="#" data-title="Пермь" class="item">
+                                        <h3 class="sub-title">Пермь</h3>
+                                        <p></p>
+                                    </a><a href="#" data-title="Петрозаводск" class="item"><h3 class="sub-title">Петрозаводск</h3><p></p></a><a href="#" data-title="Петропавловск-Камчатский" class="item"><h3 class="sub-title">Петропавловск-Камчатский</h3><p></p></a>
+                                    <a
+                                    href="#" data-title="Псков" class="item">
+                                        <h3 class="sub-title">Псков</h3>
+                                        <p></p>
+                                        </a><a href="#" data-title="Ростов-на-Дону" class="item"><h3 class="sub-title">Ростов-на-Дону</h3><p></p></a><a href="#" data-title="Рязань" class="item"><h3 class="sub-title">Рязань</h3><p></p></a><a href="#" data-title="Салехард"
+                                        class="item"><h3 class="sub-title">Салехард</h3><p></p></a><a href="#" data-title="Самара" class="item"><h3 class="sub-title">Самара</h3><p></p></a><a href="#" data-title="Саранск" class="item"><h3 class="sub-title">Саранск</h3><p></p></a>
+                                        <a
+                                        href="#" data-title="Саратов" class="item">
+                                            <h3 class="sub-title">Саратов</h3>
+                                            <p></p>
+                                            </a><a href="#" data-title="Смоленск" class="item"><h3 class="sub-title">Смоленск</h3><p></p></a><a href="#" data-title="Ставрополь" class="item"><h3 class="sub-title">Ставрополь</h3><p></p></a><a href="#" data-title="Сыктывкар"
+                                            class="item"><h3 class="sub-title">Сыктывкар</h3><p></p></a><a href="#" data-title="Тамбов" class="item"><h3 class="sub-title">Тамбов</h3><p></p></a><a href="#" data-title="Тверь" class="item"><h3 class="sub-title">Тверь</h3><p></p></a>
+                                            <a
+                                            href="#" data-title="Томск" class="item">
+                                                <h3 class="sub-title">Томск</h3>
+                                                <p></p>
+                                                </a><a href="#" data-title="Тула" class="item"><h3 class="sub-title">Тула</h3><p></p></a><a href="#" data-title="Тюмень" class="item"><h3 class="sub-title">Тюмень</h3><p></p></a><a href="#" data-title="Улан-Удэ"
+                                                class="item"><h3 class="sub-title">Улан-Удэ</h3><p></p></a><a href="#" data-title="Ульяновск" class="item"><h3 class="sub-title">Ульяновск</h3><p></p></a><a href="#" data-title="Уфа" class="item"><h3 class="sub-title">Уфа</h3><p></p></a>
+                                                <a
+                                                href="#" data-title="Хабаровск" class="item">
+                                                    <h3 class="sub-title">Хабаровск</h3>
+                                                    <p></p>
+                                                    </a><a href="#" data-title="Ханты-Мансийск" class="item"><h3 class="sub-title">Ханты-Мансийск</h3><p></p></a><a href="#" data-title="Чебоксары" class="item"><h3 class="sub-title">Чебоксары</h3><p></p></a>
+                                                    <a
+                                                    href="#" data-title="Челябинск" class="item">
+                                                        <h3 class="sub-title">Челябинск</h3>
+                                                        <p></p>
+                                                        </a><a href="#" data-title="Черкесск" class="item"><h3 class="sub-title">Черкесск</h3><p></p></a><a href="#" data-title="Чита" class="item"><h3 class="sub-title">Чита</h3><p></p></a><a href="#" data-title="Элиста"
+                                                        class="item"><h3 class="sub-title">Элиста</h3><p></p></a><a href="#" data-title="Южно-Сахалинск" class="item"><h3 class="sub-title">Южно-Сахалинск</h3><p></p></a>
+                                                        <a href="#" data-title="Якутск" class="item">
+                                                            <h3 class="sub-title">Якутск</h3>
+                                                            <p></p>
+                                                        </a><a href="#" data-title="Ярославль" class="item"><h3 class="sub-title">Ярославль</h3><p></p></a><a href="#" data-title="Череповец" class="item"><h3 class="sub-title">Череповец</h3><p></p></a><a href="#"
+                                                        data-title="Абдулино" class="item"><h3 class="sub-title">Абдулино</h3><p></p></a><a href="#" data-title="Агинское" class="item"><h3 class="sub-title">Агинское</h3><p></p></a><a href="#" data-title="Белокуриха"
+                                                        class="item"><h3 class="sub-title">Белокуриха</h3><p></p></a><a href="#" data-title="Бийск" class="item"><h3 class="sub-title">Бийск</h3><p></p></a>
+                                                        <a href="#" data-title="Новоалтайск" class="item">
+                                                            <h3 class="sub-title">Новоалтайск</h3>
+                                                            <p></p>
+                                                        </a><a href="#" data-title="Рубцовск" class="item"><h3 class="sub-title">Рубцовск</h3><p></p></a><a href="#" data-title="Славгород" class="item"><h3 class="sub-title">Славгород</h3><p></p></a><a href="#"
+                                                        data-title="Свободный" class="item"><h3 class="sub-title">Свободный</h3><p></p></a><a href="#" data-title="Тында" class="item"><h3 class="sub-title">Тында</h3><p></p></a><a href="#" data-title="Вельск"
+                                                        class="item"><h3 class="sub-title">Вельск</h3><p></p></a><a href="#" data-title="Коряжма" class="item"><h3 class="sub-title">Коряжма</h3><p></p></a>
+                                                        <a href="#" data-title="Котлас" class="item">
+                                                            <h3 class="sub-title">Котлас</h3>
+                                                            <p></p>
+                                                        </a><a href="#" data-title="Северодвинск" class="item"><h3 class="sub-title">Северодвинск</h3><p></p></a><a href="#" data-title="Ахтубинск" class="item"><h3 class="sub-title">Ахтубинск</h3><p></p></a>
+                                                        <a
+                                                        href="#" data-title="Знаменск" class="item">
+                                                            <h3 class="sub-title">Знаменск</h3>
+                                                            <p></p>
+                                                            </a><a href="#" data-title="Алексеевка" class="item"><h3 class="sub-title">Алексеевка</h3><p></p></a><a href="#" data-title="Губкин" class="item"><h3 class="sub-title">Губкин</h3><p></p></a><a href="#"
+                                                            data-title="Старый Оскол" class="item"><h3 class="sub-title">Старый Оскол</h3><p></p></a><a href="#" data-title="Дятьково" class="item"><h3 class="sub-title">Дятьково</h3><p></p></a><a href="#"
+                                                            data-title="Карачев" class="item"><h3 class="sub-title">Карачев</h3><p></p></a><a href="#" data-title="Новозырьков" class="item"><h3 class="sub-title">Новозырьков</h3><p></p></a><a href="#" data-title="Унеча"
+                                                            class="item"><h3 class="sub-title">Унеча</h3><p></p></a><a href="#" data-title="Александров" class="item"><h3 class="sub-title">Александров</h3><p></p></a><a href="#" data-title="Гусь-Хрустальный"
+                                                            class="item"><h3 class="sub-title">Гусь-Хрустальный</h3><p></p></a><a href="#" data-title="Ковров" class="item"><h3 class="sub-title">Ковров</h3><p></p></a>
+                                                            <a href="#" data-title="Муром" class="item">
+                                                                <h3 class="sub-title">Муром</h3>
+                                                                <p></p>
+                                                            </a><a href="#" data-title="Покров" class="item"><h3 class="sub-title">Покров</h3><p></p></a><a href="#" data-title="Быково" class="item"><h3 class="sub-title">Быково</h3><p></p></a><a href="#" data-title="Волжский"
+                                                            class="item"><h3 class="sub-title">Волжский</h3><p></p></a><a href="#" data-title="Камышин" class="item"><h3 class="sub-title">Камышин</h3><p></p></a>
+                                                            <a href="#" data-title="Михайловка" class="item">
+                                                                <h3 class="sub-title">Михайловка</h3>
+                                                                <p></p>
+                                                            </a><a href="#" data-title="Урюпинск" class="item"><h3 class="sub-title">Урюпинск</h3><p></p></a><a href="#" data-title="Череповец" class="item"><h3 class="sub-title">Череповец</h3><p></p></a>
+                                                            <a
+                                                            href="#" data-title="Борисоглебск" class="item">
+                                                                <h3 class="sub-title">Борисоглебск</h3>
+                                                                <p></p>
+                                                                </a><a href="#" data-title="Лиски" class="item"><h3 class="sub-title">Лиски</h3><p></p></a><a href="#" data-title="Кинешма" class="item"><h3 class="sub-title">Кинешма</h3><p></p></a><a href="#"
+                                                                data-title="Шуя" class="item"><h3 class="sub-title">Шуя</h3><p></p></a><a href="#" data-title="Ангарск" class="item"><h3 class="sub-title">Ангарск</h3><p></p></a><a href="#" data-title="Братск"
+                                                                class="item"><h3 class="sub-title">Братск</h3><p></p></a><a href="#" data-title="Бохан" class="item"><h3 class="sub-title">Бохан</h3><p></p></a>
+                                                                <a href="#" data-title="Усолье-Сибирское" class="item">
+                                                                    <h3 class="sub-title">Усолье-Сибирское</h3>
+                                                                    <p></p>
+                                                                </a><a href="#" data-title="Усть-Илимск" class="item"><h3 class="sub-title">Усть-Илимск</h3><p></p></a><a href="#" data-title="Полесск" class="item"><h3 class="sub-title">Полесск</h3><p></p></a>
+                                                                <a
+                                                                href="#" data-title="Советск" class="item">
+                                                                    <h3 class="sub-title">Советск</h3>
+                                                                    <p></p>
+                                                                    </a><a href="#" data-title="Черняховск" class="item"><h3 class="sub-title">Черняховск</h3><p></p></a><a href="#" data-title="Балабаново" class="item"><h3 class="sub-title">Балабаново</h3><p></p></a>
+                                                                    <a
+                                                                    href="#" data-title="Киров" class="item">
+                                                                        <h3 class="sub-title">Киров</h3>
+                                                                        <p></p>
+                                                                        </a><a href="#" data-title="Обнинск" class="item"><h3 class="sub-title">Обнинск</h3><p></p></a><a href="#" data-title="Карачаевск" class="item"><h3 class="sub-title">Карачаевск</h3><p></p></a>
+                                                                        <a
+                                                                        href="#" data-title="Учкекен" class="item">
+                                                                            <h3 class="sub-title">Учкекен</h3>
+                                                                            <p></p>
+                                                                            </a><a href="#" data-title="Анжеро-Судженск" class="item"><h3 class="sub-title">Анжеро-Судженск</h3><p></p></a><a href="#" data-title="Белово" class="item"><h3 class="sub-title">Белово</h3><p></p></a>
+                                                                            <a
+                                                                            href="#" data-title="Киселевск" class="item">
+                                                                                <h3 class="sub-title">Киселевск</h3>
+                                                                                <p></p>
+                                                                                </a><a href="#" data-title="Ленинск-Кузнецкий" class="item"><h3 class="sub-title">Ленинск-Кузнецкий</h3><p></p></a><a href="#" data-title="Междуреченск" class="item"><h3 class="sub-title">Междуреченск</h3><p></p></a>
+                                                                                <a
+                                                                                href="#" data-title="Новокузнецк" class="item">
+                                                                                    <h3 class="sub-title">Новокузнецк</h3>
+                                                                                    <p></p>
+                                                                                    </a><a href="#" data-title="Осинники" class="item"><h3 class="sub-title">Осинники</h3><p></p></a><a href="#" data-title="Прокопьевск" class="item"><h3 class="sub-title">Прокопьевск</h3><p></p></a>
+                                                                                    <a
+                                                                                    href="#" data-title="Тайга" class="item">
+                                                                                        <h3 class="sub-title">Тайга</h3>
+                                                                                        <p></p>
+                                                                                        </a><a href="#" data-title="Таштагол" class="item"><h3 class="sub-title">Таштагол</h3><p></p></a><a href="#" data-title="Юрга" class="item"><h3 class="sub-title">Юрга</h3><p></p></a>
+                                                                                        <a
+                                                                                        href="#" data-title="Вятские Поляны" class="item">
+                                                                                            <h3 class="sub-title">Вятские Поляны</h3>
+                                                                                            <p></p>
+                                                                                            </a><a href="#" data-title="Знаменка" class="item"><h3 class="sub-title">Знаменка</h3><p></p></a><a href="#" data-title="Кирово-Чепецк" class="item"><h3 class="sub-title">Кирово-Чепецк</h3><p></p></a>
+                                                                                            <a
+                                                                                            href="#" data-title="Котельнич" class="item">
+                                                                                                <h3 class="sub-title">Котельнич</h3>
+                                                                                                <p></p>
+                                                                                                </a><a href="#" data-title="Норинск" class="item"><h3 class="sub-title">Норинск</h3><p></p></a><a href="#" data-title="Слободской" class="item"><h3 class="sub-title">Слободской</h3><p></p></a>
+                                                                                                <a
+                                                                                                href="#" data-title="Караваево" class="item">
+                                                                                                    <h3 class="sub-title">Караваево</h3>
+                                                                                                    <p></p>
+                                                                                                    </a><a href="#" data-title="Шарья" class="item"><h3 class="sub-title">Шарья</h3><p></p></a><a href="#" data-title="Анапа" class="item"><h3 class="sub-title">Анапа</h3><p></p></a>
+                                                                                                    <a
+                                                                                                    href="#" data-title="Армавир" class="item">
+                                                                                                        <h3 class="sub-title">Армавир</h3>
+                                                                                                        <p></p>
+                                                                                                        </a><a href="#" data-title="Белореченск" class="item"><h3 class="sub-title">Белореченск</h3><p></p></a>
+                                                                                                        <a href="#" data-title="Геленджик" class="item">
+                                                                                                            <h3 class="sub-title">Геленджик</h3>
+                                                                                                            <p></p>
+                                                                                                        </a><a href="#" data-title="Горячий Ключ" class="item"><h3 class="sub-title">Горячий Ключ</h3><p></p></a>
+                                                                                                        <a href="#" data-title="Гулькевичи" class="item">
+                                                                                                            <h3 class="sub-title">Гулькевичи</h3>
+                                                                                                            <p></p>
+                                                                                                        </a><a href="#" data-title="Ейск" class="item"><h3 class="sub-title">Ейск</h3><p></p></a><a href="#" data-title="Кореновск" class="item"><h3 class="sub-title">Кореновск</h3><p></p></a>
+                                                                                                        <a
+                                                                                                        href="#" data-title="Кропоткин" class="item">
+                                                                                                            <h3 class="sub-title">Кропоткин</h3>
+                                                                                                            <p></p>
+                                                                                                            </a><a href="#" data-title="Кущевская" class="item"><h3 class="sub-title">Кущевская</h3><p></p></a>
+                                                                                                            <a href="#" data-title="Лабинск" class="item">
+                                                                                                                <h3 class="sub-title">Лабинск</h3>
+                                                                                                                <p></p>
+                                                                                                            </a><a href="#" data-title="Ленинградская" class="item"><h3 class="sub-title">Ленинградская</h3><p></p></a>
+                                                                                                            <a href="#" data-title="Новороссийск" class="item">
+                                                                                                                <h3 class="sub-title">Новороссийск</h3>
+                                                                                                                <p></p>
+                                                                                                            </a><a href="#" data-title="Отрадная" class="item"><h3 class="sub-title">Отрадная</h3><p></p></a>
+                                                                                                            <a href="#" data-title="Павловская" class="item">
+                                                                                                                <h3 class="sub-title">Павловская</h3>
+                                                                                                                <p></p>
+                                                                                                            </a><a href="#" data-title="Славянск-на-Кубани" class="item"><h3 class="sub-title">Славянск-на-Кубани</h3><p></p></a><a href="#" data-title="Сочи"
+                                                                                                            class="item"><h3 class="sub-title">Сочи</h3><p></p></a>
                 </div>
-                <div class="column"><a href="#" data-title="Москва" class="item"><h3 class="sub-title">Москва</h3><p>и Московская область</p></a><a href="#" data-title="Санкт-Петербург" class="item"><h3 class="sub-title">Санкт-Петербург</h3><p>и Ленинградская область</p></a>
+                <div class="column"><a href="#" data-title="Тихорецк" class="item"><h3 class="sub-title">Тихорецк</h3><p></p></a><a href="#" data-title="Туапсе" class="item"><h3 class="sub-title">Туапсе</h3><p></p></a>
+                    <a href="#" data-title="Усть-Лабинск" class="item">
+                        <h3 class="sub-title">Усть-Лабинск</h3>
+                        <p></p>
+                    </a><a href="#" data-title="Ачинск" class="item"><h3 class="sub-title">Ачинск</h3><p></p></a><a href="#" data-title="Железногорск" class="item"><h3 class="sub-title">Железногорск</h3><p></p></a>
+                    <a href="#" data-title="Зеленогорск" class="item">
+                        <h3 class="sub-title">Зеленогорск</h3>
+                        <p></p>
+                    </a><a href="#" data-title="Канск" class="item"><h3 class="sub-title">Канск</h3><p></p></a><a href="#" data-title="Лесосибирск" class="item"><h3 class="sub-title">Лесосибирск</h3><p></p></a>
+                    <a href="#" data-title="Минусинск" class="item">
+                        <h3 class="sub-title">Минусинск</h3>
+                        <p></p>
+                    </a><a href="#" data-title="Норильск" class="item"><h3 class="sub-title">Норильск</h3><p></p></a><a href="#" data-title="Шарыпово" class="item"><h3 class="sub-title">Шарыпово</h3><p></p></a>
+                    <a href="#" data-title="Лесниково" class="item">
+                        <h3 class="sub-title">Лесниково</h3>
+                        <p></p>
+                    </a><a href="#" data-title="Шадринск" class="item"><h3 class="sub-title">Шадринск</h3><p></p></a><a href="#" data-title="Железногорск" class="item"><h3 class="sub-title">Железногорск</h3><p></p></a>
+                    <a href="#" data-title="Льгов" class="item">
+                        <h3 class="sub-title">Льгов</h3>
+                        <p></p>
+                    </a><a href="#" data-title="Рыльск" class="item"><h3 class="sub-title">Рыльск</h3><p></p></a><a href="#" data-title="Суджа" class="item"><h3 class="sub-title">Суджа</h3><p></p></a>
+                    <a href="#" data-title="Бокситогорск" class="item">
+                        <h3 class="sub-title">Бокситогорск</h3>
+                        <p></p>
+                    </a><a href="#" data-title="Волхов" class="item"><h3 class="sub-title">Волхов</h3><p></p></a><a href="#" data-title="Всеволжск" class="item"><h3 class="sub-title">Всеволжск</h3><p></p></a>
+                    <a href="#" data-title="Выборг" class="item">
+                        <h3 class="sub-title">Выборг</h3>
+                        <p></p>
+                    </a><a href="#" data-title="Луга" class="item"><h3 class="sub-title">Луга</h3><p></p></a><a href="#" data-title="Гатчина" class="item"><h3 class="sub-title">Гатчина</h3><p></p></a><a href="#" data-title="Ивангород" class="item"><h3 class="sub-title">Ивангород</h3><p></p></a>
                     <a
-                    href="#" data-title="Нижний Новгород" class="item">
-                        <h3 class="sub-title">Нижний Новгород</h3>
-                        <p>и Нижнегородская область</p>
-                        </a><a href="#" data-title="Казань" class="item"><h3 class="sub-title">Казань</h3><p>и Республика Татарстан</p></a><a href="#" data-title="Екатеринбург" class="item"><h3 class="sub-title">Екатеринбург</h3><p>и Свердловская область</p></a>
+                    href="#" data-title="Кингисепп" class="item">
+                        <h3 class="sub-title">Кингисепп</h3>
+                        <p></p>
+                        </a><a href="#" data-title="Кириши" class="item"><h3 class="sub-title">Кириши</h3><p></p></a><a href="#" data-title="Подпорожье" class="item"><h3 class="sub-title">Подпорожье</h3><p></p></a>
+                        <a href="#" data-title="Сиверский" class="item">
+                            <h3 class="sub-title">Сиверский</h3>
+                            <p></p>
+                        </a><a href="#" data-title="Сланцы" class="item"><h3 class="sub-title">Сланцы</h3><p></p></a><a href="#" data-title="Сосновый бор" class="item"><h3 class="sub-title">Сосновый бор</h3><p></p></a>
+                        <a href="#" data-title="Тихвин" class="item">
+                            <h3 class="sub-title">Тихвин</h3>
+                            <p></p>
+                        </a><a href="#" data-title="Елец" class="item"><h3 class="sub-title">Елец</h3><p></p></a><a href="#" data-title="Зеленоград" class="item"><h3 class="sub-title">Зеленоград</h3><p></p></a>
+                        <a href="#" data-title="Балашиха" class="item">
+                            <h3 class="sub-title">Балашиха</h3>
+                            <p></p>
+                        </a><a href="#" data-title="Барвиха" class="item"><h3 class="sub-title">Барвиха</h3><p></p></a><a href="#" data-title="Большие Вязёмы" class="item"><h3 class="sub-title">Большие Вязёмы</h3><p></p></a><a href="#" data-title="Бронницы"
+                        class="item"><h3 class="sub-title">Бронницы</h3><p></p></a><a href="#" data-title="Видное" class="item"><h3 class="sub-title">Видное</h3><p></p></a><a href="#" data-title="Волоколамск" class="item"><h3 class="sub-title">Волоколамск</h3><p></p></a>
                         <a
-                        href="#" data-title="Уфа" class="item">
-                            <h3 class="sub-title">Уфа</h3>
-                            <p>и Республика Башкортостан</p>
-                            </a><a href="#" data-title="Москва" class="item"><h3 class="sub-title">Москва</h3><p>и Московская область</p></a><a href="#" data-title="Санкт-Петербург" class="item"><h3 class="sub-title">Санкт-Петербург</h3><p>и Ленинградская область</p></a>
+                        href="#" data-title="Воскресенск" class="item">
+                            <h3 class="sub-title">Воскресенск</h3>
+                            <p></p>
+                            </a><a href="#" data-title="Голицыно" class="item"><h3 class="sub-title">Голицыно</h3><p></p></a><a href="#" data-title="Щёлково" class="item"><h3 class="sub-title">Щёлково</h3><p></p></a>
+                            <a href="#" data-title="Кубинка" class="item">
+                                <h3 class="sub-title">Кубинка</h3>
+                                <p></p>
+                            </a><a href="#" data-title="Дедовск" class="item"><h3 class="sub-title">Дедовск</h3><p></p></a><a href="#" data-title="Дзержинский" class="item"><h3 class="sub-title">Дзержинский</h3><p></p></a><a href="#" data-title="Дмитров"
+                            class="item"><h3 class="sub-title">Дмитров</h3><p></p></a><a href="#" data-title="Долгопрудный" class="item"><h3 class="sub-title">Долгопрудный</h3><p></p></a><a href="#" data-title="Домодедово" class="item"><h3 class="sub-title">Домодедово</h3><p></p></a>
                             <a
-                            href="#" data-title="Нижний Новгород" class="item">
-                                <h3 class="sub-title">Нижний Новгород</h3>
-                                <p>и Нижнегородская область</p>
-                                </a><a href="#" data-title="Казань" class="item"><h3 class="sub-title">Казань</h3><p>и Республика Татарстан</p></a><a href="#" data-title="Екатеринбург" class="item"><h3 class="sub-title">Екатеринбург</h3><p>и Свердловская область</p></a>
+                            href="#" data-title="Дубна" class="item">
+                                <h3 class="sub-title">Дубна</h3>
+                                <p></p>
+                                </a><a href="#" data-title="Егорьевск" class="item"><h3 class="sub-title">Егорьевск</h3><p></p></a><a href="#" data-title="Железнодорожный" class="item"><h3 class="sub-title">Железнодорожный</h3><p></p></a><a href="#" data-title="Жуковский"
+                                class="item"><h3 class="sub-title">Жуковский</h3><p></p></a><a href="#" data-title="Ивантеевка" class="item"><h3 class="sub-title">Ивантеевка</h3><p></p></a><a href="#" data-title="Кашира" class="item"><h3 class="sub-title">Кашира</h3><p></p></a>
                                 <a
-                                href="#" data-title="Уфа" class="item">
-                                    <h3 class="sub-title">Уфа</h3>
-                                    <p>и Республика Башкортостан</p>
-                                    </a>
+                                href="#" data-title="Клин" class="item">
+                                    <h3 class="sub-title">Клин</h3>
+                                    <p></p>
+                                    </a><a href="#" data-title="Кокошкино" class="item"><h3 class="sub-title">Кокошкино</h3><p></p></a><a href="#" data-title="Коломна" class="item"><h3 class="sub-title">Коломна</h3><p></p></a><a href="#" data-title="Королёв"
+                                    class="item"><h3 class="sub-title">Королёв</h3><p></p></a><a href="#" data-title="Котельники" class="item"><h3 class="sub-title">Котельники</h3><p></p></a><a href="#" data-title="Красногорск" class="item"><h3 class="sub-title">Красногорск</h3><p></p></a>
+                                    <a
+                                    href="#" data-title="Краснознаменск" class="item">
+                                        <h3 class="sub-title">Краснознаменск</h3>
+                                        <p></p>
+                                        </a><a href="#" data-title="Люберцы" class="item"><h3 class="sub-title">Люберцы</h3><p></p></a><a href="#" data-title="Малаховка" class="item"><h3 class="sub-title">Малаховка</h3><p></p></a><a href="#" data-title="Можайск"
+                                        class="item"><h3 class="sub-title">Можайск</h3><p></p></a><a href="#" data-title="Челюскинский" class="item"><h3 class="sub-title">Челюскинский</h3><p></p></a><a href="#" data-title="Мытищи" class="item"><h3 class="sub-title">Мытищи</h3><p></p></a>
+                                        <a
+                                        href="#" data-title="Наро-Фоминск" class="item">
+                                            <h3 class="sub-title">Наро-Фоминск</h3>
+                                            <p></p>
+                                            </a><a href="#" data-title="Ногинск" class="item"><h3 class="sub-title">Ногинск</h3><p></p></a><a href="#" data-title="Одинцово" class="item"><h3 class="sub-title">Одинцово</h3><p></p></a><a href="#" data-title="Орехово-Зуево"
+                                            class="item"><h3 class="sub-title">Орехово-Зуево</h3><p></p></a><a href="#" data-title="Павловский Посад" class="item"><h3 class="sub-title">Павловский Посад</h3><p></p></a><a href="#" data-title="Подольск"
+                                            class="item"><h3 class="sub-title">Подольск</h3><p></p></a><a href="#" data-title="Протвино" class="item"><h3 class="sub-title">Протвино</h3><p></p></a><a href="#" data-title="Пушкино" class="item"><h3 class="sub-title">Пушкино</h3><p></p></a>
+                                            <a
+                                            href="#" data-title="Пущино" class="item">
+                                                <h3 class="sub-title">Пущино</h3>
+                                                <p></p>
+                                                </a><a href="#" data-title="Радужный" class="item"><h3 class="sub-title">Радужный</h3><p></p></a><a href="#" data-title="Раменское" class="item"><h3 class="sub-title">Раменское</h3><p></p></a><a href="#" data-title="Реутов"
+                                                class="item"><h3 class="sub-title">Реутов</h3><p></p></a><a href="#" data-title="Руза" class="item"><h3 class="sub-title">Руза</h3><p></p></a><a href="#" data-title="Старотеряево" class="item"><h3 class="sub-title">Старотеряево</h3><p></p></a>
+                                                <a
+                                                href="#" data-title="Сергиев Посад" class="item">
+                                                    <h3 class="sub-title">Сергиев Посад</h3>
+                                                    <p></p>
+                                                    </a><a href="#" data-title="Серпухов" class="item"><h3 class="sub-title">Серпухов</h3><p></p></a><a href="#" data-title="Солнечногорск" class="item"><h3 class="sub-title">Солнечногорск</h3><p></p></a>
+                                                    <a
+                                                    href="#" data-title="Ступино" class="item">
+                                                        <h3 class="sub-title">Ступино</h3>
+                                                        <p></p>
+                                                        </a><a href="#" data-title="Сходня" class="item"><h3 class="sub-title">Сходня</h3><p></p></a><a href="#" data-title="Тучково" class="item"><h3 class="sub-title">Тучково</h3><p></p></a><a href="#" data-title="Фрязино"
+                                                        class="item"><h3 class="sub-title">Фрязино</h3><p></p></a><a href="#" data-title="Химки" class="item"><h3 class="sub-title">Химки</h3><p></p></a>
+                                                        <a href="#" data-title="Черкизово" class="item">
+                                                            <h3 class="sub-title">Черкизово</h3>
+                                                            <p></p>
+                                                        </a><a href="#" data-title="Чехов" class="item"><h3 class="sub-title">Чехов</h3><p></p></a><a href="#" data-title="Шатура" class="item"><h3 class="sub-title">Шатура</h3><p></p></a><a href="#" data-title="Электросталь"
+                                                        class="item"><h3 class="sub-title">Электросталь</h3><p></p></a><a href="#" data-title="Юбилейный" class="item"><h3 class="sub-title">Юбилейный</h3><p></p></a>
+                                                        <a href="#" data-title="Апатиты" class="item">
+                                                            <h3 class="sub-title">Апатиты</h3>
+                                                            <p></p>
+                                                        </a><a href="#" data-title="Кировск" class="item"><h3 class="sub-title">Кировск</h3><p></p></a><a href="#" data-title="Арзамас" class="item"><h3 class="sub-title">Арзамас</h3><p></p></a><a href="#" data-title="Выкса"
+                                                        class="item"><h3 class="sub-title">Выкса</h3><p></p></a><a href="#" data-title="Дзержинск" class="item"><h3 class="sub-title">Дзержинск</h3><p></p></a>
+                                                        <a href="#" data-title="Заволжье" class="item">
+                                                            <h3 class="sub-title">Заволжье</h3>
+                                                            <p></p>
+                                                        </a><a href="#" data-title="Княгинино" class="item"><h3 class="sub-title">Княгинино</h3><p></p></a><a href="#" data-title="Кстово" class="item"><h3 class="sub-title">Кстово</h3><p></p></a><a href="#"
+                                                        data-title="Кулебаки" class="item"><h3 class="sub-title">Кулебаки</h3><p></p></a><a href="#" data-title="Павлово" class="item"><h3 class="sub-title">Павлово</h3><p></p></a><a href="#" data-title="Перевоз"
+                                                        class="item"><h3 class="sub-title">Перевоз</h3><p></p></a><a href="#" data-title="Саров" class="item"><h3 class="sub-title">Саров</h3><p></p></a><a href="#" data-title="Сергач" class="item"><h3 class="sub-title">Сергач</h3><p></p></a>
+                                                        <a
+                                                        href="#" data-title="Шашунья" class="item">
+                                                            <h3 class="sub-title">Шашунья</h3>
+                                                            <p></p>
+                                                            </a><a href="#" data-title="Боровочи" class="item"><h3 class="sub-title">Боровочи</h3><p></p></a><a href="#" data-title="Старая Русса" class="item"><h3 class="sub-title">Старая Русса</h3><p></p></a>
+                                                            <a
+                                                            href="#" data-title="Бердск" class="item">
+                                                                <h3 class="sub-title">Бердск</h3>
+                                                                <p></p>
+                                                                </a><a href="#" data-title="Искитим" class="item"><h3 class="sub-title">Искитим</h3><p></p></a><a href="#" data-title="Куйбышев" class="item"><h3 class="sub-title">Куйбышев</h3><p></p></a>
+                                                                <a
+                                                                href="#" data-title="Линёво" class="item">
+                                                                    <h3 class="sub-title">Линёво</h3>
+                                                                    <p></p>
+                                                                    </a><a href="#" data-title="Тара" class="item"><h3 class="sub-title">Тара</h3><p></p></a><a href="#" data-title="Акбулак" class="item"><h3 class="sub-title">Акбулак</h3><p></p></a><a href="#"
+                                                                    data-title="Бугуруслан" class="item"><h3 class="sub-title">Бугуруслан</h3><p></p></a><a href="#" data-title="Бузулук" class="item"><h3 class="sub-title">Бузулук</h3><p></p></a><a href="#"
+                                                                    data-title="Новотроицк" class="item"><h3 class="sub-title">Новотроицк</h3><p></p></a><a href="#" data-title="Орск" class="item"><h3 class="sub-title">Орск</h3><p></p></a><a href="#" data-title="Ливны"
+                                                                    class="item"><h3 class="sub-title">Ливны</h3><p></p></a><a href="#" data-title="Мценск" class="item"><h3 class="sub-title">Мценск</h3><p></p></a>
+                                                                    <a href="#" data-title="Кузнецк" class="item">
+                                                                        <h3 class="sub-title">Кузнецк</h3>
+                                                                        <p></p>
+                                                                    </a><a href="#" data-title="Нижний Ломов" class="item"><h3 class="sub-title">Нижний Ломов</h3><p></p></a><a href="#" data-title="Сердобск" class="item"><h3 class="sub-title">Сердобск</h3><p></p></a>
+                                                                    <a
+                                                                    href="#" data-title="Березники" class="item">
+                                                                        <h3 class="sub-title">Березники</h3>
+                                                                        <p></p>
+                                                                        </a><a href="#" data-title="Кудымкар" class="item"><h3 class="sub-title">Кудымкар</h3><p></p></a><a href="#" data-title="Лысьва" class="item"><h3 class="sub-title">Лысьва</h3><p></p></a>
+                                                                        <a
+                                                                        href="#" data-title="Соликамск" class="item">
+                                                                            <h3 class="sub-title">Соликамск</h3>
+                                                                            <p></p>
+                                                                            </a><a href="#" data-title="Чайковский" class="item"><h3 class="sub-title">Чайковский</h3><p></p></a><a href="#" data-title="Чусовой" class="item"><h3 class="sub-title">Чусовой</h3><p></p></a>
+                                                                            <a
+                                                                            href="#" data-title="Арсеньев" class="item">
+                                                                                <h3 class="sub-title">Арсеньев</h3>
+                                                                                <p></p>
+                                                                                </a><a href="#" data-title="Артем" class="item"><h3 class="sub-title">Артем</h3><p></p></a><a href="#" data-title="Большой Камень" class="item"><h3 class="sub-title">Большой Камень</h3><p></p></a>
+                                                                                <a
+                                                                                href="#" data-title="Дальнегорск" class="item">
+                                                                                    <h3 class="sub-title">Дальнегорск</h3>
+                                                                                    <p></p>
+                                                                                    </a><a href="#" data-title="Дальнереченск" class="item"><h3 class="sub-title">Дальнереченск</h3><p></p></a><a href="#" data-title="Кировский" class="item"><h3 class="sub-title">Кировский</h3><p></p></a>
+                                                                                    <a
+                                                                                    href="#" data-title="Лесозаводск" class="item">
+                                                                                        <h3 class="sub-title">Лесозаводск</h3>
+                                                                                        <p></p>
+                                                                                        </a><a href="#" data-title="Михайловка" class="item"><h3 class="sub-title">Михайловка</h3><p></p></a><a href="#" data-title="Находка" class="item"><h3 class="sub-title">Находка</h3><p></p></a>
+                                                                                        <a
+                                                                                        href="#" data-title="Партизанск" class="item">
+                                                                                            <h3 class="sub-title">Партизанск</h3>
+                                                                                            <p></p>
+                                                                                            </a><a href="#" data-title="Славянка" class="item"><h3 class="sub-title">Славянка</h3><p></p></a><a href="#" data-title="Спасск-Дальний" class="item"><h3 class="sub-title">Спасск-Дальний</h3><p></p></a>
+                                                                                            <a
+                                                                                            href="#" data-title="Уссурийск" class="item">
+                                                                                                <h3 class="sub-title">Уссурийск</h3>
+                                                                                                <p></p>
+                                                                                                </a><a href="#" data-title="Великие Луки" class="item"><h3 class="sub-title">Великие Луки</h3><p></p></a><a href="#" data-title="Кошехабль" class="item"><h3 class="sub-title">Кошехабль</h3><p></p></a>
+                                                                                                <a
+                                                                                                href="#" data-title="Яблоновский" class="item">
+                                                                                                    <h3 class="sub-title">Яблоновский</h3>
+                                                                                                    <p></p>
+                                                                                                    </a><a href="#" data-title="Белебей" class="item"><h3 class="sub-title">Белебей</h3><p></p></a><a href="#" data-title="Белорецк" class="item"><h3 class="sub-title">Белорецк</h3><p></p></a>
+                                                                                                    <a
+                                                                                                    href="#" data-title="Бирск" class="item">
+                                                                                                        <h3 class="sub-title">Бирск</h3>
+                                                                                                        <p></p>
+                                                                                                        </a><a href="#" data-title="Ишимбай" class="item"><h3 class="sub-title">Ишимбай</h3><p></p></a><a href="#" data-title="Кумертау" class="item"><h3 class="sub-title">Кумертау</h3><p></p></a>
+                                                                                                        <a
+                                                                                                        href="#" data-title="Мелеуз" class="item">
+                                                                                                            <h3 class="sub-title">Мелеуз</h3>
+                                                                                                            <p></p>
+                                                                                                            </a><a href="#" data-title="Нефтекамск" class="item"><h3 class="sub-title">Нефтекамск</h3><p></p></a>
+                                                                                                            <a href="#" data-title="Октябрьский" class="item">
+                                                                                                                <h3 class="sub-title">Октябрьский</h3>
+                                                                                                                <p></p>
+                                                                                                            </a><a href="#" data-title="Салават" class="item"><h3 class="sub-title">Салават</h3><p></p></a><a href="#" data-title="Сибай" class="item"><h3 class="sub-title">Сибай</h3><p></p></a>
+                                                                                                            <a
+                                                                                                            href="#" data-title="Стерлитамак" class="item">
+                                                                                                                <h3 class="sub-title">Стерлитамак</h3>
+                                                                                                                <p></p>
+                                                                                                                </a><a href="#" data-title="Северобайкальск" class="item"><h3 class="sub-title">Северобайкальск</h3><p></p></a><a href="#" data-title="Дербент"
+                                                                                                                class="item"><h3 class="sub-title">Дербент</h3><p></p></a><a href="#" data-title="Буйнакск" class="item"><h3 class="sub-title">Буйнакск</h3><p></p></a>
+                                                                                                                <a
+                                                                                                                href="#" data-title="Избербаш" class="item">
+                                                                                                                    <h3 class="sub-title">Избербаш</h3>
+                                                                                                                    <p></p>
+                                                                                                                    </a><a href="#" data-title="Каспийск" class="item"><h3 class="sub-title">Каспийск</h3><p></p></a>
+                                                                                                                    <a href="#" data-title="Кизилюрт" class="item">
+                                                                                                                        <h3 class="sub-title">Кизилюрт</h3>
+                                                                                                                        <p></p>
+                                                                                                                    </a><a href="#" data-title="Кизляр" class="item"><h3 class="sub-title">Кизляр</h3><p></p></a>
+                                                                                                                    <a href="#" data-title="Хасавюрт" class="item">
+                                                                                                                        <h3 class="sub-title">Хасавюрт</h3>
+                                                                                                                        <p></p>
+                                                                                                                    </a><a href="#" data-title="Магас" class="item"><h3 class="sub-title">Магас</h3><p></p></a>
+                                                                                                                    <a href="#" data-title="Костомукша" class="item">
+                                                                                                                        <h3 class="sub-title">Костомукша</h3>
+                                                                                                                        <p></p>
+                                                                                                                    </a><a href="#" data-title="Сортавала" class="item"><h3 class="sub-title">Сортавала</h3><p></p></a>
                 </div>
-                <div class="column"><a href="#" data-title="Москва" class="item"><h3 class="sub-title">Москва</h3><p>и Московская область</p></a><a href="#" data-title="Санкт-Петербург" class="item"><h3 class="sub-title">Санкт-Петербург</h3><p>и Ленинградская область</p></a>
+                <div class="column"><a href="#" data-title="Воркута" class="item"><h3 class="sub-title">Воркута</h3><p></p></a><a href="#" data-title="Усинск" class="item"><h3 class="sub-title">Усинск</h3><p></p></a><a href="#" data-title="Ухта" class="item"><h3 class="sub-title">Ухта</h3><p></p></a>
                     <a
-                    href="#" data-title="Нижний Новгород" class="item">
-                        <h3 class="sub-title">Нижний Новгород</h3>
-                        <p>и Нижнегородская область</p>
-                        </a><a href="#" data-title="Казань" class="item"><h3 class="sub-title">Казань</h3><p>и Республика Татарстан</p></a><a href="#" data-title="Екатеринбург" class="item"><h3 class="sub-title">Екатеринбург</h3><p>и Свердловская область</p></a>
+                    href="#" data-title="Волжск" class="item">
+                        <h3 class="sub-title">Волжск</h3>
+                        <p></p>
+                        </a><a href="#" data-title="Ковылкино" class="item"><h3 class="sub-title">Ковылкино</h3><p></p></a><a href="#" data-title="Рузаевка" class="item"><h3 class="sub-title">Рузаевка</h3><p></p></a>
+                        <a href="#" data-title="Мирный" class="item">
+                            <h3 class="sub-title">Мирный</h3>
+                            <p></p>
+                        </a><a href="#" data-title="Нерюнгри" class="item"><h3 class="sub-title">Нерюнгри</h3><p></p></a><a href="#" data-title="Октенцы" class="item"><h3 class="sub-title">Октенцы</h3><p></p></a>
+                        <a href="#" data-title="Олёкминск" class="item">
+                            <h3 class="sub-title">Олёкминск</h3>
+                            <p></p>
+                        </a><a href="#" data-title="Чурапча" class="item"><h3 class="sub-title">Чурапча</h3><p></p></a><a href="#" data-title="Айхал" class="item"><h3 class="sub-title">Айхал</h3><p></p></a><a href="#" data-title="Ленск" class="item"><h3 class="sub-title">Ленск</h3><p></p></a>
                         <a
-                        href="#" data-title="Уфа" class="item">
-                            <h3 class="sub-title">Уфа</h3>
-                            <p>и Республика Башкортостан</p>
-                            </a>
+                        href="#" data-title="Альметьевск" class="item">
+                            <h3 class="sub-title">Альметьевск</h3>
+                            <p></p>
+                            </a><a href="#" data-title="Бугульма" class="item"><h3 class="sub-title">Бугульма</h3><p></p></a><a href="#" data-title="Елабуга" class="item"><h3 class="sub-title">Елабуга</h3><p></p></a>
+                            <a href="#" data-title="Зеленодольск" class="item">
+                                <h3 class="sub-title">Зеленодольск</h3>
+                                <p></p>
+                            </a><a href="#" data-title="Лениногорск" class="item"><h3 class="sub-title">Лениногорск</h3><p></p></a><a href="#" data-title="Набережные Челны" class="item"><h3 class="sub-title">Набережные Челны</h3><p></p></a><a href="#" data-title="Нижнекамск"
+                            class="item"><h3 class="sub-title">Нижнекамск</h3><p></p></a><a href="#" data-title="Чистополь" class="item"><h3 class="sub-title">Чистополь</h3><p></p></a><a href="#" data-title="Саяногорск" class="item"><h3 class="sub-title">Саяногорск</h3><p></p></a>
+                            <a
+                            href="#" data-title="Азов" class="item">
+                                <h3 class="sub-title">Азов</h3>
+                                <p></p>
+                                </a><a href="#" data-title="Батайск" class="item"><h3 class="sub-title">Батайск</h3><p></p></a><a href="#" data-title="Белая Калитва" class="item"><h3 class="sub-title">Белая Калитва</h3><p></p></a><a href="#" data-title="Вешенская"
+                                class="item"><h3 class="sub-title">Вешенская</h3><p></p></a><a href="#" data-title="Волгодонск" class="item"><h3 class="sub-title">Волгодонск</h3><p></p></a><a href="#" data-title="Гуково" class="item"><h3 class="sub-title">Гуково</h3><p></p></a>
+                                <a
+                                href="#" data-title="Донецк" class="item">
+                                    <h3 class="sub-title">Донецк</h3>
+                                    <p></p>
+                                    </a><a href="#" data-title="Зерноград" class="item"><h3 class="sub-title">Зерноград</h3><p></p></a><a href="#" data-title="Зимовники" class="item"><h3 class="sub-title">Зимовники</h3><p></p></a><a href="#" data-title="Каменск-Шахтинский"
+                                    class="item"><h3 class="sub-title">Каменск-Шахтинский</h3><p></p></a><a href="#" data-title="Константиновск" class="item"><h3 class="sub-title">Константиновск</h3><p></p></a>
+                                    <a href="#" data-title="Красный Сулим" class="item">
+                                        <h3 class="sub-title">Красный Сулим</h3>
+                                        <p></p>
+                                    </a><a href="#" data-title="Матвеев Курган" class="item"><h3 class="sub-title">Матвеев Курган</h3><p></p></a><a href="#" data-title="Миллерово" class="item"><h3 class="sub-title">Миллерово</h3><p></p></a><a href="#" data-title="Новочеркасск"
+                                    class="item"><h3 class="sub-title">Новочеркасск</h3><p></p></a><a href="#" data-title="Новошахтинск" class="item"><h3 class="sub-title">Новошахтинск</h3><p></p></a>
+                                    <a href="#" data-title="Персиановский" class="item">
+                                        <h3 class="sub-title">Персиановский</h3>
+                                        <p></p>
+                                    </a><a href="#" data-title="Сальск" class="item"><h3 class="sub-title">Сальск</h3><p></p></a><a href="#" data-title="Таганрог" class="item"><h3 class="sub-title">Таганрог</h3><p></p></a>
+                                    <a href="#" data-title="Шахты" class="item">
+                                        <h3 class="sub-title">Шахты</h3>
+                                        <p></p>
+                                    </a><a href="#" data-title="Сасово" class="item"><h3 class="sub-title">Сасово</h3><p></p></a><a href="#" data-title="Кинель" class="item"><h3 class="sub-title">Кинель</h3><p></p></a>
+                                    <a href="#" data-title="Похвиснево" class="item">
+                                        <h3 class="sub-title">Похвиснево</h3>
+                                        <p></p>
+                                    </a><a href="#" data-title="Сызрань" class="item"><h3 class="sub-title">Сызрань</h3><p></p></a><a href="#" data-title="Тольятти" class="item"><h3 class="sub-title">Тольятти</h3><p></p></a><a href="#" data-title="Пушкин"
+                                    class="item"><h3 class="sub-title">Пушкин</h3><p></p></a><a href="#" data-title="Балаково" class="item"><h3 class="sub-title">Балаково</h3><p></p></a><a href="#" data-title="Балашов" class="item"><h3 class="sub-title">Балашов</h3><p></p></a>
+                                    <a
+                                    href="#" data-title="Вольск" class="item">
+                                        <h3 class="sub-title">Вольск</h3>
+                                        <p></p>
+                                        </a><a href="#" data-title="Маркс" class="item"><h3 class="sub-title">Маркс</h3><p></p></a><a href="#" data-title="Энгельс" class="item"><h3 class="sub-title">Энгельс</h3><p></p></a>
+                                        <a href="#" data-title="Холмск" class="item">
+                                            <h3 class="sub-title">Холмск</h3>
+                                            <p></p>
+                                        </a><a href="#" data-title="Алапаевск" class="item"><h3 class="sub-title">Алапаевск</h3><p></p></a><a href="#" data-title="Березовский" class="item"><h3 class="sub-title">Березовский</h3><p></p></a><a href="#" data-title="Верхняя Салда"
+                                        class="item"><h3 class="sub-title">Верхняя Салда</h3><p></p></a><a href="#" data-title="Заречный" class="item"><h3 class="sub-title">Заречный</h3><p></p></a><a href="#" data-title="Ирбит" class="item"><h3 class="sub-title">Ирбит</h3><p></p></a>
+                                        <a
+                                        href="#" data-title="Каменск-Уральский" class="item">
+                                            <h3 class="sub-title">Каменск-Уральский</h3>
+                                            <p></p>
+                                            </a><a href="#" data-title="Краснотурьинск" class="item"><h3 class="sub-title">Краснотурьинск</h3><p></p></a><a href="#" data-title="Лесной" class="item"><h3 class="sub-title">Лесной</h3><p></p></a><a href="#" data-title="Невьянск"
+                                            class="item"><h3 class="sub-title">Невьянск</h3><p></p></a><a href="#" data-title="Нижний Тагил" class="item"><h3 class="sub-title">Нижний Тагил</h3><p></p></a>
+                                            <a href="#" data-title="Нижняя Тура" class="item">
+                                                <h3 class="sub-title">Нижняя Тура</h3>
+                                                <p></p>
+                                            </a><a href="#" data-title="Новоуральск" class="item"><h3 class="sub-title">Новоуральск</h3><p></p></a><a href="#" data-title="Первоуральск" class="item"><h3 class="sub-title">Первоуральск</h3><p></p></a><a href="#"
+                                            data-title="Серов" class="item"><h3 class="sub-title">Серов</h3><p></p></a><a href="#" data-title="Среднеуральск" class="item"><h3 class="sub-title">Среднеуральск</h3><p></p></a><a href="#" data-title="Вязьма"
+                                            class="item"><h3 class="sub-title">Вязьма</h3><p></p></a><a href="#" data-title="Рославль" class="item"><h3 class="sub-title">Рославль</h3><p></p></a><a href="#" data-title="Сафоново" class="item"><h3 class="sub-title">Сафоново</h3><p></p></a>
+                                            <a
+                                            href="#" data-title="Буденновск" class="item">
+                                                <h3 class="sub-title">Буденновск</h3>
+                                                <p></p>
+                                                </a><a href="#" data-title="Георгиевск" class="item"><h3 class="sub-title">Георгиевск</h3><p></p></a><a href="#" data-title="Ессентуки" class="item"><h3 class="sub-title">Ессентуки</h3><p></p></a><a href="#"
+                                                data-title="Железноводск" class="item"><h3 class="sub-title">Железноводск</h3><p></p></a><a href="#" data-title="Кисловодск" class="item"><h3 class="sub-title">Кисловодск</h3><p></p></a><a href="#" data-title="Лермонтов"
+                                                class="item"><h3 class="sub-title">Лермонтов</h3><p></p></a><a href="#" data-title="Минеральные Воды" class="item"><h3 class="sub-title">Минеральные Воды</h3><p></p></a><a href="#" data-title="Невинномысск"
+                                                class="item"><h3 class="sub-title">Невинномысск</h3><p></p></a><a href="#" data-title="Пятигорск" class="item"><h3 class="sub-title">Пятигорск</h3><p></p></a>
+                                                <a href="#" data-title="Мичуринск" class="item">
+                                                    <h3 class="sub-title">Мичуринск</h3>
+                                                    <p></p>
+                                                </a><a href="#" data-title="Уварово" class="item"><h3 class="sub-title">Уварово</h3><p></p></a><a href="#" data-title="Бежецк" class="item"><h3 class="sub-title">Бежецк</h3><p></p></a><a href="#" data-title="Вышний Волочек"
+                                                class="item"><h3 class="sub-title">Вышний Волочек</h3><p></p></a><a href="#" data-title="Кимры" class="item"><h3 class="sub-title">Кимры</h3><p></p></a>
+                                                <a href="#" data-title="Канаково" class="item">
+                                                    <h3 class="sub-title">Канаково</h3>
+                                                    <p></p>
+                                                </a><a href="#" data-title="Кувшиново" class="item"><h3 class="sub-title">Кувшиново</h3><p></p></a><a href="#" data-title="Ржев" class="item"><h3 class="sub-title">Ржев</h3><p></p></a><a href="#" data-title="Торжок"
+                                                class="item"><h3 class="sub-title">Торжок</h3><p></p></a><a href="#" data-title="Удомля" class="item"><h3 class="sub-title">Удомля</h3><p></p></a><a href="#" data-title="Асино" class="item"><h3 class="sub-title">Асино</h3><p></p></a>
+                                                <a
+                                                href="#" data-title="Северск" class="item">
+                                                    <h3 class="sub-title">Северск</h3>
+                                                    <p></p>
+                                                    </a><a href="#" data-title="Стрежевой" class="item"><h3 class="sub-title">Стрежевой</h3><p></p></a><a href="#" data-title="Алексин" class="item"><h3 class="sub-title">Алексин</h3><p></p></a><a href="#" data-title="Новомосковск"
+                                                    class="item"><h3 class="sub-title">Новомосковск</h3><p></p></a><a href="#" data-title="Белый Яр" class="item"><h3 class="sub-title">Белый Яр</h3><p></p></a>
+                                                    <a href="#" data-title="Губкинский" class="item">
+                                                        <h3 class="sub-title">Губкинский</h3>
+                                                        <p></p>
+                                                    </a><a href="#" data-title="Заводоуковск" class="item"><h3 class="sub-title">Заводоуковск</h3><p></p></a><a href="#" data-title="Ишим" class="item"><h3 class="sub-title">Ишим</h3><p></p></a><a href="#" data-title="Когалым"
+                                                    class="item"><h3 class="sub-title">Когалым</h3><p></p></a><a href="#" data-title="Лангепас" class="item"><h3 class="sub-title">Лангепас</h3><p></p></a>
+                                                    <a href="#" data-title="Муравленко" class="item">
+                                                        <h3 class="sub-title">Муравленко</h3>
+                                                        <p></p>
+                                                    </a><a href="#" data-title="Надым" class="item"><h3 class="sub-title">Надым</h3><p></p></a><a href="#" data-title="Нефтеюганск" class="item"><h3 class="sub-title">Нефтеюганск</h3><p></p></a><a href="#" data-title="Нижневартовск"
+                                                    class="item"><h3 class="sub-title">Нижневартовск</h3><p></p></a><a href="#" data-title="Новый Уренгой" class="item"><h3 class="sub-title">Новый Уренгой</h3><p></p></a><a href="#" data-title="Ноябрьск"
+                                                    class="item"><h3 class="sub-title">Ноябрьск</h3><p></p></a><a href="#" data-title="Нягань" class="item"><h3 class="sub-title">Нягань</h3><p></p></a>
+                                                    <a href="#" data-title="Пойковский" class="item">
+                                                        <h3 class="sub-title">Пойковский</h3>
+                                                        <p></p>
+                                                    </a><a href="#" data-title="Пыть-Ях" class="item"><h3 class="sub-title">Пыть-Ях</h3><p></p></a><a href="#" data-title="Советский" class="item"><h3 class="sub-title">Советский</h3><p></p></a><a href="#" data-title="Сургут"
+                                                    class="item"><h3 class="sub-title">Сургут</h3><p></p></a><a href="#" data-title="Тобольск" class="item"><h3 class="sub-title">Тобольск</h3><p></p></a><a href="#" data-title="Урай" class="item"><h3 class="sub-title">Урай</h3><p></p></a>
+                                                    <a
+                                                    href="#" data-title="Ялуторовск" class="item">
+                                                        <h3 class="sub-title">Ялуторовск</h3>
+                                                        <p></p>
+                                                        </a><a href="#" data-title="Воткинск" class="item"><h3 class="sub-title">Воткинск</h3><p></p></a><a href="#" data-title="Глазов" class="item"><h3 class="sub-title">Глазов</h3><p></p></a><a href="#" data-title="Сарапул"
+                                                        class="item"><h3 class="sub-title">Сарапул</h3><p></p></a><a href="#" data-title="Дмитровград" class="item"><h3 class="sub-title">Дмитровград</h3><p></p></a>
+                                                        <a href="#" data-title="Инза" class="item">
+                                                            <h3 class="sub-title">Инза</h3>
+                                                            <p></p>
+                                                        </a><a href="#" data-title="Ванино" class="item"><h3 class="sub-title">Ванино</h3><p></p></a><a href="#" data-title="Комсомольск-на-Амуре" class="item"><h3 class="sub-title">Комсомольск-на-Амуре</h3><p></p></a>
+                                                        <a
+                                                        href="#" data-title="Советская Гавань" class="item">
+                                                            <h3 class="sub-title">Советская Гавань</h3>
+                                                            <p></p>
+                                                            </a><a href="#" data-title="Аша" class="item"><h3 class="sub-title">Аша</h3><p></p></a><a href="#" data-title="Златоуст" class="item"><h3 class="sub-title">Златоуст</h3><p></p></a><a href="#" data-title="Карталы"
+                                                            class="item"><h3 class="sub-title">Карталы</h3><p></p></a><a href="#" data-title="Куса" class="item"><h3 class="sub-title">Куса</h3><p></p></a>
+                                                            <a href="#" data-title="Кыштым" class="item">
+                                                                <h3 class="sub-title">Кыштым</h3>
+                                                                <p></p>
+                                                            </a><a href="#" data-title="Магнитогорск" class="item"><h3 class="sub-title">Магнитогорск</h3><p></p></a><a href="#" data-title="Миасс" class="item"><h3 class="sub-title">Миасс</h3><p></p></a>
+                                                            <a
+                                                            href="#" data-title="Нязепетровск" class="item">
+                                                                <h3 class="sub-title">Нязепетровск</h3>
+                                                                <p></p>
+                                                                </a><a href="#" data-title="Озерск" class="item"><h3 class="sub-title">Озерск</h3><p></p></a><a href="#" data-title="Сатка" class="item"><h3 class="sub-title">Сатка</h3><p></p></a><a href="#"
+                                                                data-title="Снежинск" class="item"><h3 class="sub-title">Снежинск</h3><p></p></a><a href="#" data-title="Трёхгорный" class="item"><h3 class="sub-title">Трёхгорный</h3><p></p></a><a href="#"
+                                                                data-title="Троицк" class="item"><h3 class="sub-title">Троицк</h3><p></p></a><a href="#" data-title="Усть-Катав" class="item"><h3 class="sub-title">Усть-Катав</h3><p></p></a><a href="#" data-title="Алатырь"
+                                                                class="item"><h3 class="sub-title">Алатырь</h3><p></p></a><a href="#" data-title="Батырево" class="item"><h3 class="sub-title">Батырево</h3><p></p></a><a href="#" data-title="Мариинский Посад"
+                                                                class="item"><h3 class="sub-title">Мариинский Посад</h3><p></p></a><a href="#" data-title="Новочебоксарск" class="item"><h3 class="sub-title">Новочебоксарск</h3><p></p></a><a href="#" data-title="Переславль-Залесский"
+                                                                class="item"><h3 class="sub-title">Переславль-Залесский</h3><p></p></a><a href="#" data-title="Рыбинск" class="item"><h3 class="sub-title">Рыбинск</h3><p></p></a><a href="#" data-title="Тутаев"
+                                                                class="item"><h3 class="sub-title">Тутаев</h3><p></p></a><a href="#" data-title="Углич" class="item"><h3 class="sub-title">Углич</h3><p></p></a>
+                                                                <a href="#" data-title="Байконур" class="item">
+                                                                    <h3 class="sub-title">Байконур</h3>
+                                                                    <p></p>
+                                                                </a><a href="#" data-title="Бишкек" class="item"><h3 class="sub-title">Бишкек</h3><p></p></a><a href="#" data-title="Душанбе" class="item"><h3 class="sub-title">Душанбе</h3><p></p></a><a href="#"
+                                                                data-title="Ереван" class="item"><h3 class="sub-title">Ереван</h3><p></p></a><a href="#" data-title="Курган-тюбе" class="item"><h3 class="sub-title">Курган-тюбе</h3><p></p></a><a href="#"
+                                                                data-title="Могилев" class="item"><h3 class="sub-title">Могилев</h3><p></p></a><a href="#" data-title="Худжанд" class="item"><h3 class="sub-title">Худжанд</h3><p></p></a><a href="#" data-title="Зарубежные города"
+                                                                class="item"><h3 class="sub-title">Зарубежные города</h3><p></p></a><a href="#" data-title="Звенигород" class="item"><h3 class="sub-title">Звенигород</h3><p></p></a><a href="#" data-title="Климовск"
+                                                                class="item"><h3 class="sub-title">Климовск</h3><p></p></a><a href="#" data-title="Лобня" class="item"><h3 class="sub-title">Лобня</h3><p></p></a>
+                                                                <a href="#" data-title="Лыткарино" class="item">
+                                                                    <h3 class="sub-title">Лыткарино</h3>
+                                                                    <p></p>
+                                                                </a><a href="#" data-title="Крутое" class="item"><h3 class="sub-title">Крутое</h3><p></p></a><a href="#" data-title="Апрелевка" class="item"><h3 class="sub-title">Апрелевка</h3><p></p></a>
+                                                                <a
+                                                                href="#" data-title="Севастополь" class="item">
+                                                                    <h3 class="sub-title">Севастополь</h3>
+                                                                    <p></p>
+                                                                    </a><a href="#" data-title="Евпатория" class="item"><h3 class="sub-title">Евпатория</h3><p></p></a><a href="#" data-title="Керчь" class="item"><h3 class="sub-title">Керчь</h3><p></p></a>
+                                                                    <a
+                                                                    href="#" data-title="Симферополь" class="item">
+                                                                        <h3 class="sub-title">Симферополь</h3>
+                                                                        <p></p>
+                                                                        </a><a href="#" data-title="Судак" class="item"><h3 class="sub-title">Судак</h3><p></p></a><a href="#" data-title="Феодосия" class="item"><h3 class="sub-title">Феодосия</h3><p></p></a>
+                                                                        <a
+                                                                        href="#" data-title="Ялта" class="item">
+                                                                            <h3 class="sub-title">Ялта</h3>
+                                                                            <p></p>
+                                                                            </a><a href="#" data-title="Кола" class="item"><h3 class="sub-title">Кола</h3><p></p></a>
                 </div>
             </div>
         </div>

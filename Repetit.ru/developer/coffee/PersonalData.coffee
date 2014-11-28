@@ -13,6 +13,18 @@ class PersonalData
 
     FileAPI.event.on document, 'drop', @droped
 
+    $('.sertificats').fileapi
+      # url: @form.attr('action'),
+      url: 'http://websaints.net/test.php'
+      duplicate: false,
+      accept: 'image/*',
+      autoUpload: false,
+      multiple: true,
+      elements:
+        ctrl: 
+          upload: '.add-sertificat label'
+        list: '.sertificat-list'
+
     @form.h5Validate()
     @form.on 'submit', @afterCheck
 
