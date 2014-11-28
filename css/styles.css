@@ -2978,6 +2978,10 @@ body.registration-page {
     text-transform: uppercase;
 }
 
+.registration-step-1 .panel nav button.complete:after {
+    display: none;
+}
+
 .registration-step-1 .panel nav button:after {
     content: ' >';
 }
@@ -3871,7 +3875,7 @@ body.registration-page {
 @media (max-width: 924px) {
     .registration-step-1 .steps {
         max-width: 70vw;
-        margin: 75px 30px;
+        margin: 75px auto;
     }
 
     .registration-step-1 .steps .step .sub-title span {
@@ -3904,7 +3908,7 @@ body.registration-page {
     }
 
     .registration-step-1 .steps {
-        margin: 75px 30px;
+        margin: 75px auto;
     }
 
     .registration-step-1 .steps .step .sub-title span {
