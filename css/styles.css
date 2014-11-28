@@ -2127,6 +2127,7 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
     text-overflow: ellipsis;
     padding: 0 15px;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .registration-step-0 .sms .title:before {
@@ -2197,6 +2198,7 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
 }
 
 .registration-step-0 .regions-list .regions .column a {
+    outline: none;
     position: relative;
     margin: 0 30px 0 0;
     padding: 10px;
@@ -2261,6 +2263,7 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
     display: inline-block;
     vertical-align: middle;
     text-align: left;
+    margin-top: -100px;
 }
 
 .registration-step-0 .registration .title {
@@ -2477,6 +2480,12 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
 
 .registration-step-0 .registration .copyright a {
     color: #fff;
+}
+
+@media (max-width: 890px) {
+    .registration-step-0 .registration fieldset .line .error {
+        display: none !important;
+    }
 }
 
 @media (max-width: 600px) {
