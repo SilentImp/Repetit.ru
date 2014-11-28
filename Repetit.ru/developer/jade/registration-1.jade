@@ -11,12 +11,22 @@ html(lang="ru")
     script(src="js/html-template-polyfill.js")
     script(src="js/jquery/jquery.min.js")
     script(src="js/jquery-ui-1.9.2.custom.min.js")
+    script(src="js/jquery.nouislider.all.min.js")
+    script(src="js/jquery.liblink.js")
     script(src="js/h5Validate/jquery.h5validate.js")
-    script(src="js/FileAPI.min.js")
-    script(src="js/moment/min/moment.min.js")
 
-    script(src="js/ExperienceWidgetController.js", async)
-    script(src="js/DropdownWidgetController.js", async)
+    script(src="js/FileAPI.min.js")
+    script(src="js/jquery.fileapi.min.js")
+    script(src="js/handlebars/handlebars.min.js")
+    script(src="js/typeahead.js/dist/bloodhound.min.js")
+    script(src="js/typeahead.js/dist/typeahead.jquery.min.js")
+
+
+    script(src="js/moment/min/moment.min.js")
+    script(src="js/chosen_v1.2.0/chosen.jquery.min.js")
+    script(src="js/wNumb.js")
+
+
     script(src="js/PersonalData.js", async)
 
     
@@ -69,7 +79,7 @@ html(lang="ru")
             .error#birthday-required Пожалуйста, заполните это поле
             input.day(pattern="[1-9][0-9]*", min="1", max="31", maxlength="2" type="text", value="", placeholder="День", required="required", data-h5-errorid="birthday-required")
             
-            .month.dropdown-widget
+            .month
               select.unchanged(name="month", required="required", data-h5-errorid="birthday-required")
                 option(value="0") Январь
                 option(value="1") Февраль
@@ -83,65 +93,34 @@ html(lang="ru")
                 option(value="9") Октябрь
                 option(value="10") Ноябрь
                 option(value="11") Декабрь
-              .current.default(data-placeholder="Месяц"): span Месяц
-              .list
-                .option(data-value="0") Январь
-                .option(data-value="1") Февраль
-                .option(data-value="2") Март
-                .option(data-value="3") Апрель
-                .option(data-value="4") Май
-                .option(data-value="5") Июнь
-                .option(data-value="6") Июль
-                .option(data-value="7") Август
-                .option(data-value="8") Сентябрь
-                .option(data-value="9") Октябрь
-                .option(data-value="10") Ноябрь
-                .option(data-value="11") Декабрь
 
-            .year.dropdown-widget
+            .year
               select.unchanged(name="year", required="required", data-h5-errorid="birthday-required")
                 - var n = 2000
                 while n > 1945
                   option(value=n)=n
-                  - n--
-              .current.default(data-placeholder="Год"): span Год
-              .list
-                - var n = 2000
-                while n > 1945
-                  .option(data-value=n)=n
                   - n--
           
           h3.sub-title Статус
           .line
             .error#status-required Пожалуйста, выберите вариант
 
-            .status.dropdown-widget
+            .status
               select.unchanged(name="status", required="required", data-h5-errorid="status-required")
                 option(value="0") Свободен
                 option(value="1") Занят
-              .current.default(data-placeholder="Выберите…"): span Выберите…
-              .list
-                .option(data-value="0") Свободен
-                .option(data-value="1") Занят
 
           h3.sub-title Стаж
-          .line
-            .experience-widget(data-max=40, data-min=1, data-initial=1)
-              input.value(required="required", pattern="[1-9][0-9]*" type="number", name="experience", value="", min="1", max="40", maxlength="2")
-              .experience-line
-                .experience-line-header
-                  - var n = 0
-                  while n < 45
-                    .years=n
-                    - n+=5
-                .experience-status
-                .experience-handle: span
-
-
-
+          .line.experience-container
+            .experience-line-header
+              - var n = 0
+              while n < 55
+                .years=n
+                - n+=5
+            #experience
+            input#experience-value.value(required="required", pattern="[1-9][0-9]*" type="number", name="experience", value="", min="0", max="50", maxlength="2")
 
         nav
-          a.previous(href="#") Предыдущий
           button(type="submit") Продолжить
 
         

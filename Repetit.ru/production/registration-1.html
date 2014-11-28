@@ -11,11 +11,17 @@
     <script src="js/html-template-polyfill.js"></script>
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="js/jquery.nouislider.all.min.js"></script>
+    <script src="js/jquery.liblink.js"></script>
     <script src="js/h5Validate/jquery.h5validate.js"></script>
     <script src="js/FileAPI.min.js"></script>
+    <script src="js/jquery.fileapi.min.js"></script>
+    <script src="js/handlebars/handlebars.min.js"></script>
+    <script src="js/typeahead.js/dist/bloodhound.min.js"></script>
+    <script src="js/typeahead.js/dist/typeahead.jquery.min.js"></script>
     <script src="js/moment/min/moment.min.js"></script>
-    <script src="js/ExperienceWidgetController.js" async="async"></script>
-    <script src="js/DropdownWidgetController.js" async="async"></script>
+    <script src="js/chosen_v1.2.0/chosen.jquery.min.js"></script>
+    <script src="js/wNumb.js"></script>
     <script src="js/PersonalData.js" async="async"></script>
 </head>
 
@@ -71,7 +77,7 @@
                 <div class="line birthday">
                     <div id="birthday-required" class="error">Пожалуйста, заполните это поле</div>
                     <input pattern="[1-9][0-9]*" min="1" max="31" maxlength="2" type="text" value="" placeholder="День" required="required" data-h5-errorid="birthday-required" class="day" />
-                    <div class="month dropdown-widget">
+                    <div class="month">
                         <select name="month" required="required" data-h5-errorid="birthday-required" class="unchanged">
                             <option value="0">Январь</option>
                             <option value="1">Февраль</option>
@@ -86,24 +92,8 @@
                             <option value="10">Ноябрь</option>
                             <option value="11">Декабрь</option>
                         </select>
-                        <div data-placeholder="Месяц" class="current default"><span>Месяц</span>
-                        </div>
-                        <div class="list">
-                            <div data-value="0" class="option">Январь</div>
-                            <div data-value="1" class="option">Февраль</div>
-                            <div data-value="2" class="option">Март</div>
-                            <div data-value="3" class="option">Апрель</div>
-                            <div data-value="4" class="option">Май</div>
-                            <div data-value="5" class="option">Июнь</div>
-                            <div data-value="6" class="option">Июль</div>
-                            <div data-value="7" class="option">Август</div>
-                            <div data-value="8" class="option">Сентябрь</div>
-                            <div data-value="9" class="option">Октябрь</div>
-                            <div data-value="10" class="option">Ноябрь</div>
-                            <div data-value="11" class="option">Декабрь</div>
-                        </div>
                     </div>
-                    <div class="year dropdown-widget">
+                    <div class="year">
                         <select name="year" required="required" data-h5-errorid="birthday-required" class="unchanged">
                             <option value="2000">2000</option>
                             <option value="1999">1999</option>
@@ -161,107 +151,38 @@
                             <option value="1947">1947</option>
                             <option value="1946">1946</option>
                         </select>
-                        <div data-placeholder="Год" class="current default"><span>Год</span>
-                        </div>
-                        <div class="list">
-                            <div data-value='2000' class="option">2000</div>
-                            <div data-value='1999' class="option">1999</div>
-                            <div data-value='1998' class="option">1998</div>
-                            <div data-value='1997' class="option">1997</div>
-                            <div data-value='1996' class="option">1996</div>
-                            <div data-value='1995' class="option">1995</div>
-                            <div data-value='1994' class="option">1994</div>
-                            <div data-value='1993' class="option">1993</div>
-                            <div data-value='1992' class="option">1992</div>
-                            <div data-value='1991' class="option">1991</div>
-                            <div data-value='1990' class="option">1990</div>
-                            <div data-value='1989' class="option">1989</div>
-                            <div data-value='1988' class="option">1988</div>
-                            <div data-value='1987' class="option">1987</div>
-                            <div data-value='1986' class="option">1986</div>
-                            <div data-value='1985' class="option">1985</div>
-                            <div data-value='1984' class="option">1984</div>
-                            <div data-value='1983' class="option">1983</div>
-                            <div data-value='1982' class="option">1982</div>
-                            <div data-value='1981' class="option">1981</div>
-                            <div data-value='1980' class="option">1980</div>
-                            <div data-value='1979' class="option">1979</div>
-                            <div data-value='1978' class="option">1978</div>
-                            <div data-value='1977' class="option">1977</div>
-                            <div data-value='1976' class="option">1976</div>
-                            <div data-value='1975' class="option">1975</div>
-                            <div data-value='1974' class="option">1974</div>
-                            <div data-value='1973' class="option">1973</div>
-                            <div data-value='1972' class="option">1972</div>
-                            <div data-value='1971' class="option">1971</div>
-                            <div data-value='1970' class="option">1970</div>
-                            <div data-value='1969' class="option">1969</div>
-                            <div data-value='1968' class="option">1968</div>
-                            <div data-value='1967' class="option">1967</div>
-                            <div data-value='1966' class="option">1966</div>
-                            <div data-value='1965' class="option">1965</div>
-                            <div data-value='1964' class="option">1964</div>
-                            <div data-value='1963' class="option">1963</div>
-                            <div data-value='1962' class="option">1962</div>
-                            <div data-value='1961' class="option">1961</div>
-                            <div data-value='1960' class="option">1960</div>
-                            <div data-value='1959' class="option">1959</div>
-                            <div data-value='1958' class="option">1958</div>
-                            <div data-value='1957' class="option">1957</div>
-                            <div data-value='1956' class="option">1956</div>
-                            <div data-value='1955' class="option">1955</div>
-                            <div data-value='1954' class="option">1954</div>
-                            <div data-value='1953' class="option">1953</div>
-                            <div data-value='1952' class="option">1952</div>
-                            <div data-value='1951' class="option">1951</div>
-                            <div data-value='1950' class="option">1950</div>
-                            <div data-value='1949' class="option">1949</div>
-                            <div data-value='1948' class="option">1948</div>
-                            <div data-value='1947' class="option">1947</div>
-                            <div data-value='1946' class="option">1946</div>
-                        </div>
                     </div>
                 </div>
                 <h3 class="sub-title">Статус</h3>
                 <div class="line">
                     <div id="status-required" class="error">Пожалуйста, выберите вариант</div>
-                    <div class="status dropdown-widget">
+                    <div class="status">
                         <select name="status" required="required" data-h5-errorid="status-required" class="unchanged">
                             <option value="0">Свободен</option>
                             <option value="1">Занят</option>
                         </select>
-                        <div data-placeholder="Выберите…" class="current default"><span>Выберите…</span>
-                        </div>
-                        <div class="list">
-                            <div data-value="0" class="option">Свободен</div>
-                            <div data-value="1" class="option">Занят</div>
-                        </div>
                     </div>
                 </div>
                 <h3 class="sub-title">Стаж</h3>
-                <div class="line">
-                    <div data-max='40' data-min='1' data-initial='1' class="experience-widget">
-                        <input required="required" pattern="[1-9][0-9]*" type="number" name="experience" value="" min="1" max="40" maxlength="2" class="value" />
-                        <div class="experience-line">
-                            <div class="experience-line-header">
-                                <div class="years">0</div>
-                                <div class="years">5</div>
-                                <div class="years">10</div>
-                                <div class="years">15</div>
-                                <div class="years">20</div>
-                                <div class="years">25</div>
-                                <div class="years">30</div>
-                                <div class="years">35</div>
-                                <div class="years">40</div>
-                            </div>
-                            <div class="experience-status"></div>
-                            <div class="experience-handle"><span></span>
-                            </div>
-                        </div>
+                <div class="line experience-container">
+                    <div class="experience-line-header">
+                        <div class="years">0</div>
+                        <div class="years">5</div>
+                        <div class="years">10</div>
+                        <div class="years">15</div>
+                        <div class="years">20</div>
+                        <div class="years">25</div>
+                        <div class="years">30</div>
+                        <div class="years">35</div>
+                        <div class="years">40</div>
+                        <div class="years">45</div>
+                        <div class="years">50</div>
                     </div>
+                    <div id="experience"></div>
+                    <input id="experience-value" required="required" pattern="[1-9][0-9]*" type="number" name="experience" value="" min="0" max="50" maxlength="2" class="value" />
                 </div>
             </fieldset>
-            <nav><a href="#" class="previous">Предыдущий</a>
+            <nav>
                 <button type="submit">Продолжить</button>
             </nav>
         </form>

@@ -2178,10 +2178,52 @@ body.registration-page {
   font-family: 'Helvetica Neue';
   font-weight: 200;
 }
-.registration-step-1 .panel input[type="text"],
-.registration-step-1 .panel input[type="email"],
-.registration-step-1 .panel input[type="number"],
-.registration-step-1 .panel input[type="tel"] {
+.registration-step-1 .panel .chosen-drop {
+  border-top: 1px;
+  border-radius: 4px;
+  border: 1px solid #d8e7ea;
+}
+.registration-step-1 .panel .chosen-drop .chosen-results {
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  max-height: 240px;
+}
+.registration-step-1 .panel .chosen-drop .chosen-results .active-result {
+  font-size: 16px;
+  line-height: 28px;
+  color: #3f3f3f;
+  font-family: 'Helvetica Neue';
+  font-weight: 200;
+}
+.registration-step-1 .panel .chosen-drop .chosen-results .active-result.highlighted {
+  background-color: rgba(191,214,219,0.4);
+}
+.registration-step-1 .panel .chosen-container {
+  min-width: 0;
+}
+.registration-step-1 .panel .chosen-container .chosen-search input {
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+}
+.registration-step-1 .panel .chosen-container .chosen-search input:hover,
+.registration-step-1 .panel .chosen-container .chosen-search input:focus {
+  border-color: #bfd6db;
+}
+.registration-step-1 .panel .chosen-container.chosen-with-drop .chosen-single div b {
+  background-position: -18px -5px;
+}
+.registration-step-1 .panel .chosen-container .no-results {
+  font-size: 16px;
+  line-height: 28px;
+  color: #3f3f3f;
+  font-family: 'Helvetica Neue';
+  font-weight: 200;
+  background-color: rgba(191,214,219,0.4);
+}
+.registration-step-1 .panel .chosen-container .chosen-single {
   box-sizing: border-box;
   border: 1px solid #e5e5e5;
   border-radius: 4px;
@@ -2195,51 +2237,152 @@ body.registration-page {
   outline: none;
   font-family: 'Helvetica Neue';
 }
-.registration-step-1 .panel input[type="text"]:hover,
-.registration-step-1 .panel input[type="email"]:hover,
-.registration-step-1 .panel input[type="number"]:hover,
-.registration-step-1 .panel input[type="tel"]:hover,
-.registration-step-1 .panel input[type="text"]:focus,
-.registration-step-1 .panel input[type="email"]:focus,
-.registration-step-1 .panel input[type="number"]:focus,
-.registration-step-1 .panel input[type="tel"]:focus {
+.registration-step-1 .panel .chosen-container .chosen-single div b {
+  background-position: 0 -5px;
+  width: 10px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.registration-step-1 .panel .chosen-container .chosen-single:hover,
+.registration-step-1 .panel .chosen-container .chosen-single:focus {
   border-color: #bfd6db;
 }
-.registration-step-1 .panel input[type="text"].ui-state-error,
-.registration-step-1 .panel input[type="email"].ui-state-error,
-.registration-step-1 .panel input[type="number"].ui-state-error,
-.registration-step-1 .panel input[type="tel"].ui-state-error {
+.registration-step-1 .panel .experience-container {
+  height: 48px;
+  line-height: 48px;
+  padding: 0 0 0 110px;
+  position: relative;
+}
+.registration-step-1 .panel .experience-container .noUi-handle {
+  background: none;
+  border-style: none;
+  box-shadow: none;
+  border-radius: 0;
+  height: 10px;
+  top: 0;
+  width: 0;
+  left: 0;
+}
+.registration-step-1 .panel .experience-container .noUi-handle:after {
+  display: none;
+}
+.registration-step-1 .panel .experience-container .noUi-handle:before {
+  content: ".";
+  cursor: pointer;
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  margin-left: -7px;
+  width: 14px;
+  height: 20px;
+  background: url("../img/register/handle.svg") 0 0 no-repeat;
+}
+.registration-step-1 .panel .experience-container .noUi-background {
+  background: #e2e4e4;
+  box-shadow: inset 0 1px 0 0 #cbcdcd;
+}
+.registration-step-1 .panel .experience-container .noUi-target {
+  position: relative;
+  vertical-align: middle;
+  margin-left: 0;
+  height: 10px;
+  border-radius: 2px;
+  background-color: #6cb0bf;
+  background-image: linear-gradient(to bottom, #6cb0bf 0%, #4793a3 100%);
+  cursor: pointer;
+  border-style: none;
+}
+.registration-step-1 .panel .experience-container .value {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 95px;
+}
+.registration-step-1 .panel .experience-container .experience-line-header {
+  margin: 0 0 6px;
+  line-height: 15px;
+  font-weight: 200;
+  font-family: 'Helvetica Neue';
+  color: #3f3f3f;
+  color: rgba(63,63,63,0.8);
+  white-space: nowrap;
+  font-size: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.registration-step-1 .panel .experience-container .experience-line-header .years {
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: top;
+}
+.registration-step-1 .panel .line>input[type="text"],
+.registration-step-1 .panel .line>input[type="email"],
+.registration-step-1 .panel .line>input[type="number"],
+.registration-step-1 .panel .line>input[type="tel"] {
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: #fff;
+  height: 48px;
+  box-shadow: none !important;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 24px;
+  padding: 11px 10px;
+  outline: none;
+  font-family: 'Helvetica Neue';
+  border: 1px solid #e5e5e5;
+}
+.registration-step-1 .panel .line>input[type="text"]:hover,
+.registration-step-1 .panel .line>input[type="email"]:hover,
+.registration-step-1 .panel .line>input[type="number"]:hover,
+.registration-step-1 .panel .line>input[type="tel"]:hover,
+.registration-step-1 .panel .line>input[type="text"]:focus,
+.registration-step-1 .panel .line>input[type="email"]:focus,
+.registration-step-1 .panel .line>input[type="number"]:focus,
+.registration-step-1 .panel .line>input[type="tel"]:focus {
+  border-color: #bfd6db;
+}
+.registration-step-1 .panel .line>input[type="text"].ui-state-error,
+.registration-step-1 .panel .line>input[type="email"].ui-state-error,
+.registration-step-1 .panel .line>input[type="number"].ui-state-error,
+.registration-step-1 .panel .line>input[type="tel"].ui-state-error {
   border-color: #f56d6c;
   box-shadow: 0 0 4px 1px rgba(245,109,108,0.3);
 }
-.registration-step-1 .panel input[type="text"].ui-state-error+label,
-.registration-step-1 .panel input[type="email"].ui-state-error+label,
-.registration-step-1 .panel input[type="number"].ui-state-error+label,
-.registration-step-1 .panel input[type="tel"].ui-state-error+label {
+.registration-step-1 .panel .line>input[type="text"].ui-state-error+label,
+.registration-step-1 .panel .line>input[type="email"].ui-state-error+label,
+.registration-step-1 .panel .line>input[type="number"].ui-state-error+label,
+.registration-step-1 .panel .line>input[type="tel"].ui-state-error+label {
   color: #d0021b;
 }
-.registration-step-1 .panel input[type="text"]::-webkit-input-placeholder,
-.registration-step-1 .panel input[type="email"]::-webkit-input-placeholder,
-.registration-step-1 .panel input[type="number"]::-webkit-input-placeholder,
-.registration-step-1 .panel input[type="tel"]::-webkit-input-placeholder {
+.registration-step-1 .panel .line>input[type="text"]::-webkit-input-placeholder,
+.registration-step-1 .panel .line>input[type="email"]::-webkit-input-placeholder,
+.registration-step-1 .panel .line>input[type="number"]::-webkit-input-placeholder,
+.registration-step-1 .panel .line>input[type="tel"]::-webkit-input-placeholder {
   color: rgba(63,63,63,0.4);
 }
-.registration-step-1 .panel input[type="text"]:-moz-placeholder,
-.registration-step-1 .panel input[type="email"]:-moz-placeholder,
-.registration-step-1 .panel input[type="number"]:-moz-placeholder,
-.registration-step-1 .panel input[type="tel"]:-moz-placeholder {
+.registration-step-1 .panel .line>input[type="text"]:-moz-placeholder,
+.registration-step-1 .panel .line>input[type="email"]:-moz-placeholder,
+.registration-step-1 .panel .line>input[type="number"]:-moz-placeholder,
+.registration-step-1 .panel .line>input[type="tel"]:-moz-placeholder {
   color: rgba(63,63,63,0.4);
 }
-.registration-step-1 .panel input[type="text"]::-moz-placeholder,
-.registration-step-1 .panel input[type="email"]::-moz-placeholder,
-.registration-step-1 .panel input[type="number"]::-moz-placeholder,
-.registration-step-1 .panel input[type="tel"]::-moz-placeholder {
+.registration-step-1 .panel .line>input[type="text"]::-moz-placeholder,
+.registration-step-1 .panel .line>input[type="email"]::-moz-placeholder,
+.registration-step-1 .panel .line>input[type="number"]::-moz-placeholder,
+.registration-step-1 .panel .line>input[type="tel"]::-moz-placeholder {
   color: rgba(63,63,63,0.4);
 }
-.registration-step-1 .panel input[type="text"]:-ms-input-placeholder,
-.registration-step-1 .panel input[type="email"]:-ms-input-placeholder,
-.registration-step-1 .panel input[type="number"]:-ms-input-placeholder,
-.registration-step-1 .panel input[type="tel"]:-ms-input-placeholder {
+.registration-step-1 .panel .line>input[type="text"]:-ms-input-placeholder,
+.registration-step-1 .panel .line>input[type="email"]:-ms-input-placeholder,
+.registration-step-1 .panel .line>input[type="number"]:-ms-input-placeholder,
+.registration-step-1 .panel .line>input[type="tel"]:-ms-input-placeholder {
   color: rgba(63,63,63,0.4);
 }
 .registration-step-1 .panel fieldset.photo {
@@ -2337,19 +2480,19 @@ body.registration-page {
   font-size: 0;
 }
 .registration-step-1 .panel fieldset.photo+fieldset .day {
-  width: 70px;
+  width: 95px;
   display: inline-block;
   vertical-align: top;
 }
 .registration-step-1 .panel fieldset.photo+fieldset .month {
   display: inline-block;
-  width: 250px;
+  width: 175px;
   margin-left: 10px;
   vertical-align: top;
 }
 .registration-step-1 .panel fieldset.photo+fieldset .year {
   display: inline-block;
-  width: 100px;
+  width: 150px;
   margin-left: 10px;
   vertical-align: top;
 }

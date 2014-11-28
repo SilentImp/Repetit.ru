@@ -13,17 +13,36 @@ class PersonalData
 
     FileAPI.event.on document, 'drop', @droped
 
-    $('.sertificats').fileapi
-      # url: @form.attr('action'),
-      url: 'http://websaints.net/test.php'
-      duplicate: false,
-      accept: 'image/*',
-      autoUpload: false,
-      multiple: true,
-      elements:
-        ctrl: 
-          upload: '.add-sertificat label'
-        list: '.sertificat-list'
+    $('select').chosen
+      disable_search_threshold: 30
+
+    exp = $ '#experience'
+    exp.noUiSlider
+      step: 1,
+      connect: "lower",
+      start: 0,
+      range:
+        'min': [0],
+        'max': [50]
+      format: wNumb
+        decimals: 0
+
+    exp.Link('lower').to($('#experience-value'))
+
+    sertificats = $('.sertificats')
+    if sertificats.length>0
+      $('.sertificats').fileapi
+        # url: @form.attr('action'),
+        url: 'http://websaints.net/test.php'
+        duplicate: false,
+        accept: 'image/*',
+        maxSize: 5 * FileAPI.MB,
+        autoUpload: false,
+        multiple: true,
+        elements:
+          ctrl: 
+            upload: '.add-sertificat label'
+          list: '.sertificat-list'
 
     @form.h5Validate()
     @form.on 'submit', @afterCheck
