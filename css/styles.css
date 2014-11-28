@@ -2861,7 +2861,6 @@ body.registration-page {
     text-align: left;
     padding: 40px;
     position: relative;
-    overflow: hidden;
 }
 
 .registration-step-1 .panel:after {
