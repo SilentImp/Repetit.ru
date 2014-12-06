@@ -23,6 +23,9 @@
     <script id="sertificat-template" type="text/x-handlebars-template">
         <div data-id="{{{id}}}" class="sertificat"><a href="#link-to-big-img" class="b-thumb__preview__pic"><img src="{{{src}}}" alt="Сертификат"/></a><a href="#" data-fileapi="file.remove" class="remove"></a><textarea name="comments" placeholder="Описание…" cols="30" rows="10"></textarea></div>
     </script>
+    <script id="education-template" type="text/x-handlebars-template">
+        <h2 class="chapter-title"><span>Образование</span></h2><div class="line"><label for="city{{{index}}}">Населенный пункт</label><input type="text" autocomplete="off" spellcheck="false" id="city{{{index}}}" name="city[]" value="" placeholder="Начните вводить..."/></div><div class="line name"><label for="univercity{{{index}}}">Название учебного заведения</label><input type="text" autocomplete="off" spellcheck="false" id="univercity{{{index}}}" name="univercity[]" value="" placeholder="Начните вводить..."/></div><div class="line grad-year"><label for="grad-year{{{index}}}">Год выпуска</label><input type="text" id="grad-year{{{index}}}" name="grad-year[]" value=""/></div><div class="line"><label for="fac{{{index}}}">Факультет</label><input type="text" id="fac{{{index}}}" name="fac[]" value=""/></div><div class="line spec"><label for="spec{{{index}}}">Специальность</label><input type="text" id="spec{{{index}}}" name="comments[]" value=""/></div>
+    </script>
 </head>
 
 <body class="registration-page">
@@ -48,27 +51,6 @@
         </div>
         <form action="/save/" method="post" enctype="multipart/form-data" class="panel">
             <fieldset class="education">
-                <h2 class="chapter-title"><span>Образование</span></h2>
-                <div class="line">
-                    <label for="city">Населенный пункт</label>
-                    <input type="text" autocomplete="off" spellcheck="false" id="city" name="city" value="" placeholder="Начните вводить..." />
-                </div>
-                <div class="line name">
-                    <label for="univercity">Название учебного заведения</label>
-                    <input type="text" autocomplete="off" spellcheck="false" id="univercity" name="univercity" value="" placeholder="Начните вводить..." />
-                </div>
-                <div class="line grad-year">
-                    <label for="grad-year">Год выпуска</label>
-                    <input type="text" id="grad-year" name="grad-year" value="" />
-                </div>
-                <div class="line">
-                    <label for="fac">Факультет</label>
-                    <input type="text" id="fac" name="fac" value="" />
-                </div>
-                <div class="line spec">
-                    <label for="spec">Специальность</label>
-                    <input type="text" id="spec" name="comments" value="" />
-                </div>
                 <div class="line"><a href="#" class="add-education">Добавить образование</a>
                 </div>
             </fieldset>
