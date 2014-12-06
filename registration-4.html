@@ -20,6 +20,9 @@
     <script src="js/ExperienceWidgetController.js" async="async"></script>
     <script src="js/DropdownWidgetController.js" async="async"></script>
     <script src="js/PersonalData.js" async="async"></script>
+    <script id="sertificat-template" type="text/x-handlebars-template">
+        <div data-id="{{{id}}}" class="sertificat"><a href="#link-to-big-img" class="b-thumb__preview__pic"><img src="{{{src}}}" alt="Сертификат"/></a><a href="#" data-fileapi="file.remove" class="remove"></a><textarea name="comments" placeholder="Описание…" cols="30" rows="10"></textarea></div>
+    </script>
 </head>
 
 <body class="registration-page">
@@ -89,15 +92,6 @@
                 <button type="submit" class="complete">Завершить</button>
             </nav>
         </form>
-    </div>
-    <div data-fileapi="file.tpl">
-        <div data-id="&lt;%=uid%&gt;" title="&lt;%-name%&gt;, &lt;%-sizeText%&gt;" class="sertificat js-file-tpl">
-            <a href="#link-to-big-img" class="b-thumb__preview__pic">
-                <img src="img/register/spoiler/sertificat.jpg" alt="Сертификат" />
-            </a>
-            <a href="#" data-fileapi="file.remove" class="remove"></a>
-            <textarea name="comments" placeholder="Описание…" cols="30" rows="10"></textarea>
-        </div>
     </div>
 </body>
 
