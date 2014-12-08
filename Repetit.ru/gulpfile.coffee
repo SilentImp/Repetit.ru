@@ -90,7 +90,7 @@ gulp.task('html', ()->
   return gulp.src(dev_path.jade)
     .pipe(jade())
     .pipe(prettify({indent_char: ' ', indent_size: 4}))
-    .pipe(w3cjs())
+    # .pipe(w3cjs())
     # .pipe(htmlmin({collapseWhitespace: false}))
     .pipe(gulp.dest(prod_path.html))
 )

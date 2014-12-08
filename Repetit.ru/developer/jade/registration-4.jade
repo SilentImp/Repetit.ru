@@ -22,7 +22,31 @@ html(lang="ru")
     script(src="js/DropdownWidgetController.js", async)
     script(src="js/PersonalData.js", async)
 
-    
+    script(id="sertificat-template" type="text/x-handlebars-template")
+      .sertificat(data-id="{{{id}}}")
+        a.b-thumb__preview__pic(href="#link-to-big-img")
+          img(src="{{{src}}}", alt="Сертификат")
+        a.remove(href="#", data-fileapi="file.remove")
+        textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
+
+    script(id="education-template" type="text/x-handlebars-template")
+      h2.chapter-title: span Образование
+      .line
+        label(for="city{{{index}}}") Населенный пункт
+        input(type="text", autocomplete="off", spellcheck="false", id="city{{{index}}}", name="city[]", value="", placeholder="Начните вводить...")
+      .line.name
+        label(for="univercity{{{index}}}") Название учебного заведения
+        input(type="text", autocomplete="off", spellcheck="false", id="univercity{{{index}}}", name="univercity[]", value="", placeholder="Начните вводить...")
+      .line.grad-year
+        label(for="grad-year{{{index}}}") Год выпуска
+        input(type="text", id="grad-year{{{index}}}", name="grad-year[]", value="")
+      .line
+        label(for="fac{{{index}}}") Факультет
+        input(type="text", id="fac{{{index}}}", name="fac[]", value="")
+      .line.spec
+        label(for="spec{{{index}}}") Специальность
+        input(type="text", id="spec{{{index}}}", name="comments[]", value="")
+
   body.registration-page
     header
       .wrapper
@@ -45,25 +69,7 @@ html(lang="ru")
 
       form.panel(action="/save/", method="post", enctype="multipart/form-data")
         fieldset.education
-          h2.chapter-title: span Образование
-          .line
-            label(for="city") Населенный пункт
-            input(type="text", autocomplete="off", spellcheck="false", id="city", name="city", value="", placeholder="Начните вводить...")
-          .line.name
-            label(for="univercity") Название учебного заведения
-            input(type="text", autocomplete="off", spellcheck="false", id="univercity", name="univercity", value="", placeholder="Начните вводить...")
-          .line.grad-year
-            label(for="grad-year") Год выпуска
-            input(type="text", id="grad-year", name="grad-year", value="")
-          .line
-            label(for="fac") Факультет
-            input(type="text", id="fac", name="fac", value="")
-          .line.spec
-            label(for="spec") Специализация
-            textarea#spec(name="comments", cols="30", rows="10")
-
-        fieldset
-          h2.chapter-title: span Образование
+          
           .line
             a.add-education(href="#") Добавить образование
 
@@ -97,13 +103,5 @@ html(lang="ru")
 
         nav
           a.previous(href="#") Предыдущий
-          button(type="submit") Продолжить
+          button.complete(type="submit") Завершить
 
-        
-
-    div(data-fileapi="file.tpl")
-      .sertificat.js-file-tpl(data-id="<%=uid%>", title="<%-name%>, <%-sizeText%>")
-          a.b-thumb__preview__pic(href="#link-to-big-img")
-            img(src="img/register/spoiler/sertificat.jpg", alt="Сертификат")
-          a.remove(href="#", data-fileapi="file.remove")
-          textarea(name="comments", placeholder="Описание…" cols="30", rows="10")

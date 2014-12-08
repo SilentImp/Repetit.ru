@@ -12,9 +12,6 @@ class RegistrationStep0
 
     $('.h5-phone').mask "+7 (999) 999-99-99"
 
-     
-    
-    
     @form_registration = @widget.find '.registration'
     @form_sms = @widget.find '.sms'
     @form_sms_title = @form_sms.find '>.title'
@@ -42,14 +39,8 @@ class RegistrationStep0
     region_controls.on @itype+' focus', @showRegionsList
     @regions_input.on @itype+' focus', @showRegionsList
 
-    
-
     @form_registration.h5Validate()
     @form_registration.on 'submit', @formSubmit
-
-    # console.log @form_registration.find('input')
-    # console.log $.h5Validate
-
     @form_sms.h5Validate()
 
     $('a.register').on @itype, @showRegistrationPopup

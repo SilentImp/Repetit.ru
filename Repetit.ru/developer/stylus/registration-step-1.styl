@@ -122,7 +122,7 @@ body.registration-page
     text-align left
     padding 40px
     position relative
-    overflow hidden
+    // overflow hidden
     &:after
       content '.'
       clear both
@@ -220,6 +220,9 @@ body.registration-page
         padding 0 17px 0 23px
         font-family 'Elektra Text Pro'
         text-transform uppercase
+        &.complete
+          &:after
+            display none
         &:after
           content ' >'  
     
@@ -264,6 +267,8 @@ body.registration-page
       display block
       margin 0 0 30px
       font-size 0
+      &.adress_line
+        width 350px
       &.spec textarea
         width 520px
       &.name
@@ -513,6 +518,7 @@ body.registration-page
         &:focus
           border-color #BFD6DB
           
+    .duration-container,
     .experience-container
       height 48px
       line-height 48px
@@ -562,6 +568,7 @@ body.registration-page
         bottom 0
         margin auto
         width 95px
+      .duration-line-header,
       .experience-line-header
         margin 0 0 6px
         line-height 15px
@@ -577,7 +584,35 @@ body.registration-page
           font-size 12px
           display inline-block
           vertical-align top
-      
+    
+    .chosen-container-multi 
+      .chosen-choices 
+        li.search-field input[type="text"]
+          font-weight 200 
+          font-family 'Helvetica Neue'
+        li.search-choice
+          line-height 24px
+          padding 3px 30px 3px 15px 
+          .search-choice-close
+            top 50%
+            margin-top -5px 
+            right 8px
+      .chosen-drop .result-selected
+        font-size 16px
+        line-height 28px
+        font-weight 200 
+        font-family 'Helvetica Neue'
+    
+    .subdevision.hide
+      pointer-events none
+      opacity 0.1
+
+    .chosen-choices,
+    input.tt-input,
+    .subdevision>input[type="text"],
+    .subdevision>input[type="email"],
+    .subdevision>input[type="number"],
+    .subdevision>input[type="tel"],
     .line>input[type="text"],
     .line>input[type="email"],
     .line>input[type="number"],
@@ -594,6 +629,7 @@ body.registration-page
       outline none
       font-family 'Helvetica Neue'
       border 1px solid #E5E5E5
+      
       &:hover,
       &:focus
         border-color #BFD6DB
@@ -825,7 +861,7 @@ body.registration-page
   .registration-step-1
     .steps
       max-width 70vw
-      margin 75px 30px
+      margin 75px auto
       .step
         .sub-title
           span
@@ -851,7 +887,7 @@ body.registration-page
             left 100px  
           
     .steps
-      margin 75px 30px 
+      margin 75px auto
       .step
         .sub-title
           span

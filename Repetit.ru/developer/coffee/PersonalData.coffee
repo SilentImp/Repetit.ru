@@ -2,45 +2,150 @@ class PersonalData
   constructor: ->
     @form = $ 'form.panel'
     if @form.length != 1
-      throw {error: 'не найдена форма'}
+      throw new Error('не найдена форма')
 
     @file = @form.find '#registration-avatar'
     @avatarTemplate = document.getElementById 'current-avatar-template'
     @fileSelector = $ '.file-selector'
 
-    FileAPI.event.on document.getElementById('registration-avatar'), 'change', @avatarSelected
-    $(document).dnd @over, @drop
+    rega = document.getElementById('registration-avatar')
+    if rega
+      FileAPI.event.on document.getElementById('registration-avatar'), 'change', @avatarSelected
+      $(document).dnd @over, @drop
+      FileAPI.event.on document, 'drop', @droped
 
-    FileAPI.event.on document, 'drop', @droped
+    sertificat = $("#sertificat-template")
+    if sertificat.length >0
+      @source = $("#sertificat-template").html()
+      @source = Handlebars.compile @source
+      @cert_list = $ '.sertificat-list'
+      @cerificates_count = 0
 
-    $('select').chosen
-      disable_search_threshold: 30
+    format = $ '.lessons-format'
+    if format.length > 0
+      inputs = format.find 'input'
+      for input in inputs
+        price_input = document.getElementById input.getAttribute('data-price-field')
+        price = $(price_input).closest('.subdevision')
+        if input.checked
+          price.removeClass('hide')
+          price_input.removeAttribute('disabled')
+          price_input.setAttribute('required', 'required')
+        else
+          price.addClass('hide')
+          price_input.classList.remove('ui-state-error')
+          price_input.setAttribute('disabled', 'disabled')
+          price_input.removeAttribute('required')
+
+      inputs.on 'change', (event)=>
+        input = $ event.currentTarget
+        price_input = document.getElementById input.attr('data-price-field')
+        price = $(price_input).closest('.subdevision')
+        if event.currentTarget.checked
+          price.removeClass('hide')
+          price_input.removeAttribute('disabled')
+          price_input.setAttribute('required', 'required')
+        else
+          price.addClass('hide')
+          price_input.classList.remove('ui-state-error')
+          price_input.setAttribute('disabled', 'disabled')
+          price_input.removeAttribute('required')
+          
+
+
+    @address = $ '.address-holder'
+    @address_count = 0
+    if @address.length > 0
+      @address_count++
+      @address_source = $("#address-template").html()
+      @address_source = Handlebars.compile @address_source
+      @address.prepend @address_source
+        "id" : @address_count
+      @add_education = $ '.add-address'
+      @add_education.on 'click', (event)=>
+        event.preventDefault()
+        @address_count++
+        @add_education.before @address_source
+          "id" : @address_count
+        @address.find('.adress-wrapper:last select').chosen
+          disable_search_threshold: 30
+
+    @education = $ '.education'
+    @education_count = 0
+    if @education.length > 0
+      @education_count++
+      @education_source = $("#education-template").html()
+      @education_source = Handlebars.compile @education_source
+      @education.prepend @education_source
+        "id" : @education_count
+      @add_education = $ '.add-education'
+      @add_education.on 'click', (event)=>
+        event.preventDefault()
+        @education_count++
+        @add_education.before @education_source
+          "id" : @education_count
+
+    select = $ 'select'
+    if select.length > 0
+      select.chosen
+        disable_search_threshold: 30
+
+    time = $ '#duration'
+    if time.length > 0
+      time.noUiSlider
+        step: 5,
+        connect: "lower",
+        start: 0,
+        range:
+          'min': [30],
+          'max': [180]
+        format: wNumb
+          decimals: 0
+
+      duration = $('#duration-value')
+      time.Link('lower').to(duration)
+      time.on 'change', (event, ui)=>
+        console.log event.currentTarget, ui
+        $('strong.min-time').text(ui)
 
     exp = $ '#experience'
-    exp.noUiSlider
-      step: 1,
-      connect: "lower",
-      start: 0,
-      range:
-        'min': [0],
-        'max': [50]
-      format: wNumb
-        decimals: 0
-
-    exp.Link('lower').to($('#experience-value'))
+    if exp.length > 0
+      exp.noUiSlider
+        step: 1,
+        connect: "lower",
+        start: 0,
+        range:
+          'min': [0],
+          'max': [50]
+        format: wNumb
+          decimals: 0
+      exp.Link('lower').to($('#experience-value'))
 
     sertificats = $('.sertificats')
     if sertificats.length>0
       $('.sertificats').fileapi
         # url: @form.attr('action'),
-        url: 'http://websaints.net/test.php'
+        url: 'http://test.silentimp.info/test.php'
         duplicate: false,
         accept: 'image/*',
         maxSize: 5 * FileAPI.MB,
         autoUpload: false,
         multiple: true,
+        onSelect: (evt, ui)=>
+          console.log evt
+          console.log ui
+          @cerificates_count++
+          reader = new FileReader()
+          reader.onload = (event)=>
+
+            @cert_list.append @source
+              "id" : @cerificates_count
+              "src" : event.target.result
+            
+          reader.readAsDataURL ui.files[0]
+
         elements:
-          ctrl: 
+          ctrl:
             upload: '.add-sertificat label'
           list: '.sertificat-list'
 
@@ -53,9 +158,9 @@ class PersonalData
     @year =  @year_widget.find 'select'
     @day = @form.find 'input.day'
     
-    @day.on 'change', @checkDate
+    @day.on   'change', @checkDate
     @month.on 'change', @checkDate
-    @year.on 'change', @checkDate
+    @year.on  'change', @checkDate
 
     locations = new Bloodhound
       datumTokenizer: Bloodhound.tokenizers.obj.whitespace("city"),
@@ -115,15 +220,12 @@ class PersonalData
 
   droped: (event)->
     event.preventDefault()
-    console.log 'droped', event
     FileAPI.getDropFiles event, (files)->
-      console.log 'file: ', files
 
   over: (over)->
 
 
   drop: (files)=>
-    console.log 'drop', files.length, files
     if files.length
       reader = new FileReader()
       
