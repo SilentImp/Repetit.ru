@@ -3375,6 +3375,7 @@ body.registration-page {
     border-color: #bfd6db;
 }
 
+.registration-step-1 .panel .duration-container,
 .registration-step-1 .panel .experience-container {
     height: 48px;
     line-height: 48px;
@@ -3382,6 +3383,7 @@ body.registration-page {
     position: relative;
 }
 
+.registration-step-1 .panel .duration-container .noUi-handle,
 .registration-step-1 .panel .experience-container .noUi-handle {
     background: none;
     border-style: none;
@@ -3393,10 +3395,12 @@ body.registration-page {
     left: 0;
 }
 
+.registration-step-1 .panel .duration-container .noUi-handle:after,
 .registration-step-1 .panel .experience-container .noUi-handle:after {
     display: none;
 }
 
+.registration-step-1 .panel .duration-container .noUi-handle:before,
 .registration-step-1 .panel .experience-container .noUi-handle:before {
     content: ".";
     cursor: pointer;
@@ -3412,11 +3416,13 @@ body.registration-page {
     background: url("../img/register/handle.svg") 0 0 no-repeat;
 }
 
+.registration-step-1 .panel .duration-container .noUi-background,
 .registration-step-1 .panel .experience-container .noUi-background {
     background: #e2e4e4;
     box-shadow: inset 0 1px 0 0 #cbcdcd;
 }
 
+.registration-step-1 .panel .duration-container .noUi-target,
 .registration-step-1 .panel .experience-container .noUi-target {
     position: relative;
     vertical-align: middle;
@@ -3430,6 +3436,7 @@ body.registration-page {
     border-style: none;
 }
 
+.registration-step-1 .panel .duration-container .value,
 .registration-step-1 .panel .experience-container .value {
     position: absolute;
     left: 0;
@@ -3439,6 +3446,9 @@ body.registration-page {
     width: 95px;
 }
 
+.registration-step-1 .panel .duration-container .duration-line-header,
+.registration-step-1 .panel .experience-container .duration-line-header,
+.registration-step-1 .panel .duration-container .experience-line-header,
 .registration-step-1 .panel .experience-container .experience-line-header {
     margin: 0 0 6px;
     line-height: 15px;
@@ -3456,12 +3466,44 @@ body.registration-page {
     justify-content: space-between;
 }
 
+.registration-step-1 .panel .duration-container .duration-line-header .years,
+.registration-step-1 .panel .experience-container .duration-line-header .years,
+.registration-step-1 .panel .duration-container .experience-line-header .years,
 .registration-step-1 .panel .experience-container .experience-line-header .years {
     font-size: 12px;
     display: inline-block;
     vertical-align: top;
 }
 
+.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+    font-weight: 200;
+    font-family: 'Helvetica Neue';
+}
+
+.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-choice {
+    line-height: 24px;
+    padding: 3px 30px 3px 15px;
+}
+
+.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+    top: 50%;
+    margin-top: -5px;
+    right: 8px;
+}
+
+.registration-step-1 .panel .chosen-container-multi .chosen-drop .result-selected {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 200;
+    font-family: 'Helvetica Neue';
+}
+
+.registration-step-1 .panel .subdevision.hide {
+    pointer-events: none;
+    opacity: 0.1;
+}
+
+.registration-step-1 .panel .chosen-choices,
 .registration-step-1 .panel input.tt-input,
 .registration-step-1 .panel .subdevision>input[type="text"],
 .registration-step-1 .panel .subdevision>input[type="email"],
@@ -3486,6 +3528,7 @@ body.registration-page {
     border: 1px solid #e5e5e5;
 }
 
+.registration-step-1 .panel .chosen-choices:hover,
 .registration-step-1 .panel input.tt-input:hover,
 .registration-step-1 .panel .subdevision>input[type="text"]:hover,
 .registration-step-1 .panel .subdevision>input[type="email"]:hover,
@@ -3495,6 +3538,7 @@ body.registration-page {
 .registration-step-1 .panel .line>input[type="email"]:hover,
 .registration-step-1 .panel .line>input[type="number"]:hover,
 .registration-step-1 .panel .line>input[type="tel"]:hover,
+.registration-step-1 .panel .chosen-choices:focus,
 .registration-step-1 .panel input.tt-input:focus,
 .registration-step-1 .panel .subdevision>input[type="text"]:focus,
 .registration-step-1 .panel .subdevision>input[type="email"]:focus,
@@ -3507,6 +3551,7 @@ body.registration-page {
     border-color: #bfd6db;
 }
 
+.registration-step-1 .panel .chosen-choices.ui-state-error,
 .registration-step-1 .panel input.tt-input.ui-state-error,
 .registration-step-1 .panel .subdevision>input[type="text"].ui-state-error,
 .registration-step-1 .panel .subdevision>input[type="email"].ui-state-error,
@@ -3520,6 +3565,7 @@ body.registration-page {
     box-shadow: 0 0 4px 1px rgba(245,109,108,0.3);
 }
 
+.registration-step-1 .panel .chosen-choices.ui-state-error+label,
 .registration-step-1 .panel input.tt-input.ui-state-error+label,
 .registration-step-1 .panel .subdevision>input[type="text"].ui-state-error+label,
 .registration-step-1 .panel .subdevision>input[type="email"].ui-state-error+label,
@@ -3532,6 +3578,7 @@ body.registration-page {
     color: #d0021b;
 }
 
+.registration-step-1 .panel .chosen-choices::-webkit-input-placeholder,
 .registration-step-1 .panel input.tt-input::-webkit-input-placeholder,
 .registration-step-1 .panel .subdevision>input[type="text"]::-webkit-input-placeholder,
 .registration-step-1 .panel .subdevision>input[type="email"]::-webkit-input-placeholder,
@@ -3544,6 +3591,7 @@ body.registration-page {
     color: rgba(63,63,63,0.4);
 }
 
+.registration-step-1 .panel .chosen-choices:-moz-placeholder,
 .registration-step-1 .panel input.tt-input:-moz-placeholder,
 .registration-step-1 .panel .subdevision>input[type="text"]:-moz-placeholder,
 .registration-step-1 .panel .subdevision>input[type="email"]:-moz-placeholder,
@@ -3556,6 +3604,7 @@ body.registration-page {
     color: rgba(63,63,63,0.4);
 }
 
+.registration-step-1 .panel .chosen-choices::-moz-placeholder,
 .registration-step-1 .panel input.tt-input::-moz-placeholder,
 .registration-step-1 .panel .subdevision>input[type="text"]::-moz-placeholder,
 .registration-step-1 .panel .subdevision>input[type="email"]::-moz-placeholder,
@@ -3568,6 +3617,7 @@ body.registration-page {
     color: rgba(63,63,63,0.4);
 }
 
+.registration-step-1 .panel .chosen-choices:-ms-input-placeholder,
 .registration-step-1 .panel input.tt-input:-ms-input-placeholder,
 .registration-step-1 .panel .subdevision>input[type="text"]:-ms-input-placeholder,
 .registration-step-1 .panel .subdevision>input[type="email"]:-ms-input-placeholder,

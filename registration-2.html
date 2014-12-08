@@ -50,22 +50,38 @@
             <fieldset class="minimal-duration">
                 <div class="line">
                     <label for="min-duration">Минимальная продолжительность занятия</label>
-                    <input type="number" name="office" id="min-duration" value="45" /><span>минут</span>
+                </div>
+                <div class="line duration-container">
+                    <input id="duration-value" required="required" pattern="[1-9][0-9]*" type="number" name="experience" value="" min="0" max="50" maxlength="2" class="value" />
+                    <div class="duration-line-header">
+                        <div class="years">30</div>
+                        <div class="years">45</div>
+                        <div class="years">60</div>
+                        <div class="years">75</div>
+                        <div class="years">90</div>
+                        <div class="years">105</div>
+                        <div class="years">120</div>
+                        <div class="years">135</div>
+                        <div class="years">150</div>
+                        <div class="years">165</div>
+                        <div class="years">180</div>
+                    </div>
+                    <div id="duration"></div>
                 </div>
             </fieldset>
             <fieldset>
                 <h3 class="sub-title">Формат проведения занятий</h3>
                 <div class="line lessons-format">
                     <div class="checkbox-widget">
-                        <input id="item-1" type="checkbox" name="addition" />
+                        <input id="item-1" type="checkbox" name="addition" data-price-field="athome" />
                         <label for="item-1">на дому</label>
                     </div>
                     <div class="checkbox-widget">
-                        <input id="item-2" type="checkbox" name="addition" />
+                        <input id="item-2" type="checkbox" name="addition" data-price-field="atoffice" />
                         <label for="item-2">выезд к ученику</label>
                     </div>
                     <div class="checkbox-widget">
-                        <input id="item-3" type="checkbox" name="addition" />
+                        <input id="item-3" type="checkbox" checked="checked" name="addition" data-price-field="online" />
                         <label for="item-3">удаленно</label>
                     </div>
                 </div>
@@ -75,17 +91,84 @@
                 <h3 class="sub-title">Предмет</h3>
                 <div class="line subject">
                     <select name="subject" required="required" data-h5-errorid="subject-required" class="unchanged">
-                        <option value="0">Математика</option>
-                        <option value="1">Физика</option>
-                        <option value="2">Химия</option>
+                        <option value="Русский язык">Русский язык</option>
+                        <option value="Английский язык">Английский язык</option>
+                        <option value="Немецкий язык">Немецкий язык</option>
+                        <option value="Французский язык">Французский язык</option>
+                        <option value="Итальянский язык">Итальянский язык</option>
+                        <option value="Испанский язык">Испанский язык</option>
+                        <option value="Китайский язык">Китайский язык</option>
+                        <option value="Математика">Математика</option>
+                        <option value="Физика">Физика</option>
+                        <option value="Информатика / программирование">Информатика / программирование</option>
+                        <option value="Химия">Химия</option>
+                        <option value="Биология">Биология</option>
+                        <option value="История">История</option>
+                        <option value="Обществознание">Обществознание</option>
+                        <option value="Литература">Литература</option>
+                        <option value="География">География</option>
+                        <option value="Экономика">Экономика</option>
+                        <option value="Начальная школа">Начальная школа</option>
+                        <option value="Музыка">Музыка</option>
+                        <option value="Логопед">Логопед</option>
+                        <option value="Другой">Другой</option>
+                        <option value="Русский как иностранный">Русский как иностранный</option>
+                        <option value="Японский язык">Японский язык</option>
+                        <option value="Изобразительное искусство">Изобразительное искусство</option>
+                        <option value="Подготовка к школе">Подготовка к школе</option>
+                        <option value="Редкие иностранные языки">Редкие иностранные языки</option>
+                        <option value="Спорт и фитнес">Спорт и фитнес</option>
                     </select>
                 </div>
                 <h3 class="sub-title">Разделы</h3>
                 <div class="line section">
                     <select name="section" required="required" data-h5-errorid="section-required" class="unchanged">
-                        <option value="0">Раздел 1</option>
-                        <option value="1">Раздел 2</option>
-                        <option value="2">Раздел 3</option>
+                        <option value="математический анализ">математический анализ</option>
+                        <option value="теория вероятностей">теория вероятностей</option>
+                        <option value="теоретическая механика">теоретическая механика</option>
+                        <option value="сопромат">сопромат</option>
+                        <option value="математи логика">математи логика</option>
+                        <option value="эконометрика">эконометрика</option>
+                        <option value="высшая математика">высшая математика</option>
+                        <option value="линейная алгебра">линейная алгебра</option>
+                        <option value="дифференциальная геометрия">дифференциальная геометрия</option>
+                        <option value="аналитическая геометрия">аналитическая геометрия</option>
+                        <option value="математическая физика">математическая физика</option>
+                        <option value="дифференциальные уравнения">дифференциальные уравнения</option>
+                        <option value="математическая статистика">математическая статистика</option>
+                        <option value="линейная геометрия">линейная геометрия</option>
+                        <option value="дискретная математика">дискретная математика</option>
+                        <option value="топология">топология</option>
+                        <option value="функциональный анализ">функциональный анализ</option>
+                        <option value="интегральные уравнения">интегральные уравнения</option>
+                        <option value="теория чисел">теория чисел</option>
+                        <option value="векторный анализ">векторный анализ</option>
+                        <option value="ТФКП">ТФКП</option>
+                        <option value="тензорный анализ">тензорный анализ</option>
+                        <option value="финансовая математика">финансовая математика</option>
+                        <option value="уравнения в частных производных">уравнения в частных производных</option>
+                        <option value="актуарная математика">актуарная математика</option>
+                        <option value="теория графов">теория графов</option>
+                        <option value="комбинаторика">комбинаторика</option>
+                        <option value="математические модели">математические модели</option>
+                        <option value="прикладная математика">прикладная математика</option>
+                        <option value="тригоном-ия">тригоном-ия</option>
+                        <option value="уравнения математической физики">уравнения математической физики</option>
+                        <option value="численные методы">численные методы</option>
+                        <option value="теория приближений">теория приближений</option>
+                        <option value="теория оптимизации">теория оптимизации</option>
+                        <option value=".школьный курс">.школьный курс</option>
+                        <option value="на английском языке">на английском языке</option>
+                        <option value="алгебра логики">алгебра логики</option>
+                        <option value="вычислимые функции">вычислимые функции</option>
+                        <option value="теория игр">теория игр</option>
+                        <option value="вариационное исчисление">вариационное исчисление</option>
+                        <option value="оптимальное управление">оптимальное управление</option>
+                        <option value="методы оптимизации">методы оптимизации</option>
+                        <option value="линейное программирование">линейное программирование</option>
+                        <option value="алгебра">алгебра</option>
+                        <option value="геометрия">геометрия</option>
+                        <option value="методы оптимальных решений">методы оптимальных решений</option>
                     </select>
                 </div>
                 <h3 class="sub-title">Дополнения</h3>
@@ -97,21 +180,17 @@
                             <div class="column">
                                 <div class="checkbox-widget">
                                     <input id="item-1" type="checkbox" name="addition" />
-                                    <label for="item-1">Подготовка к ЕГЭ</label>
+                                    <label for="item-1">ЕГЭ</label>
                                 </div>
                                 <div class="checkbox-widget">
                                     <input id="item-2" type="checkbox" name="addition" />
-                                    <label for="item-2">Подготовка к ВУЗу</label>
+                                    <label for="item-2">ОГЭ (ГИА)</label>
                                 </div>
                             </div>
                             <div class="column">
                                 <div class="checkbox-widget">
                                     <input id="item-3" type="checkbox" name="addition" />
-                                    <label for="item-3">Повторение программы</label>
-                                </div>
-                                <div class="checkbox-widget">
-                                    <input id="item-4" type="checkbox" name="addition" />
-                                    <label for="item-4">Домашние задания</label>
+                                    <label for="item-3">Подготовка к олимпиадам</label>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +199,7 @@
                 <h3 class="sub-title">Категория учеников</h3>
                 <div class="line">
                     <div class="category">
-                        <select name="category" required="required" data-h5-errorid="category-required">
+                        <select name="category" multiple="multiple" required="required" data-h5-errorid="category-required">
                             <option value="дети 1-3 года">дети 1-3 года</option>
                             <option value="дети 4-5 лет">дети 4-5 лет</option>
                             <option value="дети 6-7 лет">дети 6-7 лет</option>
@@ -144,15 +223,15 @@
                 <div class="line">
                     <div class="third subdevision">
                         <label for="athome">На дому</label>
-                        <input type="number" name="home" id="athome" required="required" data-h5-errorid="price-required" /><span>руб (45 мин)</span>
+                        <input type="number" name="home" id="athome" required="required" data-h5-errorid="price-required" /><span>руб (<strong class="min-time">45 </strong> мин)</span>
                     </div>
                     <div class="third subdevision">
                         <label for="atoffice">Выезд к ученику</label>
-                        <input type="number" name="office" id="atoffice" required="required" data-h5-errorid="price-required" /><span>руб (45 мин)</span>
+                        <input type="number" name="office" id="atoffice" required="required" data-h5-errorid="price-required" /><span>руб (<strong class="min-time">45 </strong> мин)</span>
                     </div>
                     <div class="third subdevision">
                         <label for="online">Удаленно</label>
-                        <input type="number" name="online" id="online" required="required" data-h5-errorid="price-required" /><span>руб (45 мин)</span>
+                        <input type="number" name="online" id="online" required="required" data-h5-errorid="price-required" /><span>руб (<strong class="min-time">45 </strong> мин)</span>
                     </div>
                     <div id="price-required" class="error">Пожалуйста, заполните это поле</div>
                 </div>
