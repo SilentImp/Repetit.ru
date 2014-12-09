@@ -22,7 +22,6 @@ class RegistrationStep0
     inputs.on 'change', @inputChange
     @form_sms_title.on 'click', @backToForm
 
-    
     @regions_input = $ '#reg-region'
     @regions_list = @widget.find '.regions-list'
     @regions_list_item = @regions_list.find '.item'
@@ -68,8 +67,7 @@ class RegistrationStep0
   showRegistrationPopup: (event)=>
     event.preventDefault()
     @widget.stop().fadeIn()
-    if Modernizr.mq("screen and (max-width:600px)")
-      $('body>main.page, body>footer, body>header').stop().fadeOut()
+    @widget.addClass 'open'
 
   hideRegistrationPopup: (event)=>
     event.preventDefault()
@@ -78,8 +76,7 @@ class RegistrationStep0
     @form_sms[0].reset()
     @regions_input.removeClass 'changed'
     @regions_list_search.val ''
-    if Modernizr.mq("screen and (max-width:600px)")
-      $('body>main.page, body>footer, body>header').stop().fadeIn()
+    @widget.removeClass 'open'
 
   showRegionsList: (event)=>
     event.preventDefault()

@@ -1625,9 +1625,38 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
 .registration-step-0 .registration .copyright a {
   color: #fff;
 }
+@media (max-width: 960px) {
+  .registration-step-0 .sms fieldset .line .error {
+    display: none !important;
+  }
+}
 @media (max-width: 890px) {
   .registration-step-0 .registration fieldset .line .error {
     display: none !important;
+  }
+}
+@media (max-width: 600px) {
+  .registration-step-0.open ~ main.page,
+  .registration-step-0.open ~ footer,
+  .registration-step-0.open ~ header {
+    display: none;
+  }
+  .registration-step-0.open .registration {
+    margin-top: 0;
+  }
+  .registration-step-0.open .sms {
+    position: relative;
+    box-shadow: none;
+    height: auto;
+    width: auto;
+    border-radius: 0;
+  }
+  .registration-step-0.open .sms .title {
+    border-radius: 0;
+  }
+  .registration-step-0.open .sms nav {
+    margin-top: 24px;
+    position: static;
   }
 }
 @media (max-width: 600px) {
@@ -2476,10 +2505,19 @@ body.registration-page {
   font-family: 'Helvetica Neue';
 }
 .registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-choice {
+  background-image: none;
+  background-color: #fff;
+  box-shadow: none;
   line-height: 24px;
   padding: 3px 30px 3px 15px;
+  border: 1px solid #e5e5e5;
+  color: #3f3f3f;
+}
+.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-choice:hover {
+  border-color: #bfd6db;
 }
 .registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+  opacity: 0.6;
   top: 50%;
   margin-top: -5px;
   right: 8px;

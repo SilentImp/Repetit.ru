@@ -463,11 +463,34 @@ html.no-svg body
       color rgba(#fff,.6)
       a
         color #FFF 
-
+        
+@media (max-width 960px)
+  .registration-step-0 .sms fieldset .line .error
+    display none !important
+    
 @media (max-width 890px)
   .registration-step-0 .registration fieldset .line .error
     display none !important
     
+@media (max-width 600px)
+  .registration-step-0.open
+    ~ main.page,
+    ~ footer,
+    ~ header
+      display none
+    .registration
+      margin-top 0
+    .sms
+      position relative
+      box-shadow none
+      height auto
+      width auto
+      border-radius 0
+      .title
+        border-radius 0
+      nav
+        margin-top 24px
+        position static
 
 @media (max-width 600px)
   .registration-step-0
