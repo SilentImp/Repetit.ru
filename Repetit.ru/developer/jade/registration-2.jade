@@ -26,7 +26,7 @@ html(lang="ru")
     script(src="js/chosen_v1.2.0/chosen.jquery.min.js")
     script(src="js/wNumb.js")
 
-
+    script(src="js/DropdownWidgetController.js", async)
     script(src="js/PersonalData.js", async)
 
     
@@ -93,7 +93,7 @@ html(lang="ru")
 
           h3.sub-title Разделы
           .line.section
-            select.unchanged(name="section", required="required", data-h5-errorid="section-required")
+            select.unchanged(data-placeholder="Выберите раздел", multiple, name="section", required="required", data-h5-errorid="section-required")
               - var chapters = ['математический анализ','теория вероятностей','теоретическая механика','сопромат','математи логика','эконометрика','высшая математика','линейная алгебра','дифференциальная геометрия','аналитическая геометрия','математическая физика','дифференциальные уравнения','математическая статистика','линейная геометрия','дискретная математика','топология','функциональный анализ','интегральные уравнения','теория чисел','векторный анализ','ТФКП','тензорный анализ','финансовая математика','уравнения в частных производных','актуарная математика','теория графов','комбинаторика','математические модели','прикладная математика','тригоном-ия','уравнения математической физики','численные методы','теория приближений','теория оптимизации','.школьный курс','на английском языке','алгебра логики','вычислимые функции','теория игр','вариационное исчисление','оптимальное управление','методы оптимизации','линейное программирование','алгебра','геометрия','методы оптимальных решений']
               each chapter in chapters
                 option(value=chapter)=chapter
@@ -104,23 +104,39 @@ html(lang="ru")
               .list
                 .column
                   .checkbox-widget
-                    input#item-1(type="checkbox", name="addition")
-                    label(for="item-1") ЕГЭ
+                    input#dropdown-container-widget-1(type="checkbox", name="addition")
+                    label(for="dropdown-container-widget-1") ЕГЭ
                   .checkbox-widget
-                    input#item-2(type="checkbox", name="addition")
-                    label(for="item-2") ОГЭ (ГИА)
+                    input#dropdown-container-widget-2(type="checkbox", name="addition")
+                    label(for="dropdown-container-widget-2") ОГЭ (ГИА)
                 .column
                   .checkbox-widget
-                    input#item-3(type="checkbox", name="addition")
-                    label(for="item-3") Подготовка к олимпиадам
+                    input#dropdown-container-widget-3(type="checkbox", name="addition")
+                    label(for="dropdown-container-widget-3") Подготовка к олимпиадам
 
           h3.sub-title Категория учеников
           .line
-            .category
-              select(name="category", multiple, required="required", data-h5-errorid="category-required")
-                - var categorys = ["дети 1-3 года","дети 4-5 лет","дети 6-7 лет","школьники 1 класса","школьники 2 класса","школьники 3 класса","школьники 4 класса","школьники 5 класса","школьники 6 класса","школьники 7 класса","школьники 8 класса","школьники 9 класса","школьники 10 класса","школьники 11 класса","студенты","взрослые"]
-                each category in categorys
-                  option(value=category)=category
+            .addition.dropdown-container-widget
+              .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
+              .list
+                .column
+                  - var categorys = ["дети 1-3 года","дети 4-5 лет","дети 6-7 лет","школьники 1 класса","школьники 2 класса","школьники 3 класса","школьники 4 класса","школьники 5 класса"]
+                  each category in categorys
+                    .checkbox-widget
+                      input(id="category-"+category, type="checkbox", name="addition")
+                      label(for="category-"+category)=category
+                .column
+                  - var categorys = ["школьники 6 класса","школьники 7 класса","школьники 8 класса","школьники 9 класса","школьники 10 класса","школьники 11 класса","студенты","взрослые"]
+                  each category in categorys
+                    .checkbox-widget
+                      input(id="category-"+category, type="checkbox", name="addition")
+                      label(for="category-"+category)=category
+
+            //- .category
+            //-   select(name="category", multiple, required="required", data-h5-errorid="category-required")
+            //-     - var categorys = ["дети 1-3 года","дети 4-5 лет","дети 6-7 лет","школьники 1 класса","школьники 2 класса","школьники 3 класса","школьники 4 класса","школьники 5 класса","школьники 6 класса","школьники 7 класса","школьники 8 класса","школьники 9 класса","школьники 10 класса","школьники 11 класса","студенты","взрослые"]
+            //-     each category in categorys
+            //-       option(value=category)=category
 
           h3.sub-title Цена занятия 
             b (минимальной продолжительности)

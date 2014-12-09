@@ -8,11 +8,68 @@ class PersonalData
     @avatarTemplate = document.getElementById 'current-avatar-template'
     @fileSelector = $ '.file-selector'
 
-    rega = document.getElementById('registration-avatar')
-    if rega
-      FileAPI.event.on document.getElementById('registration-avatar'), 'change', @avatarSelected
-      $(document).dnd @over, @drop
-      FileAPI.event.on document, 'drop', @droped
+    # rega = $('.photo')
+    # if rega.length > 0
+    #   rega.fileapi
+    #     # url: @form.attr('action'),
+    #     url: 'http://test.silentimp.info/test.php'
+    #     duplicate: false
+    #     accept: 'image/*'
+    #     maxSize: 5 * FileAPI.MB
+    #     autoUpload: false
+    #     multiple: false
+    #     elements:
+    #       empty: 
+    #         show: '.file-selector'
+    #       list: '.preview'
+    #       file:
+    #         preview:
+    #           el: '.photo'
+    #           width: 80
+    #           height: 80
+    #         tpl: '.current-avatar'
+    #       dnd:
+    #         el: '.file-selector'
+    #         hover: '.file-selector__file'
+    #     # onSelect: (evt, ui)=>
+    #     #   reader = new FileReader()
+    #     #   reader.onload = (event)=>
+    #     #     @avatarTemplate.content.querySelector('img').src = event.target.result
+    #     #     avatar = document.importNode @avatarTemplate.content, true
+    #     #     prev = @fileSelector.prev()
+    #     #     if prev.hasClass('current-avatar')
+    #     #       prev.remove()
+    #     #     @fileSelector.before avatar
+    #     #     @fileSelector.prev().find('.close').on 'click', @removeAvatar
+    #     #   reader.readAsDataURL ui.files[0]
+
+    FileAPI.event.on document.getElementById('registration-avatar'), 'change', @avatarSelected
+    $(document).dnd @over, @drop
+    FileAPI.event.on document, 'drop', @droped
+
+    sertificats = $('.sertificats')
+    if sertificats.length>0
+      sertificats.fileapi
+        # url: @form.attr('action'),
+        url: 'http://test.silentimp.info/test.php'
+        duplicate: false,
+        accept: 'image/*',
+        maxSize: 5 * FileAPI.MB,
+        autoUpload: false,
+        multiple: true,
+        onSelect: (evt, ui)=>
+          @cerificates_count++
+          reader = new FileReader()
+          reader.onload = (event)=>
+            @cert_list.append @source
+              "id" : @cerificates_count
+              "src" : event.target.result
+          reader.readAsDataURL ui.files[0]
+        elements:
+          ctrl:
+            upload: '.add-sertificat label'
+          list: '.sertificat-list'
+
 
     sertificat = $("#sertificat-template")
     if sertificat.length >0
@@ -121,34 +178,6 @@ class PersonalData
           decimals: 0
       exp.Link('lower').to($('#experience-value'))
 
-    sertificats = $('.sertificats')
-    if sertificats.length>0
-      $('.sertificats').fileapi
-        # url: @form.attr('action'),
-        url: 'http://test.silentimp.info/test.php'
-        duplicate: false,
-        accept: 'image/*',
-        maxSize: 5 * FileAPI.MB,
-        autoUpload: false,
-        multiple: true,
-        onSelect: (evt, ui)=>
-          console.log evt
-          console.log ui
-          @cerificates_count++
-          reader = new FileReader()
-          reader.onload = (event)=>
-
-            @cert_list.append @source
-              "id" : @cerificates_count
-              "src" : event.target.result
-            
-          reader.readAsDataURL ui.files[0]
-
-        elements:
-          ctrl:
-            upload: '.add-sertificat label'
-          list: '.sertificat-list'
-
     @form.h5Validate()
     @form.on 'submit', @afterCheck
 
@@ -250,7 +279,8 @@ class PersonalData
     files = FileAPI.getFiles(event)
 
     ext = files[0]['name'].substring(files[0]['name'].lastIndexOf('.') + 1).toLowerCase()
-    if (files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg"))
+
+    if (files[0] && (files[0].size <= FileAPI.MB) && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg"))
         
       reader = new FileReader()
       reader.onload = (event)=>
@@ -264,6 +294,11 @@ class PersonalData
         @fileSelector.prev().find('.close').on 'click', @removeAvatar
 
       reader.readAsDataURL files[0]
+
+    else
+      @fileSelector.prev().remove()
+      @file.replaceWith @file.val('').clone(true)
+      @file = @form.find '#registration-avatar'
 
 
   afterCheck: (event)=>

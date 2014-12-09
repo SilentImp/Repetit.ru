@@ -2,6 +2,7 @@
   position: absolute;
   opacity: 0;
   left: -9999px;
+  z-index: 1000;
 }
 .checkbox-widget input[type="checkbox"]:checked + label:before {
   background-color: #478e9e;
@@ -378,14 +379,12 @@ html.no-svg body .dropdown-container-widget {
 .dropdown-container-widget:hover {
   border-color: #bfd6db;
 }
-.dropdown-container-widget:hover .list {
-  display: block;
-}
 .dropdown-container-widget.ui-state-error {
   border-color: #f56d6c;
   box-shadow: 0 0 4px 1px rgba(245,109,108,0.3);
 }
 .dropdown-container-widget .current {
+  cursor: pointer;
   color: #3f3f3f;
   padding: 0 34px 0 15px;
   white-space: nowrap;
@@ -914,6 +913,15 @@ html body header .tel {
 }
 html body header .tel b {
   font-weight: bold;
+}
+@media (max-width: 500px) {
+  html body .registration-step-1 .panel .duration-container .value {
+    width: 100%;
+  }
+  html body .registration-step-1 .panel .duration-container .duration-line-header,
+  html body #duration {
+    display: none;
+  }
 }
 @media (max-width: 800px) {
   html body .wrapper {
@@ -2339,29 +2347,6 @@ body.registration-page {
   display: inline-block;
   vertical-align: top;
 }
-.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
-  font-weight: 200;
-  font-family: 'Helvetica Neue';
-}
-.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-choice {
-  line-height: 24px;
-  padding: 3px 30px 3px 15px;
-}
-.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
-  top: 50%;
-  margin-top: -5px;
-  right: 8px;
-}
-.registration-step-1 .panel .chosen-container-multi .chosen-drop .result-selected {
-  font-size: 16px;
-  line-height: 28px;
-  font-weight: 200;
-  font-family: 'Helvetica Neue';
-}
-.registration-step-1 .panel .subdevision.hide {
-  pointer-events: none;
-  opacity: 0.1;
-}
 .registration-step-1 .panel .chosen-choices,
 .registration-step-1 .panel input.tt-input,
 .registration-step-1 .panel .subdevision>input[type="text"],
@@ -2479,6 +2464,35 @@ body.registration-page {
 .registration-step-1 .panel .line>input[type="number"]:-ms-input-placeholder,
 .registration-step-1 .panel .line>input[type="tel"]:-ms-input-placeholder {
   color: rgba(63,63,63,0.4);
+}
+.registration-step-1 .panel .chosen-container-multi .chosen-choices {
+  padding: 4px 3px;
+}
+.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-field {
+  line-height: 38px;
+}
+.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+  font-weight: 200;
+  font-family: 'Helvetica Neue';
+}
+.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-choice {
+  line-height: 24px;
+  padding: 3px 30px 3px 15px;
+}
+.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+  top: 50%;
+  margin-top: -5px;
+  right: 8px;
+}
+.registration-step-1 .panel .chosen-container-multi .chosen-drop .result-selected {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 200;
+  font-family: 'Helvetica Neue';
+}
+.registration-step-1 .panel .subdevision.hide {
+  pointer-events: none;
+  opacity: 0.1;
 }
 .registration-step-1 .panel fieldset.photo {
   float: left;
