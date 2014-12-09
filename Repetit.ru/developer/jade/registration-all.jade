@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge;chrome=1")
+    meta(name="viewport", content="width = device-width, initial-scale = 1.0")
+    title Личные данные | Регистрация | Ассоциация репетиторов
+    link(rel="stylesheet", href="css/styles.css")
+
+    script(src="js/modernizr.js")
+    script(src="js/html-template-polyfill.js")
+    script(src="js/jquery/jquery.min.js")
+    script(src="js/jquery-ui-1.9.2.custom.min.js")
+    script(src="js/jquery.nouislider.all.min.js")
+    script(src="js/jquery.liblink.js")
+    script(src="js/h5Validate/jquery.h5validate.js")
+
+    script(src="js/FileAPI.min.js")
+    script(src="js/jquery.fileapi.min.js")
+    script(src="js/handlebars/handlebars.min.js")
+    script(src="js/typeahead.js/dist/bloodhound.min.js")
+    script(src="js/typeahead.js/dist/typeahead.jquery.min.js")
+
+
+    script(src="js/moment/min/moment.min.js")
+    script(src="js/chosen_v1.2.0/chosen.jquery.min.js")
+    script(src="js/wNumb.js")
+
+
+    script(src="js/DropdownWidgetController.js", async)
+    script(src="js/PersonalDataAll.js", async)
+
+    script(id="sertificat-template" type="text/x-handlebars-template")
+      .sertificat(data-id="{{{id}}}")
+        a.b-thumb__preview__pic(href="#link-to-big-img")
+          img(src="{{{src}}}", alt="Сертификат")
+        a.remove(href="#", data-fileapi="file.remove")
+        textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
+
+    script(id="education-template" type="text/x-handlebars-template")
+      h2.chapter-title: span Образование
+      .line
+        label(for="city{{{index}}}") Населенный пункт
+        input(type="text", autocomplete="off", spellcheck="false", id="city{{{index}}}", name="city[]", value="", placeholder="Начните вводить...")
+      .line.name
+        label(for="univercity{{{index}}}") Название учебного заведения
+        input(type="text", autocomplete="off", spellcheck="false", id="univercity{{{index}}}", name="univercity[]", value="", placeholder="Начните вводить...")
+      .line.grad-year
+        label(for="grad-year{{{index}}}") Год выпуска
+        input(type="text", id="grad-year{{{index}}}", name="grad-year[]", value="")
+      .line
+        label(for="fac{{{index}}}") Факультет
+        input(type="text", id="fac{{{index}}}", name="fac[]", value="")
+      .line.spec
+        label(for="spec{{{index}}}") Специальность
+        input(type="text", id="spec{{{index}}}", name="comments[]", value="")
+
+    script(id="subj-template", type="text/x-handlebars-template")
+      h2.chapter-title Предмет
+      h3.sub-title Предмет
+      .line.subject
+        select.unchanged(name="subject", required="required", data-h5-errorid="subject-required{{{index}}}")
+          - var subjs = ['Русский язык','Английский язык','Немецкий язык','Французский язык','Итальянский язык','Испанский язык','Китайский язык','Математика','Физика','Информатика / программирование','Химия','Биология','История','Обществознание','Литература','География','Экономика','Начальная школа','Музыка','Логопед','Другой','Русский как иностранный','Японский язык','Изобразительное искусство','Подготовка к школе','Редкие иностранные языки','Спорт и фитнес']
+          each subj in subjs
+            option(value=subj)=subj
+
+      h3.sub-title Разделы
+      .line.section
+        select.unchanged(data-placeholder="Выберите раздел", multiple, name="section", required="required", data-h5-errorid="section-required-{{{index}}}")
+          - var chapters = ['математический анализ','теория вероятностей','теоретическая механика','сопромат','математи логика','эконометрика','высшая математика','линейная алгебра','дифференциальная геометрия','аналитическая геометрия','математическая физика','дифференциальные уравнения','математическая статистика','линейная геометрия','дискретная математика','топология','функциональный анализ','интегральные уравнения','теория чисел','векторный анализ','ТФКП','тензорный анализ','финансовая математика','уравнения в частных производных','актуарная математика','теория графов','комбинаторика','математические модели','прикладная математика','тригоном-ия','уравнения математической физики','численные методы','теория приближений','теория оптимизации','.школьный курс','на английском языке','алгебра логики','вычислимые функции','теория игр','вариационное исчисление','оптимальное управление','методы оптимизации','линейное программирование','алгебра','геометрия','методы оптимальных решений']
+          each chapter in chapters
+            option(value=chapter)=chapter
+        .error(id="section-required-{{{index}}}") Пожалуйста, заполните это поле
+
+      h3.sub-title Дополнения
+      .line
+        .addition.dropdown-container-widget
+          .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
+          .list
+            .column
+              .checkbox-widget
+                input(id="dropdown-container-widget-1-{{{index}}}", type="checkbox", name="addition")
+                label(for="dropdown-container-widget-1-{{{index}}}") ЕГЭ
+              .checkbox-widget
+                input(id="dropdown-container-widget-2-{{{index}}}", type="checkbox", name="addition")
+                label(for="dropdown-container-widget-2-{{{index}}}") ОГЭ (ГИА)
+            .column
+              .checkbox-widget
+                input(id="dropdown-container-widget-3-{{{index}}}", type="checkbox", name="addition")
+                label(for="dropdown-container-widget-3-{{{index}}}") Подготовка к олимпиадам
+
+      h3.sub-title Категория учеников
+      .line
+        .addition.dropdown-container-widget
+          .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
+          .list
+            .column
+              - var categorys = ["дети 1-3 года","дети 4-5 лет","дети 6-7 лет","школьники 1 класса","школьники 2 класса","школьники 3 класса","школьники 4 класса","школьники 5 класса"]
+              each category in categorys
+                .checkbox-widget
+                  input(id="category-"+category+'-{{{index}}}', type="checkbox", name="addition")
+                  label(for="category-"+category+'-{{{index}}}')=category
+            .column
+              - var categorys = ["школьники 6 класса","школьники 7 класса","школьники 8 класса","школьники 9 класса","школьники 10 класса","школьники 11 класса","студенты","взрослые"]
+              each category in categorys
+                .checkbox-widget
+                  input(id="category-"+category+'-{{{index}}}', type="checkbox", name="addition")
+                  label(for="category-"+category+'-{{{index}}}')=category
+
+      h3.sub-title Цена занятия 
+        b (минимальной продолжительности)
+      .line
+        .third.subdevision
+          label(for="athome{{{index}}}") На дому
+          input.athome(
+            type="number", 
+            name="home", 
+            id="athome{{{index}}}", 
+            required="required", 
+            data-h5-errorid="mprice-required-{{{index}}}")
+          span руб (
+            strong.min-time 45 
+            |  мин)
+        .third.subdevision
+          label(for="atoffice{{{index}}}") Выезд к ученику
+          input.atoffice(
+            type="number", 
+            name="office", 
+            id="atoffice{{{index}}}", 
+            required="required", 
+            data-h5-errorid="mprice-required-{{{index}}}")
+          span руб (
+            strong.min-time 45 
+            |  мин)
+        .third.subdevision
+          label(for="online{{{index}}}") Удаленно
+          input.online(
+            type="number", 
+            name="online", 
+            id="online{{{index}}}", 
+            required="required", 
+            data-h5-errorid="mprice-required-{{{index}}}")
+          span руб (
+            strong.min-time 45 
+            |  мин)
+        .error(id="mprice-required-{{{index}}}") Пожалуйста, заполните это поле
+
+      h3.sub-title Комментарий
+      .line 
+        textarea(name="message", cols="30", rows="10")
+
+    script(id="address-template" type="text/x-handlebars-template")
+      .adress-wrapper
+        h2.chapter-title Адрес преподавания
+        .line
+          label(for="address{{{index}}}") Район
+          select(id="address{{{index}}}")
+            - var citys = ["Москва","Санкт-Петербург","Абакан","Анадырь","Архангельск","Астрахань","Барнаул","Белгород","Биробиджан","Благовещенск","Брянск","Великий Новгород","Владивосток","Владикавказ","Владимир","Волгоград","Вологда","Воронеж","Горно-Алтайск","Грозный","Екатеринбург","Иваново","Ижевск","Йошкар-Ола","Иркутск","Казань","Калининград","Калуга","Кемерово","Киров","Кострома","Краснодар","Красноярск","Курган","Курск","Кызыл","Липецк","Магадан","Назрань","Майкоп","Махачкала","Мурманск","Нальчик","Нарьян-Мар","Нижний Новгород","Новосибирск","Омск","Орёл","Оренбург","Пенза","Пермь","Петрозаводск","Петропавловск-Камчатский","Псков","Ростов-на-Дону","Рязань","Салехард","Самара","Саранск","Саратов","Смоленск","Ставрополь","Сыктывкар","Тамбов","Тверь","Томск","Тула","Тюмень","Улан-Удэ","Ульяновск","Уфа","Хабаровск","Ханты-Мансийск","Чебоксары","Челябинск","Черкесск","Чита","Элиста","Южно-Сахалинск","Якутск","Ярославль","Череповец","Абдулино","Агинское","Белокуриха","Бийск","Новоалтайск","Рубцовск","Славгород","Свободный","Тында","Вельск","Коряжма","Котлас","Северодвинск","Ахтубинск","Знаменск","Алексеевка","Губкин","Старый Оскол","Дятьково","Карачев","Новозырьков","Унеча","Александров","Гусь-Хрустальный","Ковров","Муром","Покров","Быково","Волжский","Камышин","Михайловка","Урюпинск","Череповец","Борисоглебск","Лиски","Кинешма","Шуя","Ангарск","Братск","Бохан","Усолье-Сибирское","Усть-Илимск","Полесск","Советск","Черняховск","Балабаново","Киров","Обнинск","Карачаевск","Учкекен","Анжеро-Судженск","Белово","Киселевск","Ленинск-Кузнецкий","Междуреченск","Новокузнецк","Осинники","Прокопьевск","Тайга","Таштагол","Юрга","Вятские Поляны","Знаменка","Кирово-Чепецк","Котельнич","Норинск","Слободской","Караваево","Шарья","Анапа","Армавир","Белореченск","Геленджик","Горячий Ключ","Гулькевичи","Ейск","Кореновск","Кропоткин","Кущевская","Лабинск","Ленинградская","Новороссийск","Отрадная","Павловская","Славянск-на-Кубани","Сочи","Тихорецк","Туапсе","Усть-Лабинск","Ачинск","Железногорск","Зеленогорск","Канск","Лесосибирск","Минусинск","Норильск","Шарыпово","Лесниково","Шадринск","Железногорск","Льгов","Рыльск","Суджа","Бокситогорск","Волхов","Всеволжск","Выборг","Луга","Гатчина","Ивангород","Кингисепп","Кириши","Подпорожье","Сиверский","Сланцы","Сосновый бор","Тихвин","Елец","Зеленоград","Балашиха","Барвиха","Большие Вязёмы","Бронницы","Видное","Волоколамск","Воскресенск","Голицыно","Щёлково","Кубинка","Дедовск","Дзержинский","Дмитров","Долгопрудный","Домодедово","Дубна","Егорьевск","Железнодорожный","Жуковский","Ивантеевка","Кашира","Клин","Кокошкино","Коломна","Королёв","Котельники","Красногорск","Краснознаменск","Люберцы","Малаховка","Можайск","Челюскинский","Мытищи","Наро-Фоминск","Ногинск","Одинцово","Орехово-Зуево","Павловский Посад","Подольск","Протвино","Пушкино","Пущино","Радужный","Раменское","Реутов","Руза","Старотеряево","Сергиев Посад","Серпухов","Солнечногорск","Ступино","Сходня","Тучково","Фрязино","Химки","Черкизово","Чехов","Шатура","Электросталь","Юбилейный","Апатиты","Кировск","Арзамас","Выкса","Дзержинск","Заволжье","Княгинино","Кстово","Кулебаки","Павлово","Перевоз","Саров","Сергач","Шашунья","Боровочи","Старая Русса","Бердск","Искитим","Куйбышев","Линёво","Тара","Акбулак","Бугуруслан","Бузулук","Новотроицк","Орск","Ливны","Мценск","Кузнецк","Нижний Ломов","Сердобск","Березники","Кудымкар","Лысьва","Соликамск","Чайковский","Чусовой","Арсеньев","Артем","Большой Камень","Дальнегорск","Дальнереченск","Кировский","Лесозаводск","Михайловка","Находка","Партизанск","Славянка","Спасск-Дальний","Уссурийск","Великие Луки","Кошехабль","Яблоновский","Белебей","Белорецк","Бирск","Ишимбай","Кумертау","Мелеуз","Нефтекамск","Октябрьский","Салават","Сибай","Стерлитамак","Северобайкальск","Дербент","Буйнакск","Избербаш","Каспийск","Кизилюрт","Кизляр","Хасавюрт","Магас","Костомукша","Сортавала","Воркута","Усинск","Ухта","Волжск","Ковылкино","Рузаевка","Мирный","Нерюнгри","Октенцы","Олёкминск","Чурапча","Айхал","Ленск","Альметьевск","Бугульма","Елабуга","Зеленодольск","Лениногорск","Набережные Челны","Нижнекамск","Чистополь","Саяногорск","Азов","Батайск","Белая Калитва","Вешенская","Волгодонск","Гуково","Донецк","Зерноград","Зимовники","Каменск-Шахтинский","Константиновск","Красный Сулим","Матвеев Курган","Миллерово","Новочеркасск","Новошахтинск","Персиановский","Сальск","Таганрог","Шахты","Сасово","Кинель","Похвиснево","Сызрань","Тольятти","Пушкин","Балаково","Балашов","Вольск","Маркс","Энгельс","Холмск","Алапаевск","Березовский","Верхняя Салда","Заречный","Ирбит","Каменск-Уральский","Краснотурьинск","Лесной","Невьянск","Нижний Тагил","Нижняя Тура","Новоуральск","Первоуральск","Серов","Среднеуральск","Вязьма","Рославль","Сафоново","Буденновск","Георгиевск","Ессентуки","Железноводск","Кисловодск","Лермонтов","Минеральные Воды","Невинномысск","Пятигорск","Мичуринск","Уварово","Бежецк","Вышний Волочек","Кимры","Канаково","Кувшиново","Ржев","Торжок","Удомля","Асино","Северск","Стрежевой","Алексин","Новомосковск","Белый Яр","Губкинский","Заводоуковск","Ишим","Когалым","Лангепас","Муравленко","Надым","Нефтеюганск","Нижневартовск","Новый Уренгой","Ноябрьск","Нягань","Пойковский","Пыть-Ях","Советский","Сургут","Тобольск","Урай","Ялуторовск","Воткинск","Глазов","Сарапул","Дмитровград","Инза","Ванино","Комсомольск-на-Амуре","Советская Гавань","Аша","Златоуст","Карталы","Куса","Кыштым","Магнитогорск","Миасс","Нязепетровск","Озерск","Сатка","Снежинск","Трёхгорный","Троицк","Усть-Катав","Алатырь","Батырево","Мариинский Посад","Новочебоксарск","Переславль-Залесский","Рыбинск","Тутаев","Углич","Байконур","Бишкек","Душанбе","Ереван","Курган-тюбе","Могилев","Худжанд","Зарубежные города","Звенигород","Климовск","Лобня","Лыткарино","Крутое","Апрелевка","Севастополь","Евпатория","Керчь","Симферополь","Судак","Феодосия","Ялта","Кола"]
+            each city in citys
+              option(value=city)=city
+        .line.address-details
+          .street.subdevision
+            label(for="street{{{index}}}") Улица
+            input(type="text", id="street{{{index}}}", name="street[]", value="")
+          .house.subdevision
+            label(for="house{{{index}}}") Дом
+            input(type="text", id="house{{{index}}}", name="house[]", value="")
+          .corpus.subdevision
+            label(for="corpus{{{index}}}") Корпус
+            input(type="text", id="corpus{{{index}}}", name="corpus[]", value="")
+          .building.subdevision
+            label(for="building{{{index}}}") Строение
+            input(type="text", id="building{{{index}}}", name="building[]", value="")
+
+
+
+  body.registration-page
+    
+    header
+      .wrapper
+        a(href="/")
+          h1.logotype Ассоциация репетиторов
+      
+    .registration-steps
+      
+      h2.title Регистрация репетитора
+
+      .steps
+        .step.selected
+          h3.sub-title: span Личные данные
+        .step
+          h3.sub-title: span Предметы
+        .step
+          h3.sub-title: span Адреса
+        .step
+          h3.sub-title: span Образование
+
+      .panel.step-1.current(data-action="/save/")
+        template#current-avatar-template
+          .current-avatar
+            label(for="registration-avatar")
+              img.avatar(alt="Фотография", data-dz-thumbnail)
+            a.close(href="#", data-fileapi="file.remove")
+        fieldset.photo
+          label.file-selector
+            span.abstract Перетяните ваше фото, или нажмите, чтобы выбрать
+            span.select Выбрать
+            input(type="file", name="avatar", id="registration-avatar", accept="image/*")
+          p.meta Поддерживаются файлы JPG, GIF, PNG до 5 Мб.
+        
+        fieldset
+          
+          h3.sub-title Пол
+          .line.sex-line
+            .radio-widget
+              input(checked="checked", id="sex-male", type="radio", name="sex", value="male")
+              label(for="sex-male") мужской
+            .radio-widget
+              input(id="sex-female", type="radio", name="sex", value="female")
+              label(for="sex-female") женский
+
+          h3.sub-title Дата рождения
+          .line.birthday
+            .error#birthday-required Пожалуйста, заполните это поле
+            input.day(pattern="[1-9][0-9]*", min="1", max="31", maxlength="2" type="text", value="", placeholder="День", required="required", data-h5-errorid="birthday-required")
+            
+            .month
+              select.unchanged(name="month", required="required", data-h5-errorid="birthday-required")
+                option(value="0") Январь
+                option(value="1") Февраль
+                option(value="2") Март
+                option(value="3") Апрель
+                option(value="4") Май
+                option(value="5") Июнь
+                option(value="6") Июль
+                option(value="7") Август
+                option(value="8") Сентябрь
+                option(value="9") Октябрь
+                option(value="10") Ноябрь
+                option(value="11") Декабрь
+
+            .year
+              select.unchanged(name="year", required="required", data-h5-errorid="birthday-required")
+                - var n = 2000
+                while n > 1945
+                  option(value=n)=n
+                  - n--
+          
+          h3.sub-title Статус
+          .line
+            .error#status-required Пожалуйста, выберите вариант
+
+            .status
+              select.unchanged(name="status", required="required", data-h5-errorid="status-required")
+                option(value="0") Свободен
+                option(value="1") Занят
+
+          h3.sub-title Стаж
+          .line.experience-container
+            .experience-line-header
+              - var n = 0
+              while n < 55
+                .years=n
+                - n+=5
+            #experience
+            input#experience-value.value(required="required", pattern="[1-9][0-9]*" type="number", name="experience", value="", min="0", max="50", maxlength="2")
+
+        nav
+          button(type="submit") Продолжить
+
+      .panel.step-2(data-action="/save/")
+        
+        fieldset.minimal-duration
+          .line
+            label(for="min-duration") Минимальная продолжительность занятия
+          .line.duration-container
+            input#duration-value.value(required="required", pattern="[1-9][0-9]*" type="number", name="experience", value="", min="0", max="50", maxlength="2")
+            .duration-line-header
+              - var n = 30
+              while n < 185
+                .years=n
+                - n+=15
+            #duration
+
+        fieldset
+          h3.sub-title Формат проведения занятий
+
+          .line.lessons-format
+
+            .checkbox-widget
+              input#item-1(type="checkbox", name="addition", data-price-field="athome")
+              label(for="item-1") на дому
+            .checkbox-widget
+              input#item-2(type="checkbox", name="addition", data-price-field="atoffice")
+              label(for="item-2") выезд к ученику
+            .checkbox-widget
+              input#item-3(type="checkbox", checked="checked" name="addition", data-price-field="online")
+              label(for="item-3") удаленно
+
+
+        fieldset
+          a.add-subject(href="#") Добавить предмет
+
+
+        nav
+          a.previous(href="#") Предыдущий
+          button(type="submit") Продолжить
+
+      .panel.step-3(data-action="/save/")
+
+        fieldset.address-holder
+
+          .line
+            a.add-address(href="#") Добавить адрес
+
+        fieldset
+          h2.chapter-title Адреса выезда
+          .line
+            label(for="comments") Комментарии по выезду для ученика
+            textarea#comments(name="comments", cols="30", rows="10")
+
+        nav
+          a.previous(href="registration-2.html") Предыдущий
+          button(type="submit") Продолжить
+
+      .panel.step-4(data-action="/save/")
+        fieldset.education
+          .line
+            a.add-education(href="#") Добавить образование
+
+        fieldset.sertificats
+          h2.chapter-title: span Дипломы, грамоты, сертификаты
+          
+          .sertificat-list
+            
+          nav.add-sertificat
+            label Выбрать файл
+              input(type="file", name="certificat")
+            span Поддерживаются файлы PDF, JPG, GIF, PNG до 5 Мб.
+
+        fieldset
+          h2.chapter-title: span Дополнительно
+          .line
+            label(for="additional-information") Дополнительная информация о вас
+            textarea#additional-information(name="additional-information", cols="30", rows="10")
+
+        nav
+          a.previous(href="#") Предыдущий
+          button.complete(type="submit") Завершить
+
+      main.panel.complete.step-5
+        h3.sub-title Регистрация успешно завершена
+        p Мы отправили на вашу почту письмо-подтверждение. Чтобы активировать ваш аккаунт, перейдите по ссылке из этого письма.

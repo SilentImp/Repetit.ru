@@ -1,5 +1,8 @@
 class DropdownWidgetController
   constructor: (@widget)->
+    if @widget.hasClass 'started'
+      return false
+    @widget.addClass 'started'
     @list = @widget.find '.list'
     @itype = 'click'
     if $('html').hasClass('touch')

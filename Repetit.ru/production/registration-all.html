@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+    <title>Личные данные | Регистрация | Ассоциация репетиторов</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/modernizr.js"></script>
+    <script src="js/html-template-polyfill.js"></script>
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="js/jquery.nouislider.all.min.js"></script>
+    <script src="js/jquery.liblink.js"></script>
+    <script src="js/h5Validate/jquery.h5validate.js"></script>
+    <script src="js/FileAPI.min.js"></script>
+    <script src="js/jquery.fileapi.min.js"></script>
+    <script src="js/handlebars/handlebars.min.js"></script>
+    <script src="js/typeahead.js/dist/bloodhound.min.js"></script>
+    <script src="js/typeahead.js/dist/typeahead.jquery.min.js"></script>
+    <script src="js/moment/min/moment.min.js"></script>
+    <script src="js/chosen_v1.2.0/chosen.jquery.min.js"></script>
+    <script src="js/wNumb.js"></script>
+    <script src="js/DropdownWidgetController.js" async="async"></script>
+    <script src="js/PersonalDataAll.js" async="async"></script>
+    <script id="sertificat-template" type="text/x-handlebars-template">
+        <div data-id="{{{id}}}" class="sertificat"><a href="#link-to-big-img" class="b-thumb__preview__pic"><img src="{{{src}}}" alt="Сертификат"/></a><a href="#" data-fileapi="file.remove" class="remove"></a><textarea name="comments" placeholder="Описание…" cols="30" rows="10"></textarea></div>
+    </script>
+    <script id="education-template" type="text/x-handlebars-template">
+        <h2 class="chapter-title"><span>Образование</span></h2><div class="line"><label for="city{{{index}}}">Населенный пункт</label><input type="text" autocomplete="off" spellcheck="false" id="city{{{index}}}" name="city[]" value="" placeholder="Начните вводить..."/></div><div class="line name"><label for="univercity{{{index}}}">Название учебного заведения</label><input type="text" autocomplete="off" spellcheck="false" id="univercity{{{index}}}" name="univercity[]" value="" placeholder="Начните вводить..."/></div><div class="line grad-year"><label for="grad-year{{{index}}}">Год выпуска</label><input type="text" id="grad-year{{{index}}}" name="grad-year[]" value=""/></div><div class="line"><label for="fac{{{index}}}">Факультет</label><input type="text" id="fac{{{index}}}" name="fac[]" value=""/></div><div class="line spec"><label for="spec{{{index}}}">Специальность</label><input type="text" id="spec{{{index}}}" name="comments[]" value=""/></div>
+    </script>
+    <script id="subj-template" type="text/x-handlebars-template">
+        <h2 class="chapter-title">Предмет</h2><h3 class="sub-title">Предмет</h3><div class="line subject"><select name="subject" required="required" data-h5-errorid="subject-required{{{index}}}" class="unchanged"><option value="Русский язык">Русский язык</option><option value="Английский язык">Английский язык</option><option value="Немецкий язык">Немецкий язык</option><option value="Французский язык">Французский язык</option><option value="Итальянский язык">Итальянский язык</option><option value="Испанский язык">Испанский язык</option><option value="Китайский язык">Китайский язык</option><option value="Математика">Математика</option><option value="Физика">Физика</option><option value="Информатика / программирование">Информатика / программирование</option><option value="Химия">Химия</option><option value="Биология">Биология</option><option value="История">История</option><option value="Обществознание">Обществознание</option><option value="Литература">Литература</option><option value="География">География</option><option value="Экономика">Экономика</option><option value="Начальная школа">Начальная школа</option><option value="Музыка">Музыка</option><option value="Логопед">Логопед</option><option value="Другой">Другой</option><option value="Русский как иностранный">Русский как иностранный</option><option value="Японский язык">Японский язык</option><option value="Изобразительное искусство">Изобразительное искусство</option><option value="Подготовка к школе">Подготовка к школе</option><option value="Редкие иностранные языки">Редкие иностранные языки</option><option value="Спорт и фитнес">Спорт и фитнес</option></select></div><h3 class="sub-title">Разделы</h3><div class="line section"><select data-placeholder="Выберите раздел" multiple="multiple" name="section" required="required" data-h5-errorid="section-required-{{{index}}}" class="unchanged"><option value="математический анализ">математический анализ</option><option value="теория вероятностей">теория вероятностей</option><option value="теоретическая механика">теоретическая механика</option><option value="сопромат">сопромат</option><option value="математи логика">математи логика</option><option value="эконометрика">эконометрика</option><option value="высшая математика">высшая математика</option><option value="линейная алгебра">линейная алгебра</option><option value="дифференциальная геометрия">дифференциальная геометрия</option><option value="аналитическая геометрия">аналитическая геометрия</option><option value="математическая физика">математическая физика</option><option value="дифференциальные уравнения">дифференциальные уравнения</option><option value="математическая статистика">математическая статистика</option><option value="линейная геометрия">линейная геометрия</option><option value="дискретная математика">дискретная математика</option><option value="топология">топология</option><option value="функциональный анализ">функциональный анализ</option><option value="интегральные уравнения">интегральные уравнения</option><option value="теория чисел">теория чисел</option><option value="векторный анализ">векторный анализ</option><option value="ТФКП">ТФКП</option><option value="тензорный анализ">тензорный анализ</option><option value="финансовая математика">финансовая математика</option><option value="уравнения в частных производных">уравнения в частных производных</option><option value="актуарная математика">актуарная математика</option><option value="теория графов">теория графов</option><option value="комбинаторика">комбинаторика</option><option value="математические модели">математические модели</option><option value="прикладная математика">прикладная математика</option><option value="тригоном-ия">тригоном-ия</option><option value="уравнения математической физики">уравнения математической физики</option><option value="численные методы">численные методы</option><option value="теория приближений">теория приближений</option><option value="теория оптимизации">теория оптимизации</option><option value=".школьный курс">.школьный курс</option><option value="на английском языке">на английском языке</option><option value="алгебра логики">алгебра логики</option><option value="вычислимые функции">вычислимые функции</option><option value="теория игр">теория игр</option><option value="вариационное исчисление">вариационное исчисление</option><option value="оптимальное управление">оптимальное управление</option><option value="методы оптимизации">методы оптимизации</option><option value="линейное программирование">линейное программирование</option><option value="алгебра">алгебра</option><option value="геометрия">геометрия</option><option value="методы оптимальных решений">методы оптимальных решений</option></select><div id="section-required-{{{index}}}" class="error">Пожалуйста, заполните это поле</div></div><h3 class="sub-title">Дополнения</h3><div class="line"><div class="addition dropdown-container-widget"><div data-placeholder="Выберите из списка" class="current default"><span>Выберите из списка</span></div><div class="list"><div class="column"><div class="checkbox-widget"><input id="dropdown-container-widget-1-{{{index}}}" type="checkbox" name="addition"/><label for="dropdown-container-widget-1-{{{index}}}">ЕГЭ</label></div><div class="checkbox-widget"><input id="dropdown-container-widget-2-{{{index}}}" type="checkbox" name="addition"/><label for="dropdown-container-widget-2-{{{index}}}">ОГЭ (ГИА)</label></div></div><div class="column"><div class="checkbox-widget"><input id="dropdown-container-widget-3-{{{index}}}" type="checkbox" name="addition"/><label for="dropdown-container-widget-3-{{{index}}}">Подготовка к олимпиадам</label></div></div></div></div></div><h3 class="sub-title">Категория учеников</h3><div class="line"><div class="addition dropdown-container-widget"><div data-placeholder="Выберите из списка" class="current default"><span>Выберите из списка</span></div><div class="list"><div class="column"><div class="checkbox-widget"><input id="category-дети 1-3 года-{{{index}}}" type="checkbox" name="addition"/><label for="category-дети 1-3 года-{{{index}}}">дети 1-3 года</label></div><div class="checkbox-widget"><input id="category-дети 4-5 лет-{{{index}}}" type="checkbox" name="addition"/><label for="category-дети 4-5 лет-{{{index}}}">дети 4-5 лет</label></div><div class="checkbox-widget"><input id="category-дети 6-7 лет-{{{index}}}" type="checkbox" name="addition"/><label for="category-дети 6-7 лет-{{{index}}}">дети 6-7 лет</label></div><div class="checkbox-widget"><input id="category-школьники 1 класса-{{{index}}}" type="checkbox" name="addition"/><label for="category-школьники 1 класса-{{{index}}}">школьники 1 класса</label></div><div class="checkbox-widget"><input id="category-школьники 2 класса-{{{index}}}" type="checkbox" name="addition"/><label for="category-школьники 2 класса-{{{index}}}">школьники 2 класса</label></div><div class="checkbox-widget"><input id="category-школьники 3 класса-{{{index}}}" type="checkbox" name="addition"/><label for="category-школьники 3 класса-{{{index}}}">школьники 3 класса</label></div><div class="checkbox-widget"><input id="category-школьники 4 класса-{{{index}}}" type="checkbox" name="addition"/><label for="category-школьники 4 класса-{{{index}}}">школьники 4 класса</label></div><div class="checkbox-widget"><input id="category-школьники 5 класса-{{{index}}}" type="checkbox" name="addition"/><label for="category-школьники 5 класса-{{{index}}}">школьники 5 класса</label></div></div><div class="column"><div class="checkbox-widget"><input id="category-школьники 6 класса-{{{index}}}" type="checkbox" name="addition"/><label for="category-школьники 6 класса-{{{index}}}">школьники 6 класса</label></div><div class="checkbox-widget"><input id="category-школьники 7 класса-{{{index}}}" type="checkbox" name="addition"/><label for="category-школьники 7 класса-{{{index}}}">школьники 7 класса</label></div><div class="checkbox-widget"><input id="category-школьники 8 класса-{{{index}}}" type="checkbox" name="addition"/><label for="category-школьники 8 класса-{{{index}}}">школьники 8 класса</label></div><div class="checkbox-widget"><input id="category-школьники 9 класса-{{{index}}}" type="checkbox" name="addition"/><label for="category-школьники 9 класса-{{{index}}}">школьники 9 класса</label></div><div class="checkbox-widget"><input id="category-школьники 10 класса-{{{index}}}" type="checkbox" name="addition"/><label for="category-школьники 10 класса-{{{index}}}">школьники 10 класса</label></div><div class="checkbox-widget"><input id="category-школьники 11 класса-{{{index}}}" type="checkbox" name="addition"/><label for="category-школьники 11 класса-{{{index}}}">школьники 11 класса</label></div><div class="checkbox-widget"><input id="category-студенты-{{{index}}}" type="checkbox" name="addition"/><label for="category-студенты-{{{index}}}">студенты</label></div><div class="checkbox-widget"><input id="category-взрослые-{{{index}}}" type="checkbox" name="addition"/><label for="category-взрослые-{{{index}}}">взрослые</label></div></div></div></div></div><h3 class="sub-title">Цена занятия <b>(минимальной продолжительности)</b></h3><div class="line"><div class="third subdevision"><label for="athome{{{index}}}">На дому</label><input type="number" name="home" id="athome{{{index}}}" required="required" data-h5-errorid="mprice-required-{{{index}}}" class="athome"/><span>руб (<strong class="min-time">45 </strong> мин)</span></div><div class="third subdevision"><label for="atoffice{{{index}}}">Выезд к ученику</label><input type="number" name="office" id="atoffice{{{index}}}" required="required" data-h5-errorid="mprice-required-{{{index}}}" class="atoffice"/><span>руб (<strong class="min-time">45 </strong> мин)</span></div><div class="third subdevision"><label for="online{{{index}}}">Удаленно</label><input type="number" name="online" id="online{{{index}}}" required="required" data-h5-errorid="mprice-required-{{{index}}}" class="online"/><span>руб (<strong class="min-time">45 </strong> мин)</span></div><div id="mprice-required-{{{index}}}" class="error">Пожалуйста, заполните это поле</div></div><h3 class="sub-title">Комментарий</h3><div class="line"> <textarea name="message" cols="30" rows="10"></textarea></div>
+    </script>
+    <script id="address-template" type="text/x-handlebars-template">
+        <div class="adress-wrapper"><h2 class="chapter-title">Адрес преподавания</h2><div class="line"><label for="address{{{index}}}">Район</label><select id="address{{{index}}}"><option value="Москва">Москва</option><option value="Санкт-Петербург">Санкт-Петербург</option><option value="Абакан">Абакан</option><option value="Анадырь">Анадырь</option><option value="Архангельск">Архангельск</option><option value="Астрахань">Астрахань</option><option value="Барнаул">Барнаул</option><option value="Белгород">Белгород</option><option value="Биробиджан">Биробиджан</option><option value="Благовещенск">Благовещенск</option><option value="Брянск">Брянск</option><option value="Великий Новгород">Великий Новгород</option><option value="Владивосток">Владивосток</option><option value="Владикавказ">Владикавказ</option><option value="Владимир">Владимир</option><option value="Волгоград">Волгоград</option><option value="Вологда">Вологда</option><option value="Воронеж">Воронеж</option><option value="Горно-Алтайск">Горно-Алтайск</option><option value="Грозный">Грозный</option><option value="Екатеринбург">Екатеринбург</option><option value="Иваново">Иваново</option><option value="Ижевск">Ижевск</option><option value="Йошкар-Ола">Йошкар-Ола</option><option value="Иркутск">Иркутск</option><option value="Казань">Казань</option><option value="Калининград">Калининград</option><option value="Калуга">Калуга</option><option value="Кемерово">Кемерово</option><option value="Киров">Киров</option><option value="Кострома">Кострома</option><option value="Краснодар">Краснодар</option><option value="Красноярск">Красноярск</option><option value="Курган">Курган</option><option value="Курск">Курск</option><option value="Кызыл">Кызыл</option><option value="Липецк">Липецк</option><option value="Магадан">Магадан</option><option value="Назрань">Назрань</option><option value="Майкоп">Майкоп</option><option value="Махачкала">Махачкала</option><option value="Мурманск">Мурманск</option><option value="Нальчик">Нальчик</option><option value="Нарьян-Мар">Нарьян-Мар</option><option value="Нижний Новгород">Нижний Новгород</option><option value="Новосибирск">Новосибирск</option><option value="Омск">Омск</option><option value="Орёл">Орёл</option><option value="Оренбург">Оренбург</option><option value="Пенза">Пенза</option><option value="Пермь">Пермь</option><option value="Петрозаводск">Петрозаводск</option><option value="Петропавловск-Камчатский">Петропавловск-Камчатский</option><option value="Псков">Псков</option><option value="Ростов-на-Дону">Ростов-на-Дону</option><option value="Рязань">Рязань</option><option value="Салехард">Салехард</option><option value="Самара">Самара</option><option value="Саранск">Саранск</option><option value="Саратов">Саратов</option><option value="Смоленск">Смоленск</option><option value="Ставрополь">Ставрополь</option><option value="Сыктывкар">Сыктывкар</option><option value="Тамбов">Тамбов</option><option value="Тверь">Тверь</option><option value="Томск">Томск</option><option value="Тула">Тула</option><option value="Тюмень">Тюмень</option><option value="Улан-Удэ">Улан-Удэ</option><option value="Ульяновск">Ульяновск</option><option value="Уфа">Уфа</option><option value="Хабаровск">Хабаровск</option><option value="Ханты-Мансийск">Ханты-Мансийск</option><option value="Чебоксары">Чебоксары</option><option value="Челябинск">Челябинск</option><option value="Черкесск">Черкесск</option><option value="Чита">Чита</option><option value="Элиста">Элиста</option><option value="Южно-Сахалинск">Южно-Сахалинск</option><option value="Якутск">Якутск</option><option value="Ярославль">Ярославль</option><option value="Череповец">Череповец</option><option value="Абдулино">Абдулино</option><option value="Агинское">Агинское</option><option value="Белокуриха">Белокуриха</option><option value="Бийск">Бийск</option><option value="Новоалтайск">Новоалтайск</option><option value="Рубцовск">Рубцовск</option><option value="Славгород">Славгород</option><option value="Свободный">Свободный</option><option value="Тында">Тында</option><option value="Вельск">Вельск</option><option value="Коряжма">Коряжма</option><option value="Котлас">Котлас</option><option value="Северодвинск">Северодвинск</option><option value="Ахтубинск">Ахтубинск</option><option value="Знаменск">Знаменск</option><option value="Алексеевка">Алексеевка</option><option value="Губкин">Губкин</option><option value="Старый Оскол">Старый Оскол</option><option value="Дятьково">Дятьково</option><option value="Карачев">Карачев</option><option value="Новозырьков">Новозырьков</option><option value="Унеча">Унеча</option><option value="Александров">Александров</option><option value="Гусь-Хрустальный">Гусь-Хрустальный</option><option value="Ковров">Ковров</option><option value="Муром">Муром</option><option value="Покров">Покров</option><option value="Быково">Быково</option><option value="Волжский">Волжский</option><option value="Камышин">Камышин</option><option value="Михайловка">Михайловка</option><option value="Урюпинск">Урюпинск</option><option value="Череповец">Череповец</option><option value="Борисоглебск">Борисоглебск</option><option value="Лиски">Лиски</option><option value="Кинешма">Кинешма</option><option value="Шуя">Шуя</option><option value="Ангарск">Ангарск</option><option value="Братск">Братск</option><option value="Бохан">Бохан</option><option value="Усолье-Сибирское">Усолье-Сибирское</option><option value="Усть-Илимск">Усть-Илимск</option><option value="Полесск">Полесск</option><option value="Советск">Советск</option><option value="Черняховск">Черняховск</option><option value="Балабаново">Балабаново</option><option value="Киров">Киров</option><option value="Обнинск">Обнинск</option><option value="Карачаевск">Карачаевск</option><option value="Учкекен">Учкекен</option><option value="Анжеро-Судженск">Анжеро-Судженск</option><option value="Белово">Белово</option><option value="Киселевск">Киселевск</option><option value="Ленинск-Кузнецкий">Ленинск-Кузнецкий</option><option value="Междуреченск">Междуреченск</option><option value="Новокузнецк">Новокузнецк</option><option value="Осинники">Осинники</option><option value="Прокопьевск">Прокопьевск</option><option value="Тайга">Тайга</option><option value="Таштагол">Таштагол</option><option value="Юрга">Юрга</option><option value="Вятские Поляны">Вятские Поляны</option><option value="Знаменка">Знаменка</option><option value="Кирово-Чепецк">Кирово-Чепецк</option><option value="Котельнич">Котельнич</option><option value="Норинск">Норинск</option><option value="Слободской">Слободской</option><option value="Караваево">Караваево</option><option value="Шарья">Шарья</option><option value="Анапа">Анапа</option><option value="Армавир">Армавир</option><option value="Белореченск">Белореченск</option><option value="Геленджик">Геленджик</option><option value="Горячий Ключ">Горячий Ключ</option><option value="Гулькевичи">Гулькевичи</option><option value="Ейск">Ейск</option><option value="Кореновск">Кореновск</option><option value="Кропоткин">Кропоткин</option><option value="Кущевская">Кущевская</option><option value="Лабинск">Лабинск</option><option value="Ленинградская">Ленинградская</option><option value="Новороссийск">Новороссийск</option><option value="Отрадная">Отрадная</option><option value="Павловская">Павловская</option><option value="Славянск-на-Кубани">Славянск-на-Кубани</option><option value="Сочи">Сочи</option><option value="Тихорецк">Тихорецк</option><option value="Туапсе">Туапсе</option><option value="Усть-Лабинск">Усть-Лабинск</option><option value="Ачинск">Ачинск</option><option value="Железногорск">Железногорск</option><option value="Зеленогорск">Зеленогорск</option><option value="Канск">Канск</option><option value="Лесосибирск">Лесосибирск</option><option value="Минусинск">Минусинск</option><option value="Норильск">Норильск</option><option value="Шарыпово">Шарыпово</option><option value="Лесниково">Лесниково</option><option value="Шадринск">Шадринск</option><option value="Железногорск">Железногорск</option><option value="Льгов">Льгов</option><option value="Рыльск">Рыльск</option><option value="Суджа">Суджа</option><option value="Бокситогорск">Бокситогорск</option><option value="Волхов">Волхов</option><option value="Всеволжск">Всеволжск</option><option value="Выборг">Выборг</option><option value="Луга">Луга</option><option value="Гатчина">Гатчина</option><option value="Ивангород">Ивангород</option><option value="Кингисепп">Кингисепп</option><option value="Кириши">Кириши</option><option value="Подпорожье">Подпорожье</option><option value="Сиверский">Сиверский</option><option value="Сланцы">Сланцы</option><option value="Сосновый бор">Сосновый бор</option><option value="Тихвин">Тихвин</option><option value="Елец">Елец</option><option value="Зеленоград">Зеленоград</option><option value="Балашиха">Балашиха</option><option value="Барвиха">Барвиха</option><option value="Большие Вязёмы">Большие Вязёмы</option><option value="Бронницы">Бронницы</option><option value="Видное">Видное</option><option value="Волоколамск">Волоколамск</option><option value="Воскресенск">Воскресенск</option><option value="Голицыно">Голицыно</option><option value="Щёлково">Щёлково</option><option value="Кубинка">Кубинка</option><option value="Дедовск">Дедовск</option><option value="Дзержинский">Дзержинский</option><option value="Дмитров">Дмитров</option><option value="Долгопрудный">Долгопрудный</option><option value="Домодедово">Домодедово</option><option value="Дубна">Дубна</option><option value="Егорьевск">Егорьевск</option><option value="Железнодорожный">Железнодорожный</option><option value="Жуковский">Жуковский</option><option value="Ивантеевка">Ивантеевка</option><option value="Кашира">Кашира</option><option value="Клин">Клин</option><option value="Кокошкино">Кокошкино</option><option value="Коломна">Коломна</option><option value="Королёв">Королёв</option><option value="Котельники">Котельники</option><option value="Красногорск">Красногорск</option><option value="Краснознаменск">Краснознаменск</option><option value="Люберцы">Люберцы</option><option value="Малаховка">Малаховка</option><option value="Можайск">Можайск</option><option value="Челюскинский">Челюскинский</option><option value="Мытищи">Мытищи</option><option value="Наро-Фоминск">Наро-Фоминск</option><option value="Ногинск">Ногинск</option><option value="Одинцово">Одинцово</option><option value="Орехово-Зуево">Орехово-Зуево</option><option value="Павловский Посад">Павловский Посад</option><option value="Подольск">Подольск</option><option value="Протвино">Протвино</option><option value="Пушкино">Пушкино</option><option value="Пущино">Пущино</option><option value="Радужный">Радужный</option><option value="Раменское">Раменское</option><option value="Реутов">Реутов</option><option value="Руза">Руза</option><option value="Старотеряево">Старотеряево</option><option value="Сергиев Посад">Сергиев Посад</option><option value="Серпухов">Серпухов</option><option value="Солнечногорск">Солнечногорск</option><option value="Ступино">Ступино</option><option value="Сходня">Сходня</option><option value="Тучково">Тучково</option><option value="Фрязино">Фрязино</option><option value="Химки">Химки</option><option value="Черкизово">Черкизово</option><option value="Чехов">Чехов</option><option value="Шатура">Шатура</option><option value="Электросталь">Электросталь</option><option value="Юбилейный">Юбилейный</option><option value="Апатиты">Апатиты</option><option value="Кировск">Кировск</option><option value="Арзамас">Арзамас</option><option value="Выкса">Выкса</option><option value="Дзержинск">Дзержинск</option><option value="Заволжье">Заволжье</option><option value="Княгинино">Княгинино</option><option value="Кстово">Кстово</option><option value="Кулебаки">Кулебаки</option><option value="Павлово">Павлово</option><option value="Перевоз">Перевоз</option><option value="Саров">Саров</option><option value="Сергач">Сергач</option><option value="Шашунья">Шашунья</option><option value="Боровочи">Боровочи</option><option value="Старая Русса">Старая Русса</option><option value="Бердск">Бердск</option><option value="Искитим">Искитим</option><option value="Куйбышев">Куйбышев</option><option value="Линёво">Линёво</option><option value="Тара">Тара</option><option value="Акбулак">Акбулак</option><option value="Бугуруслан">Бугуруслан</option><option value="Бузулук">Бузулук</option><option value="Новотроицк">Новотроицк</option><option value="Орск">Орск</option><option value="Ливны">Ливны</option><option value="Мценск">Мценск</option><option value="Кузнецк">Кузнецк</option><option value="Нижний Ломов">Нижний Ломов</option><option value="Сердобск">Сердобск</option><option value="Березники">Березники</option><option value="Кудымкар">Кудымкар</option><option value="Лысьва">Лысьва</option><option value="Соликамск">Соликамск</option><option value="Чайковский">Чайковский</option><option value="Чусовой">Чусовой</option><option value="Арсеньев">Арсеньев</option><option value="Артем">Артем</option><option value="Большой Камень">Большой Камень</option><option value="Дальнегорск">Дальнегорск</option><option value="Дальнереченск">Дальнереченск</option><option value="Кировский">Кировский</option><option value="Лесозаводск">Лесозаводск</option><option value="Михайловка">Михайловка</option><option value="Находка">Находка</option><option value="Партизанск">Партизанск</option><option value="Славянка">Славянка</option><option value="Спасск-Дальний">Спасск-Дальний</option><option value="Уссурийск">Уссурийск</option><option value="Великие Луки">Великие Луки</option><option value="Кошехабль">Кошехабль</option><option value="Яблоновский">Яблоновский</option><option value="Белебей">Белебей</option><option value="Белорецк">Белорецк</option><option value="Бирск">Бирск</option><option value="Ишимбай">Ишимбай</option><option value="Кумертау">Кумертау</option><option value="Мелеуз">Мелеуз</option><option value="Нефтекамск">Нефтекамск</option><option value="Октябрьский">Октябрьский</option><option value="Салават">Салават</option><option value="Сибай">Сибай</option><option value="Стерлитамак">Стерлитамак</option><option value="Северобайкальск">Северобайкальск</option><option value="Дербент">Дербент</option><option value="Буйнакск">Буйнакск</option><option value="Избербаш">Избербаш</option><option value="Каспийск">Каспийск</option><option value="Кизилюрт">Кизилюрт</option><option value="Кизляр">Кизляр</option><option value="Хасавюрт">Хасавюрт</option><option value="Магас">Магас</option><option value="Костомукша">Костомукша</option><option value="Сортавала">Сортавала</option><option value="Воркута">Воркута</option><option value="Усинск">Усинск</option><option value="Ухта">Ухта</option><option value="Волжск">Волжск</option><option value="Ковылкино">Ковылкино</option><option value="Рузаевка">Рузаевка</option><option value="Мирный">Мирный</option><option value="Нерюнгри">Нерюнгри</option><option value="Октенцы">Октенцы</option><option value="Олёкминск">Олёкминск</option><option value="Чурапча">Чурапча</option><option value="Айхал">Айхал</option><option value="Ленск">Ленск</option><option value="Альметьевск">Альметьевск</option><option value="Бугульма">Бугульма</option><option value="Елабуга">Елабуга</option><option value="Зеленодольск">Зеленодольск</option><option value="Лениногорск">Лениногорск</option><option value="Набережные Челны">Набережные Челны</option><option value="Нижнекамск">Нижнекамск</option><option value="Чистополь">Чистополь</option><option value="Саяногорск">Саяногорск</option><option value="Азов">Азов</option><option value="Батайск">Батайск</option><option value="Белая Калитва">Белая Калитва</option><option value="Вешенская">Вешенская</option><option value="Волгодонск">Волгодонск</option><option value="Гуково">Гуково</option><option value="Донецк">Донецк</option><option value="Зерноград">Зерноград</option><option value="Зимовники">Зимовники</option><option value="Каменск-Шахтинский">Каменск-Шахтинский</option><option value="Константиновск">Константиновск</option><option value="Красный Сулим">Красный Сулим</option><option value="Матвеев Курган">Матвеев Курган</option><option value="Миллерово">Миллерово</option><option value="Новочеркасск">Новочеркасск</option><option value="Новошахтинск">Новошахтинск</option><option value="Персиановский">Персиановский</option><option value="Сальск">Сальск</option><option value="Таганрог">Таганрог</option><option value="Шахты">Шахты</option><option value="Сасово">Сасово</option><option value="Кинель">Кинель</option><option value="Похвиснево">Похвиснево</option><option value="Сызрань">Сызрань</option><option value="Тольятти">Тольятти</option><option value="Пушкин">Пушкин</option><option value="Балаково">Балаково</option><option value="Балашов">Балашов</option><option value="Вольск">Вольск</option><option value="Маркс">Маркс</option><option value="Энгельс">Энгельс</option><option value="Холмск">Холмск</option><option value="Алапаевск">Алапаевск</option><option value="Березовский">Березовский</option><option value="Верхняя Салда">Верхняя Салда</option><option value="Заречный">Заречный</option><option value="Ирбит">Ирбит</option><option value="Каменск-Уральский">Каменск-Уральский</option><option value="Краснотурьинск">Краснотурьинск</option><option value="Лесной">Лесной</option><option value="Невьянск">Невьянск</option><option value="Нижний Тагил">Нижний Тагил</option><option value="Нижняя Тура">Нижняя Тура</option><option value="Новоуральск">Новоуральск</option><option value="Первоуральск">Первоуральск</option><option value="Серов">Серов</option><option value="Среднеуральск">Среднеуральск</option><option value="Вязьма">Вязьма</option><option value="Рославль">Рославль</option><option value="Сафоново">Сафоново</option><option value="Буденновск">Буденновск</option><option value="Георгиевск">Георгиевск</option><option value="Ессентуки">Ессентуки</option><option value="Железноводск">Железноводск</option><option value="Кисловодск">Кисловодск</option><option value="Лермонтов">Лермонтов</option><option value="Минеральные Воды">Минеральные Воды</option><option value="Невинномысск">Невинномысск</option><option value="Пятигорск">Пятигорск</option><option value="Мичуринск">Мичуринск</option><option value="Уварово">Уварово</option><option value="Бежецк">Бежецк</option><option value="Вышний Волочек">Вышний Волочек</option><option value="Кимры">Кимры</option><option value="Канаково">Канаково</option><option value="Кувшиново">Кувшиново</option><option value="Ржев">Ржев</option><option value="Торжок">Торжок</option><option value="Удомля">Удомля</option><option value="Асино">Асино</option><option value="Северск">Северск</option><option value="Стрежевой">Стрежевой</option><option value="Алексин">Алексин</option><option value="Новомосковск">Новомосковск</option><option value="Белый Яр">Белый Яр</option><option value="Губкинский">Губкинский</option><option value="Заводоуковск">Заводоуковск</option><option value="Ишим">Ишим</option><option value="Когалым">Когалым</option><option value="Лангепас">Лангепас</option><option value="Муравленко">Муравленко</option><option value="Надым">Надым</option><option value="Нефтеюганск">Нефтеюганск</option><option value="Нижневартовск">Нижневартовск</option><option value="Новый Уренгой">Новый Уренгой</option><option value="Ноябрьск">Ноябрьск</option><option value="Нягань">Нягань</option><option value="Пойковский">Пойковский</option><option value="Пыть-Ях">Пыть-Ях</option><option value="Советский">Советский</option><option value="Сургут">Сургут</option><option value="Тобольск">Тобольск</option><option value="Урай">Урай</option><option value="Ялуторовск">Ялуторовск</option><option value="Воткинск">Воткинск</option><option value="Глазов">Глазов</option><option value="Сарапул">Сарапул</option><option value="Дмитровград">Дмитровград</option><option value="Инза">Инза</option><option value="Ванино">Ванино</option><option value="Комсомольск-на-Амуре">Комсомольск-на-Амуре</option><option value="Советская Гавань">Советская Гавань</option><option value="Аша">Аша</option><option value="Златоуст">Златоуст</option><option value="Карталы">Карталы</option><option value="Куса">Куса</option><option value="Кыштым">Кыштым</option><option value="Магнитогорск">Магнитогорск</option><option value="Миасс">Миасс</option><option value="Нязепетровск">Нязепетровск</option><option value="Озерск">Озерск</option><option value="Сатка">Сатка</option><option value="Снежинск">Снежинск</option><option value="Трёхгорный">Трёхгорный</option><option value="Троицк">Троицк</option><option value="Усть-Катав">Усть-Катав</option><option value="Алатырь">Алатырь</option><option value="Батырево">Батырево</option><option value="Мариинский Посад">Мариинский Посад</option><option value="Новочебоксарск">Новочебоксарск</option><option value="Переславль-Залесский">Переславль-Залесский</option><option value="Рыбинск">Рыбинск</option><option value="Тутаев">Тутаев</option><option value="Углич">Углич</option><option value="Байконур">Байконур</option><option value="Бишкек">Бишкек</option><option value="Душанбе">Душанбе</option><option value="Ереван">Ереван</option><option value="Курган-тюбе">Курган-тюбе</option><option value="Могилев">Могилев</option><option value="Худжанд">Худжанд</option><option value="Зарубежные города">Зарубежные города</option><option value="Звенигород">Звенигород</option><option value="Климовск">Климовск</option><option value="Лобня">Лобня</option><option value="Лыткарино">Лыткарино</option><option value="Крутое">Крутое</option><option value="Апрелевка">Апрелевка</option><option value="Севастополь">Севастополь</option><option value="Евпатория">Евпатория</option><option value="Керчь">Керчь</option><option value="Симферополь">Симферополь</option><option value="Судак">Судак</option><option value="Феодосия">Феодосия</option><option value="Ялта">Ялта</option><option value="Кола">Кола</option></select></div><div class="line address-details"><div class="street subdevision"><label for="street{{{index}}}">Улица</label><input type="text" id="street{{{index}}}" name="street[]" value=""/></div><div class="house subdevision"><label for="house{{{index}}}">Дом</label><input type="text" id="house{{{index}}}" name="house[]" value=""/></div><div class="corpus subdevision"><label for="corpus{{{index}}}">Корпус</label><input type="text" id="corpus{{{index}}}" name="corpus[]" value=""/></div><div class="building subdevision"><label for="building{{{index}}}">Строение</label><input type="text" id="building{{{index}}}" name="building[]" value=""/></div></div></div>
+    </script>
+</head>
+
+<body class="registration-page">
+    <header>
+        <div class="wrapper"><a href="/"><h1 class="logotype">Ассоциация репетиторов</h1></a>
+        </div>
+    </header>
+    <div class="registration-steps">
+        <h2 class="title">Регистрация репетитора</h2>
+        <div class="steps">
+            <div class="step selected">
+                <h3 class="sub-title"><span>Личные данные</span></h3>
+            </div>
+            <div class="step">
+                <h3 class="sub-title"><span>Предметы</span></h3>
+            </div>
+            <div class="step">
+                <h3 class="sub-title"><span>Адреса</span></h3>
+            </div>
+            <div class="step">
+                <h3 class="sub-title"><span>Образование</span></h3>
+            </div>
+        </div>
+        <div data-action="/save/" class="panel step-1 current">
+            <template id="current-avatar-template">
+                <div class="current-avatar">
+                    <label for="registration-avatar">
+                        <img alt="Фотография" data-dz-thumbnail="data-dz-thumbnail" class="avatar" />
+                    </label>
+                    <a href="#" data-fileapi="file.remove" class="close"></a>
+                </div>
+            </template>
+            <fieldset class="photo">
+                <label class="file-selector"><span class="abstract">Перетяните ваше фото, или нажмите, чтобы выбрать</span><span class="select">Выбрать</span>
+                    <input type="file" name="avatar" id="registration-avatar" accept="image/*" />
+                </label>
+                <p class="meta">Поддерживаются файлы JPG, GIF, PNG до 5 Мб.</p>
+            </fieldset>
+            <fieldset>
+                <h3 class="sub-title">Пол</h3>
+                <div class="line sex-line">
+                    <div class="radio-widget">
+                        <input checked="checked" id="sex-male" type="radio" name="sex" value="male" />
+                        <label for="sex-male">мужской</label>
+                    </div>
+                    <div class="radio-widget">
+                        <input id="sex-female" type="radio" name="sex" value="female" />
+                        <label for="sex-female">женский</label>
+                    </div>
+                </div>
+                <h3 class="sub-title">Дата рождения</h3>
+                <div class="line birthday">
+                    <div id="birthday-required" class="error">Пожалуйста, заполните это поле</div>
+                    <input pattern="[1-9][0-9]*" min="1" max="31" maxlength="2" type="text" value="" placeholder="День" required="required" data-h5-errorid="birthday-required" class="day" />
+                    <div class="month">
+                        <select name="month" required="required" data-h5-errorid="birthday-required" class="unchanged">
+                            <option value="0">Январь</option>
+                            <option value="1">Февраль</option>
+                            <option value="2">Март</option>
+                            <option value="3">Апрель</option>
+                            <option value="4">Май</option>
+                            <option value="5">Июнь</option>
+                            <option value="6">Июль</option>
+                            <option value="7">Август</option>
+                            <option value="8">Сентябрь</option>
+                            <option value="9">Октябрь</option>
+                            <option value="10">Ноябрь</option>
+                            <option value="11">Декабрь</option>
+                        </select>
+                    </div>
+                    <div class="year">
+                        <select name="year" required="required" data-h5-errorid="birthday-required" class="unchanged">
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                            <option value="1994">1994</option>
+                            <option value="1993">1993</option>
+                            <option value="1992">1992</option>
+                            <option value="1991">1991</option>
+                            <option value="1990">1990</option>
+                            <option value="1989">1989</option>
+                            <option value="1988">1988</option>
+                            <option value="1987">1987</option>
+                            <option value="1986">1986</option>
+                            <option value="1985">1985</option>
+                            <option value="1984">1984</option>
+                            <option value="1983">1983</option>
+                            <option value="1982">1982</option>
+                            <option value="1981">1981</option>
+                            <option value="1980">1980</option>
+                            <option value="1979">1979</option>
+                            <option value="1978">1978</option>
+                            <option value="1977">1977</option>
+                            <option value="1976">1976</option>
+                            <option value="1975">1975</option>
+                            <option value="1974">1974</option>
+                            <option value="1973">1973</option>
+                            <option value="1972">1972</option>
+                            <option value="1971">1971</option>
+                            <option value="1970">1970</option>
+                            <option value="1969">1969</option>
+                            <option value="1968">1968</option>
+                            <option value="1967">1967</option>
+                            <option value="1966">1966</option>
+                            <option value="1965">1965</option>
+                            <option value="1964">1964</option>
+                            <option value="1963">1963</option>
+                            <option value="1962">1962</option>
+                            <option value="1961">1961</option>
+                            <option value="1960">1960</option>
+                            <option value="1959">1959</option>
+                            <option value="1958">1958</option>
+                            <option value="1957">1957</option>
+                            <option value="1956">1956</option>
+                            <option value="1955">1955</option>
+                            <option value="1954">1954</option>
+                            <option value="1953">1953</option>
+                            <option value="1952">1952</option>
+                            <option value="1951">1951</option>
+                            <option value="1950">1950</option>
+                            <option value="1949">1949</option>
+                            <option value="1948">1948</option>
+                            <option value="1947">1947</option>
+                            <option value="1946">1946</option>
+                        </select>
+                    </div>
+                </div>
+                <h3 class="sub-title">Статус</h3>
+                <div class="line">
+                    <div id="status-required" class="error">Пожалуйста, выберите вариант</div>
+                    <div class="status">
+                        <select name="status" required="required" data-h5-errorid="status-required" class="unchanged">
+                            <option value="0">Свободен</option>
+                            <option value="1">Занят</option>
+                        </select>
+                    </div>
+                </div>
+                <h3 class="sub-title">Стаж</h3>
+                <div class="line experience-container">
+                    <div class="experience-line-header">
+                        <div class="years">0</div>
+                        <div class="years">5</div>
+                        <div class="years">10</div>
+                        <div class="years">15</div>
+                        <div class="years">20</div>
+                        <div class="years">25</div>
+                        <div class="years">30</div>
+                        <div class="years">35</div>
+                        <div class="years">40</div>
+                        <div class="years">45</div>
+                        <div class="years">50</div>
+                    </div>
+                    <div id="experience"></div>
+                    <input id="experience-value" required="required" pattern="[1-9][0-9]*" type="number" name="experience" value="" min="0" max="50" maxlength="2" class="value" />
+                </div>
+            </fieldset>
+            <nav>
+                <button type="submit">Продолжить</button>
+            </nav>
+        </div>
+        <div data-action="/save/" class="panel step-2">
+            <fieldset class="minimal-duration">
+                <div class="line">
+                    <label for="min-duration">Минимальная продолжительность занятия</label>
+                </div>
+                <div class="line duration-container">
+                    <input id="duration-value" required="required" pattern="[1-9][0-9]*" type="number" name="experience" value="" min="0" max="50" maxlength="2" class="value" />
+                    <div class="duration-line-header">
+                        <div class="years">30</div>
+                        <div class="years">45</div>
+                        <div class="years">60</div>
+                        <div class="years">75</div>
+                        <div class="years">90</div>
+                        <div class="years">105</div>
+                        <div class="years">120</div>
+                        <div class="years">135</div>
+                        <div class="years">150</div>
+                        <div class="years">165</div>
+                        <div class="years">180</div>
+                    </div>
+                    <div id="duration"></div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <h3 class="sub-title">Формат проведения занятий</h3>
+                <div class="line lessons-format">
+                    <div class="checkbox-widget">
+                        <input id="item-1" type="checkbox" name="addition" data-price-field="athome" />
+                        <label for="item-1">на дому</label>
+                    </div>
+                    <div class="checkbox-widget">
+                        <input id="item-2" type="checkbox" name="addition" data-price-field="atoffice" />
+                        <label for="item-2">выезд к ученику</label>
+                    </div>
+                    <div class="checkbox-widget">
+                        <input id="item-3" type="checkbox" checked="checked" name="addition" data-price-field="online" />
+                        <label for="item-3">удаленно</label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset><a href="#" class="add-subject">Добавить предмет</a>
+            </fieldset>
+            <nav><a href="#" class="previous">Предыдущий</a>
+                <button type="submit">Продолжить</button>
+            </nav>
+        </div>
+        <div data-action="/save/" class="panel step-3">
+            <fieldset class="address-holder">
+                <div class="line"><a href="#" class="add-address">Добавить адрес</a>
+                </div>
+            </fieldset>
+            <fieldset>
+                <h2 class="chapter-title">Адреса выезда</h2>
+                <div class="line">
+                    <label for="comments">Комментарии по выезду для ученика</label>
+                    <textarea id="comments" name="comments" cols="30" rows="10"></textarea>
+                </div>
+            </fieldset>
+            <nav><a href="registration-2.html" class="previous">Предыдущий</a>
+                <button type="submit">Продолжить</button>
+            </nav>
+        </div>
+        <div data-action="/save/" class="panel step-4">
+            <fieldset class="education">
+                <div class="line"><a href="#" class="add-education">Добавить образование</a>
+                </div>
+            </fieldset>
+            <fieldset class="sertificats">
+                <h2 class="chapter-title"><span>Дипломы, грамоты, сертификаты</span></h2>
+                <div class="sertificat-list"></div>
+                <nav class="add-sertificat">
+                    <label>Выбрать файл
+                        <input type="file" name="certificat" />
+                    </label><span>Поддерживаются файлы PDF, JPG, GIF, PNG до 5 Мб.</span>
+                </nav>
+            </fieldset>
+            <fieldset>
+                <h2 class="chapter-title"><span>Дополнительно</span></h2>
+                <div class="line">
+                    <label for="additional-information">Дополнительная информация о вас</label>
+                    <textarea id="additional-information" name="additional-information" cols="30" rows="10"></textarea>
+                </div>
+            </fieldset>
+            <nav><a href="#" class="previous">Предыдущий</a>
+                <button type="submit" class="complete">Завершить</button>
+            </nav>
+        </div>
+        <main class="panel complete step-5">
+            <h3 class="sub-title">Регистрация успешно завершена</h3>
+            <p>Мы отправили на вашу почту письмо-подтверждение. Чтобы активировать ваш аккаунт, перейдите по ссылке из этого письма.</p>
+        </main>
+    </div>
+</body>
+
+</html>

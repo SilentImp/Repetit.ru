@@ -127,7 +127,7 @@ class RegistrationStep0
     return true
 
   smsSubmit: (event)=>
-    inputs = @form_sms.find('input, select, textarea')
+    inputs = @form_sms.find(':input')
     for input in inputs
       if !@validate(input)
         return false

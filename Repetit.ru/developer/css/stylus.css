@@ -1723,11 +1723,11 @@ html.no-svg body .registration-step-1 .panel.complete .sub-title {
 body.registration-page {
   background-color: #efefef;
 }
-.registration-step-1 {
+.registration-steps {
   position: relative;
   padding: 0 30px 30px;
 }
-.registration-step-1 .title {
+.registration-steps .title {
   text-align: center;
   margin: -59px 0 0 0;
   font-size: 34px;
@@ -1736,7 +1736,7 @@ body.registration-page {
   font-family: 'Elektra Text Pro';
   color: #3f3f3f;
 }
-.registration-step-1 .steps {
+.registration-steps .steps {
   max-width: 924px;
   display: block;
   font-size: 0;
@@ -1746,7 +1746,7 @@ body.registration-page {
   height: 0;
   border-top: 3px dashed rgba(63,63,63,0.3);
 }
-.registration-step-1 .steps:before {
+.registration-steps .steps:before {
   content: '.';
   overflow: hidden;
   text-indent: -999px;
@@ -1761,7 +1761,7 @@ body.registration-page {
   z-index: 1;
   width: 12.5%;
 }
-.registration-step-1 .steps:after {
+.registration-steps .steps:after {
   content: '.';
   overflow: hidden;
   text-indent: -999px;
@@ -1776,7 +1776,7 @@ body.registration-page {
   z-index: 1;
   width: 12.5%;
 }
-.registration-step-1 .steps .step {
+.registration-steps .steps .step {
   text-align: center;
   position: relative;
   vertical-align: middle;
@@ -1784,12 +1784,12 @@ body.registration-page {
   width: 25%;
   height: 0;
 }
-.registration-step-1 .steps .step .sub-title {
+.registration-steps .steps .step .sub-title {
   position: absolute;
   bottom: 25px;
   left: 50%;
 }
-.registration-step-1 .steps .step .sub-title span {
+.registration-steps .steps .step .sub-title span {
   white-space: nowrap;
   text-transform: uppercase;
   position: relative;
@@ -1800,17 +1800,17 @@ body.registration-page {
   font-family: 'Elektra Text Pro';
   color: rgba(63,63,63,0.3);
 }
-.registration-step-1 .steps .step.selected {
+.registration-steps .steps .step.selected {
   border-top: #478e9e 3px solid;
   margin-top: -3px;
 }
-.registration-step-1 .steps .step.selected .sub-title span {
+.registration-steps .steps .step.selected .sub-title span {
   color: #478e9e;
 }
-.registration-step-1 .steps .step.selected:before {
+.registration-steps .steps .step.selected:before {
   border: #478e9e 3px solid;
 }
-.registration-step-1 .steps .step.selected:after {
+.registration-steps .steps .step.selected:after {
   z-index: 3;
   position: absolute;
   left: 50%;
@@ -1827,7 +1827,7 @@ body.registration-page {
   line-height: 0;
   background-color: #478e9e;
 }
-.registration-step-1 .steps .step:before {
+.registration-steps .steps .step:before {
   z-index: 2;
   position: relative;
   content: '.';
@@ -1841,16 +1841,25 @@ body.registration-page {
   top: -16px;
   background-color: #efefef;
 }
-.registration-step-1 .panel {
+.registration-steps .panel {
   background: #fff;
   max-width: 800px;
   margin: auto;
   border: 3px solid rgba(151,151,151,0.3);
   text-align: left;
   padding: 40px;
-  position: relative;
+  overflow: hidden;
+  height: 0;
+  position: absolute;
+  left: -9999px;
 }
-.registration-step-1 .panel:after {
+.registration-steps .panel.current {
+  position: relative;
+  left: auto;
+  height: auto;
+  overflow: visible;
+}
+.registration-steps .panel:after {
   content: '.';
   clear: both;
   display: block;
@@ -1859,7 +1868,7 @@ body.registration-page {
   overflow: hidden;
   text-indent: -9999px;
 }
-.registration-step-1 .panel .error {
+.registration-steps .panel .error {
   font-family: 'Helvetica Neue';
   display: none;
   margin-left: 10px;
@@ -1877,19 +1886,19 @@ body.registration-page {
   background-color: rgba(255,112,112,0.95);
   z-index: 100;
 }
-.registration-step-1 .panel .error.left {
+.registration-steps .panel .error.left {
   right: 100%;
   left: auto;
   margin: 0 10px 0 0;
 }
-.registration-step-1 .panel .error.left:after {
+.registration-steps .panel .error.left:after {
   left: 100%;
   right: auto;
   border-width: 6px 0 6px 5px;
   border-color: transparent transparent transparent #ff7070;
   border-color: transparent transparent transparent rgba(255,112,112,0.95);
 }
-.registration-step-1 .panel .error:after {
+.registration-steps .panel .error:after {
   right: 100%;
   top: 50%;
   position: absolute;
@@ -1904,11 +1913,11 @@ body.registration-page {
   border-color: transparent #ff7070 transparent transparent;
   border-color: transparent rgba(255,112,112,0.95) transparent transparent;
 }
-.registration-step-1 .panel nav {
+.registration-steps .panel nav {
   clear: both;
   padding: 40px 0 0;
 }
-.registration-step-1 .panel nav:after {
+.registration-steps .panel nav:after {
   content: "";
   clear: both;
   display: block;
@@ -1916,7 +1925,7 @@ body.registration-page {
   height: 0;
   overflow: hidden;
 }
-.registration-step-1 .panel nav .previous {
+.registration-steps .panel nav .previous {
   outline: none;
   float: left;
   border-style: none;
@@ -1934,10 +1943,10 @@ body.registration-page {
   font-family: 'Elektra Text Pro';
   text-transform: uppercase;
 }
-.registration-step-1 .panel nav .previous:before {
+.registration-steps .panel nav .previous:before {
   content: '< ';
 }
-.registration-step-1 .panel nav button {
+.registration-steps .panel nav button {
   outline: none;
   float: right;
   border-style: none;
@@ -1954,23 +1963,23 @@ body.registration-page {
   font-family: 'Elektra Text Pro';
   text-transform: uppercase;
 }
-.registration-step-1 .panel nav button.complete:after {
+.registration-steps .panel nav button.complete:after {
   display: none;
 }
-.registration-step-1 .panel nav button:after {
+.registration-steps .panel nav button:after {
   content: ' >';
 }
-.registration-step-1 .panel .sub-title {
+.registration-steps .panel .sub-title {
   font-size: 18px;
   line-height: 23px;
   font-family: 'Helvetica Neue';
   margin: 0 0 15px;
 }
-.registration-step-1 .panel .sub-title b {
+.registration-steps .panel .sub-title b {
   color: rgba(63,63,63,0.4);
   font-size: 16px;
 }
-.registration-step-1 .panel .chapter-title {
+.registration-steps .panel .chapter-title {
   height: 48px;
   white-space: nowrap;
   display: block;
@@ -1988,7 +1997,7 @@ body.registration-page {
   text-overflow: ellipsis;
   max-width: 100vw;
 }
-.registration-step-1 .panel .chapter-title span {
+.registration-steps .panel .chapter-title span {
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -1997,31 +2006,31 @@ body.registration-page {
   text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
-.registration-step-1 .panel .line {
+.registration-steps .panel .line {
   position: relative;
   display: block;
   margin: 0 0 30px;
   font-size: 0;
 }
-.registration-step-1 .panel .line.adress_line {
+.registration-steps .panel .line.adress_line {
   width: 350px;
 }
-.registration-step-1 .panel .line.spec textarea {
+.registration-steps .panel .line.spec textarea {
   width: 520px;
 }
-.registration-step-1 .panel .line.name {
+.registration-steps .panel .line.name {
   display: inline-block;
   vertical-align: top;
   margin-right: 20px;
 }
-.registration-step-1 .panel .line.grad-year {
+.registration-steps .panel .line.grad-year {
   display: inline-block;
   vertical-align: top;
 }
-.registration-step-1 .panel .line.grad-year input {
+.registration-steps .panel .line.grad-year input {
   width: 100px;
 }
-.registration-step-1 .panel .line>label {
+.registration-steps .panel .line>label {
   font-size: 18px;
   line-height: 23px;
   color: #3f3f3f;
@@ -2030,26 +2039,26 @@ body.registration-page {
   margin: 0 0 15px;
   display: block;
 }
-.registration-step-1 .panel .line.sex-line {
+.registration-steps .panel .line.sex-line {
   font-size: 0;
 }
-.registration-step-1 .panel .line.sex-line .radio-widget {
+.registration-steps .panel .line.sex-line .radio-widget {
   width: 50%;
   display: inline-block;
   vertical-align: top;
 }
-.registration-step-1 .panel .sertificat-list .sertificat {
+.registration-steps .panel .sertificat-list .sertificat {
   position: relative;
   margin: 0 0 30px;
   padding: 0 0 0 220px;
 }
-.registration-step-1 .panel .sertificat-list .sertificat img {
+.registration-steps .panel .sertificat-list .sertificat img {
   position: absolute;
   left: 45px;
   width: 110px;
   max-height: 100px;
 }
-.registration-step-1 .panel .sertificat-list .sertificat .remove {
+.registration-steps .panel .sertificat-list .sertificat .remove {
   position: absolute;
   left: 145px;
   top: -10px;
@@ -2058,18 +2067,18 @@ body.registration-page {
   border-radius: 100%;
   background: #478e9e url("../img/register/remove.svg") 50% 50% no-repeat;
 }
-.registration-step-1 .panel .add-sertificat {
+.registration-steps .panel .add-sertificat {
   clear: both;
   display: block;
   margin: 0 0 30px;
   padding: 30px 0 0;
   border-top: 1px solid rgba(214,214,214,0.4);
 }
-.registration-step-1 .panel .add-sertificat input {
+.registration-steps .panel .add-sertificat input {
   position: absolute;
   left: -9999px;
 }
-.registration-step-1 .panel .add-sertificat span {
+.registration-steps .panel .add-sertificat span {
   font-size: 13px;
   line-height: 18px;
   vertical-align: middle;
@@ -2077,7 +2086,7 @@ body.registration-page {
   font-family: 'Helvetica Neue';
   font-weight: 200;
 }
-.registration-step-1 .panel .add-sertificat label {
+.registration-steps .panel .add-sertificat label {
   font-size: 16px;
   line-height: 48px;
   height: 48px;
@@ -2091,11 +2100,11 @@ body.registration-page {
   background-color: #5da1b1;
   margin-right: 30px;
 }
-.registration-step-1 .panel .lessons-format .checkbox-widget {
+.registration-steps .panel .lessons-format .checkbox-widget {
   display: inline-block;
   width: 30%;
 }
-.registration-step-1 .panel .minimal-duration label {
+.registration-steps .panel .minimal-duration label {
   font-family: 'Helvetica Neue';
   display: block;
   color: rgba(63,63,63,0.8);
@@ -2104,23 +2113,23 @@ body.registration-page {
   margin: 0 0 15px;
   color: #3f3f3f;
 }
-.registration-step-1 .panel .minimal-duration input {
+.registration-steps .panel .minimal-duration input {
   width: 100px;
   margin-right: 10px;
 }
-.registration-step-1 .panel .minimal-duration span {
+.registration-steps .panel .minimal-duration span {
   font-family: 'Helvetica Neue';
   font-size: 16px;
   line-height: 18px;
   color: #3f3f3f;
 }
-.registration-step-1 .panel .address {
+.registration-steps .panel .address {
   width: 520px;
 }
-.registration-step-1 .panel .address-details {
+.registration-steps .panel .address-details {
   font-size: 0;
 }
-.registration-step-1 .panel .address-details label {
+.registration-steps .panel .address-details label {
   font-size: 18px;
   line-height: 23px;
   color: #3f3f3f;
@@ -2129,46 +2138,46 @@ body.registration-page {
   margin: 0 0 15px;
   display: block;
 }
-.registration-step-1 .panel .address-details .street {
+.registration-steps .panel .address-details .street {
   margin: 0 20px 0 0;
   display: inline-block;
 }
-.registration-step-1 .panel .address-details .street input {
+.registration-steps .panel .address-details .street input {
   width: 250px;
 }
-.registration-step-1 .panel .address-details .house {
+.registration-steps .panel .address-details .house {
   margin: 0 20px 0 0;
   display: inline-block;
 }
-.registration-step-1 .panel .address-details .house input {
+.registration-steps .panel .address-details .house input {
   width: 70px;
 }
-.registration-step-1 .panel .address-details .corpus {
+.registration-steps .panel .address-details .corpus {
   margin: 0 20px 0 0;
   display: inline-block;
 }
-.registration-step-1 .panel .address-details .corpus input {
+.registration-steps .panel .address-details .corpus input {
   width: 70px;
 }
-.registration-step-1 .panel .address-details .building {
+.registration-steps .panel .address-details .building {
   display: inline-block;
 }
-.registration-step-1 .panel .address-details .building input {
+.registration-steps .panel .address-details .building input {
   width: 70px;
 }
-.registration-step-1 .panel .education input {
+.registration-steps .panel .education input {
   width: 520px;
 }
-.registration-step-1 .panel .third {
+.registration-steps .panel .third {
   width: 30%;
   display: inline-block;
   vertical-align: top;
   white-space: nowrap;
 }
-.registration-step-1 .panel .third~.error {
+.registration-steps .panel .third~.error {
   top: 34px;
 }
-.registration-step-1 .panel .third label {
+.registration-steps .panel .third label {
   font-family: 'Helvetica Neue';
   display: block;
   color: rgba(63,63,63,0.8);
@@ -2176,19 +2185,19 @@ body.registration-page {
   line-height: 22px;
   margin: 0 0 15px;
 }
-.registration-step-1 .panel .third input {
+.registration-steps .panel .third input {
   width: 100px;
   margin-right: 10px;
 }
-.registration-step-1 .panel .third span {
+.registration-steps .panel .third span {
   font-family: 'Helvetica Neue';
   font-size: 16px;
   line-height: 18px;
   color: #3f3f3f;
 }
-.registration-step-1 .panel .add-education,
-.registration-step-1 .panel .add-address,
-.registration-step-1 .panel .add-subject {
+.registration-steps .panel .add-education,
+.registration-steps .panel .add-address,
+.registration-steps .panel .add-subject {
   line-height: 48px;
   height: 48px;
   padding: 0 20px;
@@ -2200,12 +2209,12 @@ body.registration-page {
   color: #fff;
   background-color: #5da1b1;
 }
-.registration-step-1 .panel .add-education:before,
-.registration-step-1 .panel .add-address:before,
-.registration-step-1 .panel .add-subject:before {
+.registration-steps .panel .add-education:before,
+.registration-steps .panel .add-address:before,
+.registration-steps .panel .add-subject:before {
   content: "+  ";
 }
-.registration-step-1 .panel textarea {
+.registration-steps .panel textarea {
   border: 1px solid #e5e5e5;
   border-radius: 4px;
   margin: 0;
@@ -2220,12 +2229,12 @@ body.registration-page {
   font-family: 'Helvetica Neue';
   font-weight: 200;
 }
-.registration-step-1 .panel .chosen-drop {
+.registration-steps .panel .chosen-drop {
   border-top: 1px;
   border-radius: 4px;
   border: 1px solid #d8e7ea;
 }
-.registration-step-1 .panel .chosen-drop .chosen-results {
+.registration-steps .panel .chosen-drop .chosen-results {
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
@@ -2233,31 +2242,31 @@ body.registration-page {
   padding: 0;
   max-height: 240px;
 }
-.registration-step-1 .panel .chosen-drop .chosen-results .active-result {
+.registration-steps .panel .chosen-drop .chosen-results .active-result {
   font-size: 16px;
   line-height: 28px;
   color: #3f3f3f;
   font-family: 'Helvetica Neue';
   font-weight: 200;
 }
-.registration-step-1 .panel .chosen-drop .chosen-results .active-result.highlighted {
+.registration-steps .panel .chosen-drop .chosen-results .active-result.highlighted {
   background-color: rgba(191,214,219,0.4);
 }
-.registration-step-1 .panel .chosen-container {
+.registration-steps .panel .chosen-container {
   min-width: 0;
 }
-.registration-step-1 .panel .chosen-container .chosen-search input {
+.registration-steps .panel .chosen-container .chosen-search input {
   border: 1px solid #e5e5e5;
   border-radius: 4px;
 }
-.registration-step-1 .panel .chosen-container .chosen-search input:hover,
-.registration-step-1 .panel .chosen-container .chosen-search input:focus {
+.registration-steps .panel .chosen-container .chosen-search input:hover,
+.registration-steps .panel .chosen-container .chosen-search input:focus {
   border-color: #bfd6db;
 }
-.registration-step-1 .panel .chosen-container.chosen-with-drop .chosen-single div b {
+.registration-steps .panel .chosen-container.chosen-with-drop .chosen-single div b {
   background-position: -18px -5px;
 }
-.registration-step-1 .panel .chosen-container .no-results {
+.registration-steps .panel .chosen-container .no-results {
   font-size: 16px;
   line-height: 28px;
   color: #3f3f3f;
@@ -2265,7 +2274,7 @@ body.registration-page {
   font-weight: 200;
   background-color: rgba(191,214,219,0.4);
 }
-.registration-step-1 .panel .chosen-container .chosen-single {
+.registration-steps .panel .chosen-container .chosen-single {
   box-sizing: border-box;
   border: 1px solid #e5e5e5;
   border-radius: 4px;
@@ -2279,26 +2288,26 @@ body.registration-page {
   outline: none;
   font-family: 'Helvetica Neue';
 }
-.registration-step-1 .panel .chosen-container .chosen-single div b {
+.registration-steps .panel .chosen-container .chosen-single div b {
   background-position: 0 -5px;
   width: 10px;
   top: 0;
   bottom: 0;
   margin: auto;
 }
-.registration-step-1 .panel .chosen-container .chosen-single:hover,
-.registration-step-1 .panel .chosen-container .chosen-single:focus {
+.registration-steps .panel .chosen-container .chosen-single:hover,
+.registration-steps .panel .chosen-container .chosen-single:focus {
   border-color: #bfd6db;
 }
-.registration-step-1 .panel .duration-container,
-.registration-step-1 .panel .experience-container {
+.registration-steps .panel .duration-container,
+.registration-steps .panel .experience-container {
   height: 48px;
   line-height: 48px;
   padding: 0 0 0 110px;
   position: relative;
 }
-.registration-step-1 .panel .duration-container .noUi-handle,
-.registration-step-1 .panel .experience-container .noUi-handle {
+.registration-steps .panel .duration-container .noUi-handle,
+.registration-steps .panel .experience-container .noUi-handle {
   background: none;
   border-style: none;
   box-shadow: none;
@@ -2308,12 +2317,12 @@ body.registration-page {
   width: 0;
   left: 0;
 }
-.registration-step-1 .panel .duration-container .noUi-handle:after,
-.registration-step-1 .panel .experience-container .noUi-handle:after {
+.registration-steps .panel .duration-container .noUi-handle:after,
+.registration-steps .panel .experience-container .noUi-handle:after {
   display: none;
 }
-.registration-step-1 .panel .duration-container .noUi-handle:before,
-.registration-step-1 .panel .experience-container .noUi-handle:before {
+.registration-steps .panel .duration-container .noUi-handle:before,
+.registration-steps .panel .experience-container .noUi-handle:before {
   content: ".";
   cursor: pointer;
   font-size: 0;
@@ -2327,13 +2336,13 @@ body.registration-page {
   height: 20px;
   background: url("../img/register/handle.svg") 0 0 no-repeat;
 }
-.registration-step-1 .panel .duration-container .noUi-background,
-.registration-step-1 .panel .experience-container .noUi-background {
+.registration-steps .panel .duration-container .noUi-background,
+.registration-steps .panel .experience-container .noUi-background {
   background: #e2e4e4;
   box-shadow: inset 0 1px 0 0 #cbcdcd;
 }
-.registration-step-1 .panel .duration-container .noUi-target,
-.registration-step-1 .panel .experience-container .noUi-target {
+.registration-steps .panel .duration-container .noUi-target,
+.registration-steps .panel .experience-container .noUi-target {
   position: relative;
   vertical-align: middle;
   margin-left: 0;
@@ -2344,8 +2353,8 @@ body.registration-page {
   cursor: pointer;
   border-style: none;
 }
-.registration-step-1 .panel .duration-container .value,
-.registration-step-1 .panel .experience-container .value {
+.registration-steps .panel .duration-container .value,
+.registration-steps .panel .experience-container .value {
   position: absolute;
   left: 0;
   top: 0;
@@ -2353,10 +2362,10 @@ body.registration-page {
   margin: auto;
   width: 95px;
 }
-.registration-step-1 .panel .duration-container .duration-line-header,
-.registration-step-1 .panel .experience-container .duration-line-header,
-.registration-step-1 .panel .duration-container .experience-line-header,
-.registration-step-1 .panel .experience-container .experience-line-header {
+.registration-steps .panel .duration-container .duration-line-header,
+.registration-steps .panel .experience-container .duration-line-header,
+.registration-steps .panel .duration-container .experience-line-header,
+.registration-steps .panel .experience-container .experience-line-header {
   margin: 0 0 6px;
   line-height: 15px;
   font-weight: 200;
@@ -2368,24 +2377,24 @@ body.registration-page {
   display: flex;
   justify-content: space-between;
 }
-.registration-step-1 .panel .duration-container .duration-line-header .years,
-.registration-step-1 .panel .experience-container .duration-line-header .years,
-.registration-step-1 .panel .duration-container .experience-line-header .years,
-.registration-step-1 .panel .experience-container .experience-line-header .years {
+.registration-steps .panel .duration-container .duration-line-header .years,
+.registration-steps .panel .experience-container .duration-line-header .years,
+.registration-steps .panel .duration-container .experience-line-header .years,
+.registration-steps .panel .experience-container .experience-line-header .years {
   font-size: 12px;
   display: inline-block;
   vertical-align: top;
 }
-.registration-step-1 .panel .chosen-choices,
-.registration-step-1 .panel input.tt-input,
-.registration-step-1 .panel .subdevision>input[type="text"],
-.registration-step-1 .panel .subdevision>input[type="email"],
-.registration-step-1 .panel .subdevision>input[type="number"],
-.registration-step-1 .panel .subdevision>input[type="tel"],
-.registration-step-1 .panel .line>input[type="text"],
-.registration-step-1 .panel .line>input[type="email"],
-.registration-step-1 .panel .line>input[type="number"],
-.registration-step-1 .panel .line>input[type="tel"] {
+.registration-steps .panel .chosen-choices,
+.registration-steps .panel input.tt-input,
+.registration-steps .panel .subdevision>input[type="text"],
+.registration-steps .panel .subdevision>input[type="email"],
+.registration-steps .panel .subdevision>input[type="number"],
+.registration-steps .panel .subdevision>input[type="tel"],
+.registration-steps .panel .line>input[type="text"],
+.registration-steps .panel .line>input[type="email"],
+.registration-steps .panel .line>input[type="number"],
+.registration-steps .panel .line>input[type="tel"] {
   box-sizing: border-box;
   border-radius: 4px;
   background: #fff;
@@ -2399,112 +2408,112 @@ body.registration-page {
   font-family: 'Helvetica Neue';
   border: 1px solid #e5e5e5;
 }
-.registration-step-1 .panel .chosen-choices:hover,
-.registration-step-1 .panel input.tt-input:hover,
-.registration-step-1 .panel .subdevision>input[type="text"]:hover,
-.registration-step-1 .panel .subdevision>input[type="email"]:hover,
-.registration-step-1 .panel .subdevision>input[type="number"]:hover,
-.registration-step-1 .panel .subdevision>input[type="tel"]:hover,
-.registration-step-1 .panel .line>input[type="text"]:hover,
-.registration-step-1 .panel .line>input[type="email"]:hover,
-.registration-step-1 .panel .line>input[type="number"]:hover,
-.registration-step-1 .panel .line>input[type="tel"]:hover,
-.registration-step-1 .panel .chosen-choices:focus,
-.registration-step-1 .panel input.tt-input:focus,
-.registration-step-1 .panel .subdevision>input[type="text"]:focus,
-.registration-step-1 .panel .subdevision>input[type="email"]:focus,
-.registration-step-1 .panel .subdevision>input[type="number"]:focus,
-.registration-step-1 .panel .subdevision>input[type="tel"]:focus,
-.registration-step-1 .panel .line>input[type="text"]:focus,
-.registration-step-1 .panel .line>input[type="email"]:focus,
-.registration-step-1 .panel .line>input[type="number"]:focus,
-.registration-step-1 .panel .line>input[type="tel"]:focus {
+.registration-steps .panel .chosen-choices:hover,
+.registration-steps .panel input.tt-input:hover,
+.registration-steps .panel .subdevision>input[type="text"]:hover,
+.registration-steps .panel .subdevision>input[type="email"]:hover,
+.registration-steps .panel .subdevision>input[type="number"]:hover,
+.registration-steps .panel .subdevision>input[type="tel"]:hover,
+.registration-steps .panel .line>input[type="text"]:hover,
+.registration-steps .panel .line>input[type="email"]:hover,
+.registration-steps .panel .line>input[type="number"]:hover,
+.registration-steps .panel .line>input[type="tel"]:hover,
+.registration-steps .panel .chosen-choices:focus,
+.registration-steps .panel input.tt-input:focus,
+.registration-steps .panel .subdevision>input[type="text"]:focus,
+.registration-steps .panel .subdevision>input[type="email"]:focus,
+.registration-steps .panel .subdevision>input[type="number"]:focus,
+.registration-steps .panel .subdevision>input[type="tel"]:focus,
+.registration-steps .panel .line>input[type="text"]:focus,
+.registration-steps .panel .line>input[type="email"]:focus,
+.registration-steps .panel .line>input[type="number"]:focus,
+.registration-steps .panel .line>input[type="tel"]:focus {
   border-color: #bfd6db;
 }
-.registration-step-1 .panel .chosen-choices.ui-state-error,
-.registration-step-1 .panel input.tt-input.ui-state-error,
-.registration-step-1 .panel .subdevision>input[type="text"].ui-state-error,
-.registration-step-1 .panel .subdevision>input[type="email"].ui-state-error,
-.registration-step-1 .panel .subdevision>input[type="number"].ui-state-error,
-.registration-step-1 .panel .subdevision>input[type="tel"].ui-state-error,
-.registration-step-1 .panel .line>input[type="text"].ui-state-error,
-.registration-step-1 .panel .line>input[type="email"].ui-state-error,
-.registration-step-1 .panel .line>input[type="number"].ui-state-error,
-.registration-step-1 .panel .line>input[type="tel"].ui-state-error {
+.registration-steps .panel .chosen-choices.ui-state-error,
+.registration-steps .panel input.tt-input.ui-state-error,
+.registration-steps .panel .subdevision>input[type="text"].ui-state-error,
+.registration-steps .panel .subdevision>input[type="email"].ui-state-error,
+.registration-steps .panel .subdevision>input[type="number"].ui-state-error,
+.registration-steps .panel .subdevision>input[type="tel"].ui-state-error,
+.registration-steps .panel .line>input[type="text"].ui-state-error,
+.registration-steps .panel .line>input[type="email"].ui-state-error,
+.registration-steps .panel .line>input[type="number"].ui-state-error,
+.registration-steps .panel .line>input[type="tel"].ui-state-error {
   border-color: #f56d6c;
   box-shadow: 0 0 4px 1px rgba(245,109,108,0.3);
 }
-.registration-step-1 .panel .chosen-choices.ui-state-error+label,
-.registration-step-1 .panel input.tt-input.ui-state-error+label,
-.registration-step-1 .panel .subdevision>input[type="text"].ui-state-error+label,
-.registration-step-1 .panel .subdevision>input[type="email"].ui-state-error+label,
-.registration-step-1 .panel .subdevision>input[type="number"].ui-state-error+label,
-.registration-step-1 .panel .subdevision>input[type="tel"].ui-state-error+label,
-.registration-step-1 .panel .line>input[type="text"].ui-state-error+label,
-.registration-step-1 .panel .line>input[type="email"].ui-state-error+label,
-.registration-step-1 .panel .line>input[type="number"].ui-state-error+label,
-.registration-step-1 .panel .line>input[type="tel"].ui-state-error+label {
+.registration-steps .panel .chosen-choices.ui-state-error+label,
+.registration-steps .panel input.tt-input.ui-state-error+label,
+.registration-steps .panel .subdevision>input[type="text"].ui-state-error+label,
+.registration-steps .panel .subdevision>input[type="email"].ui-state-error+label,
+.registration-steps .panel .subdevision>input[type="number"].ui-state-error+label,
+.registration-steps .panel .subdevision>input[type="tel"].ui-state-error+label,
+.registration-steps .panel .line>input[type="text"].ui-state-error+label,
+.registration-steps .panel .line>input[type="email"].ui-state-error+label,
+.registration-steps .panel .line>input[type="number"].ui-state-error+label,
+.registration-steps .panel .line>input[type="tel"].ui-state-error+label {
   color: #d0021b;
 }
-.registration-step-1 .panel .chosen-choices::-webkit-input-placeholder,
-.registration-step-1 .panel input.tt-input::-webkit-input-placeholder,
-.registration-step-1 .panel .subdevision>input[type="text"]::-webkit-input-placeholder,
-.registration-step-1 .panel .subdevision>input[type="email"]::-webkit-input-placeholder,
-.registration-step-1 .panel .subdevision>input[type="number"]::-webkit-input-placeholder,
-.registration-step-1 .panel .subdevision>input[type="tel"]::-webkit-input-placeholder,
-.registration-step-1 .panel .line>input[type="text"]::-webkit-input-placeholder,
-.registration-step-1 .panel .line>input[type="email"]::-webkit-input-placeholder,
-.registration-step-1 .panel .line>input[type="number"]::-webkit-input-placeholder,
-.registration-step-1 .panel .line>input[type="tel"]::-webkit-input-placeholder {
+.registration-steps .panel .chosen-choices::-webkit-input-placeholder,
+.registration-steps .panel input.tt-input::-webkit-input-placeholder,
+.registration-steps .panel .subdevision>input[type="text"]::-webkit-input-placeholder,
+.registration-steps .panel .subdevision>input[type="email"]::-webkit-input-placeholder,
+.registration-steps .panel .subdevision>input[type="number"]::-webkit-input-placeholder,
+.registration-steps .panel .subdevision>input[type="tel"]::-webkit-input-placeholder,
+.registration-steps .panel .line>input[type="text"]::-webkit-input-placeholder,
+.registration-steps .panel .line>input[type="email"]::-webkit-input-placeholder,
+.registration-steps .panel .line>input[type="number"]::-webkit-input-placeholder,
+.registration-steps .panel .line>input[type="tel"]::-webkit-input-placeholder {
   color: rgba(63,63,63,0.4);
 }
-.registration-step-1 .panel .chosen-choices:-moz-placeholder,
-.registration-step-1 .panel input.tt-input:-moz-placeholder,
-.registration-step-1 .panel .subdevision>input[type="text"]:-moz-placeholder,
-.registration-step-1 .panel .subdevision>input[type="email"]:-moz-placeholder,
-.registration-step-1 .panel .subdevision>input[type="number"]:-moz-placeholder,
-.registration-step-1 .panel .subdevision>input[type="tel"]:-moz-placeholder,
-.registration-step-1 .panel .line>input[type="text"]:-moz-placeholder,
-.registration-step-1 .panel .line>input[type="email"]:-moz-placeholder,
-.registration-step-1 .panel .line>input[type="number"]:-moz-placeholder,
-.registration-step-1 .panel .line>input[type="tel"]:-moz-placeholder {
+.registration-steps .panel .chosen-choices:-moz-placeholder,
+.registration-steps .panel input.tt-input:-moz-placeholder,
+.registration-steps .panel .subdevision>input[type="text"]:-moz-placeholder,
+.registration-steps .panel .subdevision>input[type="email"]:-moz-placeholder,
+.registration-steps .panel .subdevision>input[type="number"]:-moz-placeholder,
+.registration-steps .panel .subdevision>input[type="tel"]:-moz-placeholder,
+.registration-steps .panel .line>input[type="text"]:-moz-placeholder,
+.registration-steps .panel .line>input[type="email"]:-moz-placeholder,
+.registration-steps .panel .line>input[type="number"]:-moz-placeholder,
+.registration-steps .panel .line>input[type="tel"]:-moz-placeholder {
   color: rgba(63,63,63,0.4);
 }
-.registration-step-1 .panel .chosen-choices::-moz-placeholder,
-.registration-step-1 .panel input.tt-input::-moz-placeholder,
-.registration-step-1 .panel .subdevision>input[type="text"]::-moz-placeholder,
-.registration-step-1 .panel .subdevision>input[type="email"]::-moz-placeholder,
-.registration-step-1 .panel .subdevision>input[type="number"]::-moz-placeholder,
-.registration-step-1 .panel .subdevision>input[type="tel"]::-moz-placeholder,
-.registration-step-1 .panel .line>input[type="text"]::-moz-placeholder,
-.registration-step-1 .panel .line>input[type="email"]::-moz-placeholder,
-.registration-step-1 .panel .line>input[type="number"]::-moz-placeholder,
-.registration-step-1 .panel .line>input[type="tel"]::-moz-placeholder {
+.registration-steps .panel .chosen-choices::-moz-placeholder,
+.registration-steps .panel input.tt-input::-moz-placeholder,
+.registration-steps .panel .subdevision>input[type="text"]::-moz-placeholder,
+.registration-steps .panel .subdevision>input[type="email"]::-moz-placeholder,
+.registration-steps .panel .subdevision>input[type="number"]::-moz-placeholder,
+.registration-steps .panel .subdevision>input[type="tel"]::-moz-placeholder,
+.registration-steps .panel .line>input[type="text"]::-moz-placeholder,
+.registration-steps .panel .line>input[type="email"]::-moz-placeholder,
+.registration-steps .panel .line>input[type="number"]::-moz-placeholder,
+.registration-steps .panel .line>input[type="tel"]::-moz-placeholder {
   color: rgba(63,63,63,0.4);
 }
-.registration-step-1 .panel .chosen-choices:-ms-input-placeholder,
-.registration-step-1 .panel input.tt-input:-ms-input-placeholder,
-.registration-step-1 .panel .subdevision>input[type="text"]:-ms-input-placeholder,
-.registration-step-1 .panel .subdevision>input[type="email"]:-ms-input-placeholder,
-.registration-step-1 .panel .subdevision>input[type="number"]:-ms-input-placeholder,
-.registration-step-1 .panel .subdevision>input[type="tel"]:-ms-input-placeholder,
-.registration-step-1 .panel .line>input[type="text"]:-ms-input-placeholder,
-.registration-step-1 .panel .line>input[type="email"]:-ms-input-placeholder,
-.registration-step-1 .panel .line>input[type="number"]:-ms-input-placeholder,
-.registration-step-1 .panel .line>input[type="tel"]:-ms-input-placeholder {
+.registration-steps .panel .chosen-choices:-ms-input-placeholder,
+.registration-steps .panel input.tt-input:-ms-input-placeholder,
+.registration-steps .panel .subdevision>input[type="text"]:-ms-input-placeholder,
+.registration-steps .panel .subdevision>input[type="email"]:-ms-input-placeholder,
+.registration-steps .panel .subdevision>input[type="number"]:-ms-input-placeholder,
+.registration-steps .panel .subdevision>input[type="tel"]:-ms-input-placeholder,
+.registration-steps .panel .line>input[type="text"]:-ms-input-placeholder,
+.registration-steps .panel .line>input[type="email"]:-ms-input-placeholder,
+.registration-steps .panel .line>input[type="number"]:-ms-input-placeholder,
+.registration-steps .panel .line>input[type="tel"]:-ms-input-placeholder {
   color: rgba(63,63,63,0.4);
 }
-.registration-step-1 .panel .chosen-container-multi .chosen-choices {
+.registration-steps .panel .chosen-container-multi .chosen-choices {
   padding: 4px 3px;
 }
-.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-field {
+.registration-steps .panel .chosen-container-multi .chosen-choices li.search-field {
   line-height: 38px;
 }
-.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+.registration-steps .panel .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
   font-weight: 200;
   font-family: 'Helvetica Neue';
 }
-.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-choice {
+.registration-steps .panel .chosen-container-multi .chosen-choices li.search-choice {
   background-image: none;
   background-color: #fff;
   box-shadow: none;
@@ -2513,26 +2522,26 @@ body.registration-page {
   border: 1px solid #e5e5e5;
   color: #3f3f3f;
 }
-.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-choice:hover {
+.registration-steps .panel .chosen-container-multi .chosen-choices li.search-choice:hover {
   border-color: #bfd6db;
 }
-.registration-step-1 .panel .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+.registration-steps .panel .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
   opacity: 0.6;
   top: 50%;
   margin-top: -5px;
   right: 8px;
 }
-.registration-step-1 .panel .chosen-container-multi .chosen-drop .result-selected {
+.registration-steps .panel .chosen-container-multi .chosen-drop .result-selected {
   font-size: 16px;
   line-height: 28px;
   font-weight: 200;
   font-family: 'Helvetica Neue';
 }
-.registration-step-1 .panel .subdevision.hide {
+.registration-steps .panel .subdevision.hide {
   pointer-events: none;
   opacity: 0.1;
 }
-.registration-step-1 .panel fieldset.photo {
+.registration-steps .panel fieldset.photo {
   float: left;
   width: 220px;
   left: 100%;
@@ -2540,16 +2549,16 @@ body.registration-page {
   z-index: 2;
   position: relative;
 }
-.registration-step-1 .panel fieldset.photo .current-avatar {
+.registration-steps .panel fieldset.photo .current-avatar {
   cursor: pointer;
   position: relative;
 }
-.registration-step-1 .panel fieldset.photo .current-avatar .avatar {
+.registration-steps .panel fieldset.photo .current-avatar .avatar {
   width: 100%;
   display: block;
   cursor: pointer;
 }
-.registration-step-1 .panel fieldset.photo .current-avatar .close {
+.registration-steps .panel fieldset.photo .current-avatar .close {
   z-index: 3;
   position: absolute;
   top: -18px;
@@ -2560,7 +2569,7 @@ body.registration-page {
   line-height: 0;
   background: url("../img/register/close-round.svg") 50% 50% no-repeat;
 }
-.registration-step-1 .panel fieldset.photo .file-selector {
+.registration-steps .panel fieldset.photo .file-selector {
   border: 3px dashed #acd8dd;
   border-radius: 9px;
   display: block;
@@ -2570,12 +2579,12 @@ body.registration-page {
   cursor: pointer;
   position: relative;
 }
-.registration-step-1 .panel fieldset.photo .file-selector input {
+.registration-steps .panel fieldset.photo .file-selector input {
   position: absolute;
   left: -9999px;
   opacity: 0;
 }
-.registration-step-1 .panel fieldset.photo .file-selector .abstract {
+.registration-steps .panel fieldset.photo .file-selector .abstract {
   display: block;
   margin: 170px 0 0;
   text-align: center;
@@ -2585,7 +2594,7 @@ body.registration-page {
   line-height: 18px;
   color: rgba(71,142,158,0.64);
 }
-.registration-step-1 .panel fieldset.photo .file-selector .select {
+.registration-steps .panel fieldset.photo .file-selector .select {
   height: 48px;
   line-height: 48px;
   background: #478e9e;
@@ -2597,13 +2606,13 @@ body.registration-page {
   text-transform: uppercase;
   margin: 50px 0 0;
 }
-.registration-step-1 .panel fieldset.photo .current-avatar~.file-selector,
-.registration-step-1 .panel fieldset.photo .current-avatar~.meta {
+.registration-steps .panel fieldset.photo .current-avatar~.file-selector,
+.registration-steps .panel fieldset.photo .current-avatar~.meta {
   position: absolute;
   left: -9999px;
   opacity: 0;
 }
-.registration-step-1 .panel fieldset.photo .meta {
+.registration-steps .panel fieldset.photo .meta {
   font-size: 13px;
   line-height: 18px;
   text-align: center;
@@ -2613,7 +2622,7 @@ body.registration-page {
   margin: 15px auto 0;
   max-width: 180px;
 }
-.registration-step-1 .panel fieldset.photo+fieldset {
+.registration-steps .panel fieldset.photo+fieldset {
   float: left;
   position: relative;
   left: 100%;
@@ -2623,32 +2632,32 @@ body.registration-page {
   box-sizing: border-box;
   max-width: 680px;
 }
-.registration-step-1 .panel fieldset.photo+fieldset .birthday {
+.registration-steps .panel fieldset.photo+fieldset .birthday {
   font-size: 0;
 }
-.registration-step-1 .panel fieldset.photo+fieldset .day {
+.registration-steps .panel fieldset.photo+fieldset .day {
   width: 95px;
   display: inline-block;
   vertical-align: top;
 }
-.registration-step-1 .panel fieldset.photo+fieldset .month {
+.registration-steps .panel fieldset.photo+fieldset .month {
   display: inline-block;
   width: 175px;
   margin-left: 10px;
   vertical-align: top;
 }
-.registration-step-1 .panel fieldset.photo+fieldset .year {
+.registration-steps .panel fieldset.photo+fieldset .year {
   display: inline-block;
   width: 150px;
   margin-left: 10px;
   vertical-align: top;
 }
-.registration-step-1 .panel.complete {
+.registration-steps .panel.complete {
   text-align: center;
   padding: 100px 40px 110px;
   overflow: hidden;
 }
-.registration-step-1 .panel.complete p {
+.registration-steps .panel.complete p {
   max-width: 530px;
   margin: 0 auto;
   font-family: 'Helvetica Neue';
@@ -2657,7 +2666,7 @@ body.registration-page {
   line-height: 26px;
   color: rgba(63,63,63,0.7);
 }
-.registration-step-1 .panel.complete .sub-title {
+.registration-steps .panel.complete .sub-title {
   max-width: 530px;
   font-size: 28px;
   line-height: 32px;

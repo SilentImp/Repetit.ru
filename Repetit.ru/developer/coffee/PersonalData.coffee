@@ -1,47 +1,12 @@
 class PersonalData
   constructor: ->
-    @form = $ 'form.panel'
+    @form = $ '.panel'
     if @form.length != 1
       throw new Error('не найдена форма')
 
     @file = @form.find '#registration-avatar'
     @avatarTemplate = document.getElementById 'current-avatar-template'
     @fileSelector = $ '.file-selector'
-
-    # rega = $('.photo')
-    # if rega.length > 0
-    #   rega.fileapi
-    #     # url: @form.attr('action'),
-    #     url: 'http://test.silentimp.info/test.php'
-    #     duplicate: false
-    #     accept: 'image/*'
-    #     maxSize: 5 * FileAPI.MB
-    #     autoUpload: false
-    #     multiple: false
-    #     elements:
-    #       empty: 
-    #         show: '.file-selector'
-    #       list: '.preview'
-    #       file:
-    #         preview:
-    #           el: '.photo'
-    #           width: 80
-    #           height: 80
-    #         tpl: '.current-avatar'
-    #       dnd:
-    #         el: '.file-selector'
-    #         hover: '.file-selector__file'
-    #     # onSelect: (evt, ui)=>
-    #     #   reader = new FileReader()
-    #     #   reader.onload = (event)=>
-    #     #     @avatarTemplate.content.querySelector('img').src = event.target.result
-    #     #     avatar = document.importNode @avatarTemplate.content, true
-    #     #     prev = @fileSelector.prev()
-    #     #     if prev.hasClass('current-avatar')
-    #     #       prev.remove()
-    #     #     @fileSelector.before avatar
-    #     #     @fileSelector.prev().find('.close').on 'click', @removeAvatar
-    #     #   reader.readAsDataURL ui.files[0]
 
     FileAPI.event.on document.getElementById('registration-avatar'), 'change', @avatarSelected
     $(document).dnd @over, @drop
