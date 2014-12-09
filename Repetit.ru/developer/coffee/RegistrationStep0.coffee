@@ -39,8 +39,12 @@ class RegistrationStep0
     @regions_input.on @itype+' focus', @showRegionsList
 
     @form_registration.h5Validate()
-    @form_registration.on 'submit', @formSubmit
+    # @form_registration.on 'submit', @formSubmit
+
+    @submit.on 'click', @formSubmit
+
     @form_sms.h5Validate()
+    @form_sms.find('button[type="submit"]').on 'click', @smsSubmit
 
     $('a.register').on @itype, @showRegistrationPopup
 
@@ -108,21 +112,66 @@ class RegistrationStep0
     else
       input.toggleClass 'changed', true
 
-  formSubmit: (event)=>
-    if @form_registration.find('.ui-state-error').length>0
+  validate: (input)=>
+
+    if input.hasAttribute('required')
+      if input.value.trim().length == 0
+        input.classList.add 'ui-state-error'
+
+    if input.classList.contains 'ui-state-error'
+      if input.hasAttribute 'data-h5-errorid'
+        error = document.getElementById input.getAttribute('data-h5-errorid')
+        error.style.display = 'block'
+      return false
+
+    return true
+
+  smsSubmit: (event)=>
+    inputs = @form_sms.find('input, select, textarea')
+    for input in inputs
+      if !@validate(input)
+        return false
+
+    if @form_sms.find('.ui-state-error').length>0
       return
+
     event.preventDefault()
     $.ajax
       type: "POST"
-      url: @form_registration.attr('action')
-      data: @form_registration.serialize()
+      url: @form_sms.attr('data-action')
+      data: @form_sms.find(":input").serialize()
+      success: @formSubmited
+      fail: @formSubmited
+      complete: @formSubmited
+      dataType: 'json'
+
+    @form_sms.find('input, select, textarea').val('')
+
+
+
+  formSubmit: (event)=>
+
+    inputs = @form_registration.find('input, select, textarea')
+    for input in inputs
+      if !@validate(input)
+        return false
+
+    if @form_registration.find('.ui-state-error').length>0
+      return
+
+    event.preventDefault()
+    $.ajax
+      type: "POST"
+      url: @form_registration.attr('data-action')
+      data: @form_registration.find(":input").serialize()
       success: @formSubmited
       fail: @formSubmited
       complete: @formSubmited
       dataType: 'json'
     @regions_input.removeClass('changed').removeClass('ui-state-error')
 
-    @form_registration[0].reset()
+    # @form_registration[0].reset()
+    @form_registration.find('input, select, textarea').val('')
 
   formSubmited: (data)=>
     @form_registration.find('input').each (index, element)->

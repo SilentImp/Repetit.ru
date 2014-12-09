@@ -20,7 +20,7 @@ html(lang="ru")
           h1.logotype Ассоциация репетиторов
         a.registration-step-0-close(href="/") Закрыть
     
-      form.registration(action="/register/", method="post")
+      .registration(data-action="/reg/")
         h2.title Регистрация репетитора
         fieldset 
           .line
@@ -87,7 +87,7 @@ html(lang="ru")
                 p
               - i++
 
-      form.sms(action="/confirm/", method="post")
+      .sms(data-action="/sms/")
         h2.title Подтвердите номер
         fieldset
           p Мы отправили на ваш телефон код для подтверждения номера. Введите его сюда, чтобы подтвердить регистрацию.
