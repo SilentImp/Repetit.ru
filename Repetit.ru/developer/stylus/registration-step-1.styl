@@ -437,7 +437,10 @@ body.registration-page
         font-size 16px
         line-height 18px
         color #3F3F3F 
-    
+
+    .remove-education,
+    .remove-address,
+    .remove-subject,
     .add-education,
     .add-address,
     .add-subject
@@ -453,7 +456,16 @@ body.registration-page
       background-color #5DA1B1
       &:before
         content "+  "
-    
+        
+    .remove-education,
+    .remove-address,
+    .remove-subject
+      float right
+      display none
+      background-color #FF8C43 
+      &:before
+        content "-  "
+        
     textarea
       border 1px solid #E5E5E5
       border-radius 4px

@@ -97,6 +97,10 @@ class PersonalDataAll
     @add_subject.on 'click', @newSubject
     @add_subject.trigger 'click'
 
+    #Удаление предмета
+    @remove_subject = @step2.find '.remove-subject'
+    @remove_subject.on 'click', @removeSubject
+
     @step2.find('button[type="submit"]').on 'click', @step2Submit
     @step2.find('a.previous').on 'click', @step2Back
 
@@ -105,13 +109,17 @@ class PersonalDataAll
     # Проверка полей ввода
     @step3.h5Validate()
 
-    #Добавка предмета
+    #Добавка адреса
     @add_address = @step3.find '.add-address'
     @address_count = 0
     @address_source = $("#address-template").html()
     @address_source = Handlebars.compile @address_source
     @add_address.on 'click', @newAddress
     @add_address.trigger 'click'
+
+    #Удаление адреса
+    @remove_address = @step3.find '.remove-address'
+    @remove_address.on 'click', @removeAddress
 
     @step3.find('button[type="submit"]').on 'click', @step3Submit
     @step3.find('a.previous').on 'click', @step3Back
@@ -128,6 +136,9 @@ class PersonalDataAll
     @add_education.on 'click', @newEducation
     @add_education.trigger 'click'
 
+    #Удаление образования
+    @remove_education = @step4.find '.remove-education'
+    @remove_education.on 'click', @removeEducation
 
     @sertificat_source = $("#sertificat-template").html()
     @sertificat_source = Handlebars.compile @sertificat_source
@@ -159,13 +170,24 @@ class PersonalDataAll
     @step4.find('a.previous').on 'click', @step4Back
 
 
-  # Добавить новый адрес
+  # Добавить образование
   newEducation: (event)=>
     event.preventDefault()
-    @add_education.before @education_source({'index' : @education_count})
+    @add_education.parent().before @education_source({'index' : @education_count})
     @education_count++
     @step4.find('select:visible').chosen
       disable_search_threshold: 30
+    if @education_count>1
+      @remove_education.show()
+
+  # Удалить образование
+  removeEducation: (event)=>
+    event.preventDefault()
+    @education_count--
+    $('.education-wrapper:last').remove()
+    if @education_count<2
+      @remove_education.hide()
+
 
   step4Submit: (event)=>
     event.preventDefault()
@@ -179,6 +201,7 @@ class PersonalDataAll
 
     @current = @current.removeClass('current').next()
     @current.addClass('current')
+    $('body').animate {scrollTop:0}, '500'
 
 
   step4Back: (event)=>
@@ -186,6 +209,7 @@ class PersonalDataAll
     @steps.find('.selected.step:last').removeClass 'selected'
     @current = @current.removeClass('current').prev()
     @current.addClass('current')
+    $('body').animate {scrollTop:0}, '500'
 
   step3Submit: (event)=>
     event.preventDefault()
@@ -200,6 +224,7 @@ class PersonalDataAll
     @steps.find('.selected.step:last').next().addClass 'selected'
     @current = @current.removeClass('current').next()
     @current.addClass('current')
+    $('body').animate {scrollTop:0}, '500'
 
 
   step3Back: (event)=>
@@ -207,14 +232,25 @@ class PersonalDataAll
     @steps.find('.selected.step:last').removeClass 'selected'
     @current = @current.removeClass('current').prev()
     @current.addClass('current')
+    $('body').animate {scrollTop:0}, '500'
 
   # Добавить новый адрес
   newAddress: (event)=>
     event.preventDefault()
-    @add_address.before @address_source({'index' : @address_count})
+    @add_address.parent().before @address_source({'index' : @address_count})
     @address_count++
     @step3.find('select:visible').chosen
       disable_search_threshold: 30
+    if @address_count>1
+      @remove_address.show()
+
+  # Удалить образование
+  removeAddress: (event)=>
+    event.preventDefault()
+    @address_count--
+    $('.adress-wrapper:last').remove()
+    if @address_count<2
+      @remove_address.hide()
 
   step2Submit: (event)=>
     event.preventDefault()
@@ -229,13 +265,14 @@ class PersonalDataAll
     @steps.find('.selected.step:last').next().addClass 'selected'
     @current = @current.removeClass('current').next()
     @current.addClass('current')
-
+    $('body').animate {scrollTop:0}, '500'
 
   step2Back: (event)=>
     event.preventDefault()
     @steps.find('.selected.step:last').removeClass 'selected'
     @current = @current.removeClass('current').prev()
     @current.addClass('current')
+    $('body').animate {scrollTop:0}, '500'
 
 
   # Блокировать цены недопустимых форматов занятий
@@ -258,7 +295,7 @@ class PersonalDataAll
   # Добавить новый предмет
   newSubject: (event)=>
     event.preventDefault()
-    @add_subject.before @subject_source({'index' : @subj_count})
+    @add_subject.parent().before @subject_source({'index' : @subj_count})
     @subj_count++
     @step2.find('select:visible').chosen
       disable_search_threshold: 30
@@ -266,6 +303,17 @@ class PersonalDataAll
     @checkFormat()
     for element in @step2.find('.dropdown-container-widget')
       new DropdownWidgetController($(element))
+    
+    if @subj_count>1
+      @remove_subject.show()
+
+  # Удалить предмет
+  removeSubject: (event)=>
+    event.preventDefault()
+    @subj_count--
+    $('.subj-wrapper:last').remove()
+    if @subj_count<2
+      @remove_subject.hide()
 
   # Проверка полей блоков на валидность
   validate: (input)=>
@@ -301,6 +349,7 @@ class PersonalDataAll
     @steps.find('.selected.step:last').next().addClass 'selected'
     @current = @current.removeClass('current').next()
     @current.addClass('current')
+    $('body').animate {scrollTop:0}, '500'
 
 
 

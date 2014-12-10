@@ -3309,6 +3309,9 @@ body.registration-page {
     color: #3f3f3f;
 }
 
+.registration-steps .panel .remove-education,
+.registration-steps .panel .remove-address,
+.registration-steps .panel .remove-subject,
 .registration-steps .panel .add-education,
 .registration-steps .panel .add-address,
 .registration-steps .panel .add-subject {
@@ -3324,10 +3327,27 @@ body.registration-page {
     background-color: #5da1b1;
 }
 
+.registration-steps .panel .remove-education:before,
+.registration-steps .panel .remove-address:before,
+.registration-steps .panel .remove-subject:before,
 .registration-steps .panel .add-education:before,
 .registration-steps .panel .add-address:before,
 .registration-steps .panel .add-subject:before {
     content: "+  ";
+}
+
+.registration-steps .panel .remove-education,
+.registration-steps .panel .remove-address,
+.registration-steps .panel .remove-subject {
+    float: right;
+    display: none;
+    background-color: #ff8c43;
+}
+
+.registration-steps .panel .remove-education:before,
+.registration-steps .panel .remove-address:before,
+.registration-steps .panel .remove-subject:before {
+    content: "-  ";
 }
 
 .registration-steps .panel textarea {

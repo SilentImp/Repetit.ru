@@ -38,116 +38,118 @@ html(lang="ru")
         textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
 
     script(id="education-template" type="text/x-handlebars-template")
-      h2.chapter-title: span Образование
-      .line
-        label(for="city{{{index}}}") Населенный пункт
-        input(type="text", autocomplete="off", spellcheck="false", id="city{{{index}}}", name="city[]", value="", placeholder="Начните вводить...")
-      .line.name
-        label(for="univercity{{{index}}}") Название учебного заведения
-        input(type="text", autocomplete="off", spellcheck="false", id="univercity{{{index}}}", name="univercity[]", value="", placeholder="Начните вводить...")
-      .line.grad-year
-        label(for="grad-year{{{index}}}") Год выпуска
-        input(type="text", id="grad-year{{{index}}}", name="grad-year[]", value="")
-      .line
-        label(for="fac{{{index}}}") Факультет
-        input(type="text", id="fac{{{index}}}", name="fac[]", value="")
-      .line.spec
-        label(for="spec{{{index}}}") Специальность
-        input(type="text", id="spec{{{index}}}", name="comments[]", value="")
+      .education-wrapper
+        h2.chapter-title: span Образование
+        .line
+          label(for="city{{{index}}}") Населенный пункт
+          input(type="text", autocomplete="off", spellcheck="false", id="city{{{index}}}", name="city[]", value="", placeholder="Начните вводить...")
+        .line.name
+          label(for="univercity{{{index}}}") Название учебного заведения
+          input(type="text", autocomplete="off", spellcheck="false", id="univercity{{{index}}}", name="univercity[]", value="", placeholder="Начните вводить...")
+        .line.grad-year
+          label(for="grad-year{{{index}}}") Год выпуска
+          input(type="text", id="grad-year{{{index}}}", name="grad-year[]", value="")
+        .line
+          label(for="fac{{{index}}}") Факультет
+          input(type="text", id="fac{{{index}}}", name="fac[]", value="")
+        .line.spec
+          label(for="spec{{{index}}}") Специальность
+          input(type="text", id="spec{{{index}}}", name="comments[]", value="")
 
     script(id="subj-template", type="text/x-handlebars-template")
-      h2.chapter-title Предмет
-      h3.sub-title Предмет
-      .line.subject
-        select.unchanged(name="subject", required="required", data-h5-errorid="subject-required{{{index}}}")
-          - var subjs = ['Русский язык','Английский язык','Немецкий язык','Французский язык','Итальянский язык','Испанский язык','Китайский язык','Математика','Физика','Информатика / программирование','Химия','Биология','История','Обществознание','Литература','География','Экономика','Начальная школа','Музыка','Логопед','Другой','Русский как иностранный','Японский язык','Изобразительное искусство','Подготовка к школе','Редкие иностранные языки','Спорт и фитнес']
-          each subj in subjs
-            option(value=subj)=subj
+      .subj-wrapper
+        h2.chapter-title Предмет
+        h3.sub-title Предмет
+        .line.subject
+          select.unchanged(name="subject", required="required", data-h5-errorid="subject-required{{{index}}}")
+            - var subjs = ['Русский язык','Английский язык','Немецкий язык','Французский язык','Итальянский язык','Испанский язык','Китайский язык','Математика','Физика','Информатика / программирование','Химия','Биология','История','Обществознание','Литература','География','Экономика','Начальная школа','Музыка','Логопед','Другой','Русский как иностранный','Японский язык','Изобразительное искусство','Подготовка к школе','Редкие иностранные языки','Спорт и фитнес']
+            each subj in subjs
+              option(value=subj)=subj
 
-      h3.sub-title Разделы
-      .line.section
-        select.unchanged(data-placeholder="Выберите раздел", multiple, name="section", required="required", data-h5-errorid="section-required-{{{index}}}")
-          - var chapters = ['математический анализ','теория вероятностей','теоретическая механика','сопромат','математи логика','эконометрика','высшая математика','линейная алгебра','дифференциальная геометрия','аналитическая геометрия','математическая физика','дифференциальные уравнения','математическая статистика','линейная геометрия','дискретная математика','топология','функциональный анализ','интегральные уравнения','теория чисел','векторный анализ','ТФКП','тензорный анализ','финансовая математика','уравнения в частных производных','актуарная математика','теория графов','комбинаторика','математические модели','прикладная математика','тригоном-ия','уравнения математической физики','численные методы','теория приближений','теория оптимизации','.школьный курс','на английском языке','алгебра логики','вычислимые функции','теория игр','вариационное исчисление','оптимальное управление','методы оптимизации','линейное программирование','алгебра','геометрия','методы оптимальных решений']
-          each chapter in chapters
-            option(value=chapter)=chapter
-        .error(id="section-required-{{{index}}}") Пожалуйста, заполните это поле
+        h3.sub-title Разделы
+        .line.section
+          select.unchanged(data-placeholder="Выберите раздел", multiple, name="section", required="required", data-h5-errorid="section-required-{{{index}}}")
+            - var chapters = ['математический анализ','теория вероятностей','теоретическая механика','сопромат','математи логика','эконометрика','высшая математика','линейная алгебра','дифференциальная геометрия','аналитическая геометрия','математическая физика','дифференциальные уравнения','математическая статистика','линейная геометрия','дискретная математика','топология','функциональный анализ','интегральные уравнения','теория чисел','векторный анализ','ТФКП','тензорный анализ','финансовая математика','уравнения в частных производных','актуарная математика','теория графов','комбинаторика','математические модели','прикладная математика','тригоном-ия','уравнения математической физики','численные методы','теория приближений','теория оптимизации','.школьный курс','на английском языке','алгебра логики','вычислимые функции','теория игр','вариационное исчисление','оптимальное управление','методы оптимизации','линейное программирование','алгебра','геометрия','методы оптимальных решений']
+            each chapter in chapters
+              option(value=chapter)=chapter
+          .error(id="section-required-{{{index}}}") Пожалуйста, заполните это поле
 
-      h3.sub-title Дополнения
-      .line
-        .addition.dropdown-container-widget
-          .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
-          .list
-            .column
-              .checkbox-widget
-                input(id="dropdown-container-widget-1-{{{index}}}", type="checkbox", name="addition")
-                label(for="dropdown-container-widget-1-{{{index}}}") ЕГЭ
-              .checkbox-widget
-                input(id="dropdown-container-widget-2-{{{index}}}", type="checkbox", name="addition")
-                label(for="dropdown-container-widget-2-{{{index}}}") ОГЭ (ГИА)
-            .column
-              .checkbox-widget
-                input(id="dropdown-container-widget-3-{{{index}}}", type="checkbox", name="addition")
-                label(for="dropdown-container-widget-3-{{{index}}}") Подготовка к олимпиадам
-
-      h3.sub-title Категория учеников
-      .line
-        .addition.dropdown-container-widget
-          .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
-          .list
-            .column
-              - var categorys = ["дети 1-3 года","дети 4-5 лет","дети 6-7 лет","школьники 1 класса","школьники 2 класса","школьники 3 класса","школьники 4 класса","школьники 5 класса"]
-              each category in categorys
+        h3.sub-title Дополнения
+        .line
+          .addition.dropdown-container-widget
+            .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
+            .list
+              .column
                 .checkbox-widget
-                  input(id="category-"+category+'-{{{index}}}', type="checkbox", name="addition")
-                  label(for="category-"+category+'-{{{index}}}')=category
-            .column
-              - var categorys = ["школьники 6 класса","школьники 7 класса","школьники 8 класса","школьники 9 класса","школьники 10 класса","школьники 11 класса","студенты","взрослые"]
-              each category in categorys
+                  input(id="dropdown-container-widget-1-{{{index}}}", type="checkbox", name="addition")
+                  label(for="dropdown-container-widget-1-{{{index}}}") ЕГЭ
                 .checkbox-widget
-                  input(id="category-"+category+'-{{{index}}}', type="checkbox", name="addition")
-                  label(for="category-"+category+'-{{{index}}}')=category
+                  input(id="dropdown-container-widget-2-{{{index}}}", type="checkbox", name="addition")
+                  label(for="dropdown-container-widget-2-{{{index}}}") ОГЭ (ГИА)
+              .column
+                .checkbox-widget
+                  input(id="dropdown-container-widget-3-{{{index}}}", type="checkbox", name="addition")
+                  label(for="dropdown-container-widget-3-{{{index}}}") Подготовка к олимпиадам
 
-      h3.sub-title Цена занятия 
-        b (минимальной продолжительности)
-      .line
-        .third.subdevision
-          label(for="athome{{{index}}}") На дому
-          input.athome(
-            type="number", 
-            name="home", 
-            id="athome{{{index}}}", 
-            required="required", 
-            data-h5-errorid="mprice-required-{{{index}}}")
-          span руб (
-            strong.min-time 45 
-            |  мин)
-        .third.subdevision
-          label(for="atoffice{{{index}}}") Выезд к ученику
-          input.atoffice(
-            type="number", 
-            name="office", 
-            id="atoffice{{{index}}}", 
-            required="required", 
-            data-h5-errorid="mprice-required-{{{index}}}")
-          span руб (
-            strong.min-time 45 
-            |  мин)
-        .third.subdevision
-          label(for="online{{{index}}}") Удаленно
-          input.online(
-            type="number", 
-            name="online", 
-            id="online{{{index}}}", 
-            required="required", 
-            data-h5-errorid="mprice-required-{{{index}}}")
-          span руб (
-            strong.min-time 45 
-            |  мин)
-        .error(id="mprice-required-{{{index}}}") Пожалуйста, заполните это поле
+        h3.sub-title Категория учеников
+        .line
+          .addition.dropdown-container-widget
+            .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
+            .list
+              .column
+                - var categorys = ["дети 1-3 года","дети 4-5 лет","дети 6-7 лет","школьники 1 класса","школьники 2 класса","школьники 3 класса","школьники 4 класса","школьники 5 класса"]
+                each category in categorys
+                  .checkbox-widget
+                    input(id="category-"+category+'-{{{index}}}', type="checkbox", name="addition")
+                    label(for="category-"+category+'-{{{index}}}')=category
+              .column
+                - var categorys = ["школьники 6 класса","школьники 7 класса","школьники 8 класса","школьники 9 класса","школьники 10 класса","школьники 11 класса","студенты","взрослые"]
+                each category in categorys
+                  .checkbox-widget
+                    input(id="category-"+category+'-{{{index}}}', type="checkbox", name="addition")
+                    label(for="category-"+category+'-{{{index}}}')=category
 
-      h3.sub-title Комментарий
-      .line 
-        textarea(name="message", cols="30", rows="10")
+        h3.sub-title Цена занятия 
+          b (минимальной продолжительности)
+        .line
+          .third.subdevision
+            label(for="athome{{{index}}}") На дому
+            input.athome(
+              type="number", 
+              name="home", 
+              id="athome{{{index}}}", 
+              required="required", 
+              data-h5-errorid="mprice-required-{{{index}}}")
+            span руб (
+              strong.min-time 45 
+              |  мин)
+          .third.subdevision
+            label(for="atoffice{{{index}}}") Выезд к ученику
+            input.atoffice(
+              type="number", 
+              name="office", 
+              id="atoffice{{{index}}}", 
+              required="required", 
+              data-h5-errorid="mprice-required-{{{index}}}")
+            span руб (
+              strong.min-time 45 
+              |  мин)
+          .third.subdevision
+            label(for="online{{{index}}}") Удаленно
+            input.online(
+              type="number", 
+              name="online", 
+              id="online{{{index}}}", 
+              required="required", 
+              data-h5-errorid="mprice-required-{{{index}}}")
+            span руб (
+              strong.min-time 45 
+              |  мин)
+          .error(id="mprice-required-{{{index}}}") Пожалуйста, заполните это поле
+
+        h3.sub-title Комментарий
+        .line 
+          textarea(name="message", cols="30", rows="10")
 
     script(id="address-template" type="text/x-handlebars-template")
       .adress-wrapper
@@ -299,7 +301,9 @@ html(lang="ru")
 
 
         fieldset
-          a.add-subject(href="#") Добавить предмет
+          .line
+            a.remove-subject(href="#") Удалить предмет
+            a.add-subject(href="#") Добавить предмет
 
 
         nav
@@ -311,6 +315,7 @@ html(lang="ru")
         fieldset.address-holder
 
           .line
+            a.remove-address(href="#") Удалить адрес
             a.add-address(href="#") Добавить адрес
 
         fieldset
@@ -326,6 +331,7 @@ html(lang="ru")
       .panel.step-4(data-action="/save/")
         fieldset.education
           .line
+            a.remove-education(href="#") Удалить образование
             a.add-education(href="#") Добавить образование
 
         fieldset.sertificats
