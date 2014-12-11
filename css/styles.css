@@ -4261,11 +4261,11 @@ html.no-svg .start-now .wrapper:after {
 
 .twitter-typeahead .tt-dropdown-menu {
     width: 100%;
-    max-height: 200px;
-    overflow: auto;
 }
 
 .twitter-typeahead .tt-dropdown-menu>div {
+    max-height: 200px;
+    overflow: auto;
     top: -1px;
     position: relative;
     border: 1px solid #bfd6db;
