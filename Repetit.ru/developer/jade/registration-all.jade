@@ -33,7 +33,6 @@ html(lang="ru")
     script(src="js/chosen_v1.2.0/chosen.jquery.min.js")
     script(src="js/wNumb.js")
 
-
     script(src="js/DropdownWidgetController.js", async)
     script(src="js/PersonalDataAll.js", async)
 
@@ -55,15 +54,19 @@ html(lang="ru")
             .list
               .column
                 - var categorys = ["дети 1-3 года","дети 4-5 лет","дети 6-7 лет","школьники 1 класса","школьники 2 класса","школьники 3 класса","школьники 4 класса","школьники 5 класса"]
+                - var id = 0
                 each category in categorys
+                  - id++
                   .checkbox-widget
-                    input(id="category-"+category+'-{{{index}}}', type="checkbox", name="addition")
+                    input(id="category-"+category+'-{{{index}}}', type="checkbox", name="category[]", value=id)
                     label(for="category-"+category+'-{{{index}}}')=category
               .column
                 - var categorys = ["школьники 6 класса","школьники 7 класса","школьники 8 класса","школьники 9 класса","школьники 10 класса","школьники 11 класса","студенты","взрослые"]
+                - var id = 0
                 each category in categorys
+                  - id++
                   .checkbox-widget
-                    input(id="category-"+category+'-{{{index}}}', type="checkbox", name="addition")
+                    input(id="category-"+category+'-{{{index}}}', type="checkbox", name="category[]", value=id)
                     label(for="category-"+category+'-{{{index}}}')=category
 
     script(id="subj-section-template", type="text/x-handlebars-template")
@@ -83,13 +86,13 @@ html(lang="ru")
               .column
                 | {{#each column1}}
                 .checkbox-widget
-                  input(id="dropdown-container-widget-1-{{{index}}}-{{{title}}}", type="checkbox", name="addition", value="{{{id}}}")
+                  input(id="dropdown-container-widget-1-{{{index}}}-{{{title}}}", type="checkbox", name="addition[]", value="{{{id}}}")
                   label(for="dropdown-container-widget-1-{{{index}}}-{{{title}}}") {{{title}}}
                 | {{/each}}
               .column
                 | {{#each column2}}
                 .checkbox-widget
-                  input(id="dropdown-container-widget-1-{{{index}}}-{{{title}}}", type="checkbox", name="addition", value="{{{id}}}")
+                  input(id="dropdown-container-widget-1-{{{index}}}-{{{title}}}", type="checkbox", name="addition[]", value="{{{id}}}")
                   label(for="dropdown-container-widget-1-{{{index}}}-{{{title}}}") {{{title}}}
                 | {{/each}}
 
@@ -187,12 +190,6 @@ html(lang="ru")
 
 
   body.registration-page
-
-    .sertificat.js-file-tpl(data-id="<%=uid%>")
-      .preview__pic
-      a.remove(href="#", data-fileapi="file.remove")
-      textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
-
     
     header
       .wrapper
@@ -353,7 +350,25 @@ html(lang="ru")
         fieldset.sertificats
           h2.chapter-title: span Дипломы, грамоты, сертификаты
           
-          .sertificat-list
+          .sertificat-list.
+            <div class="js-file-tpl b-thumb" data-id="<%=uid%>" title="<%-name%>, <%-sizeText%>">
+              <div data-fileapi="file.remove" class="b-thumb__del">✖</div>
+              <div class="b-thumb__preview">
+                 <div class="b-thumb__preview__pic"></div>
+              </div>
+              <% if( /^image/.test(type) ){ %>
+                 <div data-fileapi="file.rotate.cw" class="b-thumb__rotate"></div>
+              <% } %>
+              <div class="b-thumb__progress progress progress-small"><div class="bar"></div></div>
+              <div class="b-thumb__name"><%-name%></div>
+            </div>
+
+
+          //- .sertificat.js-file-tpl(data-id="<%=uid%>")
+          //-   .preview__pic
+          //-   a.remove(href="#", data-fileapi="file.remove")
+          //-   textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
+
             
           nav.add-sertificat
             label Выбрать файл

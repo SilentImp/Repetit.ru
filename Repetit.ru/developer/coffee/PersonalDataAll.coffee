@@ -150,7 +150,7 @@ class PersonalDataAll
     @cerificates_count = 0
     @sertificats = @step4.find '.sertificats'
     @sertificats.fileapi
-      url: '"sex=male&month=0&year=2000&status=0&experience=0&experience=30&addition=on&subject=3&section=2&street%5B%5D=&house%5B%5D=&corpus%5B%5D=&building%5B%5D=&comments=&city%5B%5D=&univercity%5B%5D=&grad-year%5B%5D=&fac%5B%5D=&comments%5B%5D=&home=&office=&online=&message=&additional-information="'
+      url: 'http://test.silentimp.info/Repetit.ru/test.php'
       duplicate: false,
       accept: 'image/*',
       maxSize: 5 * FileAPI.MB,
@@ -161,11 +161,9 @@ class PersonalDataAll
         file: 
           tpl: '.js-file-tpl'
           preview:
-            el: '.preview__pic'
+            el: '.b-thumb__preview__pic'
             width: 80
             height: 80
-        ctrl:
-          upload: '.add-sertificat label'
       onSelect: (evt, ui)=>
         @cerificates_count++
         # reader = new FileReader()
@@ -238,7 +236,6 @@ class PersonalDataAll
       templates:
         suggestion: Handlebars.compile('<p>{{title}}</p>')
 
-
   # Получение списка разделов для предмета
   getSections: (id)=>
     chapters = ['математический анализ'+id,'теория вероятностей'+id,'теоретическая механика'+id,'сопромат'+id,'математи логика'+id,'эконометрика'+id,'высшая математика'+id,'линейная алгебра'+id,'дифференциальная геометрия'+id,'аналитическая геометрия'+id,'математическая физика'+id,'дифференциальные уравнения'+id,'математическая статистика'+id,'линейная геометрия'+id,'дискретная математика'+id,'топология'+id,'функциональный анализ'+id,'интегральные уравнения'+id,'теория чисел'+id,'векторный анализ'+id,'ТФКП'+id,'тензорный анализ'+id,'финансовая математика'+id,'уравнения в частных производных'+id,'актуарная математика'+id,'теория графов'+id,'комбинаторика'+id,'математические модели'+id,'прикладная математика'+id,'тригоном-ия'+id,'уравнения математической физики'+id,'численные методы'+id,'теория приближений'+id,'теория оптимизации'+id,'.школьный курс'+id,'на английском языке'+id,'алгебра логики'+id,'вычислимые функции'+id,'теория игр'+id,'вариационное исчисление'+id,'оптимальное управление'+id,'методы оптимизации'+id,'линейное программирование'+id,'алгебра'+id,'геометрия'+id,'методы оптимальных решений'+id]
@@ -256,17 +253,15 @@ class PersonalDataAll
 
   # Получение дополнений для раздела
   getSubSections: (id)=>
-    chapters = ['ОГЭ (ГИА)'+id,'Подготовка к олимпиадам'+id,'Подготовка к экзаменам'+id]
+    chapters = new Array 'ОГЭ (ГИА)'+id, 'Подготовка к олимпиадам'+id, 'Подготовка к экзаменам'+id
     sections = new Array
     section = new Object
-    id = 0
+    uid = 0
     for chapter in chapters
-      section = {
-        id : id
-        title : chapter
-      }
-      sections.push section
-      id++
+      sections.push
+        'id' : uid
+        'title' : chapter
+      uid++
     return sections
 
   # Добавить образование
@@ -409,6 +404,7 @@ class PersonalDataAll
     line = select.parents('.line')
     
     subsections = @getSubSections(id)
+
     half_length = Math.ceil(subsections.length / 2)
     leftSide = subsections.splice(0,half_length)
 
@@ -430,6 +426,21 @@ class PersonalDataAll
     for element in @step2.find('.dropdown-container-widget')
       new DropdownWidgetController($(element))
 
+
+  getSection: (index)=>
+    select =  $ '.subj-wrapper .section:eq('+index+') select'
+    if select.length == 1
+      return select.val()
+
+  getAdd: (index)=>
+    chkboxs =  $ '.subj-wrapper .section:eq('+index+') .sub-section input[name="addition[]"]:checked'
+    values = new Array
+    console.dir chkboxs
+    console.log chkboxs
+    for chkbox in chkboxs
+      values.push $(chkbox).val()
+    return values
+    
 
   # Добавить новый предмет
   newSubject: (event)=>
