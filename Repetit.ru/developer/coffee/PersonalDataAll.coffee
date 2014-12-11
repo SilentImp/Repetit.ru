@@ -156,18 +156,24 @@ class PersonalDataAll
       maxSize: 5 * FileAPI.MB,
       autoUpload: false,
       multiple: true,
-      onSelect: (evt, ui)=>
-        @cerificates_count++
-        reader = new FileReader()
-        reader.onload = (event)=>
-          @cert_list.append @sertificat_source
-            "id" : @cerificates_count
-            "src" : event.target.result
-        reader.readAsDataURL ui.files[0]
+      list: '.sertificat-list',
       elements:
+        file: 
+          tpl: '.js-file-tpl'
+          preview:
+            el: '.preview__pic'
+            width: 80
+            height: 80
         ctrl:
           upload: '.add-sertificat label'
-        list: '.sertificat-list'
+      onSelect: (evt, ui)=>
+        @cerificates_count++
+        # reader = new FileReader()
+        # reader.onload = (event)=>
+        #   @cert_list.append @sertificat_source
+        #     "id" : @cerificates_count
+        #     "src" : event.target.result
+        # reader.readAsDataURL ui.files[0]
 
     @step4.find('button[type="submit"]').on 'click', @step4Submit
     @step4.find('a.previous').on 'click', @step4Back
@@ -234,23 +240,33 @@ class PersonalDataAll
 
 
   # Получение списка разделов для предмета
-  getSections: =>
-    chapters = ['математический анализ','теория вероятностей','теоретическая механика','сопромат','математи логика','эконометрика','высшая математика','линейная алгебра','дифференциальная геометрия','аналитическая геометрия','математическая физика','дифференциальные уравнения','математическая статистика','линейная геометрия','дискретная математика','топология','функциональный анализ','интегральные уравнения','теория чисел','векторный анализ','ТФКП','тензорный анализ','финансовая математика','уравнения в частных производных','актуарная математика','теория графов','комбинаторика','математические модели','прикладная математика','тригоном-ия','уравнения математической физики','численные методы','теория приближений','теория оптимизации','.школьный курс','на английском языке','алгебра логики','вычислимые функции','теория игр','вариационное исчисление','оптимальное управление','методы оптимизации','линейное программирование','алгебра','геометрия','методы оптимальных решений']
+  getSections: (id)=>
+    chapters = ['математический анализ'+id,'теория вероятностей'+id,'теоретическая механика'+id,'сопромат'+id,'математи логика'+id,'эконометрика'+id,'высшая математика'+id,'линейная алгебра'+id,'дифференциальная геометрия'+id,'аналитическая геометрия'+id,'математическая физика'+id,'дифференциальные уравнения'+id,'математическая статистика'+id,'линейная геометрия'+id,'дискретная математика'+id,'топология'+id,'функциональный анализ'+id,'интегральные уравнения'+id,'теория чисел'+id,'векторный анализ'+id,'ТФКП'+id,'тензорный анализ'+id,'финансовая математика'+id,'уравнения в частных производных'+id,'актуарная математика'+id,'теория графов'+id,'комбинаторика'+id,'математические модели'+id,'прикладная математика'+id,'тригоном-ия'+id,'уравнения математической физики'+id,'численные методы'+id,'теория приближений'+id,'теория оптимизации'+id,'.школьный курс'+id,'на английском языке'+id,'алгебра логики'+id,'вычислимые функции'+id,'теория игр'+id,'вариационное исчисление'+id,'оптимальное управление'+id,'методы оптимизации'+id,'линейное программирование'+id,'алгебра'+id,'геометрия'+id,'методы оптимальных решений'+id]
     sections = new Array
     section = new Object
+    id = 0
     for chapter in chapters
-      section = {title : chapter}
+      section = {
+        id : id
+        title : chapter
+      }
       sections.push section
+      id++
     return sections
 
   # Получение дополнений для раздела
-  getSubSections: =>
-    chapters = ['ОГЭ (ГИА)','Подготовка к олимпиадам','Подготовка к экзаменам']
+  getSubSections: (id)=>
+    chapters = ['ОГЭ (ГИА)'+id,'Подготовка к олимпиадам'+id,'Подготовка к экзаменам'+id]
     sections = new Array
     section = new Object
+    id = 0
     for chapter in chapters
-      section = {title : chapter}
+      section = {
+        id : id
+        title : chapter
+      }
       sections.push section
+      id++
     return sections
 
   # Добавить образование
@@ -385,19 +401,21 @@ class PersonalDataAll
   subjectSelected: (event)=>
     select = $ event.currentTarget
     select.removeClass 'unchanged'
+    id = select.val()
+    
     line = select.parents('.line')
     
-    subsections = @getSubSections()
+    subsections = @getSubSections(id)
     half_length = Math.ceil(subsections.length / 2)
     leftSide = subsections.splice(0,half_length)
 
     sections = @subject_section_source({
       index : @subj_count
-      section : @getSections()
+      section : @getSections(id)
       column1 : leftSide
       column2 : subsections
       })
-    
+
     next = line.next()
     if next.hasClass('section')
       next.replaceWith sections

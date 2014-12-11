@@ -37,8 +37,10 @@ html(lang="ru")
           h3.sub-title Предмет
           select.unchanged(name="subject", required="required", data-h5-errorid="subject-required{{{index}}}")
             - var subjs = ['Выберите из списка','Русский язык','Английский язык','Немецкий язык','Французский язык','Итальянский язык','Испанский язык','Китайский язык','Математика','Физика','Информатика / программирование','Химия','Биология','История','Обществознание','Литература','География','Экономика','Начальная школа','Музыка','Логопед','Другой','Русский как иностранный','Японский язык','Изобразительное искусство','Подготовка к школе','Редкие иностранные языки','Спорт и фитнес']
+            - var id = 0
             each subj in subjs
-              option(value=subj)=subj
+              - id++
+              option(value=id)=subj
         .line
           h3.sub-title Категория учеников
           .addition.dropdown-container-widget
@@ -63,7 +65,7 @@ html(lang="ru")
           h3.sub-title Разделы
           select.unchanged(data-placeholder="Выберите раздел", multiple, name="section", required="required", data-h5-errorid="section-required-{{{index}}}")
             | {{#each section}}
-            option(value="{{{title}}}") {{{title}}}
+            option(value="{{{id}}}") {{{title}}}
             | {{/each}}
           .error(id="section-required-{{{index}}}") Пожалуйста, заполните это поле
         .line.sub-section
@@ -74,13 +76,13 @@ html(lang="ru")
               .column
                 | {{#each column1}}
                 .checkbox-widget
-                  input(id="dropdown-container-widget-1-{{{index}}}-{{{title}}}", type="checkbox", name="addition")
+                  input(id="dropdown-container-widget-1-{{{index}}}-{{{title}}}", type="checkbox", name="addition", value="{{{id}}}")
                   label(for="dropdown-container-widget-1-{{{index}}}-{{{title}}}") {{{title}}}
                 | {{/each}}
               .column
                 | {{#each column2}}
                 .checkbox-widget
-                  input(id="dropdown-container-widget-1-{{{index}}}-{{{title}}}", type="checkbox", name="addition")
+                  input(id="dropdown-container-widget-1-{{{index}}}-{{{title}}}", type="checkbox", name="addition", value="{{{id}}}")
                   label(for="dropdown-container-widget-1-{{{index}}}-{{{title}}}") {{{title}}}
                 | {{/each}}
 
@@ -177,8 +179,13 @@ html(lang="ru")
             input(type="text", id="building{{{index}}}", name="building[]", value="")
 
 
-
   body.registration-page
+
+    .sertificat.js-file-tpl(data-id="<%=uid%>")
+      .preview__pic
+      a.remove(href="#", data-fileapi="file.remove")
+      textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
+
     
     header
       .wrapper

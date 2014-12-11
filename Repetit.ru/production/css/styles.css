@@ -2766,6 +2766,10 @@ body.registration-page {
     background-color: #efefef;
 }
 
+body .js-file-tpl {
+    display: none;
+}
+
 select.unchanged {
     color: rgba(63,63,63,0.51);
 }
