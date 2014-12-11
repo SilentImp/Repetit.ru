@@ -6,6 +6,12 @@ html.no-svg body
 
 body.registration-page
   background-color #EFEFEF
+  
+select.unchanged
+  color rgba(63,63,63,.51)
+  &+.chosen-container .chosen-choices .search-field input,
+  &+.chosen-container .chosen-single span
+    color rgba(63,63,63,.51)
 
 .registration-steps
   position relative
@@ -511,7 +517,7 @@ body.registration-page
         &:focus
           border-color #BFD6DB
       &.chosen-with-drop .chosen-single div b
-        background-position -18px -5px 
+        // background-position -18px -5px 
       .no-results
         font-size 16px
         line-height 28px
@@ -533,8 +539,11 @@ body.registration-page
         outline none
         font-family 'Helvetica Neue'
         div b
-          background-position 0 -5px 
-          width 10px
+          background: url("../img/register/ddico.svg") 100% 50% no-repeat;
+          // background-position 0 -10px 
+          width 34px
+          height auto
+          right 0
           top 0
           bottom 0
           margin auto

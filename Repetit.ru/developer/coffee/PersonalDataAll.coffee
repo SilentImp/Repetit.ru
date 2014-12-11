@@ -21,7 +21,6 @@ class PersonalDataAll
         disable_search_threshold: 30
 
     # Шаг 1
-
     # Проверка полей ввода
     @step1.h5Validate()
 
@@ -89,13 +88,17 @@ class PersonalDataAll
     @formats.find('input').on 'change', @checkFormat
     @checkFormat()
 
-    #Добавка предмета
+    # Добавка предмета
     @add_subject = @step2.find '.add-subject'
     @subj_count = 0
     @subject_source = $("#subj-template").html()
     @subject_source = Handlebars.compile @subject_source
     @add_subject.on 'click', @newSubject
     @add_subject.trigger 'click'
+
+    # Подразделы предмета
+    @subject_section_source = $("#subj-section-template").html()
+    @subject_section_source = Handlebars.compile @subject_section_source
 
     #Удаление предмета
     @remove_subject = @step2.find '.remove-subject'
@@ -124,6 +127,7 @@ class PersonalDataAll
     @step3.find('button[type="submit"]').on 'click', @step3Submit
     @step3.find('a.previous').on 'click', @step3Back
 
+
     # Шаг 4
     # Проверка полей ввода
     @step4.h5Validate()
@@ -146,7 +150,6 @@ class PersonalDataAll
     @cerificates_count = 0
     @sertificats = @step4.find '.sertificats'
     @sertificats.fileapi
-      # url: @form.attr('action'),
       url: 'http://test.silentimp.info/test.php'
       duplicate: false,
       accept: 'image/*',
@@ -169,6 +172,86 @@ class PersonalDataAll
     @step4.find('button[type="submit"]').on 'click', @step4Submit
     @step4.find('a.previous').on 'click', @step4Back
 
+  addHint: =>
+    locations = new Bloodhound
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace("city"),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      prefetch: "https://dl.dropboxusercontent.com/u/20810772/citys.json"
+    
+    locations.initialize()
+
+    $('.city').typeahead
+      hint: false
+      highlight: true
+      minLength: 1
+    ,
+      name: 'locations'
+      displayKey: 'city',
+      source: locations.ttAdapter()
+      templates:
+        suggestion: Handlebars.compile('<p><b>{{region}}</b>{{city}}</p>')
+
+    univercitys = new Bloodhound
+      datumTokenizer: (data)->
+        return Bloodhound.tokenizers.whitespace(data.title)
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      local: [{"title":"Andorra"},{"title":"UnitedArabEmirates"},{"title":"Afghanistan"},{"title":"AntiguaandBarbuda"},{"title":"Anguilla"},{"title":"Albania"},{"title":"Armenia"},{"title":"Angola"},{"title":"Antarctica"}]
+
+    univercitys.initialize()
+
+    $('.univercity:not(.tt-input)').typeahead
+      hint: false
+      highlight: true
+      minLength: 1
+    ,
+      name: 'univercitys'
+      displayKey: 'title',
+      source: univercitys.ttAdapter()
+      templates:
+        suggestion: Handlebars.compile('<p>{{title}}</p>')
+
+    $('.faculty:not(.tt-input)').typeahead
+      hint: false
+      highlight: true
+      minLength: 1
+    ,
+      name: 'univercitys'
+      displayKey: 'title',
+      source: univercitys.ttAdapter()
+      templates:
+        suggestion: Handlebars.compile('<p>{{title}}</p>')
+
+    $('.specialization:not(.tt-input)').typeahead
+      hint: false
+      highlight: true
+      minLength: 1
+    ,
+      name: 'univercitys'
+      displayKey: 'title',
+      source: univercitys.ttAdapter()
+      templates:
+        suggestion: Handlebars.compile('<p>{{title}}</p>')
+
+
+  # Получение списка разделов для предмета
+  getSections: =>
+    chapters = ['математический анализ','теория вероятностей','теоретическая механика','сопромат','математи логика','эконометрика','высшая математика','линейная алгебра','дифференциальная геометрия','аналитическая геометрия','математическая физика','дифференциальные уравнения','математическая статистика','линейная геометрия','дискретная математика','топология','функциональный анализ','интегральные уравнения','теория чисел','векторный анализ','ТФКП','тензорный анализ','финансовая математика','уравнения в частных производных','актуарная математика','теория графов','комбинаторика','математические модели','прикладная математика','тригоном-ия','уравнения математической физики','численные методы','теория приближений','теория оптимизации','.школьный курс','на английском языке','алгебра логики','вычислимые функции','теория игр','вариационное исчисление','оптимальное управление','методы оптимизации','линейное программирование','алгебра','геометрия','методы оптимальных решений']
+    sections = new Array
+    section = new Object
+    for chapter in chapters
+      section = {title : chapter}
+      sections.push section
+    return sections
+
+  # Получение дополнений для раздела
+  getSubSections: =>
+    chapters = ['ОГЭ (ГИА)','Подготовка к олимпиадам','Подготовка к экзаменам']
+    sections = new Array
+    section = new Object
+    for chapter in chapters
+      section = {title : chapter}
+      sections.push section
+    return sections
 
   # Добавить образование
   newEducation: (event)=>
@@ -180,6 +263,9 @@ class PersonalDataAll
     if @education_count>1
       @remove_education.show()
 
+    # Автозаполнение для выбора города и вуза
+    @addHint()
+
   # Удалить образование
   removeEducation: (event)=>
     event.preventDefault()
@@ -188,7 +274,7 @@ class PersonalDataAll
     if @education_count<2
       @remove_education.hide()
 
-
+  # Переход от 4 к 5 шагу
   step4Submit: (event)=>
     event.preventDefault()
     inputs = @step4.find(':input')
@@ -203,7 +289,7 @@ class PersonalDataAll
     @current.addClass('current')
     $('body').animate {scrollTop:0}, '500'
 
-
+  # Переход от 4 к 3 шагу
   step4Back: (event)=>
     event.preventDefault()
     @steps.find('.selected.step:last').removeClass 'selected'
@@ -211,6 +297,7 @@ class PersonalDataAll
     @current.addClass('current')
     $('body').animate {scrollTop:0}, '500'
 
+  # Переход от 3 к 4 шагу
   step3Submit: (event)=>
     event.preventDefault()
     inputs = @step3.find(':input')
@@ -226,7 +313,7 @@ class PersonalDataAll
     @current.addClass('current')
     $('body').animate {scrollTop:0}, '500'
 
-
+  # Переход от 3 к 2 шагу
   step3Back: (event)=>
     event.preventDefault()
     @steps.find('.selected.step:last').removeClass 'selected'
@@ -252,6 +339,7 @@ class PersonalDataAll
     if @address_count<2
       @remove_address.hide()
 
+  # Переход от 2 к 3 шагу
   step2Submit: (event)=>
     event.preventDefault()
     inputs = @step2.find(':input')
@@ -267,6 +355,7 @@ class PersonalDataAll
     @current.addClass('current')
     $('body').animate {scrollTop:0}, '500'
 
+  # Переход от 2 к 1 шагу
   step2Back: (event)=>
     event.preventDefault()
     @steps.find('.selected.step:last').removeClass 'selected'
@@ -292,11 +381,44 @@ class PersonalDataAll
           element.setAttribute('disabled', 'disabled')
           element.removeAttribute('required')
 
+  # Добавить разделы предмета
+  subjectSelected: (event)=>
+    select = $ event.currentTarget
+    select.removeClass 'unchanged'
+    line = select.parents('.line')
+    
+    subsections = @getSubSections()
+    half_length = Math.ceil(subsections.length / 2)
+    leftSide = subsections.splice(0,half_length)
+
+    sections = @subject_section_source({
+      index : @subj_count
+      section : @getSections()
+      column1 : leftSide
+      column2 : subsections
+      })
+    
+    next = line.next()
+    if next.hasClass('section')
+      next.replaceWith sections
+    else
+      line.after sections
+    
+    @step2.find('select:visible').chosen
+      disable_search_threshold: 30
+    for element in @step2.find('.dropdown-container-widget')
+      new DropdownWidgetController($(element))
+
+
   # Добавить новый предмет
   newSubject: (event)=>
     event.preventDefault()
     @add_subject.parent().before @subject_source({'index' : @subj_count})
     @subj_count++
+    
+    wrapper = @add_subject.parent().prev()
+    wrapper.find('select').on 'change', @subjectSelected
+
     @step2.find('select:visible').chosen
       disable_search_threshold: 30
     @step2.find('.min-time').text @duration_value.val()
@@ -352,71 +474,16 @@ class PersonalDataAll
     $('body').animate {scrollTop:0}, '500'
 
 
-
-  #   locations = new Bloodhound
-  #     datumTokenizer: Bloodhound.tokenizers.obj.whitespace("city"),
-  #     queryTokenizer: Bloodhound.tokenizers.whitespace,
-  #     prefetch: "https://dl.dropboxusercontent.com/u/20810772/citys.json"
-    
-  #   locations.initialize()
-
-  #   $('#city').typeahead
-  #     hint: true
-  #     highlight: true
-  #     minLength: 1
-  #   ,
-  #     name: 'locations'
-  #     displayKey: 'city',
-  #     source: locations.ttAdapter()
-  #     templates:
-  #       suggestion: Handlebars.compile('<p><b>{{region}}</b>{{city}}</p>')
-
-  #   univercitys = new Bloodhound
-  #     datumTokenizer: (data)->
-  #       return Bloodhound.tokenizers.whitespace(data.title)
-  #     queryTokenizer: Bloodhound.tokenizers.whitespace,
-  #     local: [{"title":"Andorra"},{"title":"UnitedArabEmirates"},{"title":"Afghanistan"},{"title":"AntiguaandBarbuda"},{"title":"Anguilla"},{"title":"Albania"},{"title":"Armenia"},{"title":"Angola"},{"title":"Antarctica"}]
-
-  #   univercitys.initialize()
-
-  #   $('#univercity').typeahead
-  #     hint: true
-  #     highlight: true
-  #     minLength: 1
-  #   ,
-  #     name: 'univercitys'
-  #     displayKey: 'title',
-  #     source: univercitys.ttAdapter()
-  #     templates:
-  #       suggestion: Handlebars.compile('<p>{{title}}</p>')
-
-
-  # afterCheck: (event)=>
-    
-  #   if @form.find('input.ui-state-error, select.ui-state-error, textarea.ui-state-error').length > 0
-  #     return false
-
-  #   drop_down_err = false
-
-  #   for input in @form.find('.dropdown-widget')
-  #     if !input.controller.validate()
-  #       drop_down_err = true
-
-  #   if drop_down_err
-  #     event.preventDefault()
-  #     return false
-
-
   # Шаг 1
-
   # Аватар
   droped: (event)->
     event.preventDefault()
     FileAPI.getDropFiles event, (files)->
 
+  # подвели курсор к блоку дропа аватарки
   over: (over)->
 
-
+  # бросили аватарку
   drop: (files)=>
     console.log  files
     if files.length
@@ -433,12 +500,14 @@ class PersonalDataAll
       
       reader.readAsDataURL files[0]
 
+  # Удалили аватраку
   removeAvatar: (event)=>
     event.preventDefault()
     @fileSelector.prev().remove()
     @file.replaceWith @file.val('').clone(true)
     @file = @step1.find '#registration-avatar'
 
+  # Выбрали аватарку
   avatarSelected: (event)=>
     files = FileAPI.getFiles(event)
 
@@ -464,7 +533,7 @@ class PersonalDataAll
       @file.replaceWith @file.val('').clone(true)
       @file = @step1.find '#registration-avatar'
 
-  # Дата
+  # Проверяем может ли существовать указанная дата, например 31 февраля и исправляем в случае ошибки
   checkDate: (event)=>
     day = parseInt @day.val().trim(), 10
     
@@ -482,3 +551,5 @@ class PersonalDataAll
 
 $(document).ready ->
   new PersonalDataAll()
+
+

@@ -30,69 +30,17 @@ html(lang="ru")
     script(src="js/DropdownWidgetController.js", async)
     script(src="js/PersonalDataAll.js", async)
 
-    script(id="sertificat-template" type="text/x-handlebars-template")
-      .sertificat(data-id="{{{id}}}")
-        a.b-thumb__preview__pic(href="#link-to-big-img")
-          img(src="{{{src}}}", alt="Сертификат")
-        a.remove(href="#", data-fileapi="file.remove")
-        textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
-
-    script(id="education-template" type="text/x-handlebars-template")
-      .education-wrapper
-        h2.chapter-title: span Образование
-        .line
-          label(for="city{{{index}}}") Населенный пункт
-          input(type="text", autocomplete="off", spellcheck="false", id="city{{{index}}}", name="city[]", value="", placeholder="Начните вводить...")
-        .line.name
-          label(for="univercity{{{index}}}") Название учебного заведения
-          input(type="text", autocomplete="off", spellcheck="false", id="univercity{{{index}}}", name="univercity[]", value="", placeholder="Начните вводить...")
-        .line.grad-year
-          label(for="grad-year{{{index}}}") Год выпуска
-          input(type="text", id="grad-year{{{index}}}", name="grad-year[]", value="")
-        .line
-          label(for="fac{{{index}}}") Факультет
-          input(type="text", id="fac{{{index}}}", name="fac[]", value="")
-        .line.spec
-          label(for="spec{{{index}}}") Специальность
-          input(type="text", id="spec{{{index}}}", name="comments[]", value="")
-
     script(id="subj-template", type="text/x-handlebars-template")
       .subj-wrapper
         h2.chapter-title Предмет
-        h3.sub-title Предмет
         .line.subject
+          h3.sub-title Предмет
           select.unchanged(name="subject", required="required", data-h5-errorid="subject-required{{{index}}}")
-            - var subjs = ['Русский язык','Английский язык','Немецкий язык','Французский язык','Итальянский язык','Испанский язык','Китайский язык','Математика','Физика','Информатика / программирование','Химия','Биология','История','Обществознание','Литература','География','Экономика','Начальная школа','Музыка','Логопед','Другой','Русский как иностранный','Японский язык','Изобразительное искусство','Подготовка к школе','Редкие иностранные языки','Спорт и фитнес']
+            - var subjs = ['Выберите из списка','Русский язык','Английский язык','Немецкий язык','Французский язык','Итальянский язык','Испанский язык','Китайский язык','Математика','Физика','Информатика / программирование','Химия','Биология','История','Обществознание','Литература','География','Экономика','Начальная школа','Музыка','Логопед','Другой','Русский как иностранный','Японский язык','Изобразительное искусство','Подготовка к школе','Редкие иностранные языки','Спорт и фитнес']
             each subj in subjs
               option(value=subj)=subj
-
-        h3.sub-title Разделы
-        .line.section
-          select.unchanged(data-placeholder="Выберите раздел", multiple, name="section", required="required", data-h5-errorid="section-required-{{{index}}}")
-            - var chapters = ['математический анализ','теория вероятностей','теоретическая механика','сопромат','математи логика','эконометрика','высшая математика','линейная алгебра','дифференциальная геометрия','аналитическая геометрия','математическая физика','дифференциальные уравнения','математическая статистика','линейная геометрия','дискретная математика','топология','функциональный анализ','интегральные уравнения','теория чисел','векторный анализ','ТФКП','тензорный анализ','финансовая математика','уравнения в частных производных','актуарная математика','теория графов','комбинаторика','математические модели','прикладная математика','тригоном-ия','уравнения математической физики','численные методы','теория приближений','теория оптимизации','.школьный курс','на английском языке','алгебра логики','вычислимые функции','теория игр','вариационное исчисление','оптимальное управление','методы оптимизации','линейное программирование','алгебра','геометрия','методы оптимальных решений']
-            each chapter in chapters
-              option(value=chapter)=chapter
-          .error(id="section-required-{{{index}}}") Пожалуйста, заполните это поле
-
-        h3.sub-title Дополнения
         .line
-          .addition.dropdown-container-widget
-            .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
-            .list
-              .column
-                .checkbox-widget
-                  input(id="dropdown-container-widget-1-{{{index}}}", type="checkbox", name="addition")
-                  label(for="dropdown-container-widget-1-{{{index}}}") ЕГЭ
-                .checkbox-widget
-                  input(id="dropdown-container-widget-2-{{{index}}}", type="checkbox", name="addition")
-                  label(for="dropdown-container-widget-2-{{{index}}}") ОГЭ (ГИА)
-              .column
-                .checkbox-widget
-                  input(id="dropdown-container-widget-3-{{{index}}}", type="checkbox", name="addition")
-                  label(for="dropdown-container-widget-3-{{{index}}}") Подготовка к олимпиадам
-
-        h3.sub-title Категория учеников
-        .line
+          h3.sub-title Категория учеников
           .addition.dropdown-container-widget
             .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
             .list
@@ -108,6 +56,60 @@ html(lang="ru")
                   .checkbox-widget
                     input(id="category-"+category+'-{{{index}}}', type="checkbox", name="addition")
                     label(for="category-"+category+'-{{{index}}}')=category
+
+    script(id="subj-section-template", type="text/x-handlebars-template")
+      .section
+        .line
+          h3.sub-title Разделы
+          select.unchanged(data-placeholder="Выберите раздел", multiple, name="section", required="required", data-h5-errorid="section-required-{{{index}}}")
+            | {{#each section}}
+            option(value="{{{title}}}") {{{title}}}
+            | {{/each}}
+          .error(id="section-required-{{{index}}}") Пожалуйста, заполните это поле
+        .line.sub-section
+          h3.sub-title Дополнения
+          .addition.dropdown-container-widget
+            .current.default(data-placeholder="Выберите из списка"): span Выберите из списка
+            .list
+              .column
+                | {{#each column1}}
+                .checkbox-widget
+                  input(id="dropdown-container-widget-1-{{{index}}}-{{{title}}}", type="checkbox", name="addition")
+                  label(for="dropdown-container-widget-1-{{{index}}}-{{{title}}}") {{{title}}}
+                | {{/each}}
+              .column
+                | {{#each column2}}
+                .checkbox-widget
+                  input(id="dropdown-container-widget-1-{{{index}}}-{{{title}}}", type="checkbox", name="addition")
+                  label(for="dropdown-container-widget-1-{{{index}}}-{{{title}}}") {{{title}}}
+                | {{/each}}
+
+    script(id="sertificat-template" type="text/x-handlebars-template")
+      .sertificat(data-id="{{{id}}}")
+        a.b-thumb__preview__pic(href="#link-to-big-img")
+          img(src="{{{src}}}", alt="Сертификат")
+        a.remove(href="#", data-fileapi="file.remove")
+        textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
+
+    script(id="education-template" type="text/x-handlebars-template")
+      .education-wrapper
+        h2.chapter-title: span Образование
+        .line
+          label(for="city{{{index}}}") Населенный пункт
+          input.city(type="text", autocomplete="off", spellcheck="false", id="city{{{index}}}", name="city[]", value="", placeholder="Начните вводить...")
+        .line.name
+          label(for="univercity{{{index}}}") Название учебного заведения
+          input.univercity(type="text", autocomplete="off", spellcheck="false", id="univercity{{{index}}}", name="univercity[]", value="", placeholder="Начните вводить...")
+        .line.grad-year
+          label(for="grad-year{{{index}}}") Год выпуска
+          input(type="text", id="grad-year{{{index}}}", name="grad-year[]", value="")
+        .line
+          label(for="fac{{{index}}}") Факультет
+          input.faculty(type="text", id="fac{{{index}}}", name="fac[]", value="")
+        .line.spec
+          label(for="spec{{{index}}}") Специальность
+          input.specialization(type="text", id="spec{{{index}}}", name="comments[]", value="")
+
 
         h3.sub-title Цена занятия 
           b (минимальной продолжительности)
