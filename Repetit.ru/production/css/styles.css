@@ -3747,7 +3747,6 @@ select.unchanged+.chosen-container .chosen-single span {
 }
 
 .registration-steps .panel fieldset.photo .current-avatar {
-    cursor: pointer;
     position: relative;
 }
 
@@ -3807,13 +3806,6 @@ select.unchanged+.chosen-container .chosen-single span {
     display: block;
     text-transform: uppercase;
     margin: 50px 0 0;
-}
-
-.registration-steps .panel fieldset.photo .current-avatar~.file-selector,
-.registration-steps .panel fieldset.photo .current-avatar~.meta {
-    position: absolute;
-    left: -9999px;
-    opacity: 0;
 }
 
 .registration-steps .panel fieldset.photo .meta {
