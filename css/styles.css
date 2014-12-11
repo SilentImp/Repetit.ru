@@ -4279,6 +4279,10 @@ html.no-svg .start-now .wrapper:after {
     padding: 5px 10px;
 }
 
+.twitter-typeahead .tt-dropdown-menu>div .tt-suggestion:hover {
+    background-color: rgba(191,214,219,0.4);
+}
+
 .twitter-typeahead .tt-dropdown-menu>div b {
     float: right;
     font-size: 14px;
