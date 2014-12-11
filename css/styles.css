@@ -1842,11 +1842,11 @@ html body header .tel b {
 }
 
 @media (max-width: 500px) {
-    html body .registration-step-1 .panel .duration-container .value {
+    html body .registration-steps .panel .duration-container .value {
         width: 100%;
     }
 
-    html body .registration-step-1 .panel .duration-container .duration-line-header,
+    html body .registration-steps .panel .duration-container .duration-line-header,
   html body #duration {
         display: none;
     }
@@ -2764,7 +2764,7 @@ html.no-svg body .registration-step-0 .sms nav .resend-password {
     }
 }
 
-html.no-svg body .registration-step-1 .panel.complete .sub-title {
+html.no-svg body .registration-steps .panel.complete .sub-title {
     background-image: url("../img/register/complete.png");
 }
 
@@ -3884,30 +3884,30 @@ select.unchanged+.chosen-container .chosen-single span {
 }
 
 @media (max-width: 1060px) {
-    .registration-step-1 .title {
+    .registration-steps .title {
         margin-top: 0;
     }
 }
 
 @media (max-width: 880px) {
-    .registration-step-1 {
+    .registration-steps {
         padding: 0;
     }
 
-    .registration-step-1 .panel {
+    .registration-steps .panel {
         border-style: solid none none;
         max-width: none;
         margin: 0;
         padding: 0 20px 20px;
     }
 
-    .registration-step-1 .panel .error {
+    .registration-steps .panel .error {
         display: none !important;
     }
 
-    .registration-step-1 .panel fieldset,
-  .registration-step-1 .panel fieldset.photo,
-  .registration-step-1 .panel fieldset.photo+fieldset {
+    .registration-steps .panel fieldset,
+  .registration-steps .panel fieldset.photo,
+  .registration-steps .panel fieldset.photo+fieldset {
         float: none;
         left: auto;
         margin: 20px 0 0;
@@ -3916,36 +3916,36 @@ select.unchanged+.chosen-container .chosen-single span {
 }
 
 @media (max-width: 500px) {
-    .registration-step-1 .panel {
+    .registration-steps .panel {
         border-style: solid none none;
         max-width: none;
         margin: 0;
         padding: 0 20px 20px;
     }
 
-    .registration-step-1 .panel .line.name {
+    .registration-steps .panel .line.name {
         margin: 0 0 30px;
     }
 
-    .registration-step-1 .panel .line.grad-year {
+    .registration-steps .panel .line.grad-year {
         display: block;
     }
 
-    .registration-step-1 .panel .education input,
-  .registration-step-1 .panel .line.grad-year input,
-  .registration-step-1 .panel .name input,
-  .registration-step-1 .panel .line.spec textarea,
-  .registration-step-1 .panel .address {
+    .registration-steps .panel .education input,
+  .registration-steps .panel .line.grad-year input,
+  .registration-steps .panel .name input,
+  .registration-steps .panel .line.spec textarea,
+  .registration-steps .panel .address {
         width: 100%;
     }
 
-    .registration-step-1 .panel .lessons-format .checkbox-widget {
+    .registration-steps .panel .lessons-format .checkbox-widget {
         width: auto;
         display: block;
     }
 
-    .registration-step-1 .panel nav .previous,
-  .registration-step-1 .panel nav button {
+    .registration-steps .panel nav .previous,
+  .registration-steps .panel nav button {
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         width: 100%;
@@ -3954,9 +3954,9 @@ select.unchanged+.chosen-container .chosen-single span {
         margin: 0 0 20px;
     }
 
-    .registration-step-1 .panel fieldset,
-  .registration-step-1 .panel fieldset.photo,
-  .registration-step-1 .panel fieldset.photo+fieldset {
+    .registration-steps .panel fieldset,
+  .registration-steps .panel fieldset.photo,
+  .registration-steps .panel fieldset.photo+fieldset {
         width: auto;
         max-width: 100%;
         float: none;
@@ -3964,115 +3964,115 @@ select.unchanged+.chosen-container .chosen-single span {
         margin: 20px 0 0;
     }
 
-    .registration-step-1 .panel fieldset .address-details .house,
-  .registration-step-1 .panel fieldset.photo .address-details .house,
-  .registration-step-1 .panel fieldset.photo+fieldset .address-details .house,
-  .registration-step-1 .panel fieldset .address-details .corpus,
-  .registration-step-1 .panel fieldset.photo .address-details .corpus,
-  .registration-step-1 .panel fieldset.photo+fieldset .address-details .corpus,
-  .registration-step-1 .panel fieldset .address-details .building,
-  .registration-step-1 .panel fieldset.photo .address-details .building,
-  .registration-step-1 .panel fieldset.photo+fieldset .address-details .building,
-  .registration-step-1 .panel fieldset .address-details .street,
-  .registration-step-1 .panel fieldset.photo .address-details .street,
-  .registration-step-1 .panel fieldset.photo+fieldset .address-details .street {
+    .registration-steps .panel fieldset .address-details .house,
+  .registration-steps .panel fieldset.photo .address-details .house,
+  .registration-steps .panel fieldset.photo+fieldset .address-details .house,
+  .registration-steps .panel fieldset .address-details .corpus,
+  .registration-steps .panel fieldset.photo .address-details .corpus,
+  .registration-steps .panel fieldset.photo+fieldset .address-details .corpus,
+  .registration-steps .panel fieldset .address-details .building,
+  .registration-steps .panel fieldset.photo .address-details .building,
+  .registration-steps .panel fieldset.photo+fieldset .address-details .building,
+  .registration-steps .panel fieldset .address-details .street,
+  .registration-steps .panel fieldset.photo .address-details .street,
+  .registration-steps .panel fieldset.photo+fieldset .address-details .street {
         margin: 0 0 20px;
         display: block;
     }
 
-    .registration-step-1 .panel fieldset .address-details .house input,
-  .registration-step-1 .panel fieldset.photo .address-details .house input,
-  .registration-step-1 .panel fieldset.photo+fieldset .address-details .house input,
-  .registration-step-1 .panel fieldset .address-details .corpus input,
-  .registration-step-1 .panel fieldset.photo .address-details .corpus input,
-  .registration-step-1 .panel fieldset.photo+fieldset .address-details .corpus input,
-  .registration-step-1 .panel fieldset .address-details .building input,
-  .registration-step-1 .panel fieldset.photo .address-details .building input,
-  .registration-step-1 .panel fieldset.photo+fieldset .address-details .building input,
-  .registration-step-1 .panel fieldset .address-details .street input,
-  .registration-step-1 .panel fieldset.photo .address-details .street input,
-  .registration-step-1 .panel fieldset.photo+fieldset .address-details .street input {
+    .registration-steps .panel fieldset .address-details .house input,
+  .registration-steps .panel fieldset.photo .address-details .house input,
+  .registration-steps .panel fieldset.photo+fieldset .address-details .house input,
+  .registration-steps .panel fieldset .address-details .corpus input,
+  .registration-steps .panel fieldset.photo .address-details .corpus input,
+  .registration-steps .panel fieldset.photo+fieldset .address-details .corpus input,
+  .registration-steps .panel fieldset .address-details .building input,
+  .registration-steps .panel fieldset.photo .address-details .building input,
+  .registration-steps .panel fieldset.photo+fieldset .address-details .building input,
+  .registration-steps .panel fieldset .address-details .street input,
+  .registration-steps .panel fieldset.photo .address-details .street input,
+  .registration-steps .panel fieldset.photo+fieldset .address-details .street input {
         width: 100%;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
     }
 
-    .registration-step-1 .panel fieldset .third,
-  .registration-step-1 .panel fieldset.photo .third,
-  .registration-step-1 .panel fieldset.photo+fieldset .third {
+    .registration-steps .panel fieldset .third,
+  .registration-steps .panel fieldset.photo .third,
+  .registration-steps .panel fieldset.photo+fieldset .third {
         width: auto;
         margin: 0 0 20px;
     }
 
-    .registration-step-1 .panel fieldset .dropdown-container-widget,
-  .registration-step-1 .panel fieldset.photo .dropdown-container-widget,
-  .registration-step-1 .panel fieldset.photo+fieldset .dropdown-container-widget,
-  .registration-step-1 .panel fieldset .dropdown-widget,
-  .registration-step-1 .panel fieldset.photo .dropdown-widget,
-  .registration-step-1 .panel fieldset.photo+fieldset .dropdown-widget {
+    .registration-steps .panel fieldset .dropdown-container-widget,
+  .registration-steps .panel fieldset.photo .dropdown-container-widget,
+  .registration-steps .panel fieldset.photo+fieldset .dropdown-container-widget,
+  .registration-steps .panel fieldset .dropdown-widget,
+  .registration-steps .panel fieldset.photo .dropdown-widget,
+  .registration-steps .panel fieldset.photo+fieldset .dropdown-widget {
         width: 100%;
         display: block;
     }
 
-    .registration-step-1 .panel fieldset .month,
-  .registration-step-1 .panel fieldset.photo .month,
-  .registration-step-1 .panel fieldset.photo+fieldset .month,
-  .registration-step-1 .panel fieldset .year,
-  .registration-step-1 .panel fieldset.photo .year,
-  .registration-step-1 .panel fieldset.photo+fieldset .year,
-  .registration-step-1 .panel fieldset .day,
-  .registration-step-1 .panel fieldset.photo .day,
-  .registration-step-1 .panel fieldset.photo+fieldset .day {
+    .registration-steps .panel fieldset .month,
+  .registration-steps .panel fieldset.photo .month,
+  .registration-steps .panel fieldset.photo+fieldset .month,
+  .registration-steps .panel fieldset .year,
+  .registration-steps .panel fieldset.photo .year,
+  .registration-steps .panel fieldset.photo+fieldset .year,
+  .registration-steps .panel fieldset .day,
+  .registration-steps .panel fieldset.photo .day,
+  .registration-steps .panel fieldset.photo+fieldset .day {
         margin: 0 0 20px;
         width: 100%;
     }
 }
 
 @media (max-width: 924px) {
-    .registration-step-1 .steps {
+    .registration-steps .steps {
         max-width: 70vw;
         margin: 75px auto;
     }
 
-    .registration-step-1 .steps .step .sub-title span {
+    .registration-steps .steps .step .sub-title span {
         font-size: 12px;
     }
 }
 
 @media (max-width: 600px) {
-    .registration-step-1 .panel .add-sertificat label {
+    .registration-steps .panel .add-sertificat label {
         display: block;
         margin: 0 0 30px;
     }
 
-    .registration-step-1 .panel .add-sertificat span {
+    .registration-steps .panel .add-sertificat span {
         display: block;
     }
 
-    .registration-step-1 .panel .sertificat-list .sertificat {
+    .registration-steps .panel .sertificat-list .sertificat {
         padding: 0;
     }
 
-    .registration-step-1 .panel .sertificat-list .sertificat img {
+    .registration-steps .panel .sertificat-list .sertificat img {
         position: static;
         display: block;
         margin: 0 0 30px;
     }
 
-    .registration-step-1 .panel .sertificat-list .sertificat .remove {
+    .registration-steps .panel .sertificat-list .sertificat .remove {
         left: 100px;
     }
 
-    .registration-step-1 .steps {
+    .registration-steps .steps {
         margin: 75px auto;
     }
 
-    .registration-step-1 .steps .step .sub-title span {
+    .registration-steps .steps .step .sub-title span {
         font-size: 11px;
         font-weight: normal;
     }
 
-    .registration-step-1 .steps .step:nth-child(2n) .sub-title {
+    .registration-steps .steps .step:nth-child(2n) .sub-title {
         bottom: auto;
         top: 25px;
     }
