@@ -24,7 +24,12 @@ class PersonalDataAll
     # Проверка полей ввода
     @step1.h5Validate()
 
+    window.FileAPI.debug = true
+
     # Загрузка аватара
+    window.FileAPI = {debug: true, staticPath: 'js/'}
+
+
     @file = @step1.find '#registration-avatar'
     @avatarTemplate = document.getElementById 'current-avatar-template'
     @fileSelector = @step1.find '.file-selector'
@@ -150,7 +155,7 @@ class PersonalDataAll
     @cerificates_count = 0
     @sertificats = @step4.find '.sertificats'
     @sertificats.fileapi
-      url: 'http://test.silentimp.info/test.php'
+      url: '"sex=male&month=0&year=2000&status=0&experience=0&experience=30&addition=on&subject=3&section=2&street%5B%5D=&house%5B%5D=&corpus%5B%5D=&building%5B%5D=&comments=&city%5B%5D=&univercity%5B%5D=&grad-year%5B%5D=&fac%5B%5D=&comments%5B%5D=&home=&office=&online=&message=&additional-information="'
       duplicate: false,
       accept: 'image/*',
       maxSize: 5 * FileAPI.MB,
@@ -305,6 +310,9 @@ class PersonalDataAll
     @current.addClass('current')
     $('body').animate {scrollTop:0}, '500'
 
+    # Отправка на сервер
+    console.log JSON.parse(JSON.stringify($('.panel :input').serializeArray()))
+
   # Переход от 4 к 3 шагу
   step4Back: (event)=>
     event.preventDefault()
@@ -402,7 +410,7 @@ class PersonalDataAll
     select = $ event.currentTarget
     select.removeClass 'unchanged'
     id = select.val()
-    
+
     line = select.parents('.line')
     
     subsections = @getSubSections(id)
