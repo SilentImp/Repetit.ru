@@ -7,21 +7,13 @@
     <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
     <title>Личные данные | Регистрация | Ассоциация репетиторов</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <script>
-        window.FileAPI = {
-            debug: true
-          , staticPath: 'js/'
-        };
-    </script>
     <script src="js/modernizr.js"></script>
     <script src="js/html-template-polyfill.js"></script>
     <script src="js/jquery/jquery.min.js"></script>
-    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
     <script src="js/jquery.nouislider.all.min.js"></script>
     <script src="js/jquery.liblink.js"></script>
     <script src="js/h5Validate/jquery.h5validate.js"></script>
-    <script src="js/FileAPI.min.js"></script>
-    <script src="js/jquery.fileapi.min.js"></script>
+    <script src="js/dropzone.js"></script>
     <script src="js/handlebars/handlebars.min.js"></script>
     <script src="js/typeahead.js/dist/bloodhound.min.js"></script>
     <script src="js/typeahead.js/dist/typeahead.jquery.min.js"></script>
@@ -35,9 +27,6 @@
     </script>
     <script id="subj-section-template" type="text/x-handlebars-template">
         <div class="section"><div class="line"><h3 class="sub-title">Разделы</h3><select data-placeholder="Выберите раздел" multiple="multiple" name="section" required="required" data-h5-errorid="section-required-{{{index}}}" class="unchanged">{{#each section}}<option value="{{{id}}}">{{{title}}}</option>{{/each}}</select><div id="section-required-{{{index}}}" class="error">Пожалуйста, заполните это поле</div></div><div class="line sub-section"><h3 class="sub-title">Дополнения</h3><div class="addition dropdown-container-widget"><div data-placeholder="Выберите из списка" class="current default"><span>Выберите из списка</span></div><div class="list"><div class="column">{{#each column1}}<div class="checkbox-widget"><input id="dropdown-container-widget-{{{../index}}}-{{{id}}}" type="checkbox" name="addition[]" value="{{{id}}}"/><label for="dropdown-container-widget-{{{../index}}}-{{{id}}}">{{{title}}}</label></div>{{/each}}</div><div class="column">{{#each column2}}<div class="checkbox-widget"><input id="dropdown-container-widget-{{{../index}}}-{{{id}}}" type="checkbox" name="addition[]" value="{{{id}}}"/><label for="dropdown-container-widget-{{{../index}}}-{{{id}}}">{{{title}}}</label></div>{{/each}}</div></div></div></div></div>
-    </script>
-    <script id="sertificat-template" type="text/x-handlebars-template">
-        <div data-id="{{{id}}}" class="sertificat"><a href="#link-to-big-img" class="b-thumb__preview__pic"><img src="{{{src}}}" alt="Сертификат"/></a><a href="#" data-fileapi="file.remove" class="remove"></a><textarea name="comments" placeholder="Описание…" cols="30" rows="10"></textarea></div>
     </script>
     <script id="education-template" type="text/x-handlebars-template">
         <div class="education-wrapper"><h2 class="chapter-title"><span>Образование</span></h2><div class="line"><label for="city{{{index}}}">Населенный пункт</label><input type="text" autocomplete="off" spellcheck="false" id="city{{{index}}}" name="city[]" value="" placeholder="Начните вводить..." class="city"/></div><div class="line name"><label for="univercity{{{index}}}">Название учебного заведения</label><input type="text" autocomplete="off" spellcheck="false" id="univercity{{{index}}}" name="univercity[]" value="" placeholder="Начните вводить..." class="univercity"/></div><div class="line grad-year"><label for="grad-year{{{index}}}">Год выпуска</label><input type="text" id="grad-year{{{index}}}" name="grad-year[]" value=""/></div><div class="line"><label for="fac{{{index}}}">Факультет</label><input type="text" id="fac{{{index}}}" name="fac[]" value="" class="faculty"/></div><div class="line spec"><label for="spec{{{index}}}">Специальность</label><input type="text" id="spec{{{index}}}" name="comments[]" value="" class="specialization"/></div><h3 class="sub-title">Цена занятия <b>(минимальной продолжительности)</b></h3><div class="line"><div class="third subdevision"><label for="athome{{{index}}}">На дому</label><input type="number" name="home" id="athome{{{index}}}" required="required" data-h5-errorid="mprice-required-{{{index}}}" class="athome"/><span>руб (<strong class="min-time">45 </strong> мин)</span></div><div class="third subdevision"><label for="atoffice{{{index}}}">Выезд к ученику</label><input type="number" name="office" id="atoffice{{{index}}}" required="required" data-h5-errorid="mprice-required-{{{index}}}" class="atoffice"/><span>руб (<strong class="min-time">45 </strong> мин)</span></div><div class="third subdevision"><label for="online{{{index}}}">Удаленно</label><input type="number" name="online" id="online{{{index}}}" required="required" data-h5-errorid="mprice-required-{{{index}}}" class="online"/><span>руб (<strong class="min-time">45 </strong> мин)</span></div><div id="mprice-required-{{{index}}}" class="error">Пожалуйста, заполните это поле</div></div><h3 class="sub-title">Комментарий</h3><div class="line"> <textarea name="message" cols="30" rows="10"></textarea></div></div>
@@ -68,19 +57,11 @@
                 <h3 class="sub-title"><span>Образование</span></h3>
             </div>
         </div>
-        <div data-action="/save/" class="panel step-1 current">
-            <template id="current-avatar-template">
-                <div class="current-avatar">
-                    <label for="registration-avatar">
-                        <img alt="Фотография" data-dz-thumbnail="data-dz-thumbnail" class="avatar" />
-                    </label>
-                    <a href="#" data-fileapi="file.remove" class="close"></a>
-                </div>
-            </template>
+        <div class="panel step-1 current">
             <fieldset class="photo">
-                <label class="file-selector"><span class="abstract">Перетяните ваше фото, или нажмите, чтобы выбрать</span><span class="select">Выбрать</span>
-                    <input type="file" name="avatar" id="registration-avatar" accept="image/*" />
-                </label>
+                <div class="avatar"></div>
+                <div class="file-selector"><span class="abstract">Перетяните ваше фото, или нажмите, чтобы выбрать</span><span class="select">Выбрать</span>
+                </div>
                 <p class="meta">Поддерживаются файлы JPG, GIF, PNG до 5 Мб.</p>
             </fieldset>
             <fieldset>
@@ -279,28 +260,9 @@
             </fieldset>
             <fieldset class="sertificats">
                 <h2 class="chapter-title"><span>Дипломы, грамоты, сертификаты</span></h2>
-                <div class="sertificat-list">
-                    <div class="js-file-tpl b-thumb" data-id="<%=uid%>" title="<%-name%>, <%-sizeText%>">
-                        <div data-fileapi="file.remove" class="b-thumb__del">✖</div>
-                        <div class="b-thumb__preview">
-                            <div class="b-thumb__preview__pic"></div>
-                        </div>
-                        <% if( /^image/.test(type) ){ %>
-                            <div data-fileapi="file.rotate.cw" class="b-thumb__rotate"></div>
-                            <% } %>
-                                <div class="b-thumb__progress progress progress-small">
-                                    <div class="bar"></div>
-                                </div>
-                                <div class="b-thumb__name">
-                                    <%-name%>
-                                </div>
-                    </div>
-
-                </div>
+                <div class="sertificat-list"></div>
                 <nav class="add-sertificat">
-                    <label>Выбрать файл
-                        <input type="file" name="certificat" />
-                    </label><span>Поддерживаются файлы PDF, JPG, GIF, PNG до 5 Мб.</span>
+                    <div class="button">Выбрать файл</div><span>Поддерживаются файлы PDF, JPG, GIF, PNG до 5 Мб.</span>
                 </nav>
             </fieldset>
             <fieldset>
