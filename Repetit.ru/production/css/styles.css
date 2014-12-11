@@ -2781,8 +2781,10 @@ select.unchanged+.chosen-container .chosen-single span {
     color: rgba(63,63,63,0.51);
 }
 
-select.ui-state-error+.chosen-container .chosen-choices {
+html body .registration-steps .panel .ui-state-error + .chosen-container .chosen-choices,
+html body .registration-steps .panel .ui-state-error + .chosen-container .chosen-single {
     border-color: #f56d6c;
+    border: 1px solid #f56d6c;
     box-shadow: 0 0 4px 1px rgba(245,109,108,0.3);
 }
 

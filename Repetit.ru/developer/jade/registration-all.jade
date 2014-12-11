@@ -30,7 +30,8 @@ html(lang="ru")
         .line.subject
           h3.sub-title Предмет
           select.unchanged(name="subject", required="required", data-h5-errorid="subject-required{{{index}}}")
-            - var subjs = ['Выберите из списка','Русский язык','Английский язык','Немецкий язык','Французский язык','Итальянский язык','Испанский язык','Китайский язык','Математика','Физика','Информатика / программирование','Химия','Биология','История','Обществознание','Литература','География','Экономика','Начальная школа','Музыка','Логопед','Другой','Русский как иностранный','Японский язык','Изобразительное искусство','Подготовка к школе','Редкие иностранные языки','Спорт и фитнес']
+            option(value="unchanged") Выберите из списка
+            - var subjs = ['Русский язык','Английский язык','Немецкий язык','Французский язык','Итальянский язык','Испанский язык','Китайский язык','Математика','Физика','Информатика / программирование','Химия','Биология','История','Обществознание','Литература','География','Экономика','Начальная школа','Музыка','Логопед','Другой','Русский как иностранный','Японский язык','Изобразительное искусство','Подготовка к школе','Редкие иностранные языки','Спорт и фитнес']
             - var id = 0
             each subj in subjs
               - id++
@@ -219,6 +220,7 @@ html(lang="ru")
             
             .month
               select.unchanged(name="month", required="required", data-h5-errorid="birthday-required")
+                option(value="unchanged") Выберите
                 option(value="0") Январь
                 option(value="1") Февраль
                 option(value="2") Март
@@ -234,6 +236,7 @@ html(lang="ru")
 
             .year
               select.unchanged(name="year", required="required", data-h5-errorid="birthday-required")
+                option(value="unchanged") Выберите
                 - var n = 2000
                 while n > 1945
                   option(value=n)=n
@@ -245,6 +248,7 @@ html(lang="ru")
 
             .status
               select.unchanged(name="status", required="required", data-h5-errorid="status-required")
+                option(value="unchanged") Выберите из списка
                 option(value="0") Свободен
                 option(value="1") Занят
 

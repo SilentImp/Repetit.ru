@@ -20,6 +20,9 @@ class PersonalDataAll
       select.chosen
         disable_search_threshold: 30
 
+    $( ".panel" ).on "change", ":input", (event)->
+      $(event.currentTarget).removeClass 'unchanged'
+
     # Шаг 1
     # Проверка полей ввода
     @step1.h5Validate()
@@ -540,8 +543,11 @@ class PersonalDataAll
 
     if input.hasAttribute('required')
       
-      # if input.classList.contains 'unchanged'
-      #   input.classList.add 'ui-state-error'
+      if input.classList.contains 'unchanged'
+        input.classList.add 'ui-state-error'
+
+      if input.value == "unchanged"
+        input.classList.add 'ui-state-error'
 
       if input.value.trim().length == 0
         input.classList.add 'ui-state-error'
