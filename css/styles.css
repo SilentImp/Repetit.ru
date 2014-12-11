@@ -4238,6 +4238,10 @@ html.no-svg .start-now .wrapper:after {
     }
 }
 
+.twitter-typeahead .tt-suggestion {
+    padding: 5px 10px;
+}
+
 .twitter-typeahead .tt-suggestion:hover {
     background-color: rgba(191,214,219,0.4);
 }
@@ -4280,7 +4284,7 @@ html.no-svg .start-now .wrapper:after {
     color: #3f3f3f;
     font-weight: 200;
     font-family: 'Helvetica Neue', sans-serif;
-    padding: 5px 10px;
+    padding: 5px 0;
 }
 
 .twitter-typeahead .tt-dropdown-menu>div .tt-suggestion:hover {
