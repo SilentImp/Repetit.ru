@@ -3754,7 +3754,6 @@ select.unchanged+.chosen-container .chosen-single span {
 .registration-steps .panel fieldset.photo .current-avatar .avatar {
     width: 100%;
     display: block;
-    cursor: pointer;
 }
 
 .registration-steps .panel fieldset.photo .current-avatar .close {
