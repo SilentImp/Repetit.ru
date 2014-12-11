@@ -25,13 +25,24 @@ class PersonalDataAll
     @step1.h5Validate()
 
     # Загрузка аватара
-    @file = @step1.find '#registration-avatar'
-    @avatarTemplate = document.getElementById 'current-avatar-template'
-    @fileSelector = @step1.find '.file-selector'
-    
-    FileAPI.event.on @file[0], 'change', @avatarSelected
-    @fileSelector.dnd @over, @drop
-    FileAPI.event.on document, 'drop', @droped
+    @avadrop = new Dropzone $('.photo')[0],
+      url: "http://test.silentimp.info/Repetit.ru/test.php"
+      uploadMultiple: false
+      maxFilesize: 5
+      paramName: "avatar"
+      method: "post"
+      clickable: ".file-selector"
+      thumbnailWidth: null
+      thumbnailHeight: null
+      acceptedFiles: "image/*"
+      previewsContainer: ".avatar"
+      previewTemplate: '<div class="current-avatar"><img data-dz-thumbnail="data-dz-thumbnail" /><a href="#" data-dz-remove="data-dz-remove" class="close"></a></div>'
+
+    @avadrop.on 'addedfile', ->
+      $('.file-selector').hide()
+
+    @avadrop.on 'removedfile', ->
+      $('.file-selector').show()
 
     # Ползунок опыта
     exp = $ '#experience'
@@ -97,6 +108,7 @@ class PersonalDataAll
     @add_subject.trigger 'click'
 
     # Подразделы предмета
+    @section_count = 0 
     @subject_section_source = $("#subj-section-template").html()
     @subject_section_source = Handlebars.compile @subject_section_source
 
@@ -144,34 +156,23 @@ class PersonalDataAll
     @remove_education = @step4.find '.remove-education'
     @remove_education.on 'click', @removeEducation
 
-    @sertificat_source = $("#sertificat-template").html()
-    @sertificat_source = Handlebars.compile @sertificat_source
+
     @cert_list = @step4.find '.sertificat-list'
     @cerificates_count = 0
     @sertificats = @step4.find '.sertificats'
-    @sertificats.fileapi
-      url: 'http://test.silentimp.info/Repetit.ru/test.php'
-      duplicate: false,
-      accept: 'image/*',
-      maxSize: 5 * FileAPI.MB,
-      autoUpload: false,
-      multiple: true,
-      list: '.sertificat-list',
-      elements:
-        file: 
-          tpl: '.js-file-tpl'
-          preview:
-            el: '.b-thumb__preview__pic'
-            width: 80
-            height: 80
-      onSelect: (evt, ui)=>
-        @cerificates_count++
-        # reader = new FileReader()
-        # reader.onload = (event)=>
-        #   @cert_list.append @sertificat_source
-        #     "id" : @cerificates_count
-        #     "src" : event.target.result
-        # reader.readAsDataURL ui.files[0]
+
+    @sertificats.dropzone
+      url: "http://test.silentimp.info/Repetit.ru/test.php"
+      uploadMultiple: true
+      maxFilesize: 5
+      paramName: "certificats"
+      method: "post"
+      previewsContainer: ".sertificat-list"
+      clickable: ".add-sertificat .button"
+      thumbnailWidth: null
+      thumbnailHeight: null
+      acceptedFiles: "image/*,application/pdf"
+      previewTemplate: '<div class="sertificat dz-preview dz-file-preview"><img data-dz-thumbnail="data-dz-thumbnail" /><a href="#" data-dz-remove="data-dz-remove" class="remove"></a><textarea name="comments[]" placeholder="Описание…" cols="30" rows="10"></textarea></div>'
 
     @step4.find('button[type="submit"]').on 'click', @step4Submit
     @step4.find('a.previous').on 'click', @step4Back
@@ -409,11 +410,13 @@ class PersonalDataAll
     leftSide = subsections.splice(0,half_length)
 
     sections = @subject_section_source({
-      index : @subj_count
-      section : @getSections(id)
-      column1 : leftSide
-      column2 : subsections
+      'index'   : @section_count
+      'section' : @getSections(id)
+      'column1' : leftSide
+      'column2' : subsections
       })
+
+    @section_count++
 
     next = line.next()
     if next.hasClass('section')
@@ -435,8 +438,6 @@ class PersonalDataAll
   getAdd: (index)=>
     chkboxs =  $ '.subj-wrapper .section:eq('+index+') .sub-section input[name="addition[]"]:checked'
     values = new Array
-    console.dir chkboxs
-    console.log chkboxs
     for chkbox in chkboxs
       values.push $(chkbox).val()
     return values

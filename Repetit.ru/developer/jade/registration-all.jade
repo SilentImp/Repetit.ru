@@ -7,28 +7,16 @@ html(lang="ru")
     title Личные данные | Регистрация | Ассоциация репетиторов
     link(rel="stylesheet", href="css/styles.css")
 
-    script.
-      window.FileAPI = {
-          debug: true
-        , staticPath: 'js/'
-      };
-
-
     script(src="js/modernizr.js")
     script(src="js/html-template-polyfill.js")
     script(src="js/jquery/jquery.min.js")
-    script(src="js/jquery-ui-1.9.2.custom.min.js")
     script(src="js/jquery.nouislider.all.min.js")
     script(src="js/jquery.liblink.js")
     script(src="js/h5Validate/jquery.h5validate.js")
-
-    script(src="js/FileAPI.min.js")
-    script(src="js/jquery.fileapi.min.js")
+    script(src="js/dropzone.js")
     script(src="js/handlebars/handlebars.min.js")
     script(src="js/typeahead.js/dist/bloodhound.min.js")
     script(src="js/typeahead.js/dist/typeahead.jquery.min.js")
-
-
     script(src="js/moment/min/moment.min.js")
     script(src="js/chosen_v1.2.0/chosen.jquery.min.js")
     script(src="js/wNumb.js")
@@ -86,22 +74,15 @@ html(lang="ru")
               .column
                 | {{#each column1}}
                 .checkbox-widget
-                  input(id="dropdown-container-widget-1-{{{index}}}-{{{title}}}", type="checkbox", name="addition[]", value="{{{id}}}")
-                  label(for="dropdown-container-widget-1-{{{index}}}-{{{title}}}") {{{title}}}
+                  input(id="dropdown-container-widget-{{{../index}}}-{{{id}}}", type="checkbox", name="addition[]", value="{{{id}}}")
+                  label(for="dropdown-container-widget-{{{../index}}}-{{{id}}}") {{{title}}}
                 | {{/each}}
               .column
                 | {{#each column2}}
                 .checkbox-widget
-                  input(id="dropdown-container-widget-1-{{{index}}}-{{{title}}}", type="checkbox", name="addition[]", value="{{{id}}}")
-                  label(for="dropdown-container-widget-1-{{{index}}}-{{{title}}}") {{{title}}}
+                  input(id="dropdown-container-widget-{{{../index}}}-{{{id}}}", type="checkbox", name="addition[]", value="{{{id}}}")
+                  label(for="dropdown-container-widget-{{{../index}}}-{{{id}}}") {{{title}}}
                 | {{/each}}
-
-    script(id="sertificat-template" type="text/x-handlebars-template")
-      .sertificat(data-id="{{{id}}}")
-        a.b-thumb__preview__pic(href="#link-to-big-img")
-          img(src="{{{src}}}", alt="Сертификат")
-        a.remove(href="#", data-fileapi="file.remove")
-        textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
 
     script(id="education-template" type="text/x-handlebars-template")
       .education-wrapper
@@ -210,17 +191,12 @@ html(lang="ru")
         .step
           h3.sub-title: span Образование
 
-      .panel.step-1.current(data-action="/save/")
-        template#current-avatar-template
-          .current-avatar
-            label(for="registration-avatar")
-              img.avatar(alt="Фотография", data-dz-thumbnail)
-            a.close(href="#", data-fileapi="file.remove")
+      .panel.step-1.current
         fieldset.photo
-          label.file-selector
+          .avatar
+          .file-selector
             span.abstract Перетяните ваше фото, или нажмите, чтобы выбрать
             span.select Выбрать
-            input(type="file", name="avatar", id="registration-avatar", accept="image/*")
           p.meta Поддерживаются файлы JPG, GIF, PNG до 5 Мб.
         
         fieldset
@@ -350,29 +326,10 @@ html(lang="ru")
         fieldset.sertificats
           h2.chapter-title: span Дипломы, грамоты, сертификаты
           
-          .sertificat-list.
-            <div class="js-file-tpl b-thumb" data-id="<%=uid%>" title="<%-name%>, <%-sizeText%>">
-              <div data-fileapi="file.remove" class="b-thumb__del">✖</div>
-              <div class="b-thumb__preview">
-                 <div class="b-thumb__preview__pic"></div>
-              </div>
-              <% if( /^image/.test(type) ){ %>
-                 <div data-fileapi="file.rotate.cw" class="b-thumb__rotate"></div>
-              <% } %>
-              <div class="b-thumb__progress progress progress-small"><div class="bar"></div></div>
-              <div class="b-thumb__name"><%-name%></div>
-            </div>
-
-
-          //- .sertificat.js-file-tpl(data-id="<%=uid%>")
-          //-   .preview__pic
-          //-   a.remove(href="#", data-fileapi="file.remove")
-          //-   textarea(name="comments", placeholder="Описание…" cols="30", rows="10")
-
+          .sertificat-list
             
           nav.add-sertificat
-            label Выбрать файл
-              input(type="file", name="certificat")
+            .button Выбрать файл
             span Поддерживаются файлы PDF, JPG, GIF, PNG до 5 Мб.
 
         fieldset

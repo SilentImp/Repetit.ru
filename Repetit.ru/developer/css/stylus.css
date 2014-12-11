@@ -243,6 +243,9 @@ html.no-svg body .contacts section.social nav a.tw {
 .contacts-and-feedback .feedback input[type="email"]:focus {
   border-color: #d8e7ea;
 }
+.contacts-and-feedback .feedback .chosen-container {
+  margin: 8px 0 20px;
+}
 .contacts-and-feedback .feedback textarea {
   display: block;
   resize: none;
@@ -1723,9 +1726,6 @@ html.no-svg body .registration-step-1 .panel.complete .sub-title {
 body.registration-page {
   background-color: #efefef;
 }
-body .js-file-tpl {
-  display: none;
-}
 select.unchanged {
   color: rgba(63,63,63,0.51);
 }
@@ -2096,7 +2096,7 @@ select.unchanged+.chosen-container .chosen-single span {
   font-family: 'Helvetica Neue';
   font-weight: 200;
 }
-.registration-steps .panel .add-sertificat label {
+.registration-steps .panel .add-sertificat .button {
   cursor: pointer;
   font-size: 16px;
   line-height: 48px;
@@ -2316,6 +2316,7 @@ select.unchanged+.chosen-container .chosen-single span {
 }
 .registration-steps .panel .chosen-container .chosen-single div b {
   background: url("../img/register/ddico.svg") 100% 50% no-repeat;
+  background-size: 34px auto;
   width: 34px;
   height: auto;
   right: 0;

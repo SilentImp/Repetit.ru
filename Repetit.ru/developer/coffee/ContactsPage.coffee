@@ -13,6 +13,11 @@ class ContactsPage
     @form = @widget.find 'form.feedback'
     @form.on 'submit', @formSubmit
 
+    select = $ 'select'
+    if select.length > 0
+      select.chosen
+        disable_search_threshold: 30
+
   formSubmit: (event)=>
     event.preventDefault()
     $.ajax

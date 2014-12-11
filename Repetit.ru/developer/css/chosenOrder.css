@@ -92,7 +92,7 @@
   display: block;
   width: 5px;
   height: 10px;
-  background: url('../js/chosen_v1.2.0/select.png');
+  /*background: url('../js/chosen_v1.2.0/select.png');*/
   position: absolute;
   right: 10px;
   top: 9px;
@@ -394,12 +394,12 @@
 }
 .chosen-rtl .chosen-search input[type="text"] {
   padding: 4px 5px 4px 20px;
-  background: white url('../js/chosen_v1.2.0/chosen-sprite.png') no-repeat -30px -20px;
-  background: url('../js/chosen_v1.2.0/chosen-sprite.png') no-repeat -30px -20px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #eeeeee), color-stop(15%, #ffffff));
-  background: url('../js/chosen_v1.2.0/chosen-sprite.png') no-repeat -30px -20px, -webkit-linear-gradient(#eeeeee 1%, #ffffff 15%);
-  background: url('../js/chosen_v1.2.0/chosen-sprite.png') no-repeat -30px -20px, -moz-linear-gradient(#eeeeee 1%, #ffffff 15%);
-  background: url('../js/chosen_v1.2.0/chosen-sprite.png') no-repeat -30px -20px, -o-linear-gradient(#eeeeee 1%, #ffffff 15%);
-  background: url('../js/chosen_v1.2.0/chosen-sprite.png') no-repeat -30px -20px, linear-gradient(#eeeeee 1%, #ffffff 15%);
+  /*background: white url('../js/chosen_v1.2.0/chosen-sprite.png') no-repeat -30px -20px;*/
+  /*background: url('../js/chosen_v1.2.0/chosen-sprite.png') no-repeat -30px -20px, -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, #eeeeee), color-stop(15%, #ffffff));*/
+  /*background: url('../js/chosen_v1.2.0/chosen-sprite.png') no-repeat -30px -20px, -webkit-linear-gradient(#eeeeee 1%, #ffffff 15%);*/
+  /*background: url('../js/chosen_v1.2.0/chosen-sprite.png') no-repeat -30px -20px, -moz-linear-gradient(#eeeeee 1%, #ffffff 15%);*/
+  /*background: url('../js/chosen_v1.2.0/chosen-sprite.png') no-repeat -30px -20px, -o-linear-gradient(#eeeeee 1%, #ffffff 15%);*/
+  /*background: url('../js/chosen_v1.2.0/chosen-sprite.png') no-repeat -30px -20px, linear-gradient(#eeeeee 1%, #ffffff 15%);*/
   direction: rtl;
 }
 .chosen-rtl.chosen-container-single .chosen-single div b {
@@ -419,9 +419,9 @@
   .chosen-container-multi .chosen-choices .search-choice .search-choice-close,
   .chosen-container .chosen-results-scroll-down span,
   .chosen-container .chosen-results-scroll-up span {
-    background-image: url('../js/chosen_v1.2.0/chosen-sprite@2x.png') !important;
-    background-size: 52px 37px !important;
-    background-repeat: no-repeat !important;
+    /*background-image: url('../js/chosen_v1.2.0/chosen-sprite@2x.png') !important;*/
+    /*background-size: 52px 37px !important;*/
+    /*background-repeat: no-repeat !important;*/
   }
 }
 /* @end */

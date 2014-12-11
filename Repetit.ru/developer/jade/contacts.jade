@@ -11,7 +11,7 @@ html(lang="ru")
     script(src="js/modernizr.js")
     script(src="js/jquery/jquery.min.js")
     script(src="js/h5Validate/jquery.h5validate.js")
-    script(src="js/DropdownWidgetController.js")
+    script(src="js/chosen_v1.2.0/chosen.jquery.min.js")
 
     script(src="js/ContactsPage.js", async)
     script(src="js/MessagePanel.js", async)
@@ -57,14 +57,10 @@ html(lang="ru")
                 input(required="required", type="email", name="email")
             .select-widget
               label(for="feedback-subject") Категория обращения
-              .subject.dropdown-widget
+              .subject
                 select(name="subject")
                   option(value="0") Репетиторы — Работа с клиентами
                   option(value="1", selected="selected") Сервис — Работа с клиентами
-                .current: span Сервис — Работа с клиентами
-                .list
-                  .option(data-value="0") Репетиторы — Работа с клиентами
-                  .option.selected(data-value="1") Сервис — Работа с клиентами
 
             textarea(required="required", name="message", cols="30", rows="10", placeholder="Ваш вопрос…")
             label.file-attachment Прикрепить файл
