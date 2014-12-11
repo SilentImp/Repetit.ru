@@ -4238,6 +4238,27 @@ html.no-svg .start-now .wrapper:after {
     }
 }
 
+.twitter-typeahead .tt-hint {
+    width: 520px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 24px;
+    padding: 11px 10px;
+    font-family: 'Helvetica Neue';
+    color: rgba(0,0,0,0.5);
+    border: 1px solid transparent;
+    background: none;
+}
+
+.twitter-typeahead strong {
+    font-weight: bold;
+}
+
+.twitter-typeahead .tt-dataset-locations {
+    max-height: 200px;
+    overflow: auto;
+}
+
 .twitter-typeahead .tt-dropdown-menu {
     width: 100%;
 }

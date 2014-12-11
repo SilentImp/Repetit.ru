@@ -57,6 +57,48 @@ html(lang="ru")
                     input(id="category-"+category+'-{{{index}}}', type="checkbox", name="category[]", value=id)
                     label(for="category-"+category+'-{{{index}}}')=category
 
+        h3.sub-title Цена занятия 
+          b (минимальной продолжительности)
+        .line
+          .third.subdevision
+            label(for="athome{{{index}}}") На дому
+            input.athome(
+              type="number", 
+              name="home", 
+              id="athome{{{index}}}", 
+              required="required", 
+              data-h5-errorid="mprice-required-{{{index}}}")
+            span руб (
+              strong.min-time 45 
+              |  мин)
+          .third.subdevision
+            label(for="atoffice{{{index}}}") Выезд к ученику
+            input.atoffice(
+              type="number", 
+              name="office", 
+              id="atoffice{{{index}}}", 
+              required="required", 
+              data-h5-errorid="mprice-required-{{{index}}}")
+            span руб (
+              strong.min-time 45 
+              |  мин)
+          .third.subdevision
+            label(for="online{{{index}}}") Удаленно
+            input.online(
+              type="number", 
+              name="online", 
+              id="online{{{index}}}", 
+              required="required", 
+              data-h5-errorid="mprice-required-{{{index}}}")
+            span руб (
+              strong.min-time 45 
+              |  мин)
+          .error(id="mprice-required-{{{index}}}") Пожалуйста, заполните это поле
+
+        h3.sub-title Комментарий
+        .line 
+          textarea(name="message", cols="30", rows="10")
+
     script(id="subj-section-template", type="text/x-handlebars-template")
       .section
         .line
@@ -102,49 +144,6 @@ html(lang="ru")
         .line.spec
           label(for="spec{{{index}}}") Специальность
           input.specialization(type="text", id="spec{{{index}}}", name="comments[]", value="")
-
-
-        h3.sub-title Цена занятия 
-          b (минимальной продолжительности)
-        .line
-          .third.subdevision
-            label(for="athome{{{index}}}") На дому
-            input.athome(
-              type="number", 
-              name="home", 
-              id="athome{{{index}}}", 
-              required="required", 
-              data-h5-errorid="mprice-required-{{{index}}}")
-            span руб (
-              strong.min-time 45 
-              |  мин)
-          .third.subdevision
-            label(for="atoffice{{{index}}}") Выезд к ученику
-            input.atoffice(
-              type="number", 
-              name="office", 
-              id="atoffice{{{index}}}", 
-              required="required", 
-              data-h5-errorid="mprice-required-{{{index}}}")
-            span руб (
-              strong.min-time 45 
-              |  мин)
-          .third.subdevision
-            label(for="online{{{index}}}") Удаленно
-            input.online(
-              type="number", 
-              name="online", 
-              id="online{{{index}}}", 
-              required="required", 
-              data-h5-errorid="mprice-required-{{{index}}}")
-            span руб (
-              strong.min-time 45 
-              |  мин)
-          .error(id="mprice-required-{{{index}}}") Пожалуйста, заполните это поле
-
-        h3.sub-title Комментарий
-        .line 
-          textarea(name="message", cols="30", rows="10")
 
     script(id="address-template" type="text/x-handlebars-template")
       .adress-wrapper
