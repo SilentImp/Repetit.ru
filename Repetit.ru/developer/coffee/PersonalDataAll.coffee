@@ -24,12 +24,7 @@ class PersonalDataAll
     # Проверка полей ввода
     @step1.h5Validate()
 
-    window.FileAPI.debug = true
-
     # Загрузка аватара
-    window.FileAPI = {debug: true, staticPath: 'js/'}
-
-
     @file = @step1.find '#registration-avatar'
     @avatarTemplate = document.getElementById 'current-avatar-template'
     @fileSelector = @step1.find '.file-selector'
