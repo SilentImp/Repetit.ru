@@ -121,8 +121,8 @@ gulp.task('coffee', ()->
     .pipe(coffee({
       bare: true
       }))
-    .pipe(uglify())
-    # .pipe(esformatter({indent: {value: '  '}}))
+    # .pipe(uglify())
+    .pipe(esformatter({indent: {value: '  '}}))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(prod_path.js))
 )
