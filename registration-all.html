@@ -48,11 +48,6 @@
 </head>
 
 <body class="registration-page">
-    <div data-id="&lt;%=uid%&gt;" class="sertificat js-file-tpl">
-        <div class="preview__pic"></div>
-        <a href="#" data-fileapi="file.remove" class="remove"></a>
-        <textarea name="comments" placeholder="Описание…" cols="30" rows="10"></textarea>
-    </div>
     <header>
         <div class="wrapper"><a href="/"><h1 class="logotype">Ассоциация репетиторов</h1></a>
         </div>
@@ -284,7 +279,13 @@
             </fieldset>
             <fieldset class="sertificats">
                 <h2 class="chapter-title"><span>Дипломы, грамоты, сертификаты</span></h2>
-                <div class="sertificat-list"></div>
+                <div class="sertificat-list">
+                    <div data-id="&lt;%=uid%&gt;" class="sertificat js-file-tpl">
+                        <div class="preview__pic"></div>
+                        <a href="#" data-fileapi="file.remove" class="remove"></a>
+                        <textarea name="comments" placeholder="Описание…" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
                 <nav class="add-sertificat">
                     <label>Выбрать файл
                         <input type="file" name="certificat" />
