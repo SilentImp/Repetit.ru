@@ -69,7 +69,6 @@ class PersonalDataAll
     # Отправка данных Шаг 1
     @step1.find('button[type="submit"]').on 'click', @step1Submit
 
-
     # Шаг 2
     # Проверка полей ввода
     @step2.h5Validate()
@@ -89,7 +88,6 @@ class PersonalDataAll
         format: wNumb
           decimals: 0
 
-      
       time.Link('lower').to(@duration_value)
       time.on 'change', (event, ui)=>
         $('strong.min-time').text(ui)
@@ -269,7 +267,6 @@ class PersonalDataAll
     wrapper = univercity.closest('.education-wrapper')
     faculty = wrapper.find('.faculty')
 
-
     if value == 'Национальный исследовательский ядерный университет «МИФИ»'
 
       facultys = new Bloodhound
@@ -298,35 +295,6 @@ class PersonalDataAll
     else
 
       faculty.typeahead('destroy')
-
-    # univercity = $ event.currentTarget
-    # value = univercity.val().trim()
-
-    # wrapper = univercity.closest('.education-wrapper')
-    # faculty = wrapper.find('.univercity')
-
-    # facultys = new Bloodhound
-    #   datumTokenizer: (data)->
-    #     return Bloodhound.tokenizers.whitespace(data.title)
-    #   queryTokenizer: Bloodhound.tokenizers.whitespace,
-    #   local: [{"title":"Andorra"},{"title":"UnitedArabEmirates"},{"title":"Afghanistan"},{"title":"AntiguaandBarbuda"},{"title":"Anguilla"},{"title":"Albania"},{"title":"Armenia"},{"title":"Angola"},{"title":"Antarctica"}]
-
-    # facultys.initialize()
-
-    # faculty.typeahead
-    #   hint: false
-    #   highlight: true
-    #   minLength: 1
-    # ,
-    #   name: 'facultys'
-    #   displayKey: 'title',
-    #   source: facultys.ttAdapter()
-    #   templates:
-    #     suggestion: Handlebars.compile('<p>{{title}}</p>')
-
-    # faculty.on 'change', @addSpec
-
-
 
   # Получение списка разделов для предмета
   getSections: (id)=>
@@ -386,6 +354,7 @@ class PersonalDataAll
         return false
 
     if @step4.find('.ui-state-error').length>0
+      @step4.find('.ui-state-error:eq(0)').focus()
       return false
 
     @current = @current.removeClass('current').next()
@@ -412,6 +381,7 @@ class PersonalDataAll
         return false
 
     if @step3.find('.ui-state-error').length>0
+      @step3.find('.ui-state-error:eq(0)').focus()
       return false
 
     @steps.find('.selected.step:last').next().addClass 'selected'
@@ -454,6 +424,7 @@ class PersonalDataAll
         return false
 
     if @step2.find('.ui-state-error').length>0
+      @step2.find('.ui-state-error:eq(0)').focus()
       return false
 
     @steps.find('.selected.step:last').next().addClass 'selected'
@@ -568,12 +539,18 @@ class PersonalDataAll
       error = document.getElementById input.getAttribute('data-h5-errorid')
 
     if input.hasAttribute('required')
+      
+      # if input.classList.contains 'unchanged'
+      #   input.classList.add 'ui-state-error'
+
       if input.value.trim().length == 0
         input.classList.add 'ui-state-error'
 
     if input.classList.contains 'ui-state-error'
       if error
         error.style.display = 'block'
+
+      input.focus()
       return false
     else
       if error
@@ -590,6 +567,7 @@ class PersonalDataAll
         return false
 
     if @step1.find('.ui-state-error').length>0
+      @step1.find('.ui-state-error:eq(0)').focus()
       return false
 
     @steps.find('.selected.step:last').next().addClass 'selected'

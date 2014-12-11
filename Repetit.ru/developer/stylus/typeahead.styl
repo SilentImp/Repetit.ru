@@ -1,4 +1,8 @@
 .twitter-typeahead
+  .tt-suggestion
+    padding 5px 10px 
+    &:hover
+      background-color rgba(#BFD6DB, .4)
   .tt-hint
     width 520px
     font-size 18px
@@ -29,7 +33,9 @@
       color #3F3F3F 
       font-weight 200
       font-family 'Helvetica Neue', sans-serif
-      padding 5px 10px 
+      padding 5px 0
+      .tt-suggestion:hover
+        background-color rgba(#BFD6DB, .4)
       b
         float right
         font-size 14px

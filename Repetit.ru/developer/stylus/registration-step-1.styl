@@ -1,5 +1,5 @@
 html.no-svg body
-  .registration-step-1
+  .registration-steps
     .panel.complete
       .sub-title
         background-image url("../img/register/complete.png")
@@ -7,11 +7,17 @@ html.no-svg body
 body.registration-page
   background-color #EFEFEF
   
+
 select.unchanged
   color rgba(63,63,63,.51)
   &+.chosen-container .chosen-choices .search-field input,
   &+.chosen-container .chosen-single span
     color rgba(63,63,63,.51)
+
+select.ui-state-error
+  &+.chosen-container .chosen-choices
+    border-color #f56d6c
+    box-shadow 0 0 4px 1px rgba(245,109,108,0.3)
 
 .registration-steps
   position relative
@@ -818,12 +824,12 @@ select.unchanged
     
 
 @media (max-width 1060px)
-  .registration-step-1
+  .registration-steps
     .title
       margin-top 0
 
 @media (max-width 880px)
-  .registration-step-1
+  .registration-steps
     padding 0
     .panel
       border-style solid none none
@@ -841,7 +847,7 @@ select.unchanged
         padding 0
 
 @media (max-width 500px)
-  .registration-step-1
+  .registration-steps
     .panel
       border-style solid none none
       max-width none
@@ -902,7 +908,7 @@ select.unchanged
           width 100%
 
 @media (max-width 924px)
-  .registration-step-1
+  .registration-steps
     .steps
       max-width 70vw
       margin 75px auto
@@ -910,9 +916,16 @@ select.unchanged
         .sub-title
           span
             font-size 12px
+
+@media (max-width 740px)
+  .registration-steps
+    .panel 
+      .third      
+        width auto
+        display block
         
 @media (max-width 600px)
-  .registration-step-1
+  .registration-steps
     .panel 
       .add-sertificat 
         label
