@@ -2781,6 +2781,11 @@ select.unchanged+.chosen-container .chosen-single span {
     color: rgba(63,63,63,0.51);
 }
 
+select.ui-state-error+.chosen-container .chosen-choices {
+    border-color: #f56d6c;
+    box-shadow: 0 0 4px 1px rgba(245,109,108,0.3);
+}
+
 .registration-steps {
     position: relative;
     padding: 0 30px 30px;
@@ -4036,6 +4041,13 @@ select.unchanged+.chosen-container .chosen-single span {
 
     .registration-steps .steps .step .sub-title span {
         font-size: 12px;
+    }
+}
+
+@media (max-width: 740px) {
+    .registration-steps .panel .third {
+        width: auto;
+        display: block;
     }
 }
 
