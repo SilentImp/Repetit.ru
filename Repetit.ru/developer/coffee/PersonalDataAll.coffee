@@ -357,6 +357,7 @@ class PersonalDataAll
         return false
 
     if @step4.find('.ui-state-error').length>0
+      @scrollToView(@step4.find('.ui-state-error:eq(0)'))
       @step4.find('.ui-state-error:eq(0)').focus()
       return false
 
@@ -384,6 +385,7 @@ class PersonalDataAll
         return false
 
     if @step3.find('.ui-state-error').length>0
+      @scrollToView(@step3.find('.ui-state-error:eq(0)'))
       @step3.find('.ui-state-error:eq(0)').focus()
       return false
 
@@ -428,6 +430,7 @@ class PersonalDataAll
 
     if @step2.find('.ui-state-error').length>0
       @step2.find('.ui-state-error:eq(0)').focus()
+      @scrollToView(@step2.find('.ui-state-error:eq(0)'))
       return false
 
     @steps.find('.selected.step:last').next().addClass 'selected'
@@ -557,6 +560,7 @@ class PersonalDataAll
         error.style.display = 'block'
 
       input.focus()
+      @scrollToView(input)
       return false
     else
       if error
@@ -574,6 +578,7 @@ class PersonalDataAll
 
     if @step1.find('.ui-state-error').length>0
       @step1.find('.ui-state-error:eq(0)').focus()
+      @scrollToView(@step1.find('.ui-state-error:eq(0)'))
       return false
 
     @steps.find('.selected.step:last').next().addClass 'selected'
@@ -581,65 +586,6 @@ class PersonalDataAll
     @current.addClass('current')
     $('html, body').animate {scrollTop:0}, '500'
 
-
-  # Шаг 1
-  # Аватар
-  droped: (event)->
-    event.preventDefault()
-    FileAPI.getDropFiles event, (files)->
-
-  # подвели курсор к блоку дропа аватарки
-  over: (over)->
-
-  # бросили аватарку
-  drop: (files)=>
-    console.log  files
-    if files.length
-      reader = new FileReader()
-      
-      reader.onload = (event)=>
-        @avatarTemplate.content.querySelector('img').src = event.target.result
-        avatar = document.importNode @avatarTemplate.content, true
-        prev = @fileSelector.prev()
-        if prev.hasClass('current-avatar')
-          prev.remove()
-        @fileSelector.before avatar
-        @fileSelector.prev().find('.close').on 'click', @removeAvatar
-      
-      reader.readAsDataURL files[0]
-
-  # Удалили аватраку
-  removeAvatar: (event)=>
-    event.preventDefault()
-    @fileSelector.prev().remove()
-    @file.replaceWith @file.val('').clone(true)
-    @file = @step1.find '#registration-avatar'
-
-  # Выбрали аватарку
-  avatarSelected: (event)=>
-    files = FileAPI.getFiles(event)
-
-    ext = files[0]['name'].substring(files[0]['name'].lastIndexOf('.') + 1).toLowerCase()
-
-    if (files[0] && (files[0].size <= FileAPI.MB) && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg"))
-        
-      reader = new FileReader()
-      reader.onload = (event)=>
-        
-        @avatarTemplate.content.querySelector('img').src = event.target.result
-        avatar = document.importNode @avatarTemplate.content, true
-        prev = @fileSelector.prev()
-        if prev.hasClass('current-avatar')
-          prev.remove()
-        @fileSelector.before avatar
-        @fileSelector.prev().find('.close').on 'click', @removeAvatar
-
-      reader.readAsDataURL files[0]
-
-    else
-      @fileSelector.prev().remove()
-      @file.replaceWith @file.val('').clone(true)
-      @file = @step1.find '#registration-avatar'
 
   # Проверяем может ли существовать указанная дата, например 31 февраля и исправляем в случае ошибки
   checkDate: (event)=>
@@ -656,6 +602,12 @@ class PersonalDataAll
 
     if day>31
       @day.val 31
+
+  scrollToView: (element)=>
+    element = $ element
+    if !element.is ':visible'
+      element = element.next()
+    $('html, body').animate({scrollTop: element.offset().top + 'px'})
 
 $(document).ready ->
   new PersonalDataAll()
