@@ -362,7 +362,7 @@ class PersonalDataAll
 
     @current = @current.removeClass('current').next()
     @current.addClass('current')
-    $('body').animate {scrollTop:0}, '500'
+    $('html, body').animate {scrollTop:0}, '500'
 
     # Отправка на сервер
     console.log JSON.parse(JSON.stringify($('.panel :input').serializeArray()))
@@ -373,7 +373,7 @@ class PersonalDataAll
     @steps.find('.selected.step:last').removeClass 'selected'
     @current = @current.removeClass('current').prev()
     @current.addClass('current')
-    $('body').animate {scrollTop:0}, '500'
+    $('html, body').animate {scrollTop:0}, '500'
 
   # Переход от 3 к 4 шагу
   step3Submit: (event)=>
@@ -390,7 +390,7 @@ class PersonalDataAll
     @steps.find('.selected.step:last').next().addClass 'selected'
     @current = @current.removeClass('current').next()
     @current.addClass('current')
-    $('body').animate {scrollTop:0}, '500'
+    $('html, body').animate {scrollTop:0}, '500'
 
   # Переход от 3 к 2 шагу
   step3Back: (event)=>
@@ -398,7 +398,7 @@ class PersonalDataAll
     @steps.find('.selected.step:last').removeClass 'selected'
     @current = @current.removeClass('current').prev()
     @current.addClass('current')
-    $('body').animate {scrollTop:0}, '500'
+    $('html, body').animate {scrollTop:0}, '500'
 
   # Добавить новый адрес
   newAddress: (event)=>
@@ -433,7 +433,7 @@ class PersonalDataAll
     @steps.find('.selected.step:last').next().addClass 'selected'
     @current = @current.removeClass('current').next()
     @current.addClass('current')
-    $('body').animate {scrollTop:0}, '500'
+    $('html, body').animate {scrollTop:0}, '500'
 
   # Переход от 2 к 1 шагу
   step2Back: (event)=>
@@ -441,7 +441,7 @@ class PersonalDataAll
     @steps.find('.selected.step:last').removeClass 'selected'
     @current = @current.removeClass('current').prev()
     @current.addClass('current')
-    $('body').animate {scrollTop:0}, '500'
+    $('html, body').animate {scrollTop:0}, '500'
 
 
   # Блокировать цены недопустимых форматов занятий
@@ -579,7 +579,7 @@ class PersonalDataAll
     @steps.find('.selected.step:last').next().addClass 'selected'
     @current = @current.removeClass('current').next()
     @current.addClass('current')
-    $('body').animate {scrollTop:0}, '500'
+    $('html, body').animate {scrollTop:0}, '500'
 
 
   # Шаг 1
